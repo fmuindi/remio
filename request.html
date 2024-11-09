@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='style.css' media='all' />
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/6b02184769.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+  <link rel='stylesheet' href='style.css' media='all' />
+  <title>Song Request</title>
+  <style>
+    body {
+      background: radial-gradient(circle, rgba(44, 7, 39, 1) 0%, rgba(12, 8, 34, 1) 100%);
+      background-image: url("https://raw.githubusercontent.com/fmuindi/remioWeb/main/background_img.jpg");
+      background-size: cover;
+      background-position: center;
+      font-family: 'Comfortaa', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #FFFFFF;
+    }
+
+    .main_container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px 20px 20px 20px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      background: radial-gradient(circle, rgba(44, 7, 39, 0.7) 0%, rgba(12, 8, 34, 0.7) 100%);
+      /* Reduced opacity */
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      margin: 20px;
+      color: #FFFFFF;
+    }
+
+    .form-container {
+      background: linear-gradient(145deg, #fff, #f0f0f0);
+      color: #60057F;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+      margin-top: 100px;
+    }
+
+    .form-container h2 {
+      margin-bottom: 25px;
+      color: #60057F;
+      font-size: 1.8em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container label {
+      display: block;
+      margin-bottom: 10px;
+      color: #60057F;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    .form-container input,
+    .form-container textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      color: #0a0011;
+      background: #f4f4f4;
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-container input:focus,
+    .form-container textarea:focus {
+      border-color: #60057F;
+      outline: none;
+      box-shadow: 0 0 8px rgba(96, 5, 127, 0.3);
+    }
+
+    .form-container button {
+      background: linear-gradient(145deg, #60057F, #500463);
+      color: #FFFFFF;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-container button:hover {
+      background: linear-gradient(145deg, #500463, #40034f);
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .thank-you {
+      display: none;
+    }
+
+    .back-button {
+      background: #f0f0f0;
+      color: #60057F;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+
+    .back-button:hover {
+      background: #e0e0e0;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+      display: none;
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 500px) {
+      .form-container {
+        width: 300px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main_container">
+    <header id="header-container">
+      <nav class="navbar">
+        <img src="./assets/remiologo.png" width="100" height="100" alt="Station Logo" class="station-logo" />
+
+        <!-- Search Bar -->
+        <div class="flexbox">
+          <div class="search">
+            <div>
+              <input type="text" class="search-bar" placeholder="Search . . ." required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <ul class="nav-menu">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="podcasts.html">Podcasts</a></li>
+          <li><a href="mixes.html">Mixes</a></li>
+          <li><a href="request.html">Play Song</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <!-- Hamburger Icon -->
+        <div class="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </nav>
+    </header>
+    <div class="form-container" id="form-container">
+
+      <h2>Request a Song</h2>
+      <div class="error-message" id="errorMessage">Please fill out all fields.</div>
+      <form id="requestForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" aria-label="Name" required>
+        <label for="songName">Song Title</label>
+        <textarea id="songName" name="songName" aria-label="Song Title" required></textarea>
+        <button type="submit" aria-label="Submit Song Request">Submit Request</button>
+
+      </form>
+      <div class="thank-you" id="thankYouMessage">
+        <h2>Thank You!</h2>
+        <p>Thank you <span id="userName"></span>, your song request for "<span id="songTitle"></span>" has been submitted.</p>
+        <button class="back-button" id="backButton" aria-label="Back to Form">Back</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script>
+    // Handle form submission with validation
+    document.getElementById('requestForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        var name = document.getElementById('name').value.trim();
+        var songName = document.getElementById('songName').value.trim(); // updated id
+        var errorMessage = document.getElementById('errorMessage');
+    
+        // Validate input fields
+        if (!name || !songName) {
+            errorMessage.style.display = 'block';
+            return;
+        }
+        errorMessage.style.display = 'none';
+    
+        // Send data to the backend using fetch API
+        fetch('http://localhost:3000/submit-song-request', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: name, songName: songName }) // updated property
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Request failed.');
+            }
+        })
+        .then(data => {
+            if (data.success) {
+                document.getElementById('userName').textContent = name;
+                document.getElementById('songTitle').textContent = songName; // updated variable
+                document.getElementById('requestForm').style.display = 'none';
+                document.getElementById('thankYouMessage').style.display = 'block';
+            } else {
+                console.error('Error:', data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Something went wrong while submitting your request. Please try again.');
+        });
+    });
+    
+    // Back to form functionality
+    document.getElementById('backButton').addEventListener('click', function() {
+        // Reset the form
+        document.getElementById('requestForm').reset();
+        document.getElementById('requestForm').style.display = 'block';
+        document.getElementById('thankYouMessage').style.display = 'none';
+    });
+  </script>
+  <script>
+    // Select elements
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navbar = document.querySelector('.navbar');
+    
+    // Add event listener for the hamburger click
+    hamburger.addEventListener('click', () => {
+    // Toggle active class for the hamburger and nav menu
+    hamburger.classList.toggle('active');
+    navbar.classList.toggle('active');
+    });
+    
+    // Close the menu when a link is clicked (optional)
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navbar.classList.remove('active');
+    });
+    });
+  </script>
+</body>
+
+</html

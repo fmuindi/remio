@@ -1,0 +1,1621 @@
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: 'Comfortaa', sans-serif;
+	background-image:
+		url("assets/background.webp");
+	/* Image background */
+	background-size: cover;
+	/* Ensure the background covers the whole area */
+	background-position: center center;
+	/* Center the background image */
+	background-repeat: repeat;
+	/* Prevent repeating of the image */
+	font-size: 18px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	/* Text shadow */
+}
+
+
+/* Header */
+
+
+/* Flexbox for responsive remibox and intro sections */
+.main_container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding: 20px 20px 0 20px;
+	flex-direction: row;
+	flex-wrap: wrap;
+	background: radial-gradient(circle, rgba(44, 7, 39, 0.7) 0%, rgba(12, 8, 34, 0.7) 100%);
+	/* Reduced opacity */
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+	border-radius: 10px;
+	margin: 20px;
+	color: #FFFFFF;
+}
+
+
+@media screen and (max-width: 768px) {
+	.main_container {
+		flex-direction: column;
+	}
+
+	flex_1,
+	.intro,
+	.imageintro,
+	#hearthis {
+		width: 100%;
+		/* Full width for each section */
+
+		margin: 0 0 20px 0;
+	}
+}
+
+
+/* Header Styling */
+header {
+	position: relative;
+	/* Start as relative */
+	top: 0;
+	width: 100%;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	padding: 5px 20px;
+	transition: background 0.3s ease, box-shadow 0.3s ease;
+	z-index: 10;
+}
+
+header.fixed {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	padding: 5px 5px;
+	/* Example: Reduce padding when fixed */
+	background: linear-gradient(to top, rgba(44, 7, 39, 1), rgba(12, 8, 34, 1));
+	/* Darker background when fixed */
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+	/* Stronger shadow */
+	z-index: 100;
+	/* Ensure it's above all other elements */
+}
+
+.flexbox {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+	/* Allow flexbox to grow in the navbar */
+	margin: 0 20px;
+	/* Margin for spacing */
+}
+
+.search {
+	position: relative;
+}
+
+.search>div {
+	display: inline-block;
+	position: relative;
+}
+
+.search>div:after {
+	content: "";
+	background: white;
+	width: 3px;
+	height: 10px;
+	position: absolute;
+	top: 20px;
+	/* Adjusted to match the new input size */
+	right: 3px;
+	transform: rotate(150deg);
+}
+
+.search>div>input {
+	color: white;
+	font-size: 12px;
+	/* Reduced font size */
+	background: transparent;
+	width: 10px;
+	/* Further reduced start width */
+	height: 10px;
+	/* Reduced height */
+	padding: 3px;
+	/* Adjusted padding */
+	border: solid 2px white;
+	/* Keep border thickness */
+	outline: none;
+	border-radius: 20px;
+	/* Adjusted to maintain a rounded shape */
+	transition: width 0.5s;
+}
+
+.search>div>input::placeholder {
+	color: #efefef;
+	opacity: 0;
+	transition: opacity 150ms ease-out;
+}
+
+.search>div>input:focus::placeholder {
+	opacity: 1;
+}
+
+.search>div>input:focus,
+.search>div>input:not(:placeholder-shown) {
+	width: 150px;
+	/* Adjusted width when active */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.search-container {
+		width: 100%;
+		max-width: none;
+		top: 40px;
+	}
+
+	.search-bar {
+		width: 40%;
+	}
+}
+
+
+/* Navbar Styling */
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	/* Ensure navbar items spread out */
+	align-items: center;
+	padding: 10px 20px;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	gap: 5px;
+}
+
+header.fixed .navbar {
+	padding: 5px 5px;
+	/* Example: Reduce padding when fixed */
+}
+
+.station-logo {
+	max-width: 150px;
+	flex-shrink: 0;
+	/* Ensure the logo doesn’t shrink */
+	height: auto;
+}
+
+/* Navigation Menu */
+.nav-menu {
+	display: flex;
+	list-style-type: none;
+	gap: 10px;
+	/* Adjusted space between nav items */
+	margin: 0;
+	/* Remove any default margin */
+	padding: 0;
+	/* Remove any padding */
+	transition: all 0.5s ease;
+}
+
+/* Menu items styling */
+.nav-menu li {
+	margin: 0;
+}
+
+.nav-menu a {
+	position: relative;
+	/* To ensure the pseudo-element is positioned relative to the link */
+	text-decoration: none;
+	color: #FFFFFF;
+	font-size: 0.8rem;
+	font-weight: light;
+	padding: 10px 20px;
+	border-radius: 8px;
+	transition: background-color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.nav-menu a::before {
+	content: "";
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 3px;
+	width: 0%;
+	background-color: #FF00E6;
+	/* Same color as your footer hover effect */
+	transition: width 0.3s ease-in-out;
+}
+
+.nav-menu a:hover::before {
+	width: 100%;
+	/* Expands underline on hover */
+}
+
+.nav-menu a:hover {
+	background-color: #ff00e62c;
+}
+
+/* Hamburger Styling */
+.hamburger {
+	display: block;
+	cursor: pointer;
+	margin-left: 50px;
+	/* Remove extra spacing */
+	padding: 0;
+	/* Ensure no padding around hamburger */
+	z-index: 100;
+}
+
+.hamburger div {
+	width: 25px;
+	height: 2px;
+	background-color: #fff;
+	margin: 4px;
+	transition: 0.3s ease;
+}
+
+/* Animate the hamburger icon when active */
+.hamburger.active div:nth-child(1) {
+	transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger.active div:nth-child(2) {
+	opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+	transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Hamburger hover effect */
+.hamburger:hover div {
+	background-color: #FF00E6;
+}
+
+/* Show the menu when the navbar is active */
+.navbar.active .nav-menu {
+	display: flex;
+}
+
+/* On larger screens, show the menu horizontally */
+@media (min-width: 769px) {
+	.nav-menu {
+		display: flex;
+		position: static;
+		background-color: transparent;
+		flex-direction: row;
+		gap: 20px;
+	}
+
+	.nav-menu a {
+		padding: 10px 20px;
+	}
+}
+
+/* Hide nav menu on mobile by default */
+@media (max-width: 768px) {
+	.nav-menu {
+		display: none;
+		/* Hide the nav menu initially */
+		flex-direction: column;
+		/* Stack items vertically */
+		position: absolute;
+		/* Position it relative to navbar */
+		background-color: rgba(12, 8, 34, 1);
+		/* Background color */
+		top: 80px;
+		/* Position below the navbar */
+		left: 0;
+		/* Align to the left */
+		width: 100%;
+		/* Full width */
+	}
+
+	.navbar.active .nav-menu {
+		display: flex;
+		/* Show the menu when navbar is active */
+	}
+}
+
+
+/* Remibox container styled as a card */
+/* Remibox container styled as a card, positioned on the left below the header */
+.remibox {
+    display: flex; /* Enable flexbox layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Align children to the left */
+    justify-content: flex-start; /* Align children at the top */
+    flex: 1 1 20%;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(8, 0, 24, 0.692);
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 30px 0 20px 20px; /* Margin adjusted: Top, Right, Bottom, Left */
+    margin-right: 20px; /* Space between remibox and intro */
+}
+
+.live-icon {
+    display: flex; /* Use flexbox to align text and icon */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 10px;
+    margin-top: -5px; /* Space between the live icon and flex_1 */
+}
+
+.live-icon p {
+    margin: 0; /* Remove default margin */
+    font-size: 10px;
+    margin-right: 10px; /* Space between text and animated icon */
+}
+
+.icon {
+    display: block; /* Ensures the icon is treated as a block element */
+    position: relative; /* For positioning the animation */
+    background-color: red; /* Base color for the animated icon */
+    width: 8px; /* Width of the animated icon */
+    height: 8px; /* Height of the animated icon */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Adjusted to use rgba correctly */
+    border-radius: 50%; /* Rounded shape */
+    z-index: 1; /* Ensure it is above the pseudo-element */
+}
+
+.icon:before {
+    content: "";
+    display: block;
+    position: absolute; /* Position it absolutely within the icon */
+    background-color: rgba(255, 0, 0, 0.6); /* Adjusted for red */
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Rounded shape */
+    animation: live 2s ease-in-out infinite; /* Animation applied here */
+    z-index: -1; /* Ensure it is below the icon */
+}
+
+@keyframes live {
+    0% {
+        transform: scale(1, 1);
+    }
+    100% {
+        transform: scale(3.5, 3.5);
+        background-color: rgba(255, 0, 0, 0); /* Adjusted for red */
+    }
+}
+
+.flex_1 {
+    flex: 1 1 20%; /* Takes 20% of the width */
+    width: 100%;
+    background: #60057F;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.flex_1 {
+    flex: 1 1 20%;
+    /* Takes 20% of the width */
+    width: 100%;
+    background: #60057F;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+
+
+.remibox .button {
+	display: block;
+	width: 100%;
+	/* Adjust width percentage to your liking */
+	max-width: 350px;
+	/* Limit the max-width to prevent overflow */
+	padding: 15px;
+	/* Adjust padding for better appearance */
+	margin: 20px auto;
+	/* Center the button with auto margins */
+	text-align: center;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+/* Container for stats */
+/* Container for stats within remibox */
+/* Container for stats within remibox */
+.stats {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: linear-gradient(135deg, #1c023be1, #000000de);
+	padding: 10px;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	color: white;
+	width: 100%;
+	max-width: 300px; /* Adjusted width to fit within remibox */
+	margin: 10px 0; /* Added margin for spacing */
+	transition: transform 0.3s ease;
+}
+
+/* Individual stat item styling */
+.stat-item {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Icons styling */
+.stat-item span {
+	font-size: 25px; /* Smaller icon size */
+	color: #FFD700;
+	transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Stat text styling */
+.stat-item p {
+	font-size: 8px; /* Reduced font size for better fit */
+	color: rgba(255, 255, 255, 0.767);
+	margin: 0;
+	font-weight: 600;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Highlight numbers */
+.stat-item p strong {
+	font-size: 10px; /* Smaller font for numbers */
+	font-weight: 700;
+	color: #FFD700;
+	text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effect */
+.stat-item:hover {
+	transform: scale(1.05);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.stat-item:hover span {
+	transform: rotate(10deg);
+	color: #FFF59D;
+}
+
+/* Media query for responsive design */
+@media screen and (max-width: 768px) {
+	.stats {
+		flex-direction: column;
+		padding: 8px;
+		max-width: 200px; /* Adjust for smaller screens */
+	}
+
+	.stat-item {
+		margin-bottom: 8px;
+	}
+
+	.stat-item span {
+		font-size: 14px; /* Adjust icon size */
+	}
+
+	.stat-item p {
+		font-size: 10px; /* Smaller text for mobile */
+	}
+}
+
+
+
+.flex_1 {
+	flex: 1 1 20%;
+	/* Takes 20% of the width */
+	width: 100%;
+	background: #60057F;
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+.background {
+	padding: 1.5em 0;
+	margin: 1em;
+	background: radial-gradient(circle, rgba(255, 0, 230, 1) 0%, rgba(96, 5, 127, 1) 100%);
+	border-bottom: 3px solid #FFFFFF;
+	border-radius: 20px;
+}
+
+.branding {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.station-logo {
+	width: 100px;
+	height: auto;
+	margin-bottom: 0.5em;
+}
+
+.player {
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.audioPlayer {
+	min-height: 100%;
+	background-color: #60057F;
+	text-align: left;
+	color: #FFFFFF;
+	box-shadow: inset -7px 0 9px -7px rgba(134, 130, 130, 0.24);
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+	border-bottom: 1px #FF00E6 solid;
+}
+
+.around-button {
+	overflow: visible;
+	margin-top: .59em;
+	cursor: pointer;
+}
+
+.play-button {
+	position: relative;
+	z-index: 1;
+	display: block;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: linear-gradient(to bottom right, #FF00E6, #60057F);
+	box-shadow: 0 0 20px rgba(255, 0, 230, 0.7);
+	transition: all 0.3s ease-in-out;
+}
+
+.play-button:before {
+	content: "";
+	position: absolute;
+	z-index: 0;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	display: block;
+	width: 75px;
+	height: 75px;
+	background: rgba(96, 5, 127, 0.5);
+	border-radius: 50%;
+	animation: pulse-border 2.2s ease-out infinite;
+}
+
+.play-button:after {
+	content: "";
+	position: absolute;
+	z-index: 1;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	display: block;
+	width: 75px;
+	height: 75px;
+	background: rgba(255, 0, 230, 0.5);
+	border-radius: 50%;
+	transition: all 200ms;
+}
+
+.play-button:hover {
+	transform: scale(1.1);
+	box-shadow: 0 0 30px rgba(255, 0, 230, 0.9);
+}
+
+.play-button img {
+	position: relative;
+	z-index: 3;
+	max-width: 100%;
+	width: auto;
+	height: auto;
+}
+
+.play-button span {
+	position: relative;
+	z-index: 3;
+	width: 0;
+	height: 0;
+	border-left: 22px solid #FFFFFF;
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+}
+
+@keyframes pulse-border {
+	0% {
+		transform: translate(-50%, -50%) scale(1);
+		opacity: 1;
+	}
+
+	100% {
+		transform: translate(-50%, -50%) scale(1.5);
+		opacity: 0;
+	}
+}
+
+#song,
+#artist {
+	color: #FFFFFF;
+}
+
+#song {
+	font-weight: normal;
+	font-size: 12px;
+}
+
+#song {
+	transition: opacity 0.5s ease-in-out;
+}
+
+
+#artist {
+	font-weight: bold;
+	font-size: 12px;
+}
+
+#RR {
+	font-weight: bold;
+	font-size: 40px;
+}
+
+#reminisce {
+	font-weight: bold;
+	font-size: 15px;
+}
+
+#vol-control {
+	appearance: slider-horizontal;
+	cursor: default;
+	border: initial;
+	margin: 2px;
+	height: 12px;
+	background: #FFFFFF;
+	border-radius: 15px;
+	filter: hue-rotate(140deg) brightness(.9);
+}
+
+i.fa-volume-down,
+i.fa-volume-up {
+	margin: 2px;
+	font-size: 15px;
+	color: #FFFFFF;
+}
+
+.fa-volume-down {
+	margin-right: -8px;
+}
+
+.fa-volume-up {
+	margin-right: -8px;
+}
+
+.fa-pause {
+	width: 1.20em !important;
+}
+
+.fa-play {
+	width: 1.35em !important;
+}
+
+.controls {
+	display: flex;
+	padding: 0 4em;
+	flex-direction: row;
+	margin-top: 3em;
+	justify-content: center;
+}
+
+#remintro {
+	font-weight: normal;
+	align-items: center;
+	font-size: 15px;
+	text-align: center;
+}
+/* Intro content on the right */
+.intro {
+	flex: 2 1 30%;
+	background-color: transparent;
+	color: #FFFFFF;
+	padding: 20px;
+	margin-right: 20px;
+	width: 100%;
+	/* Make sure intro takes full width to create a new row */
+}
+
+.intro h1 {
+	font-size: 5rem;
+	font-weight: bold;
+	color: white;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 0;
+	/* Remove the default bottom margin */
+	padding-bottom: 0;
+	/* Ensure no padding adds space */
+}
+
+h1 {
+	font-size: 2rem;
+	/* Adjust for desktops */
+}
+
+@media (max-width: 768px) {
+	h1 {
+		font-size: 1.5rem;
+		/* Adjust for mobile */
+	}
+}
+
+
+.intro p {
+	line-height: 1.6;
+}
+
+.intro .button {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	margin: 20px 0;
+	background-color: #fff;
+	color: #000;
+	text-align: center;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+.intro #upnext {
+	flex: 2 1 30%;
+	/* Same width as .intro */
+	border-radius: 5px;
+	background-color: rgba(255, 255, 255, 0.1);
+	/* Adjust as necessary */
+	color: #FFFFFF;
+	padding: 20px;
+	margin-right: 20px;
+	width: 100%;
+	/* Ensure it takes full width like .intro */
+	margin-top: 20px;
+	/* Space between .intro and #upnext */
+}
+
+.intro #upnext h2 {
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+/* Image container on the right */
+/* Image Intro */
+.imageintro {
+	flex: 1 1 30%;
+	padding: 20px;
+	margin-top: 0px;
+	position: relative;
+	/* Keep this for relative positioning */
+	text-align: center;
+	/* Center content within the container */
+}
+
+.imageintro img {
+	width: 100%;
+	height: auto;
+	border-radius: 20px;
+	display: block;
+	transition: transform 0.5s, filter 0.5s, border 0.5s;
+}
+
+.imageintro img:hover {
+	transform: scale(1.05);
+	filter: brightness(1.1);
+	border-image: linear-gradient(45deg, #60057F, #FF00E6);
+}
+
+@media screen and (max-width: 768px) {
+	.imageintro img {
+		width: 40%;
+	}
+}
+
+/* Slideshow container */
+.slideshow {
+    margin-top: 0px;
+    position: relative;
+    width: 100%;
+    height: 470px;
+    overflow: hidden;
+}
+
+/* Slideshow images */
+.slideshow img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: fadeAnimation 24s infinite;
+}
+
+/* Each image will appear in sequence */
+.slideshow img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.slideshow img:nth-child(2) {
+    animation-delay: 8s;
+}
+
+.slideshow img:nth-child(3) {
+    animation-delay: 16s;
+}
+
+/* Keyframes to create fading effect */
+@keyframes fadeAnimation {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    35% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* Container for text and socials */
+/* Container box for the information */
+.info-box {
+	background: linear-gradient(135deg, #6A1B9A, #D81B60);
+	padding: 20px;
+	border-radius: 15px;
+	box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.2), 0px 10px 15px rgba(0, 0, 0, 0.1);
+	margin-top: -15px;
+	position: relative;
+	z-index: 1;
+	text-align: center;
+	color: white;
+	transition: transform 0.3s ease;
+}
+
+/* Hover effect for the entire box */
+.info-box:hover {
+	transform: translateY(-5px);
+	box-shadow: 0px -6px 25px rgba(0, 0, 0, 0.3), 0px 15px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Text styling */
+.info-box p {
+	font-size: 16px;
+	color: #ffffffcc;
+	margin-bottom: 15px;
+	font-weight: 500;
+	text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Socials section */
+#socials {
+	padding: 15px;
+	margin-top: 5px;
+	text-align: center;
+}
+
+#socials h3 {
+	font-size: 18px;
+	margin-bottom: 15px;
+	color: #ffffffee;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Social icons styling */
+.social_icons {
+	display: flex;
+	gap: 15px;
+	justify-content: center;
+	max-width: 30%;
+	margin: 0 auto;
+}
+
+.social_icons img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 2px solid #FF00E6;
+	padding: 5px;
+	transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Hover effects for icons */
+.social_icons img:hover {
+	transform: rotate(360deg) scale(1.3);
+	box-shadow: 0 0 25px rgba(255, 0, 230, 0.7);
+	border-color: #60057F;
+}
+
+@media screen and (max-width: 768px) {
+	/* Mobile adjustments */
+	.social_icons {
+		max-width: 80%;
+		gap: 10px;
+	}
+
+	.info-box {
+		padding: 20px;
+	}
+
+	.social_icons img {
+		width: 35px;
+		height: 35px;
+	}
+}
+
+
+
+/* Container for the advert, placed below .imageintro */
+.advert {
+	flex: 1 1 30%;
+	/* Match the flex size of .imageintro */
+	padding: 20px;
+	margin-top: 20px;
+	/* Add some space between imageintro and advert */
+	background-color: rgba(255, 255, 255, 0.1);
+	/* Background styling */
+	border-radius: 10px;
+	/* Rounded corners */
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	/* Subtle shadow for depth */
+	text-align: center;
+}
+
+/* Media query to adjust layout for smaller screens */
+@media screen and (max-width: 768px) {
+	.advert {
+		width: 100%;
+		/* Full width for smaller screens */
+	}
+}
+
+
+/* Enhanced button style */
+.button {
+	background-color: #FF00E6;
+	color: #FFFFFF;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 8px;
+	transition: background-color 0.3s ease;
+	text-transform: uppercase;
+}
+
+/* Footer styling */
+/* Footer styles */
+.top-footer {
+	background-color: #1e001f86;
+	/* Dark background for a modern look */
+	color: #ecf0f1;
+	/* Light text color for contrast */
+	padding: 20px 0;
+	/* Add vertical padding */
+	text-align: center;
+	/* Center-align all text */
+	position: relative;
+}
+
+.top-footer ul {
+	list-style-type: none;
+	/* Remove bullet points from list */
+	padding: 0;
+	margin: 0 0 15px 0;
+	/* Space between the list and copyright text */
+	display: flex;
+	justify-content: center;
+	/* Center the list items horizontally */
+	gap: 20px;
+	/* Add space between list items */
+}
+
+.top-footer ul li {
+	display: inline;
+	/* Ensure list items are in a row */
+}
+
+.top-footer ul li a {
+	color: #ecf0f1;
+	/* Keep text color light */
+	text-decoration: none;
+	/* Remove underlines from links */
+	font-size: 12px;
+	/* Increase font size slightly */
+	font-weight: 500;
+	/* Make text semi-bold for better readability */
+	transition: color 0.3s ease;
+	/* Smooth transition effect */
+}
+
+.top-footer ul li a:hover {
+	color: #FF00E6;
+	/* Change link color on hover (to a light green) */
+}
+
+.top-footer p {
+	font-size: 14px;
+	/* Slightly smaller font for copyright text */
+	margin: 10px 0 0 0;
+	/* Add a bit of space above the copyright text */
+}
+
+.top-footer p::before {
+	content: '';
+	display: block;
+	width: 60px;
+	height: 2px;
+	background-color: #FF00E6;
+	/* Decorative line above the copyright */
+	margin: 10px auto;
+	/* Center the line */
+}
+
+.top-footer p {
+	color: #bdc3c7;
+	/* Subtle color for the copyright notice */
+}
+
+/* Interactive hover effect */
+.top-footer ul li a::before {
+	content: "";
+	display: block;
+	height: 3px;
+	width: 0%;
+	background-color: #FF00E6;
+	/* Underline effect on hover */
+	transition: width 0.3s ease-in-out;
+}
+
+.top-footer ul li a:hover::before {
+	width: 100%;
+	/* Expand underline on hover */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+	.top-footer ul {
+		flex-direction: column;
+		/* Stack the list items vertically */
+		gap: 10px;
+		/* Less gap for vertical stacking */
+	}
+}
+
+#newmusic {
+	flex: 1 1 20%;
+	width: 100%;
+	/* Ensure full width */
+	max-width: 50%;
+	margin-right: 8px;
+	display: flex;
+	flex-direction: column;
+	text-align: justify;
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	margin-top: 20px;
+	/* Add space between sections */
+	transition: transform 0.3s, box-shadow 0.3s;
+	cursor: pointer;
+}
+
+#newmusic p {
+	font-family: 'Comfortaa', sans-serif;
+	color: #ffffff;
+	font-size: 1.5rem;
+	line-height: 1.4;
+	text-align: center;
+}
+
+/* Container for Spotify iframes */
+.spotify-container {
+	margin-top: 1px;
+	/* Spacing between each iframe */
+	padding: 10px;
+	/* Padding around the iframes */
+	background-color: rgba(0, 0, 0, 0.1);
+	/* Light background color for contrast */
+	border-radius: 12px;
+	/* Smooth rounded corners */
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+	/* Shadow effect for a modern look */
+}
+
+/* Hover effect for Spotify iframe container */
+.spotify-container:hover {
+	transform: scale(1.01);
+	/* Slight zoom on hover */
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+	/* More pronounced shadow on hover */
+}
+
+/* Style for Spotify iframes */
+.spotify-container iframe {
+	width: 100%;
+	height: 352px;
+	/* Retains original height */
+	border: none;
+	/* Removes border */
+	border-radius: 12px;
+	/* Smooth rounded corners for iframe itself */
+}
+
+
+#newmusic:hover {
+	transform: scale(1.01);
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#hotmix {
+	flex: 1 1 20%;
+	width: 100%;
+	/* Ensure full width */
+	max-width: 50%;
+	margin-right: 8px;
+	display: flex;
+	flex-direction: column;
+	text-align: justify;
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	margin-top: 20px;
+	/* Add space between sections */
+	transition: transform 0.3s, box-shadow 0.3s;
+	cursor: pointer;
+}
+
+#hotmix p {
+	font-family: 'Comfortaa', sans-serif;
+	color: #ffffff;
+	font-size: 1.5rem;
+	line-height: 1.4;
+	text-align: center;
+
+}
+
+/* Style for iframe container */
+.iframe-container {
+	margin: 1px 0;
+	/* Adds vertical space between iframes */
+	padding: 10px;
+	/* Adds padding around each iframe */
+	background-color: rgba(0, 0, 0, 0.1);
+	/* Light background color */
+	border-radius: 8px;
+	/* Rounded corners for a cleaner look */
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+	/* Subtle shadow effect */
+	display: flex;
+	justify-content: center;
+	/* Center the iframe horizontally */
+}
+
+/* Style for the iframe itself */
+.iframe-container iframe {
+	width: 100%;
+	/* Full width for the iframe */
+	height: 150px;
+	/* Same height as original */
+	border: none;
+	/* Removes the default iframe border */
+	border-radius: 6px;
+	/* Adds slight rounding to iframe */
+}
+
+/* Hover effect for a modern feel */
+.iframe-container:hover {
+	transform: scale(1.01);
+	/* Slight zoom on hover */
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+	/* More pronounced shadow on hover */
+}
+
+
+#hotmix .button {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	margin: 20px 0;
+	background-color: #fff;
+	color: #000;
+	text-align: center;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+#hotmix:hover {
+	transform: scale(1.01);
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#hearthis {
+	flex: 1 1 20%;
+	width: 100%;
+	/* Ensure full width */
+	max-width: 50%;
+	margin-right: 8px;
+	display: flex;
+	flex-direction: column;
+	text-align: justify;
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	margin-top: 20px;
+	/* Add space between sections */
+	transition: transform 0.3s, box-shadow 0.3s;
+	cursor: pointer;
+}
+
+#hearthis:hover {
+	transform: scale(1.01);
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+
+#hearthis p {
+	font-family: 'Comfortaa', sans-serif;
+	color: #ffffff;
+	font-size: 1.5rem;
+	line-height: 1.4;
+	text-align: center;
+}
+
+#hearthis .social-icon {
+	margin-left: 10px;
+	transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#hearthis .social-icon:hover {
+	transform: scale(1.2);
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+#hearthis a {
+	text-decoration: none;
+}
+
+.secondrow {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	margin-bottom: 20px;
+	/* Added margin at the bottom */
+
+}
+
+.stats {
+	display: inline-flex;
+	/* Makes the icon and text appear in one line */
+	align-items: center;
+}
+
+.stats span {
+	vertical-align: middle;
+	margin-right: 8px;
+	/* Adds space between the icon and the text */
+
+
+}
+
+.stats p {
+	vertical-align: middle;
+	margin-right: 8px;
+	/* Adds space between the icon and the text */
+	font-size: 0.9em;
+}
+
+.button-group {
+    display: flex;
+    gap: 30px;
+    /* Space between buttons */
+    margin-top: 20px;
+ }
+
+.que {
+	background: linear-gradient(145deg, #FFFF00, #26003f);
+	/* Gradient colors */
+	color: white;
+	/* Text color */
+	border: none;
+	/* No border */
+	padding: 10px 20px;
+	/* Padding for size */
+	font-size: 16px;
+	/* Font size */
+	font-family: 'Comfortaa', sans-serif;
+	border-radius: 5px;
+	/* Rounded corners */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	/* Light shadow */
+	cursor: pointer;
+	/* Pointer cursor on hover */
+	transition: all 0.3s ease;
+	/* Smooth transition */
+}
+
+.que:hover {
+	background: linear-gradient(135deg, #ff6f61, #ff9068);
+	/* Lighter gradient on hover */
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+	/* Deeper shadow on hover */
+	transform: scale(1.05);
+	/* Slightly enlarges the button on hover */
+}
+
+/* Modern styling for the welcome message */
+.welcome {
+	margin-top: 5px;
+	/* Reduce the top margin to bring it closer to .welcome */
+
+}
+
+.welcome p {
+	font-size: 0.7rem;
+	font-weight: bold;
+	color: #88627b;
+	padding: 5px 10px;
+	border-radius: 5px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	/* Text shadow for a more modern look */
+	display: inline-block;
+	margin: 0px;
+	letter-spacing: 10px;
+	word-spacing: 2px;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+
+}
+
+/* Subtle animation for added flair */
+.welcome p::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.2);
+	z-index: 0;
+	transition: all 0.5s ease-in-out;
+}
+
+.welcome p:hover::before {
+	left: 100%;
+	/* Shimmer effect on hover */
+}
+
+.text-box {
+	font-size: 5rem;
+	font-weight: bold;
+	color: white;
+	position: relative;
+	overflow: hidden;
+	height: 100px;
+	margin-top: 5px;
+	/* Reduce the top margin to bring it closer to .welcome */
+	margin-bottom: 0;
+	/* Ensure no extra space below */
+	padding-bottom: 0;
+	/* Remove any extra padding */
+}
+
+.text-box span {
+    position: absolute;
+    opacity: 0;
+    animation: textChange 12s infinite; /* Keep the animation duration */
+}
+
+/* Each span will have a different animation delay to appear at different times */
+.text-box span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.text-box span:nth-child(2) {
+    animation-delay: 4s;
+}
+
+.text-box span:nth-child(3) {
+    animation-delay: 8s;
+}
+
+#anime {
+    margin-top: 10px;
+}
+
+/* Keyframes to prevent overlap */
+@keyframes textChange {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    35% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
+
+
+
+/* Container for the buttons */
+.button-container {
+	display: flex;
+	gap: 15px;
+	justify-content: center;
+	padding: 20px 0;
+	/* Ensure even spacing between buttons and center alignment */
+}
+
+/* General button styling */
+.button {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	background: linear-gradient(145deg, #FFD700, #26003f);
+	color: white;
+	border-radius: 50%;
+	text-decoration: none;
+	width: 60px;
+	height: 60px;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+	transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s ease;
+	position: relative;
+}
+
+.button span {
+	font-size: 30px;
+	display: block;
+	text-align: center;
+	transition: transform 0.3s ease;
+}
+
+/* Labels below the icons */
+.button-label {
+	font-size: 12px;
+	margin-top: 8px;
+	text-align: center;
+	color: white;
+	letter-spacing: 0.5px;
+	transition: color 0.3s ease;
+}
+
+/* Hover and active states for buttons */
+.button:hover {
+	background: linear-gradient(145deg, #6200ea, #880551);
+	box-shadow: 0 8px 15px rgba(113, 0, 128, 0.678);
+	transform: scale(1.1);
+}
+
+.button:active {
+	transform: scale(0.95);
+	box-shadow: none;
+}
+
+/* Love button styling */
+#love-button .material-icons {
+	color: #e8eaed;
+	transition: color 0.3s ease;
+}
+
+#love-button.loved .material-icons {
+	color: red;
+}
+
+/* Sync button rotation when pressed */
+#refresh-button:active span {
+	animation: rotateSync 0.6s linear infinite;
+}
+
+/* Sync button hover state */
+#refresh-button:hover span {
+	transform: rotate(20deg);
+}
+
+/* Keyframes for sync button rotation */
+@keyframes rotateSync {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* Media query for mobile responsiveness */
+@media screen and (max-width: 768px) {
+	.button {
+		width: 50px;
+		height: 50px;
+	}
+	.button span {
+		font-size: 26px;
+	}
+	.button-label {
+		font-size: 10px;
+	}
+}
+
+
+.iconify:hover {
+	color: #ff4757;
+	/* Change icon color on hover */
+	transform: scale(1.1);
+	/* Slight zoom */
+	transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.volume-control input[type="range"] {
+
+
+	background: transparent;
+}
+
+.volume-control input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #f00;
+	cursor: pointer;
+}
+
+.loader {
+	border: 4px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 4px solid #3498db;
+	width: 24px;
+	height: 24px;
+	animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}

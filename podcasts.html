@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Podcasts - Reminisce Radio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='style.css' media='all' />
+    <link rel='stylesheet' href='style.css' media='all' />
+      <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/6b02184769.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+      <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+</head>
+<body>
+    <header id="header-container">
+        <nav class="navbar">
+            <img src="./assets/remiologo.png" width="100" height="100" alt="Station Logo" class="station-logo" />
+            
+            <!-- Search Bar -->
+            <div class="flexbox">
+                <div class="search">
+                    <div>                        
+                        <input type="text" class="search-bar" placeholder="Search . . ." required>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <ul class="nav-menu">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="podcasts.html">Podcasts</a></li>
+                <li><a href="mixes.html">Mixes</a></li>
+                <li><a href="request.html">Play Song</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <!-- Hamburger Icon -->
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    </header>
+    
+       <iframe src="https://www.listennotes.com/podcasts/hear-this-podcast-muindi-w8e4RrlsJTY/embed/" height="800px" width="100%" style="width: 1px; min-width: 100%; margin-top: 60px;" loading="lazy" frameborder="0" scrolling="no"></iframe>
+   <footer class="top-footer">
+         <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+         </ul>
+         <p>&copy; 2024 Remio. All rights reserved.</p>
+   </footer>
+   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        fetch('/public/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    });
+ </script>
+ <!-- Script for scroll-triggered fixed header -->
+ <script>
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        const scrollPosition = window.scrollY;
+    
+        // Apply or remove the fixed class based on scroll position
+        if (scrollPosition > 80) {
+            header.classList.add('fixed');
+        } else {
+            header.classList.remove('fixed');
+        }
+    });
+ </script>
+   <script>
+    // Select elements
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navbar = document.querySelector('.navbar');
+    
+    // Add event listener for the hamburger click
+    hamburger.addEventListener('click', () => {
+    // Toggle active class for the hamburger and nav menu
+    hamburger.classList.toggle('active');
+    navbar.classList.toggle('active');
+    });
+    
+    // Close the menu when a link is clicked (optional)
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navbar.classList.remove('active');
+    });
+    });
+    
+ </script>
+</body>
+</html>
