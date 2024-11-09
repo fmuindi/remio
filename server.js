@@ -6,7 +6,7 @@ const path = require('path');
 
 // Express application
 const app = express();
-const port = 80; // Port 80 for HTTP traffic
+const port = 3000; // Port 80 for HTTP traffic
 
 // Middleware to handle JSON and form data
 app.use(cors());
