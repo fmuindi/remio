@@ -15,9 +15,9 @@ app.use(bodyParser.json());
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Route to serve home.html when the user visits the root URL
+// Route to serve home.html from the root folder
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'home.html'));  // Ensure the correct path to your home.html
+    res.sendFile(path.join(__dirname, 'home.html'));  // Serve 'home.html' from the root folder
 });
 
 // MariaDB connection configuration
