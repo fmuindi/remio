@@ -2,7 +2,7 @@ const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const path = require('path'); // Required to handle file paths
+const path = require('path');
 
 // Express application
 const app = express();
@@ -12,13 +12,9 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Route to serve home.html from the root folder
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'home.html'));  // Serve 'home.html' from the root folder
-});
+// Serve static files from the 'public' directory and root directory both
+app.use(express.static('public'));
+app.use(express.static(path.join(__dirname)));
 
 // MariaDB connection configuration
 const db = mysql.createConnection({
@@ -37,6 +33,11 @@ db.connect((err) => {
     console.log('Connected to the MariaDB database.');
 });
 
+// Route to serve home.html as the default page
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'home.html'));
+});
+
 // Create a route to handle the form data submission
 app.post('/submit-song-request', (req, res) => {
     const { name, songName } = req.body;
@@ -45,6 +46,7 @@ app.post('/submit-song-request', (req, res) => {
         return res.status(400).json({ success: false, error: 'Name and song title are required.' });
     }
 
+    // Insert form data into the database
     const query = 'INSERT INTO requests (name, song_title) VALUES (?, ?)';
     db.query(query, [name, songName], (err, results) => {
         if (err) {
