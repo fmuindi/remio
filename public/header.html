@@ -25,3 +25,25 @@
       </div>
    </nav>
 </header>
+<script>
+   // Select elements
+   const hamburger = document.querySelector('.hamburger');
+   const navMenu = document.querySelector('.nav-menu');
+   const navbar = document.querySelector('.navbar');
+   
+   // Add event listener for the hamburger click
+   hamburger.addEventListener('click', () => {
+   // Toggle active class for the hamburger and nav menu
+   hamburger.classList.toggle('active');
+   navbar.classList.toggle('active');
+   });
+   
+   // Close the menu when a link is clicked (optional)
+   document.querySelectorAll('.nav-menu a').forEach(link => {
+   link.addEventListener('click', () => {
+   hamburger.classList.remove('active');
+   navbar.classList.remove('active');
+   });
+   });
+   
+</script>
