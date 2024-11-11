@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname)));
 
 // MariaDB connection configuration
 const db = mysql.createConnection({
-    host: '13.51.204.181',
+    host: 'localhost',
     user: 'root',
     password: 'admin',  // Ensure this is the correct password for your DB
     database: 'song_requests'
