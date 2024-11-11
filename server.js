@@ -12,16 +12,15 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Serve static files from the 'public' directory and root directory both
+// Serve static files from the 'public' directory
 app.use(express.static('public'));
-app.use(express.static(path.join(__dirname)));
 
-// MariaDB connection configuration
+// MariaDB (RDS MySQL) connection configuration
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'admin',  // Ensure this is the correct password for your DB
-    database: 'song_requests'
+    host: 'database-1.cnyoks2y2lmh.eu-north-1.rds.amazonaws.com',  // Your RDS endpoint
+    user: 'admin',  // Your RDS username
+    password: 'Mustang001',  // Your RDS password
+    database: 'song_requests'  // Database you created
 });
 
 // Connect to the MariaDB database
