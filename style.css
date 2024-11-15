@@ -253,7 +253,7 @@ header.fixed .navbar {
 	cursor: pointer;
 	margin-left: 50px;
 	/* Remove extra spacing */
-	padding: 0;
+	padding: 10px;
 	/* Ensure no padding around hamburger */
 	z-index: 100;
 }
@@ -560,87 +560,67 @@ header.fixed .navbar {
 }
 
 .around-button {
-	overflow: visible;
-	margin-top: .59em;
+	position: relative;
+	margin-top: 0.59em;
 	cursor: pointer;
-}
-
-.play-button {
+	display: inline-block;
+  }
+  
+  .play-button {
 	position: relative;
 	z-index: 1;
-	display: block;
 	width: 60px;
 	height: 60px;
 	border-radius: 50%;
 	background: linear-gradient(to bottom right, #FF00E6, #60057F);
 	box-shadow: 0 0 20px rgba(255, 0, 230, 0.7);
-	transition: all 0.3s ease-in-out;
-}
-
-.play-button:before {
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .play-button.playing:before {
 	content: "";
 	position: absolute;
 	z-index: 0;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	display: block;
 	width: 75px;
 	height: 75px;
-	background: rgba(96, 5, 127, 0.5);
+	background: rgba(148, 2, 196, 0.697);
 	border-radius: 50%;
 	animation: pulse-border 2.2s ease-out infinite;
-}
-
-.play-button:after {
+  }
+  
+  .play-button.playing:after {
 	content: "";
 	position: absolute;
-	z-index: 1;
+	z-index: 0;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	display: block;
 	width: 75px;
 	height: 75px;
 	background: rgba(255, 0, 230, 0.5);
 	border-radius: 50%;
-	transition: all 200ms;
-}
-
-.play-button:hover {
+	animation: pulse-border 2.2s ease-out infinite;
+  }
+  
+  .play-button:hover {
 	transform: scale(1.1);
 	box-shadow: 0 0 30px rgba(255, 0, 230, 0.9);
-}
-
-.play-button img {
-	position: relative;
-	z-index: 3;
-	max-width: 100%;
-	width: auto;
-	height: auto;
-}
-
-.play-button span {
-	position: relative;
-	z-index: 3;
-	width: 0;
-	height: 0;
-	border-left: 22px solid #FFFFFF;
-	border-top: 15px solid transparent;
-	border-bottom: 15px solid transparent;
-}
-
-@keyframes pulse-border {
+  }
+  
+  @keyframes pulse-border {
 	0% {
-		transform: translate(-50%, -50%) scale(1);
-		opacity: 1;
+	  transform: translate(-50%, -50%) scale(1);
+	  opacity: 1;
 	}
-
 	100% {
-		transform: translate(-50%, -50%) scale(1.5);
-		opacity: 0;
+	  transform: translate(-50%, -50%) scale(1.5);
+	  opacity: 0;
 	}
-}
+  }
+  
 
 #song,
 #artist {
@@ -824,6 +804,11 @@ h1 {
 	}
 }
 
+@media screen and (max-width: 768px) {
+	.slideshow {
+		display: none;
+	}
+}
 /* Slideshow container */
 .slideshow {
     margin-top: 0px;
@@ -1636,3 +1621,91 @@ h1 {
 		transform: rotate(360deg);
 	}
 }
+
+@media (max-width: 480px) {
+	body {
+		font-size: 14px;
+	}
+	.nav-menu a {
+		font-size: 0.7rem;
+		padding: 8px 15px;
+	}
+	.stats .stat-item p {
+		font-size: 8px;
+	}
+}
+@media (max-width: 480px) {
+	.play-button {
+		width: 50px;
+		height: 50px;
+	}
+	.stat-item span {
+		font-size: 20px;
+	}
+}
+@media (max-width: 480px) {
+	.main_container {
+		flex-direction: column;
+		padding: 10px;
+	}
+	.flex_1, .intro, .imageintro, #hearthis {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+}
+@media (max-width: 768px) {
+	header.fixed {
+		background: rgba(12, 8, 34, 0.9); /* Semi-transparent background */
+	}
+}
+@media (max-width: 768px) {
+	body {
+		background-image: url("assets/background-small.jpg");
+	}
+}
+/* Adjust styling for mobile screens */
+@media screen and (max-width: 768px) {
+	#newmusic, #hotmix, #hearthis {
+		flex: 1 1 100%;
+		width: 100%;
+		/* Ensure each section takes full width */
+		max-width: 100%;
+		margin-right: 0;
+		/* Remove right margin for cleaner stacking */
+		padding: 15px;
+		/* Reduce padding to fit smaller screens */
+	}
+
+	#newmusic p, #hotmix p, #hearthis p {
+		font-size: 1.2rem;
+		/* Reduce font size for better readability on mobile */
+	}
+
+	.iframe-container iframe,
+	.spotify-container iframe {
+		height: 180px;
+		/* Adjust iframe height for mobile-friendly aspect ratio */
+	}
+
+	.secondrow {
+		flex-direction: column;
+		/* Stack sections vertically on mobile */
+	}
+
+	.button-group {
+		flex-direction: column;
+		gap: 15px;
+		/* Reduce spacing between buttons */
+		align-items: center;
+	}
+}
+
+/* Fine-tune hover effects for mobile */
+@media (hover: hover) and (pointer: fine) {
+	#newmusic:hover, #hotmix:hover, #hearthis:hover {
+		transform: scale(1.02);
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+		/* More subtle scaling and shadow for mobile */
+	}
+}
+
