@@ -189,7 +189,7 @@ header.fixed .navbar {
 }
 
 .station-logo {
-	max-width: 150px;
+	max-width: 450px;
 	flex-shrink: 0;
 	/* Ensure the logo doesn’t shrink */
 	height: auto;
@@ -537,7 +537,7 @@ header.fixed .navbar {
 }
 
 .station-logo {
-	width: 100px;
+	width: 200px;
 	height: auto;
 	margin-bottom: 0.5em;
 }
@@ -1410,7 +1410,7 @@ h1 {
 }
 
 .text-box {
-	font-size: 5rem;
+	font-size: 4rem;
 	font-weight: bold;
 	color: white;
 	position: relative;
@@ -1475,7 +1475,24 @@ h1 {
     }
 }
 
+.message p {
+	font-size: 1rem;
+    line-height: 1.6;
+    color: #e0e0e0; /* Light gray for a soft look */
+    text-align: justify;
+    max-width: 600px;
+    margin: auto;
+    padding: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+.message p br {
+    margin: 10px 0;
+}
 
+.message p:hover {
+    color: #ffffff; /* Brighter text on hover */
+    transition: color 0.3s ease;
+}
 
 /* Container for the buttons */
 .button-container {
