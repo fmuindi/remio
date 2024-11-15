@@ -245,18 +245,7 @@
          <p>&copy; 2024 Remio. All rights reserved.</p>
       </footer>
       <script src="script.js"></script>
-      <script>
-         const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('loaded');
-    }
-  });
-});
-
-document.querySelectorAll('.fade-in').forEach(element => observer.observe(element));
-
-      </script>
+      
       <script>
          (function() {
   const playButton = document.querySelector('.play-button');
@@ -507,6 +496,14 @@ document.querySelectorAll('.fade-in').forEach(element => observer.observe(elemen
              document.getElementById('thankYouMessage').style.display = 'none';
          });
       </script>
-      
+      <script>
+         window.addEventListener('DOMContentLoaded', () => {
+  const body = document.body;
+  body.style.opacity = '0';
+  body.style.transition = 'opacity 0.8s ease-in-out';
+  window.addEventListener('load', () => body.style.opacity = '1');
+});
+
+      </script>
    </body>
 </html>
