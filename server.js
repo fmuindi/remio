@@ -18,21 +18,22 @@ app.use(express.static(path.join(__dirname)));
 // Serve static files from the 'public' directory with a prefix
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-// MariaDB (RDS MySQL) connection configuration
+// MySQL connection configuration for the EC2 instance
 const db = mysql.createConnection({
-    host: 'database-1.cnyoks2y2lmh.eu-north-1.rds.amazonaws.com', // Your RDS endpoint
-    user: 'admin', // Your RDS username
-    password: 'Mustang001', // Your RDS password
-    database: 'song_requests' // Database you created
+    host: 'localhost',  // Since MySQL is running on the same EC2 instance, use 'localhost'
+    user: 'admin',  // Your MySQL user
+    password: 'admin',  // Your MySQL password
+    database: 'song_requests',  // Database you created for the song requests
+    port: 3306  // Default MySQL port
 });
 
-// Connect to the MariaDB database
+// Connect to the MySQL database
 db.connect((err) => {
     if (err) {
         console.error('Error connecting to the database:', err);
         return;
     }
-    console.log('Connected to the MariaDB database.');
+    console.log('Connected to the MySQL database.');
 });
 
 // Route to serve home.html as the default page
