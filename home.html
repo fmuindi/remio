@@ -13,6 +13,10 @@
       <link rel='stylesheet' href='home.css' media='all' />
    </head>
    <body>
+      <div id="loading-indicator">
+         <img src="./assets/remiologo.png" alt="Loading..." />
+     </div>
+
       <div class="main_container">
          <header id="header-container">
             <nav class="navbar">
@@ -53,7 +57,7 @@
                      <p>Reminisce Radio</p>
                   </div>
                   <div class="player">
-                     <audio preload="metadata" id="audio" src="http://13.51.204.181:8000/stream" crossorigin="anonymous">Your browser does not support the audio element.</audio>
+                     <audio preload="metadata" id="audio" src="http:localhost:8000/stream" crossorigin="anonymous">Your browser does not support the audio element.</audio>
                      <p id="artist" title="Current playing artist">Current artist</p>
                      <p id="song" title="Current playing song">Current song</p>
                      <div class="controls">
@@ -228,7 +232,7 @@
                   <a href="#"><img src="./assets/youtube.png" width="33" height="33" alt="listennotes" class="social-icon"></a>
                </p>
             </div>
-         </div>
+         </div>   
       </div>
       <noscript>
          <div id="nojs_message">
@@ -244,7 +248,7 @@
          </ul>
          <p>&copy; 2024 Remio. All rights reserved.</p>
       </footer>
-      <script src="script.js"></script>
+      
       
       <script>
          (function() {
@@ -255,14 +259,7 @@
 })();
 
       </script>
-      <script>
-         document.querySelector('.search-icon').addEventListener('click', function() {
-             const searchBar = document.querySelector('.search-bar');
-             
-             // Toggle the focus state for the search bar
-             searchBar.focus();
-         });
-      </script>
+      
       <script>
          // Select elements
          const hamburger = document.querySelector('.hamburger');
@@ -392,17 +389,7 @@
              });
          });
       </script>
-      <!-- Script to dynamically load the header into the page -->
-      <script>
-         document.addEventListener("DOMContentLoaded", () => {
-             fetch('/public/header.html')
-                 .then(response => response.text())
-                 .then(data => {
-                     document.getElementById('header-container').innerHTML = data;
-                 })
-                 .catch(error => console.error('Error loading header:', error));
-         });
-      </script>
+      
       <!-- Script for scroll-triggered fixed header -->
       <script>
          window.addEventListener('scroll', () => {
@@ -496,6 +483,13 @@
              document.getElementById('thankYouMessage').style.display = 'none';
          });
       </script>
-      
+      <script>
+      window.addEventListener("load", function () {
+  // Hide loading indicator and show main content
+  document.getElementById("loading-indicator").style.display = "none";
+  document.getElementById("mainContent").style.display = "block";
+});
+
+     </script>
    </body>
 </html>

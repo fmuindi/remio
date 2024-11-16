@@ -12,11 +12,8 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Serve static files from the root directory
+// Serve static files from the root directory only
 app.use(express.static(path.join(__dirname)));
-
-// Serve static files from the 'public' directory with a prefix
-app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // MySQL connection configuration for the EC2 instance
 const db = mysql.createConnection({
