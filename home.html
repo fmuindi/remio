@@ -15,14 +15,13 @@
    <body>
       <div id="loading-indicator">
          <img src="./assets/remiologo.png" alt="Loading..." />
-     </div>
-
+      </div>
       <div class="main_container">
          <header id="header-container">
             <nav class="navbar">
                <a href="home.html">
                <img src="./assets/remioplay.svg" alt="Remio" class="station-logo" />
-                  </a>
+               </a>
                <!-- Search Bar -->
                <div class="flexbox">
                   <div class="search">
@@ -48,9 +47,10 @@
             </nav>
          </header>
          <div class="remibox">
-               <div class="live-icon"><p>LIVE NOW</p>
-                  <span class="icon"></span> <!-- Separate span for the animated icon -->
-               </div>
+            <div class="live-icon">
+               <p>LIVE NOW</p>
+               <span class="icon"></span> <!-- Separate span for the animated icon -->
+            </div>
             <div class="flex_1">
                <div class="background">
                   <div class="branding">
@@ -62,7 +62,7 @@
                      <p id="song" title="Current playing song">Current song</p>
                      <div class="controls">
                         <div class="around-button" id="around-button" title="Start the audio stream">
-                           <button class="play-button"><i class="fas fa-play fa-fw" id="on"></i></button>
+                           <button class="play-round"><i class="fas fa-play fa-fw" id="on"></i></button>
                         </div>
                      </div>
                      <br/><br/>
@@ -75,39 +75,37 @@
                   <div class="loader" style="display:none;"></div>
                </div>
             </div>
-            
-               <div id="remintro">
-                  <p>Great moments with smooth hits!</p>
+            <div id="remintro">
+               <p>Great moments with smooth hits!</p>
+            </div>
+            <div class="button-container">
+               <a id="play-button" class="button" href="#">
+                  <span class="material-icons">play_arrow</span>
+                  <div class="button-label">Play</div>
+               </a>
+               <a id="refresh-button" class="button" href="#">
+                  <span class="material-icons">sync</span>
+                  <div class="button-label">Sync</div>
+               </a>
+               <a id="love-button" class="button" href="#">
+                  <span class="material-icons">favorite</span>
+                  <div class="button-label">Love</div>
+               </a>
+               <a id="share-button" class="button" href="#">
+                  <span class="material-icons">share</span>
+                  <div class="button-label">Share</div>
+               </a>
+            </div>
+            <div class="stats">
+               <div class="stat-item">
+                  <span class="material-symbols-outlined">headphones</span>
+                  <p id="listeners">Listeners: <strong>249,235</strong></p>
                </div>
-               <div class="button-container">
-                  <a id="play-button" class="button" href="#">
-                     <span class="material-icons">play_arrow</span>
-                     <div class="button-label">Play</div>
-                  </a>
-                  <a id="refresh-button" class="button" href="#">
-                     <span class="material-icons">sync</span>
-                     <div class="button-label">Sync</div>
-                  </a>
-                  <a id="love-button" class="button" href="#">
-                     <span class="material-icons">favorite</span>
-                     <div class="button-label">Love</div>
-                  </a>
-                  <a id="share-button" class="button" href="#">
-                     <span class="material-icons">share</span>
-                     <div class="button-label">Share</div>
-                  </a>
+               <div class="stat-item">
+                  <span class="material-symbols-outlined">playlist_add_check_circle</span>
+                  <p id="loved">Loved: <strong>32,215 times</strong></p>
                </div>
-               <div class="stats">
-                  <div class="stat-item">
-                     <span class="material-symbols-outlined">headphones</span>
-                     <p id="listeners">Listeners: <strong>249,235</strong></p>
-                  </div>
-                  <div class="stat-item">
-                     <span class="material-symbols-outlined">playlist_add_check_circle</span>
-                     <p id="loved">Loved: <strong>32,215 times</strong></p>
-                  </div>
-               </div>
-            
+            </div>
          </div>
          <div class="intro">
             <div class="welcome">
@@ -120,16 +118,16 @@
                <span>Podcasts</span>
             </div>
             <div class="message">
-            <p>Thousands of your fellow groove-seekers are already riding this sonic wave. Why aren't you? We're serving up the ultimate audio experience for music lovers across all eras and genres<br/>
-               <br/>
-               Got that one song stuck in your head. Don't sweat it! Just hit up the request button and let us handle the rest
-            </p>
+               <p>Thousands of your fellow groove-seekers are already riding this sonic wave. Why aren't you? We're serving up the ultimate audio experience for music lovers across all eras and genres<br/>
+                  <br/>
+                  Got that one song stuck in your head. Don't sweat it! Just hit up the request button and let us handle the rest
+               </p>
             </div>
             <div class="button-group">
                <button class="que" id="openRequestModal">Request a Song</button>
                <a href="submitsong.html"> 
-                  <button class="que" id="openSubmitModal">Airplay</button>
-              </a>
+               <button class="que" id="openSubmitModal">Airplay</button>
+               </a>
             </div>
             <div class="overlay" id="overlay">
                <div class="form-container" id="form-container">
@@ -232,7 +230,7 @@
                   <a href="#"><img src="./assets/youtube.png" width="33" height="33" alt="listennotes" class="social-icon"></a>
                </p>
             </div>
-         </div>   
+         </div>
       </div>
       <noscript>
          <div id="nojs_message">
@@ -248,18 +246,15 @@
          </ul>
          <p>&copy; 2024 Remio. All rights reserved.</p>
       </footer>
-      
-      
       <script>
          (function() {
-  const playButton = document.querySelector('.play-button');
-  playButton.addEventListener('click', () => {
-    playButton.classList.toggle('playing');
-  });
-})();
-
+         const playButton = document.querySelector('.play-round');
+         playButton.addEventListener('click', () => {
+         playButton.classList.toggle('playing');
+         });
+         })();
+         
       </script>
-      
       <script>
          // Select elements
          const hamburger = document.querySelector('.hamburger');
@@ -304,30 +299,60 @@
       <!-- Script for audio controls and buttons (play, love, refresh, share) -->
       <script>
          document.addEventListener('DOMContentLoaded', () => {
-             const playButton = document.getElementById('play-button');
-             const loveButton = document.getElementById('love-button');
-             const refreshButton = document.getElementById('refresh-button');
-             const shareButton = document.getElementById('share-button');
-             const audioPlayer = document.getElementById('audio');
-             let isPlaying = false;
-         
-             // Play/Pause button functionality
-             playButton.addEventListener('click', (event) => {
-                 event.preventDefault();
-                 const buttonLabel = playButton.querySelector('.button-label');
-                 const playIcon = playButton.querySelector('.material-icons');
-         
-                 if (isPlaying) {
-                     audioPlayer.pause();
-                     playIcon.textContent = 'play_arrow';
-                     buttonLabel.textContent = 'Play';
-                 } else {
-                     audioPlayer.play();
-                     playIcon.textContent = 'pause';
-                     buttonLabel.textContent = 'Pause';
-                 }
-                 isPlaying = !isPlaying;
-             });
+    const playButton = document.getElementById('play-button');
+    const playRoundButton = document.querySelector('.play-round');
+    const audioPlayer = document.getElementById('audio');
+    
+    let isPlaying = false;
+
+    // Function to play audio
+    function playAudio() {
+        audioPlayer.play();
+        isPlaying = true;
+
+        // Update play-round button to pause state
+        playRoundButton.querySelector('i').classList.remove('fa-play');
+        playRoundButton.querySelector('i').classList.add('fa-pause');
+
+        // Update play-button to pause state
+        const playButtonIcon = playButton.querySelector('.material-icons');
+        playButtonIcon.textContent = 'pause';
+        playButton.querySelector('.button-label').textContent = 'Pause';
+    }
+
+    // Function to pause audio
+    function pauseAudio() {
+        audioPlayer.pause();
+        isPlaying = false;
+
+        // Update play-round button to play state
+        playRoundButton.querySelector('i').classList.remove('fa-pause');
+        playRoundButton.querySelector('i').classList.add('fa-play');
+
+        // Update play-button to play state
+        const playButtonIcon = playButton.querySelector('.material-icons');
+        playButtonIcon.textContent = 'play_arrow';
+        playButton.querySelector('.button-label').textContent = 'Play';
+    }
+
+    // Toggle play/pause when clicking on play-round button
+    playRoundButton.addEventListener('click', () => {
+        if (isPlaying) {
+            pauseAudio();
+        } else {
+            playAudio();
+        }
+    });
+
+    // Toggle play/pause when clicking on play-button
+    playButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (isPlaying) {
+            pauseAudio();
+        } else {
+            playAudio();
+        }
+    });
          
              // Love button functionality (toggle red color)
              loveButton.addEventListener('click', (event) => {
@@ -389,7 +414,6 @@
              });
          });
       </script>
-      
       <!-- Script for scroll-triggered fixed header -->
       <script>
          window.addEventListener('scroll', () => {
@@ -484,12 +508,12 @@
          });
       </script>
       <script>
-      window.addEventListener("load", function () {
-  // Hide loading indicator and show main content
-  document.getElementById("loading-indicator").style.display = "none";
-  document.getElementById("mainContent").style.display = "block";
-});
-
-     </script>
+         window.addEventListener("load", function () {
+         // Hide loading indicator and show main content
+         document.getElementById("loading-indicator").style.display = "none";
+         document.getElementById("mainContent").style.display = "block";
+         });
+         
+      </script>
    </body>
 </html>

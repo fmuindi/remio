@@ -566,7 +566,7 @@ header.fixed .navbar {
 	display: inline-block;
   }
   
-  .play-button {
+  .play-round {
 	position: relative;
 	z-index: 1;
 	width: 60px;
@@ -577,7 +577,7 @@ header.fixed .navbar {
 	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
   
-  .play-button.playing:before {
+  .play-round.playing:before {
 	content: "";
 	position: absolute;
 	z-index: 0;
@@ -591,7 +591,7 @@ header.fixed .navbar {
 	animation: pulse-border 2.2s ease-out infinite;
   }
   
-  .play-button.playing:after {
+  .play-round.playing:after {
 	content: "";
 	position: absolute;
 	z-index: 0;
@@ -605,7 +605,7 @@ header.fixed .navbar {
 	animation: pulse-border 2.2s ease-out infinite;
   }
   
-  .play-button:hover {
+  .play-round:hover {
 	transform: scale(1.1);
 	box-shadow: 0 0 30px rgba(255, 0, 230, 0.9);
   }
@@ -658,10 +658,10 @@ header.fixed .navbar {
 	border: initial;
 	margin: 2px;
 	height: 12px;
-	background: #FFFFFF;
+	background: #ff0000;
 	border-radius: 15px;
-	filter: hue-rotate(140deg) brightness(.9);
 }
+
 
 i.fa-volume-down,
 i.fa-volume-up {
@@ -1660,7 +1660,7 @@ h1 {
 	}
 }
 @media (max-width: 480px) {
-	.play-button {
+	.play-round {
 		width: 50px;
 		height: 50px;
 	}
