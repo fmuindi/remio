@@ -125,9 +125,21 @@
             </div>
             <div class="button-group">
                <button class="que" id="openRequestModal">Request a Song</button>
-               <a href="submitsong.html"> 
-               <button class="que" id="openSubmitModal">Airplay</button>
-               </a>
+               <button class="que" id="openShareModal">Invite Friends</button>
+               <div id="shareModal" class="share-modal">
+                  <div class="share-content">
+                     <span class="close-btn" id="closeShareModal">&times;</span>
+                     <h3>Invite your friends</h3>
+                     <p>Share this link with your friends to invite them:</p>
+                     <div class="share-buttons">
+                        <button onclick="share('facebook')">Facebook</button>
+                        <button onclick="share('twitter')">Twitter</button>
+                        <button onclick="share('whatsapp')">WhatsApp</button>
+                        <button onclick="share('email')">Email</button>
+                        <button onclick="shareViaWebShare()">More...</button>
+                     </div>
+                  </div>
+               </div>
             </div>
             <div class="overlay" id="overlay">
                <div class="form-container" id="form-container">
@@ -516,6 +528,58 @@
              document.getElementById('requestForm').style.display = 'block';
              document.getElementById('thankYouMessage').style.display = 'none';
          });
+      </script>
+      <script>
+         document.getElementById("openShareModal").addEventListener("click", () => {
+            document.getElementById("shareModal").style.display = "flex";
+          });
+          
+          document.getElementById("closeShareModal").addEventListener("click", () => {
+            document.getElementById("shareModal").style.display = "none";
+          });
+          
+          window.onclick = function (event) {
+            const modal = document.getElementById("shareModal");
+            if (event.target === modal) {
+              modal.style.display = "none";
+            }
+          };
+          
+          // Share functionality
+          function share(platform) {
+            const url = window.location.href;
+            const text = "Check out this awesome content!";
+            
+            switch (platform) {
+              case 'facebook':
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+                break;
+              case 'twitter':
+                window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+                break;
+              case 'whatsapp':
+                window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+                break;
+              case 'email':
+                window.location.href = `mailto:?subject=${encodeURIComponent(text)}&body=${encodeURIComponent(url)}`;
+                break;
+              default:
+                alert("Platform not supported");
+            }
+          }
+          
+          // Web Share API for native sharing
+          function shareViaWebShare() {
+            if (navigator.share) {
+              navigator.share({
+                title: "Invite Friends",
+                text: "Check out this awesome content!",
+                url: window.location.href
+              }).catch(console.error);
+            } else {
+              alert("Web Share API not supported");
+            }
+          }
       </script>
       <script>
          window.addEventListener("load", function () {
