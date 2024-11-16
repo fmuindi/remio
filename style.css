@@ -1321,34 +1321,23 @@ h1 {
  }
 
 .que {
-	background: linear-gradient(145deg, #FFFF00, #26003f);
-	/* Gradient colors */
-	color: white;
-	/* Text color */
-	border: none;
-	/* No border */
-	padding: 10px 20px;
-	/* Padding for size */
-	font-size: 16px;
-	/* Font size */
-	font-family: 'Comfortaa', sans-serif;
-	border-radius: 5px;
-	/* Rounded corners */
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	/* Light shadow */
-	cursor: pointer;
-	/* Pointer cursor on hover */
-	transition: all 0.3s ease;
-	/* Smooth transition */
+	background-image: linear-gradient(to right, #834d9b 0%, #d04ed6  51%, #834d9b  100%);
+	margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #35273481;
+    border-radius: 10px;
+    display: block;
 }
 
 .que:hover {
-	background: linear-gradient(135deg, #ff6f61, #ff9068);
-	/* Lighter gradient on hover */
-	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-	/* Deeper shadow on hover */
-	transform: scale(1.05);
-	/* Slightly enlarges the button on hover */
+	background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;/
 }
 
 /* Modern styling for the welcome message */
