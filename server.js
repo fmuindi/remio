@@ -13,15 +13,17 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Serve static files from the 'public' directory
-app.use(express.static('public'));
+app.use('/public', express.static(path.join(__dirname, 'public')));
+
+// Serve static files from the root directory
 app.use(express.static(path.join(__dirname)));
 
 // MariaDB (RDS MySQL) connection configuration
 const db = mysql.createConnection({
-    host: 'database-1.cnyoks2y2lmh.eu-north-1.rds.amazonaws.com',  // Your RDS endpoint
-    user: 'admin',  // Your RDS username
-    password: 'Mustang001',  // Your RDS password
-    database: 'song_requests'  // Database you created
+    host: 'database-1.cnyoks2y2lmh.eu-north-1.rds.amazonaws.com', // Your RDS endpoint
+    user: 'admin', // Your RDS username
+    password: 'Mustang001', // Your RDS password
+    database: 'song_requests' // Database you created
 });
 
 // Connect to the MariaDB database
