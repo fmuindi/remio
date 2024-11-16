@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
+app.use(express.static(path.join(__dirname)));
 
 // MariaDB (RDS MySQL) connection configuration
 const db = mysql.createConnection({
