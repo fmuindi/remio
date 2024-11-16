@@ -12,11 +12,11 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Serve static files from the 'public' directory
-app.use('/public', express.static(path.join(__dirname, 'public')));
-
 // Serve static files from the root directory
 app.use(express.static(path.join(__dirname)));
+
+// Serve static files from the 'public' directory with a prefix
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // MariaDB (RDS MySQL) connection configuration
 const db = mysql.createConnection({
