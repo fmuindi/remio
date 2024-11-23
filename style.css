@@ -784,38 +784,12 @@ h1 {
 	/* Center content within the container */
 }
 
-.imageintro img {
-	width: 100%;
-	height: auto;
-	border-radius: 20px;
-	display: block;
-	transition: transform 0.5s, filter 0.5s, border 0.5s;
-}
-
-.imageintro img:hover {
-	transform: scale(1.05);
-	filter: brightness(1.1);
-	border-image: linear-gradient(45deg, #60057F, #FF00E6);
-}
-
-@media screen and (max-width: 768px) {
-	.imageintro img {
-		width: 40%;
-	}
-}
-
-@media screen and (max-width: 768px) {
-	.slideshow {
-		display: none;
-	}
-}
 /* Slideshow container */
 .slideshow {
     margin-top: 0px;
     position: relative;
     width: 100%;
     height: 470px;
-    overflow: hidden;
 }
 
 /* Slideshow images */
@@ -826,40 +800,11 @@ h1 {
     width: 100%;
     height: 100%;
     opacity: 0;
-    animation: fadeAnimation 24s infinite;
+    transition: opacity 1s ease;
 }
-
-/* Each image will appear in sequence */
-.slideshow img:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.slideshow img:nth-child(2) {
-    animation-delay: 8s;
-}
-
-.slideshow img:nth-child(3) {
-    animation-delay: 16s;
-}
-
-/* Keyframes to create fading effect */
-@keyframes fadeAnimation {
-    0% {
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    35% {
-        opacity: 1;
-    }
-    40% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
-    }
-}
+.slideshow img.active {
+    opacity: 1;
+  }
 
 
 /* Container for text and socials */

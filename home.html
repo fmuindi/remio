@@ -9,6 +9,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+      <link rel="icon" href="./assets/favicon_io/favicon.ico" type="image/x-icon">
       <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
       <link rel='stylesheet' href='home.css' media='all' />
    </head>
@@ -258,6 +259,21 @@
          </ul>
          <p>&copy; 2024 Remio. All rights reserved.</p>
       </footer>
+      <script>
+         const images = document.querySelectorAll('.slideshow img');
+         let currentIndex = 0;
+         const intervalTime = 10000; // Change image every 3 seconds
+       
+         function changeImage() {
+           images[currentIndex].classList.remove('active'); // Remove active class from the current image
+           currentIndex = (currentIndex + 1) % images.length; // Move to the next image
+           images[currentIndex].classList.add('active'); // Add active class to the new image
+         }
+       
+         // Initialize slideshow
+         images[currentIndex].classList.add('active');
+         setInterval(changeImage, intervalTime);
+       </script>
       <script>
          (function() {
          const playButton = document.querySelector('.play-round');
