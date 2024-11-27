@@ -788,8 +788,11 @@ h1 {
 .slideshow {
     margin-top: 0px;
     position: relative;
-    width: 100%;
-    height: 470px;
+    width: 70%; /* Reduced the width further */
+    height: 280px; /* Reduced the height further */
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden; /* Ensures images don't spill outside the container */
 }
 
 /* Slideshow images */
@@ -800,11 +803,17 @@ h1 {
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 1s ease;
+    transition: opacity 1s ease-in-out; /* Smooth fade effect */
+    z-index: 1; /* Stacks images */
 }
+
+/* Active image */
 .slideshow img.active {
     opacity: 1;
-  }
+    z-index: 1; /* Ensures the active image appears above others */
+}
+
+
 
 
 /* Container for text and socials */
@@ -823,77 +832,83 @@ h1 {
 }
 
 /* Hover effect for the entire box */
+.info-box {
+    padding: 15px; /* Reduced padding for a more compact design */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .info-box:hover {
-	transform: translateY(-5px);
-	box-shadow: 0px -6px 25px rgba(0, 0, 0, 0.3), 0px 15px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px); /* Slightly smaller lift effect */
+    box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.25), 0px 10px 15px rgba(0, 0, 0, 0.1); /* Reduced shadow intensity */
 }
 
 /* Text styling */
 .info-box p {
-	font-size: 16px;
-	color: #ffffffcc;
-	margin-bottom: 15px;
-	font-weight: 500;
-	text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    font-size: 14px; /* Reduced font size */
+    color: #ffffffcc;
+    margin-bottom: 10px; /* Smaller gap between text */
+    font-weight: 500;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Slightly softer shadow */
 }
 
 /* Socials section */
 #socials {
-	padding: 15px;
-	margin-top: 5px;
-	text-align: center;
+    padding: 10px; /* Reduced padding */
+    margin-top: 5px;
+    text-align: center;
 }
 
 #socials h3 {
-	font-size: 18px;
-	margin-bottom: 15px;
-	color: #ffffffee;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    font-size: 16px; /* Reduced font size */
+    margin-bottom: 10px; /* Smaller gap between title and icons */
+    color: #ffffffee;
+    text-transform: uppercase;
+    letter-spacing: 1.5px; /* Slightly reduced spacing */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 /* Social icons styling */
 .social_icons {
-	display: flex;
-	gap: 15px;
-	justify-content: center;
-	max-width: 30%;
-	margin: 0 auto;
+    display: flex;
+    gap: 10px; /* Reduced spacing between icons */
+    justify-content: center;
+    max-width: 25%; /* Smaller container width */
+    margin: 0 auto;
 }
 
 .social_icons img {
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	border: 2px solid #FF00E6;
-	padding: 5px;
-	transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    width: 30px; /* Smaller icon size */
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #FF00E6;
+    padding: 4px; /* Reduced padding */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 /* Hover effects for icons */
 .social_icons img:hover {
-	transform: rotate(360deg) scale(1.3);
-	box-shadow: 0 0 25px rgba(255, 0, 230, 0.7);
-	border-color: #60057F;
+    transform: rotate(360deg) scale(1.2); /* Slightly smaller scale effect */
+    box-shadow: 0 0 20px rgba(255, 0, 230, 0.6); /* Reduced glow intensity */
+    border-color: #60057F;
 }
 
 @media screen and (max-width: 768px) {
-	/* Mobile adjustments */
-	.social_icons {
-		max-width: 80%;
-		gap: 10px;
-	}
+    /* Mobile adjustments */
+    .social_icons {
+        max-width: 70%; /* Smaller container on mobile */
+        gap: 8px; /* Reduced spacing on mobile */
+    }
 
-	.info-box {
-		padding: 20px;
-	}
+    .info-box {
+        padding: 15px; /* Consistent padding for mobile */
+    }
 
-	.social_icons img {
-		width: 35px;
-		height: 35px;
-	}
+    .social_icons img {
+        width: 25px; /* Smaller icon size for mobile */
+        height: 25px;
+    }
 }
+
 
 
 
@@ -1260,29 +1275,37 @@ h1 {
 
 .button-group {
     display: flex;
-    gap: 30px;
-    /* Space between buttons */
+    gap: 20px; /* Reduced gap between buttons */
     margin-top: 20px;
- }
+}
 
 .que {
-	background-image: linear-gradient(to right, #834d9b 0%, #d04ed6  51%, #834d9b  100%);
-	margin: 10px;
-    padding: 15px 45px;
+    background-image: linear-gradient(to right, #834d9b 0%, #d04ed6 51%, #834d9b 100%);
+    margin: 8px;
+    padding: 12px 30px; /* Reduced padding for a smaller button */
     text-align: center;
     text-transform: uppercase;
     transition: 0.5s;
     background-size: 200% auto;
-    color: white;            
-    box-shadow: 0 0 20px #35273481;
-    border-radius: 10px;
-    display: block;
+    color: white;
+    box-shadow: 0 0 15px #35273481;
+    border-radius: 8px; /* Slightly smaller border radius */
+    display: flex; /* Flexbox for icon and text alignment */
+    align-items: center;
+    gap: 8px; /* Reduced space between icon and text */
+    justify-content: center;
+    font-size: 14px; /* Reduced font size */
 }
 
 .que:hover {
-	background-position: right center; /* change the direction of the change here */
+    background-position: right center;
     color: #fff;
-    text-decoration: none;/
+    text-decoration: none;
+}
+
+.material-icons {
+    font-size: 18px; /* Reduced icon size */
+    vertical-align: middle;
 }
 
 /* Modern styling for the welcome message */
@@ -1727,23 +1750,25 @@ h1 {
   
   /* Share Buttons */
   .share-buttons button {
-	margin: 10px 5px;
-	padding: 12px 20px;
-	border: none;
-	border-radius: 25px;
-	background: #ffffff;
-	color: #60057F;
-	font-size: 16px;
-	cursor: pointer;
-	font-weight: bold;
-	transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .share-buttons button:hover {
-	background: #f3eaf4;
-	color: #480462;
-	transform: scale(1.05);
-  }
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Reduced gap between icon and text */
+    padding: 10px 18px; /* Reduced padding for smaller buttons */
+    border: none;
+    border-radius: 20px; /* Smaller button shape */
+    background: #ffffff;
+    color: #60057F;
+    font-size: 14px; /* Reduced font size */
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.share-buttons button:hover {
+    background: #f3eaf4;
+    color: #480462;
+    transform: scale(1.05);
+}
   
   /* Responsive Modal for Small Screens */
   @media (max-width: 600px) {

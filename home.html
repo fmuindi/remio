@@ -125,23 +125,39 @@
                </p>
             </div>
             <div class="button-group">
-               <button class="que" id="openRequestModal">Request a Song</button>
-               <button class="que" id="openShareModal">Invite Friends</button>
-               <div id="shareModal" class="share-modal">
-                  <div class="share-content">
-                     <span class="close-btn" id="closeShareModal">&times;</span>
-                     <h3>Invite your friends</h3>
-                     <p>Share this link with your friends to invite them:</p>
-                     <div class="share-buttons">
-                        <button onclick="share('facebook')">Facebook</button>
-                        <button onclick="share('twitter')">Twitter</button>
-                        <button onclick="share('whatsapp')">WhatsApp</button>
-                        <button onclick="share('email')">Email</button>
-                        <button onclick="shareViaWebShare()">More...</button>
-                     </div>
-                  </div>
+               <button class="que" id="openRequestModal">
+                   <span class="material-icons">queue_music</span> Request a Song
+               </button>
+               <button class="que" id="openShareModal">
+                   <span class="material-icons">group_add</span> Invite Friends
+               </button>
+           </div>
+           
+           <div id="shareModal" class="share-modal">
+               <div class="share-content">
+                   <span class="close-btn" id="closeShareModal">&times;</span>
+                   <h3>Invite your friends</h3>
+                   <p>Share this link with your friends to invite them:</p>
+                   <div class="share-buttons">
+                       <button onclick="share('facebook')">
+                           <span class="material-icons">facebook</span> Facebook
+                       </button>
+                       <button onclick="share('twitter')">
+                           <span class="material-icons">twitter</span> Twitter
+                       </button>
+                       <button onclick="share('whatsapp')">
+                           <span class="material-icons">whatsapp</span> WhatsApp
+                       </button>
+                       <button onclick="share('email')">
+                           <span class="material-icons">email</span> Email
+                       </button>
+                       <button onclick="shareViaWebShare()">
+                           <span class="material-icons">more_horiz</span> More...
+                       </button>
+                   </div>
                </div>
-            </div>
+           </div>
+           
             <div class="overlay" id="overlay">
                <div class="form-container" id="form-container">
                   <!-- Close Button -->
@@ -188,8 +204,8 @@
             </div>
          </div>
          <div class="advert">
-            <h3>Advert Section</h3>
-            <p>Your advertisement content or media</p>
+            <h3>Merry Christmas & Happy New Year</h3>
+            <p>Book This space to show your advertisement</p>
          </div>
          <div class="secondrow">
             <div id="newmusic">
@@ -264,18 +280,20 @@
       <script>
          const images = document.querySelectorAll('.slideshow img');
          let currentIndex = 0;
-         const intervalTime = 10000; // Change image every 3 seconds
-       
+         const intervalTime = 10000; // Change image every 10 seconds
+     
          function changeImage() {
-           images[currentIndex].classList.remove('active'); // Remove active class from the current image
-           currentIndex = (currentIndex + 1) % images.length; // Move to the next image
-           images[currentIndex].classList.add('active'); // Add active class to the new image
+             images[currentIndex].classList.remove('active'); // Remove active class from the current image
+             currentIndex = (currentIndex + 1) % images.length; // Move to the next image
+             images[currentIndex].classList.add('active'); // Add active class to the new image
          }
-       
+     
          // Initialize slideshow
          images[currentIndex].classList.add('active');
          setInterval(changeImage, intervalTime);
-       </script>
+     </script>
+     
+     
       <script>
          (function() {
          const playButton = document.querySelector('.play-round');
