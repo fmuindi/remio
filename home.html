@@ -58,18 +58,31 @@
                      <p>Reminisce Radio</p>
                   </div>
                   <div class="player">
-                     <audio preload="metadata" id="audio" src="http:localhost:8000/stream" crossorigin="anonymous">Your browser does not support the audio element.</audio>
-                     <p id="artist" title="Current playing artist">Current artist</p>
-                     <p id="song" title="Current playing song">Current song</p>
+                     <audio preload="metadata" id="audio" src="http://localhost:8000/stream" crossorigin="anonymous">
+                        Your browser does not support the audio element.
+                     </audio>
+                     <p id="artist" title="Current playing artist">Loading current artist...</p>
+                     <p id="song" title="Current playing song">Loading current song...</p>
                      <div class="controls">
                         <div class="around-button" id="around-button" title="Start the audio stream">
-                           <button class="play-round"><i class="fas fa-play fa-fw" id="on"></i></button>
+                           <button class="play-round" onclick="togglePlayPause()">
+                              <i class="fas fa-play fa-fw" id="play-icon"></i>
+                           </button>
                         </div>
                      </div>
-                     <br/><br/>
+                     <br /><br />
                      <div class="volume-control">
                         <span class="iconify" data-icon="fa:volume-down" style="color: #ffffff; height:14px;"></span>
-                        <input title="Volume" id="vol-control" type="range" min="0" max="100" step="1" value="100" />
+                        <input
+                           title="Volume"
+                           id="vol-control"
+                           type="range"
+                           min="0"
+                           max="100"
+                           step="1"
+                           value="100"
+                           onchange="setVolume()"
+                        />
                         <span class="iconify" data-icon="fa:volume-up" style="color: #ffffff; height:14px;"></span>
                      </div>
                   </div>
@@ -277,6 +290,24 @@
          </ul>
          <p>&copy; 2024 Remio. All rights reserved.</p>
       </footer>
+      <script>
+         // Function to fetch the current artist and song
+function fetchNowPlaying() {
+    fetch('http://16.16.247.10:3000/now-playing') // Replace with your backend's public IP
+        .then((response) => response.json())
+        .then((data) => {
+            // Update artist and song on the UI
+            const artistElem = document.getElementById('artist');
+            const songElem = document.getElementById('song');
+            artistElem.textContent = data.artist || 'Unknown Artist';
+            songElem.textContent = data.title || 'Unknown Song';
+        })
+        .catch((error) => console.error('Error fetching now-playing data:', error));
+}
+
+// Fetch now-playing data every 5 seconds
+setInterval(fetchNowPlaying, 5000);
+      </script>
       <script>
          const images = document.querySelectorAll('.slideshow img');
          let currentIndex = 0;
