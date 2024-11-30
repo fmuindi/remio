@@ -1,5 +1,3 @@
-const https = require('https');
-const fs = require('fs');
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
@@ -9,13 +7,6 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-// Load SSL Certificate files
-const privateKey = fs.readFileSync('/etc/letsencrypt/live/remioplay.com/privkey.pem', 'utf8');
-const certificate = fs.readFileSync('/etc/letsencrypt/live/remioplay.com/cert.pem', 'utf8');
-const ca = fs.readFileSync('/etc/letsencrypt/live/remioplay.com/chain.pem', 'utf8');
-
-const credentials = { key: privateKey, cert: certificate, ca: ca };
-
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
@@ -23,13 +14,14 @@ app.use(express.static(path.join(__dirname)));
 
 // MySQL connection
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'admin',
-    password: 'admin',
-    database: 'song_requests',
-    port: 3306
+    host: 'localhost', // MySQL is running on the same EC2 instance
+    user: 'admin', // Your MySQL username
+    password: 'admin', // Your MySQL password
+    database: 'song_requests', // Your database name
+    port: 3306 // Default MySQL port
 });
 
+// Connect to the database
 db.connect((err) => {
     if (err) {
         console.error('Error connecting to the database:', err);
@@ -83,9 +75,7 @@ app.post('/submit-song-request', (req, res) => {
     });
 });
 
-// Create HTTPS server
-const httpsServer = https.createServer(credentials, app);
-
-httpsServer.listen(port, () => {
-    console.log(`Server is running on https://remioplay.com`);
+// Start the server
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
 });

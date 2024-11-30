@@ -1,34 +1,29 @@
 const fs = require('fs');
-const path = require('path');
 const axios = require('axios');
 
 // Path to the NowPlaying.txt file
-const filePath = path.join('C:', 'RadioDJv2', 'NowPlaying.txt');
-
-// Backend URL (updated to use HTTPS domain)
-const backendUrl = process.env.BACKEND_URL || 'https://remioplay.com/now-playing';
+const path = 'C:\\RadioDJv2\\NowPlaying.txt';
 
 setInterval(() => {
-    fs.readFile(filePath, 'utf-8', (err, data) => {
+    fs.readFile(path, 'utf-8', (err, data) => {
         if (err) {
-            console.error(`Error reading ${filePath}:`, err.message);
+            console.error('Error reading NowPlaying.txt:', err);
             return;
         }
 
         // Extract song and artist (assuming "Artist - Song Title" format)
-        const [artist, title] = data.split(' - ').map((str) => str?.trim());
+        const [artist, title] = data.split(' - ');
 
         // Validate parsed data
         if (!artist || !title) {
-            console.error('Invalid data format in NowPlaying.txt:', data);
+            console.error('Invalid data format in NowPlaying.txt');
             return;
         }
 
         // Send data to the backend
-        axios.post(backendUrl, { artist, title }, { timeout: 5000 })
+        axios
+            .post('http://16.16.247.10:3000/now-playing', { artist, title })
             .then((response) => console.log('Now playing sent successfully:', response.data))
-            .catch((error) => {
-                console.error('Error sending now-playing data:', error.message || error);
-            });
+            .catch((error) => console.error('Error sending now-playing data:', error));
     });
 }, 5000); // Check every 5 seconds
