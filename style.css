@@ -173,57 +173,63 @@ header.fixed {
 
 /* Navbar Styling */
 .navbar {
-	display: flex;
-	justify-content: space-between;
-	/* Ensure navbar items spread out */
-	align-items: center;
-	padding: 10px 20px;
-	width: 100%;
-	max-width: 1200px;
-	margin: 0 auto;
-	gap: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 5px;
+    position: relative;
+    z-index: 10;
 }
 
 header.fixed .navbar {
-	padding: 5px 5px;
-	/* Example: Reduce padding when fixed */
+    padding: 5px 10px; /* Reduced padding for fixed state */
 }
 
 .station-logo {
-	max-width: 450px;
-	flex-shrink: 0;
-	/* Ensure the logo doesn’t shrink */
-	height: auto;
+    max-width: 450px;
+    flex-shrink: 0; /* Prevent logo from shrinking */
+    height: auto;
+    transition: max-width 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .station-logo {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .station-logo {
+        max-width: 150px;
+    }
 }
 
 /* Navigation Menu */
 .nav-menu {
-	display: flex;
-	list-style-type: none;
-	gap: 10px;
-	/* Adjusted space between nav items */
-	margin: 0;
-	/* Remove any default margin */
-	padding: 0;
-	/* Remove any padding */
-	transition: all 0.5s ease;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Menu items styling */
 .nav-menu li {
-	margin: 0;
+    margin: 0;
 }
 
 .nav-menu a {
-	position: relative;
-	/* To ensure the pseudo-element is positioned relative to the link */
-	text-decoration: none;
-	color: #FFFFFF;
-	font-size: 0.8rem;
-	font-weight: light;
-	padding: 10px 20px;
-	border-radius: 8px;
-	transition: background-color 0.3s ease, text-decoration 0.3s ease;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    font-weight: 400;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
 }
 
 .nav-menu a::before {
@@ -352,17 +358,16 @@ header.fixed .navbar {
 /* Remibox container styled as a card */
 /* Remibox container styled as a card, positioned on the left below the header */
 .remibox {
-    display: flex; /* Enable flexbox layout */
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center align content */
-    justify-content: flex-start; /* Align children at the top */
-    flex: 1 1 auto; /* Allow flexible resizing */
-    width: 100%; /* Full width on smaller screens */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1 1 calc(50% - 20px); /* Adjust width for two columns with gap */
+    max-width: 400px;
     padding: 20px;
     background-color: rgba(8, 0, 24, 0.692);
     border-radius: 10px;
-    max-width: 400px;
-    margin: 20px auto; /* Center align on smaller screens */
+    margin: 0; /* Remove individual margins */
 }
 
 
@@ -841,7 +846,17 @@ h1 {
     z-index: 1; /* Ensures the active image appears above others */
 }
 
-
+/* Responsive Design */
+@media (max-width: 768px) {
+	.slideshow {
+		display: none;
+	}
+}
+@media (max-width: 480px) {
+	.slideshow {
+		display: none;
+}
+}
 
 
 /* Container for text and socials */
