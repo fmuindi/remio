@@ -312,7 +312,7 @@ setInterval(updateLastPlayed, 1000); // Update every second for demonstration
       <script>
          // Function to fetch the current artist and song
 function fetchNowPlaying() {
-    fetch('http://16.16.247.10:3000/now-playing') // Replace with your backend's public IP
+    fetch('https://remioplay.com/now-playing') // Replace with your backend's public IP
         .then((response) => response.json())
         .then((data) => {
             // Update artist and song on the UI
