@@ -6,6 +6,7 @@
       <link rel='stylesheet' href='style.css' media='all' />
       <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
       <script src="https://kit.fontawesome.com/6b02184769.js" crossorigin="anonymous"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -141,37 +142,30 @@
             </div>
             <div class="button-group">
                <button class="que" id="openRequestModal">
-                   <span class="material-icons">queue_music</span> Request a Song
+                   <i class="fa fa-music"></i> Request a Song
                </button>
                <button class="que" id="openShareModal">
-                   <span class="material-icons">group_add</span> Invite Friends
+                   <i class="fa fa-user-plus"></i> Invite Friends
                </button>
            </div>
            
+           
            <div id="shareModal" class="share-modal">
-               <div class="share-content">
-                   <span class="close-btn" id="closeShareModal">&times;</span>
-                   <h3>Invite your friends</h3>
-                   <p>Share this link with your friends to invite them:</p>
-                   <div class="share-buttons">
-                       <button onclick="share('facebook')">
-                           <span class="material-icons">facebook</span> Facebook
-                       </button>
-                       <button onclick="share('twitter')">
-                           <span class="material-icons">twitter</span> Twitter
-                       </button>
-                       <button onclick="share('whatsapp')">
-                           <span class="material-icons">whatsapp</span> WhatsApp
-                       </button>
-                       <button onclick="share('email')">
-                           <span class="material-icons">email</span> Email
-                       </button>
-                       <button onclick="shareViaWebShare()">
-                           <span class="material-icons">more_horiz</span> More...
-                       </button>
-                   </div>
-               </div>
-           </div>
+            <div class="share-content">
+                <span class="close-btn" id="closeShareModal">&times;</span>
+                <h3>Invite Your Friends</h3>
+                <p>Share this link with your friends to invite them:</p>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="share('facebook')">Facebook</button>
+                    <button class="share-btn" onclick="share('x')">X</button>
+                    <button class="share-btn" onclick="share('whatsapp')">WhatsApp</button>
+                    <button class="share-btn" onclick="share('email')">Email</button>
+                    <button class="share-btn" onclick="shareViaWebShare()">More...</button>
+                </div>
+            </div>
+            </div>
+        
+        
            
             <div class="overlay" id="overlay">
                <div class="form-container" id="form-container">
