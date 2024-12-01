@@ -30,20 +30,38 @@ body {
 
 /* Flexbox for responsive remibox and intro sections */
 .main_container {
-	display: flex;
-	justify-content: flex-start;
-	align-items: flex-start;
-	padding: 20px 20px 0 20px;
-	flex-direction: row;
-	flex-wrap: wrap;
-	background: radial-gradient(circle, rgba(44, 7, 39, 0.7) 0%, rgba(12, 8, 34, 0.7) 100%);
-	/* Reduced opacity */
-	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
-	border-radius: 10px;
-	margin: 20px;
-	color: #FFFFFF;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px 20px 0 20px;
+    flex-direction: row;
+    flex-wrap: wrap; /* Allow wrapping of child elements */
+    background: radial-gradient(circle, rgba(44, 7, 39, 0.7) 0%, rgba(12, 8, 34, 0.7) 100%);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    margin: 20px;
+    color: #FFFFFF;
+    gap: 20px; /* Add space between child elements */
+}
+@media (max-width: 768px) {
+    .remibox {
+        flex: 1 1 calc(100% - 20px); /* Full width on medium screens */
+        max-width: 100%;
+        padding: 15px;
+    }
 }
 
+@media (max-width: 480px) {
+    .remibox {
+        padding: 10px; /* Compact padding for smaller screens */
+        border-radius: 5px;
+    }
+
+    .main_container {
+        padding: 10px; /* Reduce container padding */
+        margin: 10px; /* Compact container margins */
+    }
+}
 
 
 
@@ -347,20 +365,6 @@ header.fixed .navbar {
     margin: 20px auto; /* Center align on smaller screens */
 }
 
-@media (max-width: 768px) {
-    .remibox {
-        padding: 15px; /* Reduce padding for smaller screens */
-        max-width: 100%; /* Remove width limit */
-        margin: 15px 10px; /* Adjust spacing */
-    }
-}
-
-@media (max-width: 480px) {
-    .remibox {
-        padding: 10px; /* Further reduce padding */
-        border-radius: 5px; /* Smaller radius for compact design */
-    }
-}
 
 
 .live-icon {
