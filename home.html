@@ -193,7 +193,12 @@
             </div>
             <div id="upnext">
                <h2>Last Played</h2>
+               <div class="upnext-content">
+                  <p><span class="label">Artist:</span> <span id="last-artist">N/A</span></p>
+                  <p><span class="label">Song:</span> <span id="last-song">N/A</span></p>
+               </div>
             </div>
+            
          </div>
          <div class="imageintro">
             <div class="slideshow">
@@ -290,6 +295,20 @@
          </ul>
          <p>&copy; 2024 Remio. All rights reserved.</p>
       </footer>
+      <script>
+         // Function to update "Last Played" section
+function updateLastPlayed() {
+    const currentArtist = document.getElementById('artist').textContent;
+    const currentSong = document.getElementById('song').textContent;
+
+    document.getElementById('last-artist').textContent = currentArtist;
+    document.getElementById('last-song').textContent = currentSong;
+}
+
+// Call this function when the track or metadata changes
+setInterval(updateLastPlayed, 1000); // Update every second for demonstration
+
+      </script>
       <script>
          // Function to fetch the current artist and song
 function fetchNowPlaying() {

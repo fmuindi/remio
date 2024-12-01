@@ -757,6 +757,14 @@ h1 {
 	font-weight: bold;
 }
 
+.intro #upnext .upnext-content p {
+	margin: 0; /* Remove extra space */
+	font-size: 0.6rem; /* Slightly smaller text */
+	display: flex;
+	align-items: center;
+	gap: 5px; /* Space between label and value */
+}
+
 /* Image container on the right */
 /* Image Intro */
 .imageintro {
