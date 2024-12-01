@@ -1621,8 +1621,8 @@ h1 {
 }
 @media (max-width: 480px) {
 	.play-round {
-		width: 30px;
-		height: 30px;
+		width: 50px;
+		height: 50px;
 	}
 	.stat-item span {
 		font-size: 20px;
@@ -1695,7 +1695,7 @@ h1 {
 /* Modal Container */
 /* Modal Background */
 .share-modal {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -1704,8 +1704,8 @@ h1 {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
     backdrop-filter: blur(5px); /* Adds a blurred background effect */
+	z-index: 1000;
 }
 
 /* Modal Content */
