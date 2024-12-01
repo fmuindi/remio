@@ -6,7 +6,7 @@ const axios = require('axios');
 const filePath = path.join('C:', 'RadioDJv2', 'NowPlaying.txt');
 
 // Backend URL
-const backendUrl = process.env.BACKEND_URL || 'http://16.16.247.10:3000/now-playing';
+const backendUrl = process.env.BACKEND_URL || 'https://remioplay.com/now-playing';
 
 setInterval(() => {
     fs.readFile(filePath, 'utf-8', (err, data) => {
