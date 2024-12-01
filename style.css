@@ -312,6 +312,24 @@ header.fixed .navbar {
 	}
 }
 
+@media (max-width: 480px) {
+	.nav-menu {
+		display: none;
+		/* Hide the nav menu initially */
+		flex-direction: column;
+		/* Stack items vertically */
+		position: absolute;
+		/* Position it relative to navbar */
+		background-color: rgba(12, 8, 34, 1);
+		/* Background color */
+		top: 80px;
+		/* Position below the navbar */
+		left: 0;
+		/* Align to the left */
+		width: 100%;
+		/* Full width */
+}
+}
 
 /* Remibox container styled as a card */
 /* Remibox container styled as a card, positioned on the left below the header */
@@ -1579,7 +1597,7 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000; /* Ensure it appears above everything */
-    background: #ffffff; /* Optional: add a background color */
+    background: radial-gradient(circle, rgba(44, 7, 39, 0.7) 0%, rgba(12, 8, 34, 0.7) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1604,6 +1622,13 @@ h1 {
 /* Hide the loading indicator after it's removed */
 .hidden {
     display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+	#loading-indicator {
+		display: none;
+}
 }
 
 
