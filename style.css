@@ -11,7 +11,7 @@ body {
 	padding: 0;
 	font-family: 'Comfortaa', sans-serif;
 	background-image:
-		url("assets/background.webp");
+		url("assets/cool2.png");
 	/* Image background */
 	background-size: cover;
 	/* Ensure the background covers the whole area */
@@ -355,23 +355,6 @@ header.fixed .navbar {
 }
 }
 
-/* Remibox container styled as a card */
-/* Remibox container styled as a card, positioned on the left below the header */
-.remibox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    flex: 1 1 calc(50% - 20px); /* Adjust width for two columns with gap */
-    max-width: 400px;
-    padding: 20px;
-    background-color: rgba(8, 0, 24, 0.692);
-    border-radius: 10px;
-    margin: 0; /* Remove individual margins */
-}
-
-
-
 .live-icon {
     display: flex; /* Use flexbox to align text and icon */
     align-items: center; /* Center items vertically */
@@ -417,25 +400,6 @@ header.fixed .navbar {
         background-color: rgba(255, 0, 0, 0); /* Adjusted for red */
     }
 }
-
-.flex_1 {
-    flex: 1 1 20%; /* Takes 20% of the width */
-    width: 100%;
-    background: #60057F;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-
-.flex_1 {
-    flex: 1 1 20%;
-    /* Takes 20% of the width */
-    width: 100%;
-    background: #60057F;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
 
 
 .remibox .button {
@@ -805,17 +769,6 @@ h1 {
 	gap: 5px; /* Space between label and value */
 }
 
-/* Image container on the right */
-/* Image Intro */
-.imageintro {
-	flex: 1 1 30%;
-	padding: 20px;
-	margin-top: 0px;
-	position: relative;
-	/* Keep this for relative positioning */
-	text-align: center;
-	/* Center content within the container */
-}
 
 /* Slideshow container */
 .slideshow {
@@ -1362,7 +1315,6 @@ h1 {
 	font-size: 0.7rem;
 	font-weight: bold;
 	color: #88627b;
-	padding: 5px 10px;
 	border-radius: 5px;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 	/* Text shadow for a more modern look */
@@ -1488,9 +1440,7 @@ h1 {
     line-height: 1.6;
     color: #e0e0e0; /* Light gray for a soft look */
     text-align: justify;
-    max-width: 600px;
     margin: auto;
-    padding: 10px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 .message p br {
@@ -1855,3 +1805,59 @@ h1 {
 	}
   }
   
+  .firstrow {
+    display: flex;
+    flex-wrap: wrap; /* Allows elements to wrap to the next row if space is limited */
+    justify-content: space-between; /* Adds spacing between items */
+    gap: 20px; /* Adds consistent spacing between columns */
+    padding: 20px; /* Adjust for uniform padding */
+    box-sizing: border-box; /* Includes padding in width calculations */
+}
+
+/* Individual sections within .firstrow */
+.remibox, .intro, .imageintro {
+    flex: 1 1 30%; /* Adjusts each section to take 30% of available width */
+    max-width: calc(33.33% - 20px); /* Ensures consistent width for three columns */
+    background-color: rgba(73, 0, 116, 0.11); /* For visual separation, can be adjusted */
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Fine-tune remibox */
+.remibox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgba(39, 0, 51, 0.582);
+}
+
+/* Customize intro section */
+.intro {
+    flex: 2 1 30%; /* Slightly larger width compared to remibox and imageintro */
+    text-align: left;
+    background-color: transparent; /* Matches original style */
+    color: #FFFFFF;
+    padding: 20px;
+}
+
+/* Adjust imageintro */
+.imageintro {
+    flex: 1 1 30%; /* Equal width to remibox */
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .firstrow {
+        flex-direction: column; /* Stack sections vertically */
+        gap: 15px; /* Adjust spacing for vertical alignment */
+    }
+
+    .remibox, .intro, .imageintro {
+        flex: 1 1 100%; /* Full width for each section */
+        max-width: 100%; /* Ensures sections stretch across the viewport */
+    }
+}
