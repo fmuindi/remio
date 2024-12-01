@@ -1629,10 +1629,7 @@ h1 {
 	}
 }
 @media (max-width: 480px) {
-	.main_container {
-		flex-direction: column;
-		padding: 10px;
-	}
+	
 	.flex_1, .intro, .imageintro, #hearthis {
 		width: 100%;
 	}
