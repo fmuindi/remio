@@ -336,17 +336,32 @@ header.fixed .navbar {
 .remibox {
     display: flex; /* Enable flexbox layout */
     flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Align children to the left */
+    align-items: center; /* Center align content */
     justify-content: flex-start; /* Align children at the top */
-    flex: 1 1 20%;
-    width: 100%;
+    flex: 1 1 auto; /* Allow flexible resizing */
+    width: 100%; /* Full width on smaller screens */
     padding: 20px;
     background-color: rgba(8, 0, 24, 0.692);
     border-radius: 10px;
     max-width: 400px;
-    margin: 30px 0 20px 20px; /* Margin adjusted: Top, Right, Bottom, Left */
-    margin-right: 20px; /* Space between remibox and intro */
+    margin: 20px auto; /* Center align on smaller screens */
 }
+
+@media (max-width: 768px) {
+    .remibox {
+        padding: 15px; /* Reduce padding for smaller screens */
+        max-width: 100%; /* Remove width limit */
+        margin: 15px 10px; /* Adjust spacing */
+    }
+}
+
+@media (max-width: 480px) {
+    .remibox {
+        padding: 10px; /* Further reduce padding */
+        border-radius: 5px; /* Smaller radius for compact design */
+    }
+}
+
 
 .live-icon {
     display: flex; /* Use flexbox to align text and icon */
