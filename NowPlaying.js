@@ -1,53 +1,65 @@
 const express = require('express');
+const fs = require('fs');
+const path = require('path');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
+// Enable CORS for the frontend
+app.use(cors({ origin: 'https://remioplay.com' }));
 
-// In-memory storage for now-playing data
-let nowPlaying = { artist: 'Unknown Artist', title: 'Unknown Song' };
+// File path for NowPlaying.txt
+const filePath = path.join('C:', 'RadioDJv2', 'NowPlaying.txt');
 
-// In-memory storage for the last 6 played tracks
-const lastPlayed = [];
+// Array to store the last 6 played tracks
+let lastPlayed = [];
 
-// POST endpoint to update the current "Now Playing" track
-app.post('/now-playing', (req, res) => {
-    const { artist, title } = req.body;
+// Function to read and parse the current now-playing data
+function updateNowPlaying() {
+    fs.readFile(filePath, 'utf-8', (err, data) => {
+        if (err) {
+            console.error(`Error reading ${filePath}:`, err.message);
+            return;
+        }
 
-    if (!artist || !title) {
-        return res.status(400).json({ error: 'Both artist and title are required.' });
-    }
+        // Extract artist and title from the file content
+        const [artist, title] = data.split(' - ').map((str) => str?.trim());
 
-    // Update the current now-playing track
-    nowPlaying = { artist, title };
+        // Validate parsed data
+        if (!artist || !title) {
+            console.error('Invalid data format in NowPlaying.txt:', data);
+            return;
+        }
 
-    // Add the track to the last played history
-    lastPlayed.unshift({ artist, title, timestamp: new Date().toISOString() });
+        // Add the current track to the lastPlayed array
+        const currentTrack = { artist, title, timestamp: new Date() };
 
-    // Keep only the last 6 entries
-    if (lastPlayed.length > 6) {
-        lastPlayed.pop();
-    }
+        // Avoid duplicates by comparing the most recent track
+        if (!lastPlayed.length || lastPlayed[0].title !== currentTrack.title) {
+            lastPlayed.unshift(currentTrack); // Add to the beginning
+            if (lastPlayed.length > 6) {
+                lastPlayed.pop(); // Keep only the last 6 tracks
+            }
+        }
+    });
+}
 
-    res.status(200).json({ message: 'Now playing updated successfully.', nowPlaying, lastPlayed });
-});
+// Run updateNowPlaying every 5 seconds
+setInterval(updateNowPlaying, 5000);
 
-// GET endpoint to fetch the current "Now Playing" track
+// Endpoint to fetch the now-playing data
 app.get('/now-playing', (req, res) => {
+    const nowPlaying = lastPlayed[0] || { artist: 'Unknown Artist', title: 'Unknown Song' };
     res.json(nowPlaying);
 });
 
-// GET endpoint to fetch the last 6 played tracks
+// Endpoint to fetch the last-played tracks
 app.get('/last-played', (req, res) => {
-    res.json(lastPlayed);
+    res.json(lastPlayed.slice(1)); // Exclude the now-playing track
 });
 
 // Start the server
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Backend running on http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
