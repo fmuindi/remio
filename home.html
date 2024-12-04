@@ -181,20 +181,13 @@
                      </div>
                   </div>
                </div>
-               <!-- Now Playing Section -->
-    <div id="now-playing">
-      <h2>Now Playing</h2>
-      <p><span class="label">Artist:</span> <span id="artist">Unknown Artist</span></p>
-      <p><span class="label">Song:</span> <span id="song">Unknown Song</span></p>
-  </div>
-
-  <!-- Last Played Section -->
-  <div id="last-played-section">
-   <h2>Last Played</h2>
-   <div id="last-played-content">
-       <!-- Tracks will be dynamically added here -->
-   </div>
-</div>
+               <div id="upnext">
+                  <h2>Last Played</h2>
+                  <div class="upnext-content">
+                     <p><span class="label">Artist:</span> <span id="last-artist">N/A</span></p>
+                     <p><span class="label">Song:</span> <span id="last-song">N/A</span></p>
+                  </div>
+               </div>
             </div>
             <div class="imageintro">
                <div class="slideshow">
@@ -293,41 +286,37 @@
          <p>&copy; 2024 Remio. All rights reserved.</p>
       </footer>
       <script>
-         // Fetch and update the current "Now Playing" track
-         function fetchNowPlaying() {
-             fetch('https://remioplay.com/now-playing') // Replace with your backend's public URL
-                 .then((response) => response.json())
-                 .then((data) => {
-                     document.getElementById('artist').textContent = data.artist || 'Unknown Artist';
-                     document.getElementById('song').textContent = data.title || 'Unknown Song';
-                 })
-                 .catch((error) => console.error('Error fetching now-playing data:', error));
+         // Function to update "Last Played" section
+         function updateLastPlayed() {
+         const currentArtist = document.getElementById('artist').textContent;
+         const currentSong = document.getElementById('song').textContent;
+         
+         document.getElementById('last-artist').textContent = currentArtist;
+         document.getElementById('last-song').textContent = currentSong;
          }
- 
-         // Fetch and update the last 6 played tracks
-         // Function to fetch and display last played tracks
-function fetchLastPlayed() {
-    fetch('https://remioplay.com/last-played')
-        .then((response) => response.json())
-        .then((data) => {
-            const container = document.getElementById('last-played-content');
-            container.innerHTML = ''; // Clear previous content
-
-            // Add each track to the container
-            data.forEach((track, index) => {
-                const trackElement = document.createElement('p');
-                trackElement.innerHTML = `<strong>#${index + 1}</strong> ${track.artist} - ${track.title}`;
-                container.appendChild(trackElement);
-            });
-        })
-        .catch((error) => console.error('Error fetching last played tracks:', error));
-}
-
-// Fetch last played tracks every 10 seconds
-setInterval(fetchLastPlayed, 10000);
-fetchLastPlayed(); // Initial load
-
-     </script>
+         
+         // Call this function when the track or metadata changes
+         setInterval(updateLastPlayed, 10000); // Update every second for demonstration
+         
+      </script>
+      <script>
+         // Function to fetch the current artist and song
+         function fetchNowPlaying() {
+         fetch('https://remioplay.com/now-playing') // Replace with your backend's public IP
+         .then((response) => response.json())
+         .then((data) => {
+            // Update artist and song on the UI
+            const artistElem = document.getElementById('artist');
+            const songElem = document.getElementById('song');
+            artistElem.textContent = data.artist || 'Unknown Artist';
+            songElem.textContent = data.title || 'Unknown Song';
+         })
+         .catch((error) => console.error('Error fetching now-playing data:', error));
+         }
+         
+         // Fetch now-playing data every 5 seconds
+         setInterval(fetchNowPlaying, 5000);
+      </script>
       <script>
          const images = document.querySelectorAll('.slideshow img');
          let currentIndex = 0;
