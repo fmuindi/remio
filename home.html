@@ -48,181 +48,173 @@
                </div>
             </nav>
          </header>
-      <div class="firstrow">
-         <div class="remibox">
-            
-            <div class="flex_1">
-               <div class="background">
-                  <div class="live-icon">
-                     <p>LIVE NOW</p>
-                     <span class="icon"></span> <!-- Separate span for the animated icon -->
-                  </div>
-                  <div class="branding">
-                     <p>Reminisce Radio</p>
-                  </div>
-                  <div class="player">
-                     <audio preload="metadata" id="audio" src="https://remioplay.com/stream" crossorigin="anonymous">
-                        Your browser does not support the audio element.
-                     </audio>
-                     <p id="artist" title="Current playing artist">Loading current artist...</p>
-                     <p id="song" title="Current playing song">Loading current song...</p>
-                     <div class="controls">
-                        <div class="around-button" id="around-button" title="Start the audio stream">
-                           <button class="play-round" onclick="togglePlayPause()">
+         <div class="firstrow">
+            <div class="remibox">
+               <div class="flex_1">
+                  <div class="background">
+                     <div class="live-icon">
+                        <p>LIVE NOW</p>
+                        <span class="icon"></span> <!-- Separate span for the animated icon -->
+                     </div>
+                     <div class="branding">
+                        <p>Reminisce Radio</p>
+                     </div>
+                     <div class="player">
+                        <audio preload="metadata" id="audio" src="https://remioplay.com/stream" crossorigin="anonymous">
+                           Your browser does not support the audio element.
+                        </audio>
+                        <p id="artist" title="Current playing artist">Loading current artist...</p>
+                        <p id="song" title="Current playing song">Loading current song...</p>
+                        <div class="controls">
+                           <div class="around-button" id="around-button" title="Start the audio stream">
+                              <button class="play-round" onclick="togglePlayPause()">
                               <i class="fas fa-play fa-fw" id="play-icon"></i>
-                           </button>
+                              </button>
+                           </div>
+                        </div>
+                        <br /><br />
+                        <div class="volume-control">
+                           <span class="iconify" data-icon="fa:volume-down" style="color: #ffffff; height:14px;"></span>
+                           <input
+                              title="Volume"
+                              id="vol-control"
+                              type="range"
+                              min="0"
+                              max="100"
+                              step="1"
+                              value="100"
+                              onchange="setVolume()"
+                              />
+                           <span class="iconify" data-icon="fa:volume-up" style="color: #ffffff; height:14px;"></span>
                         </div>
                      </div>
-                     <br /><br />
-                     <div class="volume-control">
-                        <span class="iconify" data-icon="fa:volume-down" style="color: #ffffff; height:14px;"></span>
-                        <input
-                           title="Volume"
-                           id="vol-control"
-                           type="range"
-                           min="0"
-                           max="100"
-                           step="1"
-                           value="100"
-                           onchange="setVolume()"
-                        />
-                        <span class="iconify" data-icon="fa:volume-up" style="color: #ffffff; height:14px;"></span>
+                     <div class="loader" style="display:none;"></div>
+                  </div>
+               </div>
+               <div id="remintro">
+                  <p>Great moments with smooth hits!</p>
+               </div>
+               <div class="button-container">
+                  <a id="play-button" class="button" href="#">
+                     <span class="material-icons">play_arrow</span>
+                     <div class="button-label">Play</div>
+                  </a>
+                  <a id="refresh-button" class="button" href="#">
+                     <span class="material-icons">sync</span>
+                     <div class="button-label">Sync</div>
+                  </a>
+                  <a id="love-button" class="button" href="#">
+                     <span class="material-icons">favorite</span>
+                     <div class="button-label">Love</div>
+                  </a>
+                  <a id="share-button" class="button" href="#">
+                     <span class="material-icons">share</span>
+                     <div class="button-label">Share</div>
+                  </a>
+               </div>
+               <div class="stats">
+                  <div class="stat-item">
+                     <span class="material-symbols-outlined">headphones</span>
+                     <p id="listeners">Listeners: <strong>249,235</strong></p>
+                  </div>
+                  <div class="stat-item">
+                     <span class="material-symbols-outlined">playlist_add_check_circle</span>
+                     <p id="loved">Loved: <strong>32,215 times</strong></p>
+                  </div>
+               </div>
+            </div>
+            <div class="intro">
+               <div class="welcome">
+                  <p> NOSTALGIA AS A SERVICE</p>
+               </div>
+               <h1 id="anime">We've got</h1>
+               <div class="text-box">
+                  <span>Music</span>
+                  <span>Mixes</span>
+                  <span>Podcasts</span>
+               </div>
+               <div class="message">
+                  <p>Thousands of your fellow groove-seekers are already riding this sonic wave. Why aren't you? We're serving up the ultimate audio experience for music lovers across all eras and genres<br/>
+                     <br/>
+                     Got that one song stuck in your head. Don't sweat it! Just hit up the request button and let us handle the rest
+                  </p>
+               </div>
+               <div class="button-group">
+                  <button class="que" id="openRequestModal">
+                  <i class="fa fa-music"></i> Request a Song
+                  </button>
+                  <button class="que" id="openShareModal">
+                  <i class="fa fa-user-plus"></i> Invite Friends
+                  </button>
+               </div>
+               <div id="shareModal" class="share-modal">
+                  <div class="share-content">
+                     <span class="close-btn" id="closeShareModal">&times;</span>
+                     <h3>Invite Your Friends</h3>
+                     <p>Share this link with your friends to invite them:</p>
+                     <div class="share-buttons">
+                        <button class="share-btn" onclick="share('facebook')">Facebook</button>
+                        <button class="share-btn" onclick="share('x')">X</button>
+                        <button class="share-btn" onclick="share('whatsapp')">WhatsApp</button>
+                        <button class="share-btn" onclick="share('email')">Email</button>
+                        <button class="share-btn" onclick="shareViaWebShare()">More...</button>
                      </div>
                   </div>
-                  <div class="loader" style="display:none;"></div>
                </div>
-            </div>
-            <div id="remintro">
-               <p>Great moments with smooth hits!</p>
-            </div>
-            <div class="button-container">
-               <a id="play-button" class="button" href="#">
-                  <span class="material-icons">play_arrow</span>
-                  <div class="button-label">Play</div>
-               </a>
-               <a id="refresh-button" class="button" href="#">
-                  <span class="material-icons">sync</span>
-                  <div class="button-label">Sync</div>
-               </a>
-               <a id="love-button" class="button" href="#">
-                  <span class="material-icons">favorite</span>
-                  <div class="button-label">Love</div>
-               </a>
-               <a id="share-button" class="button" href="#">
-                  <span class="material-icons">share</span>
-                  <div class="button-label">Share</div>
-               </a>
-            </div>
-            <div class="stats">
-               <div class="stat-item">
-                  <span class="material-symbols-outlined">headphones</span>
-                  <p id="listeners">Listeners: <strong>249,235</strong></p>
+               <div class="overlay" id="overlay">
+                  <div class="form-container" id="form-container">
+                     <!-- Close Button -->
+                     <span class="close-button" id="closeModal">&times;</span>
+                     <h2>Request a Song</h2>
+                     <div class="error-message" id="errorMessage">Please fill out all fields.</div>
+                     <form id="requestForm">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" aria-label="Name" required>
+                        <label for="songName">Song Title</label>
+                        <textarea id="songName" name="songName" aria-label="Song Title" required></textarea>
+                        <button type="submit" aria-label="Submit Song Request">Submit Request</button>
+                     </form>
+                     <div class="thank-you" id="thankYouMessage">
+                        <h2>Thank You!</h2>
+                        <p>Thank you <span id="userName"></span>, your song request for "<span id="songTitle"></span>" has been submitted.</p>
+                        <button class="back-button" id="backButton" aria-label="Back to Form">Back</button>
+                     </div>
+                  </div>
                </div>
-               <div class="stat-item">
-                  <span class="material-symbols-outlined">playlist_add_check_circle</span>
-                  <p id="loved">Loved: <strong>32,215 times</strong></p>
-               </div>
-            </div>
-         </div>
-         <div class="intro">
-            <div class="welcome">
-               <p> NOSTALGIA AS A SERVICE</p>
-            </div>
-            <h1 id="anime">We've got</h1>
-            <div class="text-box">
-               <span>Music</span>
-               <span>Mixes</span>
-               <span>Podcasts</span>
-            </div>
-            <div class="message">
-               <p>Thousands of your fellow groove-seekers are already riding this sonic wave. Why aren't you? We're serving up the ultimate audio experience for music lovers across all eras and genres<br/>
-                  <br/>
-                  Got that one song stuck in your head. Don't sweat it! Just hit up the request button and let us handle the rest
-               </p>
-            </div>
-            <div class="button-group">
-               <button class="que" id="openRequestModal">
-                   <i class="fa fa-music"></i> Request a Song
-               </button>
-               <button class="que" id="openShareModal">
-                   <i class="fa fa-user-plus"></i> Invite Friends
-               </button>
-           </div>
-           
-           
-           <div id="shareModal" class="share-modal">
-            <div class="share-content">
-                <span class="close-btn" id="closeShareModal">&times;</span>
-                <h3>Invite Your Friends</h3>
-                <p>Share this link with your friends to invite them:</p>
-                <div class="share-buttons">
-                    <button class="share-btn" onclick="share('facebook')">Facebook</button>
-                    <button class="share-btn" onclick="share('x')">X</button>
-                    <button class="share-btn" onclick="share('whatsapp')">WhatsApp</button>
-                    <button class="share-btn" onclick="share('email')">Email</button>
-                    <button class="share-btn" onclick="shareViaWebShare()">More...</button>
-                </div>
-            </div>
-            </div>
-        
-        
-           
-            <div class="overlay" id="overlay">
-               <div class="form-container" id="form-container">
-                  <!-- Close Button -->
-                  <span class="close-button" id="closeModal">&times;</span>
-                  <h2>Request a Song</h2>
-                  <div class="error-message" id="errorMessage">Please fill out all fields.</div>
-                  <form id="requestForm">
-                     <label for="name">Name</label>
-                     <input type="text" id="name" name="name" aria-label="Name" required>
-                     <label for="songName">Song Title</label>
-                     <textarea id="songName" name="songName" aria-label="Song Title" required></textarea>
-                     <button type="submit" aria-label="Submit Song Request">Submit Request</button>
-                  </form>
-                  <div class="thank-you" id="thankYouMessage">
-                     <h2>Thank You!</h2>
-                     <p>Thank you <span id="userName"></span>, your song request for "<span id="songTitle"></span>" has been submitted.</p>
-                     <button class="back-button" id="backButton" aria-label="Back to Form">Back</button>
+               <div id="upnext">
+                  <h2>Last Played</h2>
+                  <div class="upnext-content">
+                     <p><span class="label">Artist:</span> <span id="last-artist">N/A</span></p>
+                     <p><span class="label">Song:</span> <span id="last-song">N/A</span></p>
                   </div>
                </div>
             </div>
-            <div id="upnext">
-               <h2>Last Played</h2>
-               <div class="upnext-content">
-                  <p><span class="label">Artist:</span> <span id="last-artist">N/A</span></p>
-                  <p><span class="label">Song:</span> <span id="last-song">N/A</span></p>
+            <div class="imageintro">
+               <div class="slideshow">
+                  <img src="./assets/woman.webp" alt="Image 1">
+                  <img src="./assets/white.webp" alt="Image 2">
+                  <img src="./assets/man.webp" alt="Image 3">
                </div>
-            </div>
-            
-         </div>
-         <div class="imageintro">
-            <div class="slideshow">
-               <img src="./assets/woman.webp" alt="Image 1">
-               <img src="./assets/white.webp" alt="Image 2">
-               <img src="./assets/man.webp" alt="Image 3">
-            </div>
-            <div class="info-box">
-               <p>Reminisce Radio: Because silence is overrated, and your playlist could use a glow-up!</p>
-               <div id="socials">
-                  <h3>Let's connect</h3>
-                  <div class="social_icons">
-                     <img src="./assets/facebook.png" width="30" height="30" alt="facebook">
-                     <img src="./assets/instagram.png" width="30" height="30" alt="instagram">
-                     <img src="./assets/tiktok.png" width="30" height="30" alt="tiktok">
-                     <a href="https://x.com/remioplay" target="_blank">
+               <div class="info-box">
+                  <p>Reminisce Radio: Because silence is overrated, and your playlist could use a glow-up!</p>
+                  <div id="socials">
+                     <h3>Let's connect</h3>
+                     <div class="social_icons">
+                        <img src="./assets/facebook.png" width="30" height="30" alt="facebook">
+                        <img src="./assets/instagram.png" width="30" height="30" alt="instagram">
+                        <img src="./assets/tiktok.png" width="30" height="30" alt="tiktok">
+                        <a href="https://x.com/remioplay" target="_blank">
                         <img src="./assets/x.png" width="30" height="30" alt="twitter">
-                    </a>
+                        </a>
+                     </div>
                   </div>
                </div>
             </div>
          </div>
-      </div>
          <div class="advert">
             <h3>Merry Christmas & Happy New Year</h3>
             <p>Book This space to show your ad</p>
          </div>
-      
          <div class="secondrow">
             <div id="newmusic">
                <p>TOP <b>MUSIC</b></p>
@@ -295,53 +287,51 @@
       </footer>
       <script>
          // Function to update "Last Played" section
-function updateLastPlayed() {
-    const currentArtist = document.getElementById('artist').textContent;
-    const currentSong = document.getElementById('song').textContent;
-
-    document.getElementById('last-artist').textContent = currentArtist;
-    document.getElementById('last-song').textContent = currentSong;
-}
-
-// Call this function when the track or metadata changes
-setInterval(updateLastPlayed, 1000); // Update every second for demonstration
-
+         function updateLastPlayed() {
+         const currentArtist = document.getElementById('artist').textContent;
+         const currentSong = document.getElementById('song').textContent;
+         
+         document.getElementById('last-artist').textContent = currentArtist;
+         document.getElementById('last-song').textContent = currentSong;
+         }
+         
+         // Call this function when the track or metadata changes
+         setInterval(updateLastPlayed, 10000); // Update every second for demonstration
+         
       </script>
       <script>
          // Function to fetch the current artist and song
-function fetchNowPlaying() {
-    fetch('https://remioplay.com/now-playing') // Replace with your backend's public IP
-        .then((response) => response.json())
-        .then((data) => {
+         function fetchNowPlaying() {
+         fetch('https://remioplay.com/now-playing') // Replace with your backend's public IP
+         .then((response) => response.json())
+         .then((data) => {
             // Update artist and song on the UI
             const artistElem = document.getElementById('artist');
             const songElem = document.getElementById('song');
             artistElem.textContent = data.artist || 'Unknown Artist';
             songElem.textContent = data.title || 'Unknown Song';
-        })
-        .catch((error) => console.error('Error fetching now-playing data:', error));
-}
-
-// Fetch now-playing data every 5 seconds
-setInterval(fetchNowPlaying, 5000);
+         })
+         .catch((error) => console.error('Error fetching now-playing data:', error));
+         }
+         
+         // Fetch now-playing data every 5 seconds
+         setInterval(fetchNowPlaying, 5000);
       </script>
       <script>
          const images = document.querySelectorAll('.slideshow img');
          let currentIndex = 0;
          const intervalTime = 10000; // Change image every 10 seconds
-     
+         
          function changeImage() {
              images[currentIndex].classList.remove('active'); // Remove active class from the current image
              currentIndex = (currentIndex + 1) % images.length; // Move to the next image
              images[currentIndex].classList.add('active'); // Add active class to the new image
          }
-     
+         
          // Initialize slideshow
          images[currentIndex].classList.add('active');
          setInterval(changeImage, intervalTime);
-     </script>
-     
-     
+      </script>
       <script>
          (function() {
          const playButton = document.querySelector('.play-round');

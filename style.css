@@ -6,13 +6,14 @@ body {
 	font-family: 'Comfortaa', sans-serif;
 	background: radial-gradient(circle, rgba(44, 7, 39, 0.7) 0%, rgba(12, 8, 34, 0.7) 100%);
 	background-image:
-		url("assets/cool2.png");
+		url("assets/cool1.png");
 	/* Image background */
 	background-size: cover;
 	/* Ensure the background covers the whole area */
 	background-position: center center;
 	/* Center the background image */
 	background-repeat: repeat;
+	background-blend-mode: overlay;
 	/* Prevent repeating of the image */
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 	/* Text shadow */
