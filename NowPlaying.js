@@ -1,34 +1,53 @@
-const fs = require('fs');
-const path = require('path');
-const axios = require('axios');
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
-// Path to the NowPlaying.txt file
-const filePath = path.join('C:', 'RadioDJv2', 'NowPlaying.txt');
+const app = express();
 
-// Backend URL
-const backendUrl = process.env.BACKEND_URL || 'https://remioplay.com/now-playing';
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
 
-setInterval(() => {
-    fs.readFile(filePath, 'utf-8', (err, data) => {
-        if (err) {
-            console.error(`Error reading ${filePath}:`, err.message);
-            return;
-        }
+// In-memory storage for now-playing data
+let nowPlaying = { artist: 'Unknown Artist', title: 'Unknown Song' };
 
-        // Extract song and artist (assuming "Artist - Song Title" format)
-        const [artist, title] = data.split(' - ').map((str) => str?.trim());
+// In-memory storage for the last 6 played tracks
+const lastPlayed = [];
 
-        // Validate parsed data
-        if (!artist || !title) {
-            console.error('Invalid data format in NowPlaying.txt:', data);
-            return;
-        }
+// POST endpoint to update the current "Now Playing" track
+app.post('/now-playing', (req, res) => {
+    const { artist, title } = req.body;
 
-        // Send data to the backend
-        axios.post(backendUrl, { artist, title }, { timeout: 5000 })
-            .then((response) => console.log('Now playing sent successfully:', response.data))
-            .catch((error) => {
-                console.error('Error sending now-playing data:', error.message || error);
-            });
-    });
-}, 5000); // Check every 5 seconds
+    if (!artist || !title) {
+        return res.status(400).json({ error: 'Both artist and title are required.' });
+    }
+
+    // Update the current now-playing track
+    nowPlaying = { artist, title };
+
+    // Add the track to the last played history
+    lastPlayed.unshift({ artist, title, timestamp: new Date().toISOString() });
+
+    // Keep only the last 6 entries
+    if (lastPlayed.length > 6) {
+        lastPlayed.pop();
+    }
+
+    res.status(200).json({ message: 'Now playing updated successfully.', nowPlaying, lastPlayed });
+});
+
+// GET endpoint to fetch the current "Now Playing" track
+app.get('/now-playing', (req, res) => {
+    res.json(nowPlaying);
+});
+
+// GET endpoint to fetch the last 6 played tracks
+app.get('/last-played', (req, res) => {
+    res.json(lastPlayed);
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Backend running on http://localhost:${PORT}`);
+});
