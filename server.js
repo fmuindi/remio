@@ -9,8 +9,43 @@ const port = 3000;
 
 // Middleware
 app.use(cors());
+app.use(cors({ origin: 'https://remioplay.com' }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname)));
+
+// Last played array to store up to 6 tracks
+let lastPlayed = [];
+
+// Endpoint to update now-playing data
+app.post('/update-now-playing', (req, res) => {
+    const { artist, title } = req.body;
+
+    if (!artist || !title) {
+        return res.status(400).json({ error: 'Invalid data format' });
+    }
+
+    const newTrack = { artist, title, timestamp: new Date() };
+
+    // Avoid duplicates
+    if (!lastPlayed.length || lastPlayed[0].title !== title) {
+        lastPlayed.unshift(newTrack); // Add to the beginning
+        if (lastPlayed.length > 6) {
+            lastPlayed.pop(); // Keep only the last 6 tracks
+        }
+    }
+
+    res.status(200).json({ message: 'Now-playing updated', lastPlayed });
+});
+
+// Endpoint to get last played tracks
+app.get('/last-played', (req, res) => {
+    res.json(lastPlayed);
+});
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
 
 // MySQL connection
 const db = mysql.createConnection({
