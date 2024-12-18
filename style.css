@@ -1000,8 +1000,6 @@ h1 {
 	border-radius: 5px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 	margin-top: 20px;
-	/* Add space between sections */
-	transition: transform 0.3s, box-shadow 0.3s;
 	cursor: pointer;
 }
 
@@ -1014,37 +1012,30 @@ h1 {
 }
 
 /* Container for Spotify iframes */
+/* Container for Spotify iframes */
 .spotify-container {
-	margin-top: 1px;
-	/* Spacing between each iframe */
-	padding: 10px;
-	/* Padding around the iframes */
-	background-color: rgba(0, 0, 0, 0.1);
-	/* Light background color for contrast */
-	border-radius: 12px;
-	/* Smooth rounded corners */
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-	/* Shadow effect for a modern look */
-}
-
-/* Hover effect for Spotify iframe container */
-.spotify-container:hover {
-	transform: scale(1.01);
-	/* Slight zoom on hover */
-	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-	/* More pronounced shadow on hover */
+    margin-top: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Style for Spotify iframes */
 .spotify-container iframe {
-	width: 100%;
-	height: auto;
-	/* Retains original height */
-	border: none;
-	/* Removes border */
-	border-radius: 12px;
-	/* Smooth rounded corners for iframe itself */
+    width: 100%;
+    height: auto;
+    border: none;
+    border-radius: 12px;
+    margin: 0; /* Remove all default margins */
+    display: block; /* Avoid inline spacing issues */
+    padding: 0; /* Ensure no padding */
 }
+
+/* Add controlled spacing between adjacent iframes */
+.spotify-container iframe + iframe {
+    margin-top: 5px; /* Add a small gap between iframes */
+}
+
 
 #hotmix {
 	flex: 1 1 20%;
