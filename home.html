@@ -13,8 +13,15 @@
       <link rel="icon" href="./assets/favicon_io/favicon.ico" type="image/x-icon">
       <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
       <link rel='stylesheet' href='home.css' media='all' />
+      
    </head>
    <body>
+      <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" 
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0&appId=625545389997765&autoLogAppEvents=1">
+    </script>
+      
       <div id="loading-indicator">
          <img src="./assets/remiologo.png" alt="Loading..." />
       </div>
@@ -196,7 +203,7 @@
                   <img src="./assets/man.webp" alt="Image 3">
                </div>
                <div class="info-box">
-                  <p>Reminisce Radio: Because silence is overrated, and your playlist could use a glow-up!</p>
+                  
                   <div id="socials">
                      <h3>Let's connect</h3>
                      <div class="social_icons">
@@ -209,6 +216,7 @@
                      </div>
                   </div>
                </div>
+               <div class="fb-comments" data-href="https://remioplay.com/" data-width="70" data-numposts="5"></div>
             </div>
          </div>
          <div class="advert">
@@ -217,15 +225,20 @@
          </div>
          <div class="secondrow">
             <div id="newmusic">
-               <p>TOP <b>MUSIC</b></p>
+               <p>TOP <b>HITS</b></p>
                <div id="topglobal" style="margin-top: 0px;"></div>
-               <div class="spotify-container">
-                  <iframe src="https://open.spotify.com/embed/playlist/37i9dQZEVXbNG2KDcFcKOF?utm_source=generator" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+               <div class="spotify">
+                  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZEVXbNG2KDcFcKOF?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                </div>
                <div id="topusa" style="margin-top: 10px;"></div>
-               <div class="spotify-container">
-                  <iframe src="https://open.spotify.com/embed/playlist/37i9dQZEVXbLp5XoPON0wI?utm_source=generator" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+               <div class="spotify">
+                  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZEVXbLp5XoPON0wI?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                </div>
+               <div id="topkenya2024" style="margin-top: 10px;"></div>
+               <div class="spotify">
+                  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWUXSVcZljKtz?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+               </div>
+               
             </div>
             <div id="hotmix">
                <p>TOP <b>MIXES</b></p>
@@ -259,15 +272,8 @@
                <p>TOP <b>PODCAST</b></p>
                <div class="spotify-container">
                   <iframe src="https://www.listennotes.com/podcasts/the-optimal-life-with-nate-haber-nate-haber-JCrycbmW1fd/embed/" height="600px" width="100%" style="width: 1px; min-width: 100%;" loading="lazy" frameborder="0" scrolling="no"></iframe>
+                  <iframe src="https://www.listennotes.com/podcasts/hear-this-podcast-muindi-w8e4RrlsJTY/embed/" height="600px" width="100%" style="width: 1px; min-width: 100%; margin-top: 10px;" loading="lazy" frameborder="0" scrolling="no"></iframe>
                </div>
-               <p>
-                  We're unpacking life's spiciest topics with raw honesty and zero filter. Oh, and get this: no tea stays unspilled, even the taboo stuff!
-               </p>
-               <p style="display: flex; align-items: center; font-weight: bold;">
-                  Our latest episodes on:
-                  <a href="#"><img src="./assets/spotify.png" width="30" height="30" alt="spotify" class="social-icon"></a>
-                  <a href="#"><img src="./assets/youtube.png" width="33" height="33" alt="listennotes" class="social-icon"></a>
-               </p>
             </div>
          </div>
       </div>
