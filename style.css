@@ -772,7 +772,7 @@ h1 {
 
 /* Hover effect for the entire box */
 .info-box {
-    padding: 15px; /* Reduced padding for a more compact design */
+    padding: 25px; /* Reduced padding for a more compact design */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -790,10 +790,15 @@ h1 {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Slightly softer shadow */
 }
 
+/* Facebook Comments Styling */
+.fb-comments {
+    margin-top: 20px;
+    text-align: left; /* Align comments plugin with the layout */
+}
 /* Socials section */
 #socials {
     padding: 10px; /* Reduced padding */
-    margin-top: 5px;
+    margin-top: 20px;
     text-align: center;
 }
 
