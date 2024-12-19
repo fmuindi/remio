@@ -149,6 +149,11 @@ header.fixed {
 		display: none;
 	}
 }
+@media (max-width: 600px) {
+	.flexbox {
+		display: none;
+	}
+}
 @media (max-width: 480px) {
 	.flexbox {
 		display: none;
@@ -174,7 +179,7 @@ header.fixed .navbar {
 }
 
 .station-logo {
-    max-width: 450px;
+    max-width: 150px;
     flex-shrink: 0; /* Prevent logo from shrinking */
     height: auto;
     transition: max-width 0.3s ease;
@@ -182,13 +187,13 @@ header.fixed .navbar {
 
 @media (max-width: 768px) {
     .station-logo {
-        max-width: 250px;
+        max-width: 100px;
     }
 }
 
 @media (max-width: 480px) {
     .station-logo {
-        max-width: 150px;
+        max-width: 70px;
     }
 }
 
@@ -209,7 +214,7 @@ header.fixed .navbar {
 .nav-menu a {
     text-decoration: none;
     color: #E5E4E2;
-    font-size: 0.9rem;
+    font-size: 12px;
     font-weight: 400;
     padding: 8px 15px;
     border-radius: 8px;
@@ -385,26 +390,26 @@ header.fixed .navbar {
 	.stats {
 	   flex-direction: column;
 	   padding: 10px;
-	   max-width: 280px;
+	   max-width: 200px;
 	}
 	.stat-item {
-	   margin-bottom: 10px;
+	   margin-bottom: 7px;
 	}
 	.stat-item span {
-	   font-size: 20px;
+	   font-size: 17px;
 	}
 	.stat-item p {
-	   font-size: 12px;
+	   font-size: 10px;
 	}
  }
 
 
 
 .flex_1 {
-	flex: 1 1 20%;
+	flex: 1 1 30%;
 	/* Takes 20% of the width */
 	width: 100%;
-	background: #60057F;
+	background: linear-gradient(135deg, #6A1B9A, #D81B60);
 	border-radius: 20px;
 	overflow: hidden;
 	align-items: center;
@@ -421,16 +426,14 @@ header.fixed .navbar {
 
 .branding {
 	display: flex;
+	font-size: 12px;
+	color:#E5E4E2;
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
 }
 
-.station-logo {
-	width: 200px;
-	height: auto;
-	margin-bottom: 0.5em;
-}
+
 
 .player {
 	text-align: center;
@@ -547,7 +550,7 @@ header.fixed .navbar {
 	cursor: default;
 	border: initial;
 	margin: 2px;
-	height: 12px;
+	height: 10px;
 	background: #ff0000;
 	border-radius: 15px;
 }
@@ -641,8 +644,7 @@ h1 {
 	border-radius: 5px;
 	text-decoration: none;
 }
-
-.intro #upnext {
+upnext {
 	flex: 2 1 30%;
 	align-items: center;
     border-radius: 5px;
@@ -656,26 +658,26 @@ h1 {
 
 /* Add responsive styles */
 @media (max-width: 768px) { /* Tablet and smaller screens */
-    .intro #upnext {
+    #upnext {
         flex: 1 1 100%; /* Full width */
         margin-right: 0; /* Remove right margin for stacking */
     }
 }
 
 @media (max-width: 480px) { /* Mobile phones */
-    .intro #upnext {
+    #upnext {
         padding: 15px; /* Adjust padding for smaller screens */
         margin-top: 15px; 
 		margin-bottom: 15px;/* Reduce margin between elements */
     }
 }
 
-.intro #upnext h2 {
+#upnext h2 {
 	font-size: 1rem;
 	font-weight: bold;
 }
 
-.intro #upnext .upnext-content p {
+#upnext .upnext-content p {
 	margin: 0; /* Remove extra space */
 	font-size: 0.6rem; /* Slightly smaller text */
 	display: flex;
@@ -1320,7 +1322,8 @@ h1 {
 	gap: 10px;
 	justify-content: center;  /* Centers the buttons horizontally */
 	align-items: center;      /* Ensures vertical alignment */
-	margin-top: 20px;         /* Adds space above the button container */
+	margin-top: 20px;
+	margin-bottom: 20px;         /* Adds space above the button container */
  }
  
  .button {
@@ -1329,7 +1332,7 @@ h1 {
 	align-items: center;
 	justify-content: center;
 	padding: 10px;
-	background: #000000;
+	background:#2b0036;
 	color: #E5E4E2;
 	border-radius: 10%;
 	text-decoration: none;
@@ -1428,10 +1431,10 @@ h1 {
 
 .volume-control input[type="range"]::-webkit-slider-thumb {
 	-webkit-appearance: none;
-	width: 20px;
-	height: 20px;
+	width: 10px;
+	height: 10px;
 	border-radius: 50%;
-	background: #f00;
+	background: rgb(204, 0, 255);
 	cursor: pointer;
 }
 
@@ -1494,7 +1497,7 @@ h1 {
 		font-size: 0.7rem;
 	}
 	.stats .stat-item p {
-		font-size: 8px;
+		font-size: 9px;
 	}
 }
 @media (max-width: 480px) {
@@ -1503,7 +1506,7 @@ h1 {
 		height: 50px;
 	}
 	.stat-item span {
-		font-size: 20px;
+		font-size: 15px;
 	}
 }
 @media (max-width: 480px) {
@@ -1686,20 +1689,13 @@ h1 {
 .remibox, .intro, .imageintro {
     flex: 1 1 30%; /* Adjusts each section to take 30% of available width */
     max-width: calc(33.33% - 20px); /* Ensures consistent width for three columns */
-    background-color: rgba(73, 0, 116, 0.11); /* For visual separation, can be adjusted */
     border-radius: 20px;
     padding: 20px;
     box-sizing: border-box;
 }
 
 /* Fine-tune remibox */
-.remibox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: rgba(15, 0, 27, 0.822);
-}
+
 
 /* Customize intro section */
 .intro {

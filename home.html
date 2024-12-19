@@ -81,7 +81,7 @@
                         </div>
                         <br /><br />
                         <div class="volume-control">
-                           <span class="iconify" data-icon="fa:volume-down" style="color: #ffffff; height:14px;"></span>
+                           <span class="iconify" data-icon="fa:volume-down" style="color: #ffffff; height:10px;"></span>
                            <input
                               title="Volume"
                               id="vol-control"
@@ -92,7 +92,7 @@
                               value="100"
                               onchange="setVolume()"
                               />
-                           <span class="iconify" data-icon="fa:volume-up" style="color: #ffffff; height:14px;"></span>
+                           <span class="iconify" data-icon="fa:volume-up" style="color: #ffffff; height:10px;"></span>
                         </div>
                      </div>
                      <div class="loader" style="display:none;"></div>
@@ -133,7 +133,13 @@
                <div id="remintro">
                   <p>Great moments with smooth hits!</p>
                </div>
-               
+               <div id="upnext">
+                  <h2>Last Played</h2>
+                  <div class="upnext-content">
+                     <p><span class="label">Artist:</span> <span id="last-artist">N/A</span></p>
+                     <p><span class="label">Song:</span> <span id="last-song">N/A</span></p>
+                  </div>
+               </div> 
             </div>
             <div class="intro">
                <div class="welcome">
@@ -193,13 +199,7 @@
                      </div>
                   </div>
                </div>
-               <div id="upnext">
-                  <h2>Last Played</h2>
-                  <div class="upnext-content">
-                     <p><span class="label">Artist:</span> <span id="last-artist">N/A</span></p>
-                     <p><span class="label">Song:</span> <span id="last-song">N/A</span></p>
-                  </div>
-               </div>
+               
             </div>
             <div class="imageintro">
                <div class="slideshow">
