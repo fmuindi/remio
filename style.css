@@ -6,7 +6,7 @@ body {
 	font-family: 'Comfortaa', sans-serif;
 	background: radial-gradient(circle, rgba(44, 7, 39, 0.7) 0%, rgba(12, 8, 34, 0.7) 100%);
 	background-image:
-		url("assets/cool1.png");
+		url("assets/background.webp");
 	/* Image background */
 	background-size: cover;
 	/* Ensure the background covers the whole area */
@@ -98,7 +98,7 @@ header.fixed {
 
 .search>div:after {
 	content: "";
-	background: white;
+	background: #E5E4E2;
 	width: 3px;
 	height: 10px;
 	position: absolute;
@@ -109,7 +109,7 @@ header.fixed {
 }
 
 .search>div>input {
-	color: white;
+	color: #E5E4E2;
 	font-size: 12px;
 	/* Reduced font size */
 	background: transparent;
@@ -119,7 +119,7 @@ header.fixed {
 	/* Reduced height */
 	padding: 3px;
 	/* Adjusted padding */
-	border: solid 2px white;
+	border: solid 2px #E5E4E2;
 	/* Keep border thickness */
 	outline: none;
 	border-radius: 20px;
@@ -208,7 +208,7 @@ header.fixed .navbar {
 
 .nav-menu a {
     text-decoration: none;
-    color: #FFFFFF;
+    color: #E5E4E2;
     font-size: 0.9rem;
     font-weight: 400;
     padding: 8px 15px;
@@ -232,7 +232,7 @@ header.fixed .navbar {
 .hamburger div {
     width: 25px;
     height: 2px;
-    background-color: #fff;
+    background-color: #E5E4E2;
     margin: 4px;
     transition: 0.3s ease;
 }
@@ -332,102 +332,71 @@ header.fixed .navbar {
 }
 
 
-.remibox .button {
-	display: block;
-	width: 100%;
-	/* Adjust width percentage to your liking */
-	max-width: 350px;
-	/* Limit the max-width to prevent overflow */
-	padding: 15px;
-	/* Adjust padding for better appearance */
-	margin: 20px auto;
-	/* Center the button with auto margins */
-	text-align: center;
-	border-radius: 5px;
-	text-decoration: none;
-}
-
 /* Container for stats */
 /* Container for stats within remibox */
 /* Container for stats within remibox */
 .stats {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-between;  /* Ensures space between the stat items */
 	align-items: center;
-	background: linear-gradient(135deg, #1c023be1, #000000de);
-	padding: 10px;
-	border-radius: 8px;
+	padding: 15px;
+	border-radius: 12px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	color: white;
-	width: 100%;
-	max-width: 300px; /* Adjusted width to fit within remibox */
-	margin: 10px 0; /* Added margin for spacing */
-	transition: transform 0.3s ease;
+	color: #E5E4E2;
+	margin: 15px auto;
+	width: 80%;
+	max-width: 350px;
 }
 
-/* Individual stat item styling */
 .stat-item {
 	display: flex;
 	align-items: center;
-	gap: 5px;
+	gap: 8px;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Icons styling */
 .stat-item span {
-	font-size: 25px; /* Smaller icon size */
+	font-size: 18px;
 	color: #FFD700;
 	transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* Stat text styling */
 .stat-item p {
-	font-size: 8px; /* Reduced font size for better fit */
-	color: rgba(255, 255, 255, 0.767);
+	font-size: 10px;
+	color: rgba(255, 255, 255, 0.9);
 	margin: 0;
 	font-weight: 600;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Highlight numbers */
 .stat-item p strong {
-	font-size: 10px; /* Smaller font for numbers */
+	font-size: 16px;
 	font-weight: 700;
 	color: #FFD700;
 	text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
-
-/* Hover effect */
-.stat-item:hover {
-	transform: scale(1.05);
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-.stat-item:hover span {
+ 
+ .stat-item:hover span {
 	transform: rotate(10deg);
-	color: #FFF59D;
-}
-
-/* Media query for responsive design */
-@media screen and (max-width: 768px) {
+	color: #E5E4E2;
+ }
+ 
+ @media screen and (max-width: 768px) {
 	.stats {
-		flex-direction: column;
-		padding: 8px;
-		max-width: 200px; /* Adjust for smaller screens */
+	   flex-direction: column;
+	   padding: 10px;
+	   max-width: 280px;
 	}
-
 	.stat-item {
-		margin-bottom: 8px;
+	   margin-bottom: 10px;
 	}
-
 	.stat-item span {
-		font-size: 14px; /* Adjust icon size */
+	   font-size: 20px;
 	}
-
 	.stat-item p {
-		font-size: 10px; /* Smaller text for mobile */
+	   font-size: 12px;
 	}
-}
+ }
 
 
 
@@ -438,13 +407,15 @@ header.fixed .navbar {
 	background: #60057F;
 	border-radius: 20px;
 	overflow: hidden;
+	align-items: center;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .background {
 	padding: 1.5em 0;
 	margin: 1em;
 	background: radial-gradient(circle, rgba(255, 0, 230, 1) 0%, rgba(96, 5, 127, 1) 100%);
-	border-bottom: 3px solid #FFFFFF;
+	border-bottom: 3px solid #E5E4E2;
 	border-radius: 20px;
 }
 
@@ -463,14 +434,14 @@ header.fixed .navbar {
 
 .player {
 	text-align: center;
-	color: #FFFFFF;
+	color: #E5E4E2;
 }
 
 .audioPlayer {
 	min-height: 100%;
 	background-color: #60057F;
 	text-align: left;
-	color: #FFFFFF;
+	color: #E5E4E2;
 	box-shadow: inset -7px 0 9px -7px rgba(134, 130, 130, 0.24);
 	flex: 1;
 	display: flex;
@@ -543,7 +514,7 @@ header.fixed .navbar {
 
 #song,
 #artist {
-	color: #FFFFFF;
+	color: #E5E4E2;
 }
 
 #song {
@@ -586,7 +557,7 @@ i.fa-volume-down,
 i.fa-volume-up {
 	margin: 2px;
 	font-size: 15px;
-	color: #FFFFFF;
+	color: #E5E4E2;
 }
 
 .fa-volume-down {
@@ -623,7 +594,7 @@ i.fa-volume-up {
 .intro {
 	flex: 2 1 30%;
 	background-color: transparent;
-	color: #FFFFFF;
+	color: #E5E4E2;
 	padding: 20px;
 	margin-right: 20px;
 	width: 100%;
@@ -631,9 +602,9 @@ i.fa-volume-up {
 }
 
 .intro h1 {
-	font-size: 5rem;
+	font-size: 40px;
 	font-weight: bold;
-	color: white;
+	color: #E5E4E2;
 	position: relative;
 	overflow: hidden;
 	margin-bottom: 0;
@@ -649,7 +620,7 @@ h1 {
 
 @media (max-width: 768px) {
 	h1 {
-		font-size: 1.5rem;
+		font-size: 10px;
 		/* Adjust for mobile */
 	}
 }
@@ -664,7 +635,7 @@ h1 {
 	width: 100%;
 	padding: 10px;
 	margin: 20px 0;
-	background-color: #fff;
+	background-color: #E5E4E2;
 	color: #000;
 	text-align: center;
 	border-radius: 5px;
@@ -676,7 +647,7 @@ h1 {
 	align-items: center;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.1);
-    color: #FFFFFF;
+    color: #E5E4E2;
     padding: 20px;
     margin-right: 20px;
     width: 100%;
@@ -766,16 +737,16 @@ h1 {
 	position: relative;
 	z-index: 1;
 	text-align: center;
-	color: white;
+	color: #E5E4E2;
 	transition: transform 0.3s ease;
 }
 
 /* Hover effect for the entire box */
 .info-box {
-    padding: 25px; /* Reduced padding for a more compact design */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 30px; /* Adjusted padding for better spacing */
+    background: linear-gradient(135deg, #4A148C, #AD1457); /* Enhanced gradient */
+    color: #E5E4E2;
 }
-
 .info-box:hover {
     transform: translateY(-3px); /* Slightly smaller lift effect */
     box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.25), 0px 10px 15px rgba(0, 0, 0, 0.1); /* Reduced shadow intensity */
@@ -784,7 +755,7 @@ h1 {
 /* Text styling */
 .info-box p {
     font-size: 14px; /* Reduced font size */
-    color: #ffffffcc;
+    color: #E5E4E2cc;
     margin-bottom: 10px; /* Smaller gap between text */
     font-weight: 500;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Slightly softer shadow */
@@ -792,7 +763,8 @@ h1 {
 
 /* Facebook Comments Styling */
 .fb-comments {
-    margin-top: 20px;
+    margin-top: 0px;
+	width: 80%; /* Ensures full-width responsive design */
     text-align: left; /* Align comments plugin with the layout */
 }
 /* Socials section */
@@ -803,9 +775,9 @@ h1 {
 }
 
 #socials h3 {
-    font-size: 16px; /* Reduced font size */
+    font-size: 12px; /* Reduced font size */
     margin-bottom: 10px; /* Smaller gap between title and icons */
-    color: #ffffffee;
+    color: #E5E4E2ee;
     text-transform: uppercase;
     letter-spacing: 1.5px; /* Slightly reduced spacing */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
@@ -880,19 +852,6 @@ h1 {
 	}
 }
 
-
-/* Enhanced button style */
-.button {
-	background-color: #FF00E6;
-	color: #FFFFFF;
-	padding: 12px 20px;
-	border: none;
-	border-radius: 8px;
-	transition: background-color 0.3s ease;
-	text-transform: uppercase;
-}
-
-/* Footer styling */
 /* Footer styles */
 .top-footer {
 	background-color: #1e001f86;
@@ -1010,7 +969,7 @@ h1 {
 
 #newmusic p {
 	font-family: 'Comfortaa', sans-serif;
-	color: #ffffff;
+	color: #E5E4E2;
 	font-size: 1.5rem;
 	line-height: 1.4;
 	text-align: center;
@@ -1063,7 +1022,7 @@ h1 {
 
 #hotmix p {
 	font-family: 'Comfortaa', sans-serif;
-	color: #ffffff;
+	color: #E5E4E2;
 	font-size: 1.5rem;
 	line-height: 1.4;
 	text-align: center;
@@ -1113,7 +1072,7 @@ h1 {
 	width: 100%;
 	padding: 10px;
 	margin: 20px 0;
-	background-color: #fff;
+	background-color: #E5E4E2;
 	color: #000;
 	text-align: center;
 	border-radius: 5px;
@@ -1142,7 +1101,7 @@ h1 {
 
 #hearthis p {
 	font-family: 'Comfortaa', sans-serif;
-	color: #ffffff;
+	color: #E5E4E2;
 	font-size: 1.5rem;
 	line-height: 1.4;
 	text-align: center;
@@ -1171,26 +1130,7 @@ h1 {
 
 }
 
-.stats {
-	display: inline-flex;
-	/* Makes the icon and text appear in one line */
-	align-items: center;
-}
 
-.stats span {
-	vertical-align: middle;
-	margin-right: 8px;
-	/* Adds space between the icon and the text */
-
-
-}
-
-.stats p {
-	vertical-align: middle;
-	margin-right: 8px;
-	/* Adds space between the icon and the text */
-	font-size: 0.9em;
-}
 
 .button-group {
     display: flex;
@@ -1203,22 +1143,21 @@ h1 {
     margin: 8px;
     padding: 12px 30px; /* Reduced padding for a smaller button */
     text-align: center;
-    text-transform: uppercase;
     transition: 0.5s;
     background-size: 200% auto;
-    color: white;
+    color: #E5E4E2;
     box-shadow: 0 0 15px #35273481;
     border-radius: 8px; /* Slightly smaller border radius */
     display: flex; /* Flexbox for icon and text alignment */
     align-items: center;
     gap: 8px; /* Reduced space between icon and text */
     justify-content: center;
-    font-size: 14px; /* Reduced font size */
+    font-size: 12px; /* Reduced font size */
 }
 
 .que:hover {
     background-position: right center;
-    color: #fff;
+    color: #E5E4E2;
     text-decoration: none;
 }
 
@@ -1270,9 +1209,9 @@ h1 {
 }
 
 .text-box {
-	font-size: 4rem;
+	font-size: 40px;
 	font-weight: bold;
-	color: white;
+	color: #E5E4E2;
 	position: relative;
 	overflow: hidden;
 	height: 100px;
@@ -1359,7 +1298,7 @@ h1 {
 }
 
 .message p {
-	font-size: 1rem;
+	font-size: 12px;
     line-height: 1.6;
     color: #e0e0e0; /* Light gray for a soft look */
     text-align: justify;
@@ -1371,7 +1310,7 @@ h1 {
 }
 
 .message p:hover {
-    color: #ffffff; /* Brighter text on hover */
+    color: #E5E4E2; /* Brighter text on hover */
     transition: color 0.3s ease;
 }
 
@@ -1379,51 +1318,49 @@ h1 {
 .button-container {
 	display: flex;
 	gap: 10px;
-	justify-content: center;
-	/* Ensure even spacing between buttons and center alignment */
-}
-
-/* General button styling */
-.button {
+	justify-content: center;  /* Centers the buttons horizontally */
+	align-items: center;      /* Ensures vertical alignment */
+	margin-top: 20px;         /* Adds space above the button container */
+ }
+ 
+ .button {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	padding: 10px;
-	background: #2F0743;
-	color: white;
-	border-radius: 50%;
+	background: #000000;
+	color: #E5E4E2;
+	border-radius: 10%;
 	text-decoration: none;
-	width: 60px;
-	height: 60px;
+	width: 40px;
+	height: 40px;
 	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 	transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s ease;
 	position: relative;
-}
-
-.button span {
-	font-size: 30px;
+ }
+ 
+ .button span {
+	font-size: 20px;
 	display: block;
 	text-align: center;
 	transition: transform 0.3s ease;
-}
-
-/* Labels below the icons */
-.button-label {
-	font-size: 12px;
+ }
+ 
+ .button-label {
+	font-size: 10px;
 	margin-top: 2px;
 	text-align: center;
-	color: white;
+	color: #E5E4E2;
 	letter-spacing: 0.5px;
 	transition: color 0.3s ease;
-}
-
-/* Hover and active states for buttons */
-.button:hover {
+ }
+ 
+ .button:hover {
 	background: linear-gradient(145deg, #6200ea, #880551);
 	box-shadow: 0 8px 15px rgba(113, 0, 128, 0.678);
 	transform: scale(1.1);
-}
+ }
 
 .button:active {
 	transform: scale(0.95);
@@ -1633,7 +1570,7 @@ h1 {
 
 /* Modal Content */
 .share-content {
-    background: #fff;
+    background: #E5E4E2;
     padding: 25px;
     border-radius: 12px;
     width: 90%;
@@ -1698,7 +1635,7 @@ h1 {
     max-width: 48%;
     padding: 12px;
     background: linear-gradient(to right, #834d9b 0%, #d04ed6 51%, #834d9b 100%);
-    color: white;
+    color: #E5E4E2;
     border: none;
     border-radius: 25px;
     font-size: 14px;
@@ -1769,7 +1706,7 @@ h1 {
     flex: 2 1 30%; /* Slightly larger width compared to remibox and imageintro */
     text-align: left;
     background-color: transparent; /* Matches original style */
-    color: #FFFFFF;
+    color: #E5E4E2;
     padding: 20px;
 }
 
@@ -1825,5 +1762,5 @@ h1 {
 .secondrow > div > p {
     margin-bottom: 10px;
     font-weight: bold;
-    color: white
+    color: #E5E4E2
 }
