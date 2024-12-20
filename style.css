@@ -1837,3 +1837,48 @@ h1 {
     font-weight: bold;
     color: #E5E4E2
 }
+.about-us-story {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    line-height: 1.6;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #e0e0e0; /* Light gray for a soft look */
+    text-align: justify;
+    margin: auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.about-us-story h2 {
+    font-size: 24px;
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+.about-us-story p {
+    margin-bottom: 15px;
+	font-size: 12px;
+}
+
+.about-us-story p:last-child {
+    margin-bottom: 0;
+}
+.read-more-btn {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #E5E4E2;
+    padding: 10px 20px;
+	font-family: 'comfortaa', sans-serif;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.read-more-btn:hover {
+    background-color: #0056b3;
+}
+

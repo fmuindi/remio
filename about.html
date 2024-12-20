@@ -1,51 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Reminisce Radio</title>
+    <title>Remio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6b02184769.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="icon" href="./assets/favicon_io/favicon.ico" type="image/x-icon">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Comfortaa', Arial, sans-serif;
             background-color: #f4f4f9;
-            color: #333;
-            line-height: 1.6;
             margin: 0;
             padding: 0;
+            color: #333;
         }
+    
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+    
+        .container img {
+            width: 500px;
+            height: auto;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+    
+        .text-content {
+            flex: 1;
+        }
+    
+        .text-content p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+    
         header {
             background-color: #1d3557;
             color: white;
-            text-align: center;
             padding: 1.5rem 0;
+            text-align: center;
         }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        h1 {
-            font-size: 2.5em;
-            color: #e63946;
-        }
-        p {
-            font-size: 1.1em;
+    
+        header img {
+            max-width: 150px;
+            margin-bottom: 10px;
         }
     </style>
+    
 </head>
 <body>
+    <header>
+        <img src="./assets/remioplay.svg" alt="Remio Logo">
+        <h1>About Us</h1>
+    </header>
 
-<header>
-    <h1>About Us</h1>
-</header>
+    <div class="container">
+        <img src="./assets/man.webp" alt="Remio">
+        <div class="text-content">
+            <p>Remember that feeling when a song hits you right in the heart and suddenly you're transported back in time? That's exactly what sparked the idea for Remio. It's a beautiful blend of those moments when you're lost in memories and the magic that only music can bring.</p>
 
-<div class="container">
-    <p>Welcome to Reminisce Radio, your go-to station for timeless hits and unforgettable classics. We are passionate about delivering music that takes you on a journey through decades of musical brilliance. Whether you're reminiscing about the good old days or discovering legendary tunes for the first time, we’re here to provide an unmatched listening experience.</p>
+            <p>We named it Remio by bringing together two things we all love - those sweet moments when we reminisce, and the warm companion that radio has always been in our lives. You know that feeling when you're driving alone, and suddenly your favorite old song comes on? Your heart skips a beat, and you're right back there - maybe it's that summer night when you first held hands with someone special, or that road trip with your best friends where you sang at the top of your lungs.</p>
 
-    <p>At Reminisce Radio, we believe music transcends time, and we’re dedicated to curating playlists that span genres and generations. Our mission is to bring people together through the universal language of music. Tune in, and let us take you back!</p>
-</div>
+            <p>And there's a little secret in the name too - it's kind of like Romeo (yes, that Romeo!). Because just like that timeless love story, music has this amazing power to touch our souls and bring people together. It doesn't matter where you're from or what language you speak - when the right song plays, we all feel it in our hearts.</p>
 
+            <p>But Remio isn't just another place to play music. Think of it as that cozy corner in your favorite café where every song feels like it was picked just for you. It's where that first dance at your wedding lives forever, where your mom's favorite lullaby still echoes, and where that graduation song still makes you tear up a little.</p>
+
+            <p>We built Remio with so much love because we believe in the power of those goosebump moments when a song says exactly what your heart is feeling. It's for those times when you need to feel less alone, when you want to celebrate, or when you just need to close your eyes and let the music hold you.</p>
+
+            <p>This is your place now - where every song tells your story, where every melody feels like coming home. Welcome to Remio, friend. Let's make some beautiful memories together.</p>
+        </div>
+    </div>
 </body>
 </html>
