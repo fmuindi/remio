@@ -66,15 +66,15 @@ app.post('/submit-song-request', (req, res) => {
     }
 
     const query = 'INSERT INTO requests (name, song_title) VALUES (?, ?)';
-    db.query(query, [name, songName], (err) => {
+    db.query(query, [name, songName], (err, result) => {
         if (err) {
             console.error('Error inserting data into the database:', err);
             return res.status(500).json({ success: false, error: 'Database error.' });
         }
+        console.log('Song request submitted successfully:', result);
         res.json({ success: true, message: 'Song request submitted successfully.' });
     });
 });
-
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
