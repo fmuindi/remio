@@ -8,26 +8,17 @@ const app = express();
 const port = 3000;
 
 // Middleware
-app.use(cors({ origin: '*' }));  // This handles CORS; you can customize the origins if necessary
+app.use(cors({ origin: '*' }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname)));
 
-// MySQL connection
-const db = mysql.createConnection({
-    host: '16.16.247.10', // MySQL is running on the same EC2 instance
-    user: 'root', // Your MySQL username
-    password: 'nightmare', // Your MySQL password
-    database: 'song_requests', // Your database name
-    port: 3306 // Default MySQL port
-});
-
-// Connect to the database
-db.connect((err) => {
-    if (err) {
-        console.error('Error connecting to the database:', err.stack);
-        return;
-    }
-    console.log('Connected to the MySQL database.');
+// MySQL connection pool
+const pool = mysql.createPool({
+    host: '16.16.247.10',
+    user: 'root',
+    password: 'nightmare',
+    database: 'song_requests',
+    port: 3306
 });
 
 // In-memory storage for now-playing data
@@ -66,7 +57,8 @@ app.post('/submit-song-request', (req, res) => {
     }
 
     const query = 'INSERT INTO requests (name, song_title) VALUES (?, ?)';
-    db.query(query, [name, songName], (err, result) => {
+    
+    pool.query(query, [name, songName], (err, result) => {
         if (err) {
             console.error('Error inserting data into the database:', err.stack);
             return res.status(500).json({ success: false, error: 'Database error.' });
