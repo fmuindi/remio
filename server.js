@@ -8,7 +8,7 @@ const app = express();
 const port = 3000;
 
 // Middleware
-app.use(cors());
+app.use(cors({ origin: '*' }));  // This handles CORS; you can customize the origins if necessary
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname)));
 
@@ -24,7 +24,7 @@ const db = mysql.createConnection({
 // Connect to the database
 db.connect((err) => {
     if (err) {
-        console.error('Error connecting to the database:', err);
+        console.error('Error connecting to the database:', err.stack);
         return;
     }
     console.log('Connected to the MySQL database.');
@@ -68,13 +68,14 @@ app.post('/submit-song-request', (req, res) => {
     const query = 'INSERT INTO requests (name, song_title) VALUES (?, ?)';
     db.query(query, [name, songName], (err, result) => {
         if (err) {
-            console.error('Error inserting data into the database:', err);
+            console.error('Error inserting data into the database:', err.stack);
             return res.status(500).json({ success: false, error: 'Database error.' });
         }
         console.log('Song request submitted successfully:', result);
         res.json({ success: true, message: 'Song request submitted successfully.' });
     });
 });
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
