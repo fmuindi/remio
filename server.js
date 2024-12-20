@@ -14,9 +14,9 @@ app.use(express.static(path.join(__dirname)));
 
 // MySQL connection
 const db = mysql.createConnection({
-    host: 'localhost', // MySQL is running on the same EC2 instance
-    user: 'admin', // Your MySQL username
-    password: 'admin', // Your MySQL password
+    host: '16.16.247.10', // MySQL is running on the same EC2 instance
+    user: 'root', // Your MySQL username
+    password: 'nightmare', // Your MySQL password
     database: 'song_requests', // Your database name
     port: 3306 // Default MySQL port
 });
