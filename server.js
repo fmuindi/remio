@@ -4,8 +4,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 
-const http = require('http');
-
 const app = express();
 const port = 3000;
 
