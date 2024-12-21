@@ -3,19 +3,11 @@ const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
-const fs = require('fs');  // Add this line to import fs
 
-const https = require('https');  // Import https module
+const http = require('http');
 
 const app = express();
 const port = 3000;
-
-// Path to SSL certificates
-const options = {
-    key: fs.readFileSync('/etc/letsencrypt/archive/remioplay.com/privkey1.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/archive/remioplay.com/cert1.pem'),
-    ca: fs.readFileSync('/etc/letsencrypt/archive/remioplay.com/chain1.pem')
-};
 
 // Middleware
 app.use(cors({ origin: '*' }));
