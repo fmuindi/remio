@@ -35,17 +35,30 @@ app.post('/now-playing', (req, res) => {
     nowPlaying = { artist, title };
     console.log('Now-playing updated:', nowPlaying);
 
-    // Insert the now-playing data into the MySQL table
-    const query = 'INSERT INTO now_playing_history (artist, title) VALUES (?, ?)';
-    pool.query(query, [artist, title], (err, result) => {
+    // Check if the song already exists in the now_playing_history table
+    const checkQuery = 'SELECT * FROM now_playing_history WHERE artist = ? AND title = ? LIMIT 1';
+    pool.query(checkQuery, [artist, title], (err, result) => {
         if (err) {
-            console.error('Error inserting now-playing data into the database:', err.stack);
+            console.error('Database error while checking for duplicates:', err.stack);
             return res.status(500).json({ success: false, error: 'Database error.' });
         }
-        console.log('Now-playing data saved to database successfully:', result);
-    });
 
-    res.json({ success: true, message: 'Now-playing data updated and stored successfully.' });
+        // If the song already exists, do not insert again
+        if (result.length > 0) {
+            return res.json({ success: true, message: 'Song already exists in the history.' });
+        }
+
+        // If no record exists, insert the new data
+        const insertQuery = 'INSERT INTO now_playing_history (artist, title) VALUES (?, ?)';
+        pool.query(insertQuery, [artist, title], (err, result) => {
+            if (err) {
+                console.error('Error inserting now-playing data into the database:', err.stack);
+                return res.status(500).json({ success: false, error: 'Database error.' });
+            }
+            console.log('Now-playing data saved to database successfully:', result);
+            res.json({ success: true, message: 'Now-playing data updated and stored successfully.' });
+        });
+    });
 });
 
 // Endpoint to retrieve the current now-playing data
