@@ -92,7 +92,7 @@ app.post('/submit-song-request', (req, res) => {
     }
 
     const query = 'INSERT INTO requests (name, song_title) VALUES (?, ?)';
-
+    
     pool.query(query, [name, songName], (err, result) => {
         if (err) {
             console.error('Error inserting data into the database:', err.stack);
@@ -103,7 +103,7 @@ app.post('/submit-song-request', (req, res) => {
     });
 });
 
-// Start the HTTPS server
-https.createServer(options, app).listen(port, () => {
-    console.log(`Server is running on https://localhost:${port}`);
+// Start the server
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
 });
