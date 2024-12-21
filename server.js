@@ -7,6 +7,13 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
+// Path to SSL certificates
+const options = {
+    key: fs.readFileSync('/etc/letsencrypt/live/remioplay.com/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/remioplay.com/cert.pem'),
+    ca: fs.readFileSync('/etc/letsencrypt/live/remioplay.com/chain.pem')  // Optional: Include if needed
+  };
+
 // Middleware
 app.use(cors({ origin: '*' }));
 app.use(bodyParser.json());
