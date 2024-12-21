@@ -1,12 +1,20 @@
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
+const axiosRetry = require('axios-retry'); // Import axios-retry
 
 // Path to the NowPlaying.txt file
 const filePath = path.join('C:', 'RadioDJv2', 'NowPlaying.txt');
 
 // Backend URL (EC2 server)
 const backendUrl = 'http://16.16.247.10:3000/now-playing';
+
+// Enable retry logic for Axios
+axiosRetry(axios, { 
+    retries: 3,                          // Number of retry attempts
+    retryDelay: axiosRetry.exponentialDelay,  // Exponential delay between retries
+    retryCondition: (error) => error.response?.status >= 500 // Retry only for server errors (5xx)
+});
 
 setInterval(() => {
     fs.readFile(filePath, 'utf-8', (err, data) => {
@@ -25,10 +33,10 @@ setInterval(() => {
         }
 
         // Send data to the backend on EC2
-        axios.post(backendUrl, { artist, title }, { timeout: 5000 })
+        axios.post(backendUrl, { artist, title }, { timeout: 60000 })
             .then((response) => console.log('Now playing sent successfully:', response.data))
             .catch((error) => {
                 console.error('Error sending now-playing data:', error.message || error);
             });
     });
-}, 60000); // Check every 5 seconds
+}, 60000); // Check every 1 minute
