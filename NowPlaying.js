@@ -31,4 +31,4 @@ setInterval(() => {
                 console.error('Error sending now-playing data:', error.message || error);
             });
     });
-}, 5000); // Check every 5 seconds
+}, 60000); // Check every 5 seconds
