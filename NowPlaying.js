@@ -5,8 +5,8 @@ const axios = require('axios');
 // Path to the NowPlaying.txt file
 const filePath = path.join('C:', 'RadioDJv2', 'NowPlaying.txt');
 
-// Backend URL
-const backendUrl = process.env.BACKEND_URL || 'https://remioplay.com/now-playing';
+// Backend URL (EC2 server)
+const backendUrl = 'http://16.16.247.10:3000/now-playing';
 
 setInterval(() => {
     fs.readFile(filePath, 'utf-8', (err, data) => {
@@ -24,7 +24,7 @@ setInterval(() => {
             return;
         }
 
-        // Send data to the backend
+        // Send data to the backend on EC2
         axios.post(backendUrl, { artist, title }, { timeout: 5000 })
             .then((response) => console.log('Now playing sent successfully:', response.data))
             .catch((error) => {
