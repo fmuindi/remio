@@ -25,10 +25,10 @@ setInterval(() => {
         }
 
         // Send data to the backend on EC2
-        axios.post(backendUrl, { artist, title }, { timeout: 60000 })
+        axios.post(backendUrl, { artist, title }, { timeout: 10000 })
             .then((response) => console.log('Now playing sent successfully:', response.data))
             .catch((error) => {
                 console.error('Error sending now-playing data:', error.message || error);
             });
     });
-}, 60000); // Check every 1 minute
+}, 10000); // Check every 1 minute

@@ -13,15 +13,12 @@
       <link rel="icon" href="./assets/favicon_io/favicon.ico" type="image/x-icon">
       <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
       <link rel='stylesheet' href='home.css' media='all' />
-      
    </head>
    <body>
       <!-- Facebook SDK -->
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" 
-        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0&appId=625545389997765&autoLogAppEvents=1">
-    </script>
-      
+      <div id="fb-root"></div>
+      <script async defer crossorigin="anonymous" 
+         src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0&appId=625545389997765&autoLogAppEvents=1"></script>
       <div id="loading-indicator">
          <img src="./assets/remiologo.png" alt="Loading..." />
       </div>
@@ -96,21 +93,18 @@
                         </div>
                      </div>
                      <div class="loader" style="display:none;"></div>
-                     
                   </div>
-                  
                   <!-- statistics-->
                   <div class="stats">
                      <div class="stat-item">
-                         <i class="fa fa-headphones"></i>
-                         <p id="listeners">Listeners: <strong>249,235</strong></p>
+                        <i class="fa fa-headphones"></i>
+                        <p id="listeners">Listeners: <strong>249,235</strong></p>
                      </div>
                      <div class="stat-item">
                         <i class="fa fa-heart"></i>
-                         <p id="loved">Loved: <strong>32,215 times</strong></p>
+                        <p id="loved">Loved: <strong>32,215 times</strong></p>
                      </div>
-                 </div>
-                 
+                  </div>
                   <div class="button-container">
                      <a id="play-button" class="button" href="#">
                         <span class="material-icons">play_arrow</span>
@@ -131,32 +125,10 @@
                   </div>
                   <div id="previous">
                      <h2>Last Played</h2>
-                     <ul class="previous-list">
-                       <li>
-                         <span class="artist">The Weeknd</span>
-                         <span class="song">Blinding Lights</span>
-                       </li>
-                       <li>
-                         <span class="artist">Dua Lipa</span>
-                         <span class="song">Levitating</span>
-                       </li>
-                       <li>
-                         <span class="artist">Drake</span>
-                         <span class="song">God's Plan</span>
-                       </li>
-                       <li>
-                         <span class="artist">Billie Eilish</span>
-                         <span class="song">Bad Guy</span>
-                       </li>
-                       <li>
-                         <span class="artist">Ed Sheeran</span>
-                         <span class="song">Shape of You</span>
-                       </li>
+                     <ul class="previous-list" id="history-list">
                      </ul>
-                   </div>
+                  </div>
                </div>
-               
-                
             </div>
             <div class="intro">
                <div class="welcome">
@@ -217,16 +189,15 @@
                   </div>
                </div>
                <!-- Story About Us -->
-<!-- Story About Us -->
-<div class="about-us-story">
-   <h2>The Story Behind the Beats</h2>
-   <p>
-      Music and memories dance together at Remio, where every song tells a story from the heart. Born from the sweet spot between "reminisce" and "radio," this isn't just another streaming service – it's your musical time machine. Like its namesake Romeo, Remio speaks the universal language of love through carefully curated melodies that touch the soul. Whether you're chasing the butterflies of your first kiss or seeking comfort in familiar tunes, you'll find your place here. We're bringing back those goosebump moments when a song says exactly what your heart feels. Welcome home to Remio, where memories have a soundtrack.
-   </p>
-     <!-- "Read More" button to show the rest of the story -->
-     <button class="read-more-btn" id="readMoreBtn" onclick="window.open('about.html', '_blank')">Read More</button>
-</div>
-               
+               <!-- Story About Us -->
+               <div class="about-us-story">
+                  <h2>The Story Behind the Beats</h2>
+                  <p>
+                     Music and memories dance together at Remio, where every song tells a story from the heart. Born from the sweet spot between "reminisce" and "radio," this isn't just another streaming service – it's your musical time machine. Like its namesake Romeo, Remio speaks the universal language of love through carefully curated melodies that touch the soul. Whether you're chasing the butterflies of your first kiss or seeking comfort in familiar tunes, you'll find your place here. We're bringing back those goosebump moments when a song says exactly what your heart feels. Welcome home to Remio, where memories have a soundtrack.
+                  </p>
+                  <!-- "Read More" button to show the rest of the story -->
+                  <button class="read-more-btn" id="readMoreBtn" onclick="window.open('about.html', '_blank')">Read More</button>
+               </div>
             </div>
             <div class="imageintro">
                <div class="slideshow">
@@ -237,15 +208,14 @@
                <div class="info-box">
                   <!-- Facebook Comments Plugin -->
                   <div class="fb-comments" 
-                       data-href="https://remioplay.com/" 
-                       data-width="100%" 
-                       data-numposts="5" 
-                       data-colorscheme="light" 
-                       data-order-by="reverse_time" 
-                       data-lazy="true"
-                       data-mobile="true">
+                     data-href="https://remioplay.com/" 
+                     data-width="100%" 
+                     data-numposts="5" 
+                     data-colorscheme="light" 
+                     data-order-by="reverse_time" 
+                     data-lazy="true"
+                     data-mobile="true">
                   </div>
-            
                   <!-- Socials Section -->
                   <div id="socials">
                      <h3>Let's connect</h3>
@@ -254,13 +224,13 @@
                         <img src="./assets/instagram.png" width="30" height="30" alt="instagram">
                         <img src="./assets/tiktok.png" width="30" height="30" alt="tiktok">
                         <a href="https://x.com/remioplay" target="_blank">
-                           <img src="./assets/x.png" width="30" height="30" alt="twitter">
+                        <img src="./assets/x.png" width="30" height="30" alt="twitter">
                         </a>
                      </div>
                   </div>
                </div>
             </div>
-         </div> 
+         </div>
          <div class="advert">
             <h3>Merry Christmas & Happy New Year</h3>
             <p>Book This space to show your ad</p>
@@ -280,7 +250,6 @@
                <div class="spotify">
                   <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWUXSVcZljKtz?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                </div>
-               
             </div>
             <div id="hotmix">
                <p>TOP <b>MIXES</b></p>
@@ -336,6 +305,60 @@
          <p>&copy; 2024 Remio. All rights reserved.</p>
       </footer>
       <script>
+         // Function to format time ago (e.g., "2 minutes ago")
+         const timeAgo = (timestamp) => {
+         const now = new Date();
+         const then = new Date(timestamp);
+         const diffInSeconds = Math.floor((now - then) / 1000); // Difference in seconds
+         
+         const minutes = Math.floor(diffInSeconds / 60);
+         const hours = Math.floor(diffInSeconds / 3600);
+         const days = Math.floor(diffInSeconds / 86400);
+         
+         if (days > 0) {
+         return `${days} day${days > 1 ? 's' : ''} ago`;
+         } else if (hours > 0) {
+         return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+         } else if (minutes > 0) {
+         return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+         } else {
+         return `${diffInSeconds} second${diffInSeconds > 1 ? 's' : ''} ago`;
+         }
+         };
+         
+         // Fetch the last 5 now-playing entries from the backend
+         const fetchNowPlayingHistory = () => {
+         fetch('http://16.16.247.10:3000/now-playing/history')
+         .then(response => response.json())
+         .then(data => {
+            // Find the history list element
+            const historyList = document.getElementById('history-list');
+            
+            // Clear the current list
+            historyList.innerHTML = '';
+         
+            // Loop through the data and create a list item for each entry
+            data.forEach(entry => {
+                const listItem = document.createElement('li');
+                const timeAgoText = timeAgo(entry.timestamp);
+                listItem.textContent = `${entry.artist} - ${entry.title} (${timeAgoText})`;
+                historyList.appendChild(listItem);
+            });
+         })
+         .catch(error => {
+            console.error('Error fetching now-playing history:', error);
+         });
+         };
+         
+         // Call the function to fetch the data and display it
+         fetchNowPlayingHistory();
+         
+         // Optionally, refresh the list every minute
+         setInterval(fetchNowPlayingHistory, 15000); // Refresh every 60 seconds
+         
+         
+      </script>
+      <script>
          // Function to update "Last Played" section
          function updateLastPlayed() {
          const currentArtist = document.getElementById('artist').textContent;
@@ -346,7 +369,7 @@
          }
          
          // Call this function when the track or metadata changes
-         setInterval(updateLastPlayed, 10000); // Update every second for demonstration
+         setInterval(updateLastPlayed, 60000); // Update every second for demonstration
          
       </script>
       <script>
