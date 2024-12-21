@@ -328,7 +328,7 @@
          
          // Fetch the last 5 now-playing entries from the backend
          const fetchNowPlayingHistory = () => {
-         fetch('http://16.16.247.10:3000/now-playing/history')
+         fetch('https://remioplay.com/now-playing/history')
          .then(response => response.json())
          .then(data => {
             // Find the history list element
