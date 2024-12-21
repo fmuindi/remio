@@ -35,12 +35,34 @@ app.post('/now-playing', (req, res) => {
     nowPlaying = { artist, title };
     console.log('Now-playing updated:', nowPlaying);
 
-    res.json({ success: true, message: 'Now-playing data updated successfully.' });
+    // Insert the now-playing data into the MySQL table
+    const query = 'INSERT INTO now_playing_history (artist, title) VALUES (?, ?)';
+    pool.query(query, [artist, title], (err, result) => {
+        if (err) {
+            console.error('Error inserting now-playing data into the database:', err.stack);
+            return res.status(500).json({ success: false, error: 'Database error.' });
+        }
+        console.log('Now-playing data saved to database successfully:', result);
+    });
+
+    res.json({ success: true, message: 'Now-playing data updated and stored successfully.' });
 });
 
 // Endpoint to retrieve the current now-playing data
 app.get('/now-playing', (req, res) => {
     res.json(nowPlaying);
+});
+
+// Endpoint to retrieve the last 5 now-playing entries
+app.get('/now-playing/history', (req, res) => {
+    const query = 'SELECT artist, title, timestamp FROM now_playing_history ORDER BY id DESC LIMIT 5';
+    pool.query(query, (err, results) => {
+        if (err) {
+            console.error('Error fetching now-playing history from database:', err.stack);
+            return res.status(500).json({ success: false, error: 'Database error.' });
+        }
+        res.json(results);
+    });
 });
 
 // Endpoint to serve the homepage
