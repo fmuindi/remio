@@ -3,6 +3,9 @@ const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');  // Add this line to import fs
+
+const https = require('https');  // Import https module
 
 const app = express();
 const port = 3000;
@@ -12,7 +15,7 @@ const options = {
     key: fs.readFileSync('/etc/letsencrypt/live/remioplay.com/privkey.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/remioplay.com/cert.pem'),
     ca: fs.readFileSync('/etc/letsencrypt/live/remioplay.com/chain.pem')  // Optional: Include if needed
-  };
+};
 
 // Middleware
 app.use(cors({ origin: '*' }));
@@ -99,7 +102,7 @@ app.post('/submit-song-request', (req, res) => {
     }
 
     const query = 'INSERT INTO requests (name, song_title) VALUES (?, ?)';
-    
+
     pool.query(query, [name, songName], (err, result) => {
         if (err) {
             console.error('Error inserting data into the database:', err.stack);
@@ -110,7 +113,7 @@ app.post('/submit-song-request', (req, res) => {
     });
 });
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+// Start the HTTPS server
+https.createServer(options, app).listen(port, () => {
+    console.log(`Server is running on https://localhost:${port}`);
 });
