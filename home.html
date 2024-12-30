@@ -1,463 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title>Remio</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel='stylesheet' href='style.css' media='all' />
-      <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
-      <script src="https://kit.fontawesome.com/6b02184769.js" crossorigin="anonymous"></script>
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-      <link rel="icon" href="./assets/favicon_io/favicon.ico" type="image/x-icon">
-      <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-      <link rel='stylesheet' href='home.css' media='all' />
-   </head>
-   <body>
-      <!-- Facebook SDK -->
-      <div id="fb-root"></div>
-      <script async defer crossorigin="anonymous" 
-         src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0&appId=625545389997765&autoLogAppEvents=1"></script>
-      <div id="loading-indicator">
-         <img src="./assets/remiologo.png" alt="Loading..." />
-      </div>
-      <div class="main_container">
-         <header id="header-container">
-            <nav class="navbar">
-               <a href="home.html">
-               <img src="./assets/remioplay.svg" alt="Remio" class="station-logo" />
-               </a>
-               <!-- Search Bar -->
-               <div class="flexbox">
-                  <div class="search">
-                     <div>                        
-                        <input type="text" class="search-bar" placeholder="Search . . ." required>
-                     </div>
+
+<head>
+   <title>Remio</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel='stylesheet' href='style.css' media='all' />
+   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+   <script src="https://kit.fontawesome.com/6b02184769.js" crossorigin="anonymous"></script>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+   <link rel="icon" href="./assets/favicon_io/favicon.ico" type="image/x-icon">
+   <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+   <link rel='stylesheet' href='home.css' media='all' />
+</head>
+
+<body>
+   <!-- Facebook SDK -->
+   <div id="fb-root"></div>
+   <script async defer crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0&appId=625545389997765&autoLogAppEvents=1"></script>
+   <div id="loading-indicator">
+      <img src="./assets/R-logo.png" alt="Loading..." />
+   </div>
+   <div class="main_container">
+      <header id="header-container">
+         <nav class="navbar">
+            <a href="home.html">
+               <img src="./assets/remiologo.png" alt="Remio" class="station-logo" />
+            </a>
+            <!-- Search Bar -->
+            <div class="flexbox">
+               <div class="search">
+                  <div>
+                     <input type="text" class="search-bar" placeholder="Search . . ." required>
                   </div>
                </div>
-               <!-- Navigation Menu -->
-               <ul class="nav-menu">
-                  <li><a href="home.html">Home</a></li>
-                  <li><a href="podcasts.html">Podcasts</a></li>
-                  <li><a href="mixes.html">Mixes</a></li>
-                  <li><a href="request.html">Play Song</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-               </ul>
-               <!-- Hamburger Icon -->
-               <div class="hamburger">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-               </div>
-            </nav>
-         </header>
-         <div class="firstrow">
-            <div class="remibox">
-               <div class="flex_1">
-                  <div class="background">
-                     <div class="live-icon">
-                        <p>LIVE NOW</p>
-                        <span class="icon"></span> <!-- Separate span for the animated icon -->
-                     </div>
-                     <div class="branding">
-                        <p>Reminisce Radio</p>
-                     </div>
-                     <div class="player">
-                        <audio preload="metadata" id="audio" src="https://remioplay.com/stream" crossorigin="anonymous">
-                           Your browser does not support the audio element.
-                        </audio>
-                        <p id="artist" title="Current playing artist">Loading current artist...</p>
-                        <p id="song" title="Current playing song">Loading current song...</p>
-                        <div class="controls">
-                           <div class="around-button" id="around-button" title="Start the audio stream">
-                              <button class="play-round" onclick="togglePlayPause()">
+            </div>
+            <!-- Navigation Menu -->
+            <ul class="nav-menu">
+               <li><a href="home.html">Home</a></li>
+               <li><a href="podcasts.html">Podcasts</a></li>
+               <li><a href="mixes.html">Mixes</a></li>
+               <li><a href="request.html">Play Song</a></li>
+               <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <!-- Hamburger Icon -->
+            <div class="hamburger">
+               <div></div>
+               <div></div>
+               <div></div>
+            </div>
+         </nav>
+      </header>
+      <div class="firstrow">
+         <div class="remibox">
+            <div class="flex_1">
+               <div class="background">
+
+                  <div class="branding">
+                     <p>Reminisce Radio Live</p>
+                  </div>
+                  <div class="player">
+                     <audio preload="metadata" id="audio" src="https://remioplay.com/stream" crossorigin="anonymous">
+                        Your browser does not support the audio element.
+                     </audio>
+                     <p id="artist" title="Current playing artist">Loading current artist...</p>
+                     <p id="song" title="Current playing song">Loading current song...</p>
+                     <div class="controls">
+                        <div class="around-button" id="around-button" title="Start the audio stream">
+                           <button class="play-round" onclick="togglePlayPause()">
                               <i class="fas fa-play fa-fw" id="play-icon"></i>
-                              </button>
-                           </div>
-                        </div>
-                        <br /><br />
-                        <div class="volume-control">
-                           <span class="iconify" data-icon="fa:volume-down" style="color: #ffffff; height:10px;"></span>
-                           <input
-                              title="Volume"
-                              id="vol-control"
-                              type="range"
-                              min="0"
-                              max="100"
-                              step="1"
-                              value="100"
-                              onchange="setVolume()"
-                              />
-                           <span class="iconify" data-icon="fa:volume-up" style="color: #ffffff; height:10px;"></span>
+                           </button>
                         </div>
                      </div>
-                     <div class="loader" style="display:none;"></div>
-                  </div>
-                  <!-- statistics-->
-                  <div class="stats">
-                     <div class="stat-item">
-                        <i class="fa fa-headphones"></i>
-                        <p id="listeners">Listeners: <strong>249,235</strong></p>
-                     </div>
-                     <div class="stat-item">
-                        <i class="fa fa-heart"></i>
-                        <p id="loved">Loved: <strong>32,215 times</strong></p>
+                     <br /><br />
+                     <div class="volume-control">
+                        <span class="iconify" data-icon="fa:volume-down" style="color: #ffffff; height:10px;"></span>
+                        <input title="Volume" id="vol-control" type="range" min="0" max="100" step="1" value="100"
+                           onchange="setVolume()" />
+                        <span class="iconify" data-icon="fa:volume-up" style="color: #ffffff; height:10px;"></span>
                      </div>
                   </div>
-                  <div class="button-container">
-                     <a id="play-button" class="button" href="#">
-                        <span class="material-icons">play_arrow</span>
-                        <div class="button-label">Play</div>
-                     </a>
-                     <a id="refresh-button" class="button" href="#">
-                        <span class="material-icons">sync</span>
-                        <div class="button-label">Sync</div>
-                     </a>
-                     <a id="love-button" class="button" href="#">
-                        <span class="material-icons">favorite</span>
-                        <div class="button-label">Love</div>
-                     </a>
-                     <a id="share-button" class="button" href="#">
-                        <span class="material-icons">share</span>
-                        <div class="button-label">Share</div>
-                     </a>
+                  <div class="loader" style="display:none;"></div>
+               </div>
+               <!-- statistics-->
+               <div class="stats">
+                  <div class="stat-item">
+                     <i class="fa fa-headphones"></i>
+                     <p id="listeners">Listeners: <strong>249,235</strong></p>
                   </div>
-                  <div id="previous">
-                     <h2>Last Played</h2>
-                     <ul class="previous-list" id="history-list">
-                     </ul>
+                  <div class="stat-item">
+                     <i class="fa fa-heart"></i>
+                     <p id="loved">Loved: <strong>32,215 times</strong></p>
                   </div>
+               </div>
+               <div class="button-container">
+                  <a id="play-button" class="button" href="#">
+                     <span class="material-icons">play_arrow</span>
+                     <div class="button-label">Play</div>
+                  </a>
+                  <a id="refresh-button" class="button" href="#">
+                     <span class="material-icons">sync</span>
+                     <div class="button-label">Sync</div>
+                  </a>
+                  <a id="love-button" class="button" href="#">
+                     <span class="material-icons">favorite</span>
+                     <div class="button-label">Love</div>
+                  </a>
+                  <a id="share-button" class="button" href="#">
+                     <span class="material-icons">share</span>
+                     <div class="button-label">Share</div>
+                  </a>
+               </div>
+               <div id="previous">
+                  <h2>Last Played</h2>
+                  <ul class="previous-list" id="history-list">
+                  </ul>
                </div>
             </div>
-            <div class="intro">
-               <div class="welcome">
-                  <p> NOSTALGIA AS A SERVICE</p>
-               </div>
-               <h1 id="anime">We've got it all</h1>
-               <div class="text-box">
-                  <span>Music</span>
-                  <span>Mixes</span>
-                  <span>Podcasts</span>
-               </div>
-               <div class="message">
-                  <p>Thousands of your fellow groove-seekers are already riding this sonic wave. Why aren't you? We're serving up the ultimate audio experience for music lovers across all eras and genres<br/>
-                     <br/>
-                     Got that one song stuck in your head. Don't sweat it! Just hit up the request button and let us handle the rest
-                  </p>
-               </div>
-               <div class="button-group">
-                  <button class="que" id="openRequestModal">
+         </div>
+         <div class="intro">
+            <h1 id="anime">Sing, Reminisce,</h1>
+            <div class="text-box">
+               <span class="static">Re</span>
+               <span>&nbsp;&nbsp;&nbsp;peat</span>
+               <span>&nbsp;&nbsp;&nbsp;mio</span>
+            </div>
+            <div class="message">
+               <p>Tough day? Let Remio wrap you in a warm hug of sound! Rediscover your favorite tunes, relive happy
+                  memories, and let the music heal your soul. Oh, and there is more...we got mixes and podcasts
+                  too!<br />
+                  <br />
+                  Can't get that song out of your head? No worries! Hit request and we'll play it instantly - your jam,
+                  your way, every time!
+               </p>
+            </div>
+            <div class="button-group">
+               <button class="que" id="openRequestModal">
                   <i class="fa fa-music"></i> Request a Song
-                  </button>
-                  <button class="que" id="openShareModal">
+               </button>
+               <button class="que" id="openShareModal">
                   <i class="fa fa-user-plus"></i> Invite Friends
-                  </button>
-               </div>
-               <div id="shareModal" class="share-modal">
-                  <div class="share-content">
-                     <span class="close-btn" id="closeShareModal">&times;</span>
-                     <h3>Invite Your Friends</h3>
-                     <p>Share this link with your friends to invite them:</p>
-                     <div class="share-buttons">
-                        <button class="share-btn" onclick="share('facebook')">Facebook</button>
-                        <button class="share-btn" onclick="share('x')">X</button>
-                        <button class="share-btn" onclick="share('whatsapp')">WhatsApp</button>
-                        <button class="share-btn" onclick="share('email')">Email</button>
-                        <button class="share-btn" onclick="shareViaWebShare()">More...</button>
-                     </div>
+               </button>
+            </div>
+            <div id="shareModal" class="share-modal">
+               <div class="share-content">
+                  <span class="close-btn" id="closeShareModal">&times;</span>
+                  <h3>Invite Your Friends</h3>
+                  <p>Share this link with your friends to invite them:</p>
+                  <div class="share-buttons">
+                     <button class="share-btn" onclick="share('facebook')">Facebook</button>
+                     <button class="share-btn" onclick="share('x')">X</button>
+                     <button class="share-btn" onclick="share('whatsapp')">WhatsApp</button>
+                     <button class="share-btn" onclick="share('email')">Email</button>
+                     <button class="share-btn" onclick="shareViaWebShare()">More...</button>
                   </div>
-               </div>
-               <div class="overlay" id="overlay">
-                  <div class="form-container" id="form-container">
-                     <!-- Close Button -->
-                     <span class="close-button" id="closeModal">&times;</span>
-                     <h2>Request a Song</h2>
-                     <div class="error-message" id="errorMessage">Please fill out all fields.</div>
-                     <form id="requestForm">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" aria-label="Name" required>
-                        <label for="songName">Song Title</label>
-                        <input type="text" id="songName" name="songName" aria-label="Song Title" required>
-                        <button type="submit" aria-label="Submit Song Request">Submit Request</button>
-                     </form>
-                     <div class="thank-you" id="thankYouMessage">
-                        <h2>Thank You!</h2>
-                        <p>Thank you <span id="userName"></span>, your song request for "<span id="songTitle"></span>" has been submitted.</p>
-                        <button class="back-button" id="backButton" aria-label="Back to Form">Back</button>
-                     </div>
-                  </div>
-               </div>
-               <!-- Story About Us -->
-               <!-- Story About Us -->
-               <div class="about-us-story">
-                  <h2>The Story Behind the Beats</h2>
-                  <p>
-                     Music and memories dance together at Remio, where every song tells a story from the heart. Born from the sweet spot between "reminisce" and "radio," this isn't just another streaming service – it's your musical time machine. Like its namesake Romeo, Remio speaks the universal language of love through carefully curated melodies that touch the soul. Whether you're chasing the butterflies of your first kiss or seeking comfort in familiar tunes, you'll find your place here. We're bringing back those goosebump moments when a song says exactly what your heart feels. Welcome home to Remio, where memories have a soundtrack.
-                  </p>
-                  <!-- "Read More" button to show the rest of the story -->
-                  <button class="read-more-btn" id="readMoreBtn" onclick="window.open('about.html', '_blank')">Read More</button>
                </div>
             </div>
-            <div class="imageintro">
-               <div class="slideshow">
-                  <img src="./assets/woman.webp" alt="Image 1">
-                  <img src="./assets/white.webp" alt="Image 2">
-                  <img src="./assets/man.webp" alt="Image 3">
-               </div>
-               <div class="info-box">
-                  <!-- Facebook Comments Plugin -->
-                  <div class="fb-comments" 
-                     data-href="https://remioplay.com/" 
-                     data-width="100%" 
-                     data-numposts="5" 
-                     data-colorscheme="light" 
-                     data-order-by="reverse_time" 
-                     data-lazy="true"
-                     data-mobile="true">
+            <div class="overlay" id="overlay">
+               <div class="form-container" id="form-container">
+                  <!-- Close Button -->
+                  <span class="close-button" id="closeModal">&times;</span>
+                  <h2>Request a Song</h2>
+                  <div class="error-message" id="errorMessage">Please fill out all fields.</div>
+                  <form id="requestForm">
+                     <label for="name">Name</label>
+                     <input type="text" id="name" name="name" aria-label="Name" required>
+                     <label for="songName">Song Title</label>
+                     <input type="text" id="songName" name="songName" aria-label="Song Title" required>
+                     <button type="submit" aria-label="Submit Song Request">Submit Request</button>
+                  </form>
+                  <div class="thank-you" id="thankYouMessage">
+                     <h2>Thank You!</h2>
+                     <p>Thank you <span id="userName"></span>, your song request for "<span id="songTitle"></span>" has
+                        been submitted.</p>
+                     <button class="back-button" id="backButton" aria-label="Back to Form">Back</button>
                   </div>
-                  <!-- Socials Section -->
-                  <div id="socials">
-                     <h3>Let's connect</h3>
-                     <div class="social_icons">
-                        <img src="./assets/facebook.png" width="30" height="30" alt="facebook">
-                        <img src="./assets/instagram.png" width="30" height="30" alt="instagram">
-                        <img src="./assets/tiktok.png" width="30" height="30" alt="tiktok">
-                        <a href="https://x.com/remioplay" target="_blank">
+               </div>
+            </div>
+            <!-- Story About Us -->
+            <!-- Story About Us -->
+            <div class="radio-shows-section-vertical">
+               <div class="current-show">
+                  <h2>Now On Air</h2>
+                  <div class="show-details">
+                     <img src="./assets/morning.png" alt="Current Show Image" class="current-show-image">
+                     <div class="show-info">
+                        <h3>Morning Show</h3>
+                        <p>Wake up to the best hits and vibrant energy to kickstart your day!</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="upcoming-show">
+                  <h2>Up Next</i></h2>
+                  <div class="show-details">
+                     <img src="./assets/afternoon.png" alt="Upcoming Show Image" class="upcoming-show-image">
+                     <div class="show-info">
+                        <h3>Afternoon Delight</h3>
+                        <p>Relax and recharge with smooth tunes and engaging talk segments.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="imageintro">
+            <div class="slideshow">
+               <img src="./assets/woman.webp" alt="Image 1">
+               <img src="./assets/white.webp" alt="Image 2">
+               <img src="./assets/man.webp" alt="Image 3">
+            </div>
+            <div class="info-box">
+               <!-- Facebook Comments Plugin -->
+               <div class="fb-comments" data-href="https://remioplay.com/" data-width="100%" data-numposts="5"
+                  data-colorscheme="dark" data-order-by="reverse_time" data-lazy="true" data-mobile="true">
+               </div>
+               <!-- Socials Section -->
+               <div id="socials">
+                  <h3>Let's connect</h3>
+                  <div class="social_icons">
+                     <img src="./assets/facebook.png" width="30" height="30" alt="facebook">
+                     <img src="./assets/instagram.png" width="30" height="30" alt="instagram">
+                     <img src="./assets/tiktok.png" width="30" height="30" alt="tiktok">
+                     <a href="https://x.com/remioplay" target="_blank">
                         <img src="./assets/x.png" width="30" height="30" alt="twitter">
-                        </a>
-                     </div>
+                     </a>
                   </div>
-               </div>
-            </div>
-         </div>
-         <div class="advert">
-            <h3>Merry Christmas & Happy New Year</h3>
-            <p>Book This space to show your ad</p>
-         </div>
-         <div class="secondrow">
-            <div id="newmusic">
-               <p>TOP <b>HITS</b></p>
-               <div id="topglobal" style="margin-top: 0px;"></div>
-               <div class="spotify">
-                  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZEVXbNG2KDcFcKOF?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-               </div>
-               <div id="topusa" style="margin-top: 10px;"></div>
-               <div class="spotify">
-                  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZEVXbLp5XoPON0wI?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-               </div>
-               <div id="topkenya2024" style="margin-top: 10px;"></div>
-               <div class="spotify">
-                  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWUXSVcZljKtz?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-               </div>
-            </div>
-            <div id="hotmix">
-               <p>TOP <b>MIXES</b></p>
-               <div class="iframe-container">
-                  <iframe scrolling="no" id="hearthis_at_track_10360149" width="100%" height="150" src="https://app.hearthis.at/embed/10360149/transparent_black/?hcolor=&color=&style=2&block_size=1&block_space=10&background=1&waveform=0&cover=0&autoplay=0&css=" frameborder="0" allowtransparency allow="autoplay">
-                     <p>Listen to <a href="https://hearthis.at/fleqx/africanlovevibes/" target="_blank">Fleqx - African Love Vibes</a> <span>by</span><a href="https://hearthis.at/fleqx/" target="_blank" >Fleqx</a> <span>on</span> <a href="https://hearthis.at/" target="_blank">hearthis.at</a></p>
-                  </iframe>
-               </div>
-               <div class="iframe-container">
-                  <iframe scrolling="no" id="hearthis_at_track_10216593" width="100%" height="150" src="https://app.hearthis.at/embed/10216593/transparent_black/?hcolor=&color=&style=2&block_size=1&block_space=10&background=1&waveform=0&cover=0&autoplay=0&css=" frameborder="0" allowtransparency allow="autoplay">
-                     <p>Listen to <a href="https://hearthis.at/fleqx/edm/" target="_blank">Pop EDM Workout Mix</a> <span>by</span><a href="https://hearthis.at/fleqx/" target="_blank" >Fleqx</a> <span>on</span> <a href="https://hearthis.at/" target="_blank">hearthis.at</a></p>
-                  </iframe>
-               </div>
-               <div class="iframe-container">
-                  <iframe scrolling="no" id="hearthis_at_track_6458135" width="100%" height="150" src="https://app.hearthis.at/embed/6458135/transparent_black/?hcolor=&color=&style=2&block_size=1&block_space=10&background=1&waveform=0&cover=0&autoplay=0&css=" frameborder="0" allowtransparency allow="autoplay">
-                     <p>Listen to <a href="https://hearthis.at/fleqx/westlife-chronicles/" target="_blank">Fleqx - Westlife Chronicles</a> <span>by</span><a href="https://hearthis.at/fleqx/" target="_blank" >Fleqx</a> <span>on</span> <a href="https://hearthis.at/" target="_blank">hearthis.at</a></p>
-                  </iframe>
-               </div>
-               <div class="iframe-container">
-                  <iframe scrolling="no" id="hearthis_at_track_6138857" width="100%" height="150" src="https://app.hearthis.at/embed/6138857/transparent_black/?hcolor=&color=&style=2&block_size=1&block_space=10&background=1&waveform=0&cover=0&autoplay=0&css=" frameborder="0" allowtransparency allow="autoplay">
-                     <p>Listen to <a href="https://hearthis.at/fleqx/dj-fleqx-old-school-soul-rb-slow-jams/" target="_blank">Fleqx - Old School Soul &amp; RnB Slow Jams</a> <span>by</span><a href="https://hearthis.at/fleqx/" target="_blank" >Fleqx</a> <span>on</span> <a href="https://hearthis.at/" target="_blank">hearthis.at</a></p>
-                  </iframe>
-               </div>
-               <div class="iframe-container">
-                  <iframe scrolling="no" id="hearthis_at_track_5853351" width="100%" height="150" src="https://app.hearthis.at/embed/5853351/transparent_black/?hcolor=&color=&style=2&block_size=1&block_space=10&background=1&waveform=0&cover=0&autoplay=0&css=" frameborder="0" allowtransparency allow="autoplay">
-                     <p>Listen to <a href="https://hearthis.at/fleqx/rb-mix-5-bedroom-edition-sex-therapy/" target="_blank">Fleqx - RnB Therapy (Bedroom Affairs)</a> <span>by</span><a href="https://hearthis.at/fleqx/" target="_blank" >Fleqx</a> <span>on</span> <a href="https://hearthis.at/" target="_blank">hearthis.at</a></p>
-                  </iframe>
-               </div>
-            </div>
-            <div id="hearthis">
-               <p>TOP <b>PODCAST</b></p>
-               <div class="spotify-container">
-                  <iframe src="https://www.listennotes.com/podcasts/the-optimal-life-with-nate-haber-nate-haber-JCrycbmW1fd/embed/" height="600px" width="100%" style="width: 1px; min-width: 100%;" loading="lazy" frameborder="0" scrolling="no"></iframe>
-                  <iframe src="https://www.listennotes.com/podcasts/hear-this-podcast-muindi-w8e4RrlsJTY/embed/" height="600px" width="100%" style="width: 1px; min-width: 100%; margin-top: 10px;" loading="lazy" frameborder="0" scrolling="no"></iframe>
-                  <iframe src="https://www.listennotes.com/podcasts/the-smut-hive-the-smut-hive-LqaRcbnkTjg/embed/" height="600px" width="100%" style="width: 1px; min-width: 100%; margin-top: 10px;" loading="lazy" frameborder="0" scrolling="no"></iframe>
-                  <iframe src="https://www.listennotes.com/podcasts/how-to-money-iheartpodcasts-xct70aSGm_R/embed/" height="600px" width="100%" style="width: 1px; min-width: 100%; margin-top: 10px;" loading="lazy" frameborder="0" scrolling="no"></iframe>
                </div>
             </div>
          </div>
       </div>
-      <noscript>
-         <div id="nojs_message">
-            <p>In order for this audio player to function, you need to have JavaScript enabled. If for any reason you do not wish to use JavaScript, here is an <a href="stream.mp3">alternative link to an audio stream</a>.</p>
+      <div class="advert">
+         <h3>Merry Christmas & Happy New Year</h3>
+         <p>Book This space to show your ad</p>
+      </div>
+      <div class="secondrow">
+         <div id="newmusic">
+            <p>TOP HITS</p>
+            <div id="topglobal" style="margin-top: 0px;"></div>
+            <div class="spotify">
+               <iframe style="border-radius:12px"
+                  src="https://open.spotify.com/embed/playlist/37i9dQZEVXbNG2KDcFcKOF?utm_source=generator&theme=0"
+                  width="100%" height="152" frameBorder="0" allowfullscreen=""
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"></iframe>
+            </div>
+            <div id="topusa" style="margin-top: 10px;"></div>
+            <div class="spotify">
+               <iframe style="border-radius:12px"
+                  src="https://open.spotify.com/embed/playlist/37i9dQZEVXbLp5XoPON0wI?utm_source=generator&theme=0"
+                  width="100%" height="152" frameBorder="0" allowfullscreen=""
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"></iframe>
+            </div>
+            <div id="topkenya2024" style="margin-top: 10px;"></div>
+            <div class="spotify">
+               <iframe style="border-radius:12px"
+                  src="https://open.spotify.com/embed/playlist/37i9dQZF1DWUXSVcZljKtz?utm_source=generator&theme=0"
+                  width="100%" height="152" frameBorder="0" allowfullscreen=""
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"></iframe>
+            </div>
          </div>
-      </noscript>
-      <footer class="top-footer">
-         <ul>
-            <li><a onclick="window.open('about.html', '_blank')">About Us</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms & Conditions</a></li>
-            <li><a href="faq.html">FAQs</a></li>
-         </ul>
-         <p>&copy; 2024 Remio. All rights reserved.</p>
-      </footer>
-      <script>
-         // Function to format time ago (e.g., "2 minutes ago")
-         const timeAgo = (timestamp) => {
+         <div id="hotmix">
+            <p>TOP MIXES</p>
+            <div class="iframe-container">
+               <iframe scrolling="no" id="hearthis_at_track_10360149" width="100%" height="150"
+                  src="https://app.hearthis.at/embed/10360149/transparent_black/?hcolor=&color=&style=2&block_size=1&block_space=10&background=1&waveform=0&cover=0&autoplay=0&css="
+                  frameborder="0" allowtransparency allow="autoplay">
+                  <p>Listen to <a href="https://hearthis.at/fleqx/africanlovevibes/" target="_blank">Fleqx - African
+                        Love Vibes</a> <span>by</span><a href="https://hearthis.at/fleqx/" target="_blank">Fleqx</a>
+                     <span>on</span> <a href="https://hearthis.at/" target="_blank">hearthis.at</a>
+                  </p>
+               </iframe>
+            </div>
+            <div class="iframe-container">
+               <iframe scrolling="no" id="hearthis_at_track_10216593" width="100%" height="150"
+                  src="https://app.hearthis.at/embed/10216593/transparent_black/?hcolor=&color=&style=2&block_size=1&block_space=10&background=1&waveform=0&cover=0&autoplay=0&css="
+                  frameborder="0" allowtransparency allow="autoplay">
+                  <p>Listen to <a href="https://hearthis.at/fleqx/edm/" target="_blank">Pop EDM Workout Mix</a>
+                     <span>by</span><a href="https://hearthis.at/fleqx/" target="_blank">Fleqx</a> <span>on</span> <a
+                        href="https://hearthis.at/" target="_blank">hearthis.at</a>
+                  </p>
+               </iframe>
+            </div>
+            <div class="iframe-container">
+               <iframe scrolling="no" id="hearthis_at_track_6458135" width="100%" height="150"
+                  src="https://app.hearthis.at/embed/6458135/transparent_black/?hcolor=&color=&style=2&block_size=1&block_space=10&background=1&waveform=0&cover=0&autoplay=0&css="
+                  frameborder="0" allowtransparency allow="autoplay">
+                  <p>Listen to <a href="https://hearthis.at/fleqx/westlife-chronicles/" target="_blank">Fleqx - Westlife
+                        Chronicles</a> <span>by</span><a href="https://hearthis.at/fleqx/" target="_blank">Fleqx</a>
+                     <span>on</span> <a href="https://hearthis.at/" target="_blank">hearthis.at</a>
+                  </p>
+               </iframe>
+            </div>
+            <div class="iframe-container">
+               <iframe scrolling="no" id="hearthis_at_track_6138857" width="100%" height="150"
+                  src="https://app.hearthis.at/embed/6138857/transparent_black/?hcolor=&color=&style=2&block_size=1&block_space=10&background=1&waveform=0&cover=0&autoplay=0&css="
+                  frameborder="0" allowtransparency allow="autoplay">
+                  <p>Listen to <a href="https://hearthis.at/fleqx/dj-fleqx-old-school-soul-rb-slow-jams/"
+                        target="_blank">Fleqx - Old School Soul &amp; RnB Slow Jams</a> <span>by</span><a
+                        href="https://hearthis.at/fleqx/" target="_blank">Fleqx</a> <span>on</span> <a
+                        href="https://hearthis.at/" target="_blank">hearthis.at</a></p>
+               </iframe>
+            </div>
+            <div class="iframe-container">
+               <iframe scrolling="no" id="hearthis_at_track_5853351" width="100%" height="150"
+                  src="https://app.hearthis.at/embed/5853351/transparent_black/?hcolor=&color=&style=2&block_size=1&block_space=10&background=1&waveform=0&cover=0&autoplay=0&css="
+                  frameborder="0" allowtransparency allow="autoplay">
+                  <p>Listen to <a href="https://hearthis.at/fleqx/rb-mix-5-bedroom-edition-sex-therapy/"
+                        target="_blank">Fleqx - RnB Therapy (Bedroom Affairs)</a> <span>by</span><a
+                        href="https://hearthis.at/fleqx/" target="_blank">Fleqx</a> <span>on</span> <a
+                        href="https://hearthis.at/" target="_blank">hearthis.at</a></p>
+               </iframe>
+            </div>
+         </div>
+         <div id="hearthis">
+            <p>TOP PODCAST</p>
+            <div class="spotify-container">
+               <iframe
+                  src="https://www.listennotes.com/podcasts/the-optimal-life-with-nate-haber-nate-haber-JCrycbmW1fd/embed/"
+                  height="600px" width="100%" style="width: 1px; min-width: 100%;" loading="lazy" frameborder="0"
+                  scrolling="no"></iframe>
+               <iframe src="https://www.listennotes.com/podcasts/hear-this-podcast-muindi-w8e4RrlsJTY/embed/"
+                  height="600px" width="100%" style="width: 1px; min-width: 100%; margin-top: 10px;" loading="lazy"
+                  frameborder="0" scrolling="no"></iframe>
+               <iframe src="https://www.listennotes.com/podcasts/the-smut-hive-the-smut-hive-LqaRcbnkTjg/embed/"
+                  height="600px" width="100%" style="width: 1px; min-width: 100%; margin-top: 10px;" loading="lazy"
+                  frameborder="0" scrolling="no"></iframe>
+               <iframe src="https://www.listennotes.com/podcasts/how-to-money-iheartpodcasts-xct70aSGm_R/embed/"
+                  height="600px" width="100%" style="width: 1px; min-width: 100%; margin-top: 10px;" loading="lazy"
+                  frameborder="0" scrolling="no"></iframe>
+            </div>
+         </div>
+      </div>
+   </div>
+   <noscript>
+      <div id="nojs_message">
+         <p>In order for this audio player to function, you need to have JavaScript enabled. If for any reason you do
+            not wish to use JavaScript, here is an <a href="stream.mp3">alternative link to an audio stream</a>.</p>
+      </div>
+   </noscript>
+   <footer class="top-footer">
+      <ul>
+         <li><a onclick="window.open('about.html', '_blank')">About Us</a></li>
+         <li><a href="privacy.html">Privacy Policy</a></li>
+         <li><a href="terms.html">Terms & Conditions</a></li>
+         <li><a href="faq.html">FAQs</a></li>
+      </ul>
+      <p>&copy; 2024 Remio. All rights reserved.</p>
+   </footer>
+   <script>
+      // Function to format time ago (e.g., "2 minutes ago")
+      const timeAgo = (timestamp) => {
          const now = new Date();
          const then = new Date(timestamp);
          const diffInSeconds = Math.floor((now - then) / 1000); // Difference in seconds
-         
+
          const minutes = Math.floor(diffInSeconds / 60);
          const hours = Math.floor(diffInSeconds / 3600);
          const days = Math.floor(diffInSeconds / 86400);
-         
+
          if (days > 0) {
-         return `${days} day${days > 1 ? 's' : ''} ago`;
+            return `${days} day${days > 1 ? 's' : ''} ago`;
          } else if (hours > 0) {
-         return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+            return `${hours} hour${hours > 1 ? 's' : ''} ago`;
          } else if (minutes > 0) {
-         return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+            return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
          } else {
-         return `${diffInSeconds} second${diffInSeconds > 1 ? 's' : ''} ago`;
+            return `${diffInSeconds} second${diffInSeconds > 1 ? 's' : ''} ago`;
          }
-         };
-         
-         // Fetch the last 5 now-playing entries from the backend
-         const fetchNowPlayingHistory = () => {
+      };
+
+      // Fetch the last 5 now-playing entries from the backend
+      const fetchNowPlayingHistory = () => {
          fetch('https://remioplay.com/now-playing/history')
-         .then(response => response.json())
-         .then(data => {
-            // Find the history list element
-            const historyList = document.getElementById('history-list');
-            
-            // Clear the current list
-            historyList.innerHTML = '';
-         
-            // Loop through the data and create a list item for each entry
-            data.forEach(entry => {
-                const listItem = document.createElement('li');
-                const timeAgoText = timeAgo(entry.timestamp);
-                listItem.textContent = `${entry.artist} - ${entry.title} (${timeAgoText})`;
-                historyList.appendChild(listItem);
+            .then(response => response.json())
+            .then(data => {
+               // Find the history list element
+               const historyList = document.getElementById('history-list');
+
+               // Clear the current list
+               historyList.innerHTML = '';
+
+               // Loop through the data and create a list item for each entry
+               data.forEach(entry => {
+                  const listItem = document.createElement('li');
+                  const timeAgoText = timeAgo(entry.timestamp);
+                  listItem.textContent = `${entry.artist} - ${entry.title} (${timeAgoText})`;
+                  historyList.appendChild(listItem);
+               });
+            })
+            .catch(error => {
+               console.error('Error fetching now-playing history:', error);
             });
-         })
-         .catch(error => {
-            console.error('Error fetching now-playing history:', error);
-         });
-         };
-         
-         // Call the function to fetch the data and display it
-         fetchNowPlayingHistory();
-         
-         // Optionally, refresh the list every minute
-         setInterval(fetchNowPlayingHistory, 15000); // Refresh every 60 seconds
-         
-         
-      </script>
-      <script>
-         // Function to update "Last Played" section
-         function updateLastPlayed() {
+      };
+
+      // Call the function to fetch the data and display it
+      fetchNowPlayingHistory();
+
+      // Optionally, refresh the list every minute
+      setInterval(fetchNowPlayingHistory, 15000); // Refresh every 60 seconds
+
+
+   </script>
+   <script>
+      // Function to update "Last Played" section
+      function updateLastPlayed() {
          const currentArtist = document.getElementById('artist').textContent;
          const currentSong = document.getElementById('song').textContent;
-         
+
          document.getElementById('last-artist').textContent = currentArtist;
          document.getElementById('last-song').textContent = currentSong;
-         }
-         
-         // Call this function when the track or metadata changes
-         setInterval(updateLastPlayed, 60000); // Update every second for demonstration
-         
-      </script>
-      <script>
-         // Function to fetch the current artist and song
-         function fetchNowPlaying() {
+      }
+
+      // Call this function when the track or metadata changes
+      setInterval(updateLastPlayed, 60000); // Update every second for demonstration
+
+   </script>
+   <script>
+      // Function to fetch the current artist and song
+      function fetchNowPlaying() {
          fetch('https://remioplay.com/now-playing') // Replace with your backend's public IP
-         .then((response) => response.json())
-         .then((data) => {
-            // Update artist and song on the UI
-            const artistElem = document.getElementById('artist');
-            const songElem = document.getElementById('song');
-            artistElem.textContent = data.artist || 'Unknown Artist';
-            songElem.textContent = data.title || 'Unknown Song';
-         })
-         .catch((error) => console.error('Error fetching now-playing data:', error));
-         }
-         
-         // Fetch now-playing data every 5 seconds
-         setInterval(fetchNowPlaying, 5000);
-      </script>
-      <script>
-         const images = document.querySelectorAll('.slideshow img');
-         let currentIndex = 0;
-         const intervalTime = 10000; // Change image every 10 seconds
-         
-         function changeImage() {
-             images[currentIndex].classList.remove('active'); // Remove active class from the current image
-             currentIndex = (currentIndex + 1) % images.length; // Move to the next image
-             images[currentIndex].classList.add('active'); // Add active class to the new image
-         }
-         
-         // Initialize slideshow
-         images[currentIndex].classList.add('active');
-         setInterval(changeImage, intervalTime);
-      </script>
-      <script>
-         (function() {
+            .then((response) => response.json())
+            .then((data) => {
+               // Update artist and song on the UI
+               const artistElem = document.getElementById('artist');
+               const songElem = document.getElementById('song');
+               artistElem.textContent = data.artist || 'Unknown Artist';
+               songElem.textContent = data.title || 'Unknown Song';
+            })
+            .catch((error) => console.error('Error fetching now-playing data:', error));
+      }
+
+      // Fetch now-playing data every 5 seconds
+      setInterval(fetchNowPlaying, 5000);
+   </script>
+   <script>
+      const images = document.querySelectorAll('.slideshow img');
+      let currentIndex = 0;
+      const intervalTime = 10000; // Change image every 10 seconds
+
+      function changeImage() {
+         images[currentIndex].classList.remove('active'); // Remove active class from the current image
+         currentIndex = (currentIndex + 1) % images.length; // Move to the next image
+         images[currentIndex].classList.add('active'); // Add active class to the new image
+      }
+
+      // Initialize slideshow
+      images[currentIndex].classList.add('active');
+      setInterval(changeImage, intervalTime);
+   </script>
+   <script>
+      (function () {
          const playButton = document.querySelector('.play-round');
          playButton.addEventListener('click', () => {
-         playButton.classList.toggle('playing');
+            playButton.classList.toggle('playing');
          });
-         })();
-         
-      </script>
-      <script>
-         // Select elements
-         const hamburger = document.querySelector('.hamburger');
-         const navMenu = document.querySelector('.nav-menu');
-         const navbar = document.querySelector('.navbar');
-         
-         // Add event listener for the hamburger click
-         hamburger.addEventListener('click', () => {
+      })();
+
+   </script>
+   <script>
+      // Select elements
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('.nav-menu');
+      const navbar = document.querySelector('.navbar');
+
+      // Add event listener for the hamburger click
+      hamburger.addEventListener('click', () => {
          // Toggle active class for the hamburger and nav menu
          hamburger.classList.toggle('active');
          navbar.classList.toggle('active');
-         });
-         
-         // Close the menu when a link is clicked (optional)
-         document.querySelectorAll('.nav-menu a').forEach(link => {
+      });
+
+      // Close the menu when a link is clicked (optional)
+      document.querySelectorAll('.nav-menu a').forEach(link => {
          link.addEventListener('click', () => {
-         hamburger.classList.remove('active');
-         navbar.classList.remove('active');
+            hamburger.classList.remove('active');
+            navbar.classList.remove('active');
          });
-         });
-         
-      </script>
-      <script>
-         // Function to generate a random number within a range
-         function randomInRange(min, max) {
-             return Math.floor(Math.random() * (max - min + 1)) + min;
-         }
-         
-         document.addEventListener('DOMContentLoaded', () => {
-             const initialListeners = 249235;
-             const initialLoved = 32215;
-         
-             // Generate random values for listeners and loved counts
-             const listenersRange = randomInRange(initialListeners - 1000, initialListeners + 1000);
-             const lovedRange = randomInRange(initialLoved - 1000, initialLoved + 1000);
-         
-             // Update DOM with formatted values
-             document.getElementById("listeners").textContent = `Listeners: ${listenersRange.toLocaleString()}`;
-             document.getElementById("loved").textContent = `Loved: ${lovedRange.toLocaleString()} times`;
-         });
-      </script>
-      <!-- Script for audio controls and buttons (play, love, refresh, share) -->
-      <script>
-         document.addEventListener('DOMContentLoaded', () => {
+      });
+
+   </script>
+   <script>
+      // Function to generate a random number within a range
+      function randomInRange(min, max) {
+         return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+         const initialListeners = 249235;
+         const initialLoved = 32215;
+
+         // Generate random values for listeners and loved counts
+         const listenersRange = randomInRange(initialListeners - 1000, initialListeners + 1000);
+         const lovedRange = randomInRange(initialLoved - 1000, initialLoved + 1000);
+
+         // Update DOM with formatted values
+         document.getElementById("listeners").textContent = `Listeners: ${listenersRange.toLocaleString()}`;
+         document.getElementById("loved").textContent = `Loved: ${lovedRange.toLocaleString()} times`;
+      });
+   </script>
+   <!-- Script for audio controls and buttons (play, love, refresh, share) -->
+   <script>
+      document.addEventListener('DOMContentLoaded', () => {
          const playButton = document.getElementById('play-button');
          const playRoundButton = document.querySelector('.play-round');
          const audioPlayer = document.getElementById('audio');
@@ -465,276 +514,277 @@
          const refreshButton = document.getElementById('refresh-button');
          const shareButton = document.getElementById('share-button');
          const volumeControl = document.getElementById('vol-control');
-         
+
          let isPlaying = false;
-         
+
          // Function to play audio
          function playAudio() {
-         audioPlayer.play();
-         isPlaying = true;
-         
-         // Update play-round button to pause state
-         playRoundButton.querySelector('i').classList.remove('fa-play');
-         playRoundButton.querySelector('i').classList.add('fa-pause');
-         
-         // Update play-button to pause state
-         const playButtonIcon = playButton.querySelector('.material-icons');
-         playButtonIcon.textContent = 'pause';
-         playButton.querySelector('.button-label').textContent = 'Pause';
+            audioPlayer.play();
+            isPlaying = true;
+
+            // Update play-round button to pause state
+            playRoundButton.querySelector('i').classList.remove('fa-play');
+            playRoundButton.querySelector('i').classList.add('fa-pause');
+
+            // Update play-button to pause state
+            const playButtonIcon = playButton.querySelector('.material-icons');
+            playButtonIcon.textContent = 'pause';
+            playButton.querySelector('.button-label').textContent = 'Pause';
          }
-         
+
          // Function to pause audio
          function pauseAudio() {
-         audioPlayer.pause();
-         isPlaying = false;
-         
-         // Update play-round button to play state
-         playRoundButton.querySelector('i').classList.remove('fa-pause');
-         playRoundButton.querySelector('i').classList.add('fa-play');
-         
-         // Update play-button to play state
-         const playButtonIcon = playButton.querySelector('.material-icons');
-         playButtonIcon.textContent = 'play_arrow';
-         playButton.querySelector('.button-label').textContent = 'Play';
+            audioPlayer.pause();
+            isPlaying = false;
+
+            // Update play-round button to play state
+            playRoundButton.querySelector('i').classList.remove('fa-pause');
+            playRoundButton.querySelector('i').classList.add('fa-play');
+
+            // Update play-button to play state
+            const playButtonIcon = playButton.querySelector('.material-icons');
+            playButtonIcon.textContent = 'play_arrow';
+            playButton.querySelector('.button-label').textContent = 'Play';
          }
-         
+
          // Toggle play/pause when clicking on play-round button
          playRoundButton.addEventListener('click', () => {
-         if (isPlaying) {
-            pauseAudio();
-         } else {
-            playAudio();
-         }
+            if (isPlaying) {
+               pauseAudio();
+            } else {
+               playAudio();
+            }
          });
-         
+
          // Toggle play/pause when clicking on play-button
          playButton.addEventListener('click', (event) => {
-         event.preventDefault();
-         if (isPlaying) {
-            pauseAudio();
-         } else {
-            playAudio();
-         }
+            event.preventDefault();
+            if (isPlaying) {
+               pauseAudio();
+            } else {
+               playAudio();
+            }
          });
-         
+
          // Volume control functionality
          volumeControl.addEventListener('input', (event) => {
-         // Set audio volume based on the slider value (scale from 0 to 1)
-         audioPlayer.volume = event.target.value / 100;
+            // Set audio volume based on the slider value (scale from 0 to 1)
+            audioPlayer.volume = event.target.value / 100;
          });
-         
-             // Love button functionality (toggle red color)
-             loveButton.addEventListener('click', (event) => {
-                 event.preventDefault();
-                 loveButton.classList.toggle('loved');
-             });
-         
-             // Refresh button functionality (reload stream)
-             refreshButton.addEventListener('click', (event) => {
-                 event.preventDefault();
-                 audioPlayer.pause();
-                 audioPlayer.load(); // Reload the stream
-                 if (isPlaying) {
-                     audioPlayer.play();
-                 }
-             });
-         
-             // Share button functionality (Web Share API)
-             shareButton.addEventListener('click', (event) => {
-                 event.preventDefault();
-                 const shareData = {
-                     title: 'Reminisce Radio',
-                     text: 'Check out this awesome radio station!',
-                     url: window.location.href
-                 };
-         
-                 if (navigator.share) {
-                     navigator.share(shareData)
-                         .then(() => console.log('Successfully shared'))
-                         .catch((err) => console.error('Error sharing:', err));
-                 } else {
-                     alert('Your browser does not support the Web Share API');
-                 }
-                 if (!navigator.share) {
-         const fallbackShare = document.createElement('input');
-         fallbackShare.value = window.location.href;
-         document.body.appendChild(fallbackShare);
-         fallbackShare.select();
-         document.execCommand('copy');
-         document.body.removeChild(fallbackShare);
-         alert('Link copied to clipboard!');
+
+         // Love button functionality (toggle red color)
+         loveButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            loveButton.classList.toggle('loved');
+         });
+
+         // Refresh button functionality (reload stream)
+         refreshButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            audioPlayer.pause();
+            audioPlayer.load(); // Reload the stream
+            if (isPlaying) {
+               audioPlayer.play();
+            }
+         });
+
+         // Share button functionality (Web Share API)
+         shareButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            const shareData = {
+               title: 'Reminisce Radio',
+               text: 'Check out this awesome radio station!',
+               url: window.location.href
+            };
+
+            if (navigator.share) {
+               navigator.share(shareData)
+                  .then(() => console.log('Successfully shared'))
+                  .catch((err) => console.error('Error sharing:', err));
+            } else {
+               alert('Your browser does not support the Web Share API');
+            }
+            if (!navigator.share) {
+               const fallbackShare = document.createElement('input');
+               fallbackShare.value = window.location.href;
+               document.body.appendChild(fallbackShare);
+               fallbackShare.select();
+               document.execCommand('copy');
+               document.body.removeChild(fallbackShare);
+               alert('Link copied to clipboard!');
+            }
+
+         });
+      });
+   </script>
+   <script>
+      const audio = document.getElementById("audio");
+      const loader = document.getElementById("loader");
+      const playButton = document.querySelector(".play-button");
+
+      playButton.addEventListener("click", function () {
+         loader.style.display = "block";
+         audio.play().then(() => {
+            loader.style.display = "none";
+         }).catch((error) => {
+            loader.style.display = "none";
+            console.log("Error playing audio:", error);
+         });
+      });
+   </script>
+   <!-- Script for scroll-triggered fixed header -->
+   <script>
+      window.addEventListener('scroll', () => {
+         const header = document.querySelector('header');
+         const scrollPosition = window.scrollY;
+
+         // Apply or remove the fixed class based on scroll position
+         if (scrollPosition > 80) {
+            header.classList.add('fixed');
+         } else {
+            header.classList.remove('fixed');
          }
-         
-             });
-         });
-      </script>
-      <script>
-         const audio = document.getElementById("audio");
-         const loader = document.getElementById("loader");
-         const playButton = document.querySelector(".play-button");
-         
-         playButton.addEventListener("click", function() {
-             loader.style.display = "block";
-             audio.play().then(() => {
-                 loader.style.display = "none";
-             }).catch((error) => {
-                 loader.style.display = "none";
-                 console.log("Error playing audio:", error);
-             });
-         });
-      </script>
-      <!-- Script for scroll-triggered fixed header -->
-      <script>
-         window.addEventListener('scroll', () => {
-             const header = document.querySelector('header');
-             const scrollPosition = window.scrollY;
-         
-             // Apply or remove the fixed class based on scroll position
-             if (scrollPosition > 80) {
-                 header.classList.add('fixed');
-             } else {
-                 header.classList.remove('fixed');
-             }
-         });
-      </script>
-      <script>
-         // Get modal elements
-         var overlay = document.getElementById("overlay");
-         var formContainer = document.getElementById("form-container");
-         var openModalButton = document.getElementById("openRequestModal");
-         var closeModalButton = document.getElementById("closeModal");
-         
-         // Open modal when button is clicked
-         openModalButton.onclick = function() {
-             overlay.style.display = "flex"; // Show the overlay and modal
-         }
-         
-         // Close modal when X is clicked
-         closeModalButton.onclick = function() {
-             overlay.style.display = "none"; // Hide the overlay and modal
-         }
-         
-         // Close modal when clicking outside of the modal content
-         overlay.onclick = function(event) {
+      });
+   </script>
+   <script>
+      // Get modal elements
+      var overlay = document.getElementById("overlay");
+      var formContainer = document.getElementById("form-container");
+      var openModalButton = document.getElementById("openRequestModal");
+      var closeModalButton = document.getElementById("closeModal");
+
+      // Open modal when button is clicked
+      openModalButton.onclick = function () {
+         overlay.style.display = "flex"; // Show the overlay and modal
+      }
+
+      // Close modal when X is clicked
+      closeModalButton.onclick = function () {
+         overlay.style.display = "none"; // Hide the overlay and modal
+      }
+
+      // Close modal when clicking outside of the modal content
+      overlay.onclick = function (event) {
          // Check if the click target is not inside the form-container
          if (!formContainer.contains(event.target)) {
             overlay.style.display = "none"; // Hide the overlay and modal
          }
+      }
+
+      // Handle form submission with validation
+      document.getElementById('requestForm').addEventListener('submit', function (event) {
+         event.preventDefault();
+
+         var name = document.getElementById('name').value.trim();
+         var songName = document.getElementById('songName').value.trim();
+         var errorMessage = document.getElementById('errorMessage');
+
+         // Validate input fields
+         if (!name || !songName) {
+            errorMessage.style.display = 'block';
+            return;
          }
-         
-         // Handle form submission with validation
-         document.getElementById('requestForm').addEventListener('submit', function(event) {
-             event.preventDefault();
-         
-             var name = document.getElementById('name').value.trim();
-             var songName = document.getElementById('songName').value.trim();
-             var errorMessage = document.getElementById('errorMessage');
-         
-             // Validate input fields
-             if (!name || !songName) {
-                 errorMessage.style.display = 'block';
-                 return;
-             }
-             errorMessage.style.display = 'none';
-         
-             // Send data to the backend using fetch API
-             fetch('http://localhost:3000/submit-song-request', {
-                 method: 'POST',
-                 headers: {
-                     'Content-Type': 'application/json'
-                 },
-                 body: JSON.stringify({ name: name, songName: songName })
-             })
-             .then(response => {
-                 if (response.ok) {
-                     return response.json();
-                 } else {
-                     throw new Error('Request failed.');
-                 }
-             })
-             .then(data => {
-                 if (data.success) {
-                     document.getElementById('userName').textContent = name;
-                     document.getElementById('songTitle').textContent = songName;
-                     document.getElementById('requestForm').style.display = 'none';
-                     document.getElementById('thankYouMessage').style.display = 'block';
-                 } else {
-                     console.error('Error:', data.error);
-                 }
-             })
-             .catch(error => {
-                 console.error('Error:', error);
-                 alert('Something went wrong while submitting your request. Please try again.');
-             });
-         });
-         
-         // Back to form functionality
-         document.getElementById('backButton').addEventListener('click', function() {
-             // Reset the form
-             document.getElementById('requestForm').reset();
-             document.getElementById('requestForm').style.display = 'block';
-             document.getElementById('thankYouMessage').style.display = 'none';
-         });
-      </script>
-      <script>
-         document.getElementById("openShareModal").addEventListener("click", () => {
-            document.getElementById("shareModal").style.display = "flex";
-          });
-          
-          document.getElementById("closeShareModal").addEventListener("click", () => {
-            document.getElementById("shareModal").style.display = "none";
-          });
-          
-          window.onclick = function (event) {
-            const modal = document.getElementById("shareModal");
-            if (event.target === modal) {
-              modal.style.display = "none";
-            }
-          };
-          
-          // Share functionality
-          function share(platform) {
-            const url = window.location.href;
-            const text = "Check out this awesome content!";
-            
-            switch (platform) {
-              case 'facebook':
-                window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
-                break;
-              case 'twitter':
-                window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
-                break;
-              case 'whatsapp':
-                window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
-                break;
-              case 'email':
-                window.location.href = `mailto:?subject=${encodeURIComponent(text)}&body=${encodeURIComponent(url)}`;
-                break;
-              default:
-                alert("Platform not supported");
-            }
-          }
-          
-          // Web Share API for native sharing
-          function shareViaWebShare() {
-            if (navigator.share) {
-              navigator.share({
-                title: "Invite Friends",
-                text: "Check out this awesome content!",
-                url: window.location.href
-              }).catch(console.error);
-            } else {
-              alert("Web Share API not supported");
-            }
-          }
-      </script>
-      <script>
-         window.addEventListener("load", function () {
+         errorMessage.style.display = 'none';
+
+         // Send data to the backend using fetch API
+         fetch('http://localhost:3000/submit-song-request', {
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: name, songName: songName })
+         })
+            .then(response => {
+               if (response.ok) {
+                  return response.json();
+               } else {
+                  throw new Error('Request failed.');
+               }
+            })
+            .then(data => {
+               if (data.success) {
+                  document.getElementById('userName').textContent = name;
+                  document.getElementById('songTitle').textContent = songName;
+                  document.getElementById('requestForm').style.display = 'none';
+                  document.getElementById('thankYouMessage').style.display = 'block';
+               } else {
+                  console.error('Error:', data.error);
+               }
+            })
+            .catch(error => {
+               console.error('Error:', error);
+               alert('Something went wrong while submitting your request. Please try again.');
+            });
+      });
+
+      // Back to form functionality
+      document.getElementById('backButton').addEventListener('click', function () {
+         // Reset the form
+         document.getElementById('requestForm').reset();
+         document.getElementById('requestForm').style.display = 'block';
+         document.getElementById('thankYouMessage').style.display = 'none';
+      });
+   </script>
+   <script>
+      document.getElementById("openShareModal").addEventListener("click", () => {
+         document.getElementById("shareModal").style.display = "flex";
+      });
+
+      document.getElementById("closeShareModal").addEventListener("click", () => {
+         document.getElementById("shareModal").style.display = "none";
+      });
+
+      window.onclick = function (event) {
+         const modal = document.getElementById("shareModal");
+         if (event.target === modal) {
+            modal.style.display = "none";
+         }
+      };
+
+      // Share functionality
+      function share(platform) {
+         const url = window.location.href;
+         const text = "Check out this awesome content!";
+
+         switch (platform) {
+            case 'facebook':
+               window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+               break;
+            case 'twitter':
+               window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+               break;
+            case 'whatsapp':
+               window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+               break;
+            case 'email':
+               window.location.href = `mailto:?subject=${encodeURIComponent(text)}&body=${encodeURIComponent(url)}`;
+               break;
+            default:
+               alert("Platform not supported");
+         }
+      }
+
+      // Web Share API for native sharing
+      function shareViaWebShare() {
+         if (navigator.share) {
+            navigator.share({
+               title: "Invite Friends",
+               text: "Check out this awesome content!",
+               url: window.location.href
+            }).catch(console.error);
+         } else {
+            alert("Web Share API not supported");
+         }
+      }
+   </script>
+   <script>
+      window.addEventListener("load", function () {
          // Hide loading indicator and show main content
          document.getElementById("loading-indicator").style.display = "none";
          document.getElementById("mainContent").style.display = "block";
-         });
-         
-      </script>
-   </body>
+      });
+
+   </script>
+</body>
+
 </html>
