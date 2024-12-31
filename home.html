@@ -413,8 +413,16 @@
          const currentArtist = document.getElementById('artist').textContent;
          const currentSong = document.getElementById('song').textContent;
 
-         document.getElementById('last-artist').textContent = currentArtist;
-         document.getElementById('last-song').textContent = currentSong;
+         const lastArtistElement = document.getElementById('last-artist');
+         const lastSongElement = document.getElementById('last-song');
+
+         if (lastArtistElement) {
+            lastArtistElement.textContent = currentArtist;
+         }
+
+         if (lastSongElement) {
+            lastSongElement.textContent = currentSong;
+         }
       }
 
       // Call this function when the track or metadata changes
