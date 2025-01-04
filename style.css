@@ -5,7 +5,7 @@ body {
 	padding: 0;
 	font-family: 'poppins', sans-serif;
 	background: rgb(73, 3, 66);
-	background-image: url("./assets/pattern.bg.webp");
+	background-image: url("./assets/pattern.bg.web");
 	/* Image background */
 	background-size: cover;
 	/* Ensure the background covers the whole area */
@@ -1261,7 +1261,7 @@ h1 {
 }
 }
 
-.message p {
+.hero_message p {
 	font-size: 12px;
     line-height: 1.6;
     color: #e0e0e0; /* Light gray for a soft look */
@@ -1269,11 +1269,11 @@ h1 {
     margin: auto;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
-.message p br {
+.hero_message p br {
     margin: 10px 0;
 }
 
-.message p:hover {
+.hero_message p:hover {
     color: #E5E4E2; /* Brighter text on hover */
     transition: color 0.3s ease;
 }
@@ -1855,3 +1855,110 @@ h1 {
     line-height: 1.6;
     color: #E5E4E2;
 }
+.chat-container {
+    width: 100%;
+    max-width: 500px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Chat header */
+.chat-header {
+    background-color: #1e88e5;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+/* Chat messages */
+.chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Individual message */
+.message {
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+}
+
+/* Chat form */
+.chat-form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+}
+
+/* Input fields */
+.chat-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: none;
+}
+
+/* Username input */
+.username-input {
+    font-weight: bold;
+}
+
+/* Send button */
+.send-btn {
+    padding: 10px;
+    background-color: #1e88e5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.send-btn:hover {
+    background-color: #1565c0;
+}
+
+ 
+ #login-form.show {
+	display: block;
+ }
+ 
+ #login-form label {
+	display: block;
+	margin-bottom: 10px;
+ }
+ 
+ #login-form input {
+	width: 100%;
+	height: 40px;
+	margin-bottom: 20px;
+	padding: 10px;
+	border: 1px solid #ccc;
+ }
+ 
+ #login-form button[type="submit"] {
+	width: 100%;
+	height: 40px;
+	background-color: #4CAF50;
+	color: #fff;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+ }
+ 
+ #login-form button[type="submit"]:hover {
+	background-color: #3e8e41;
+ }

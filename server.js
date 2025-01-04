@@ -24,6 +24,12 @@ const pool = mysql.createPool({
 // In-memory storage for now-playing data
 let nowPlaying = { artist: '', title: '' };
 
+const { signup, login } = require('./auth');  // import signUp function
+
+// Map the routes
+app.post('/signup', signup);
+app.post('/login', login);
+
 // Endpoint to handle updates from the NowPlaying.js script
 app.post('/now-playing', (req, res) => {
     const { artist, title } = req.body;
