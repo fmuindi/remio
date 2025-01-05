@@ -3,12 +3,13 @@ const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
+const { signup, login } = require('./auth'); // Import signup and login functions
 
 const app = express();
 const port = 3000;
 
 // Middleware
-app.use(cors({ origin: '*' }));
+app.use(cors({ origin: '*' })); // Allow all origins for testing; restrict in production
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname)));
 
@@ -18,17 +19,25 @@ const pool = mysql.createPool({
     user: 'root',
     password: 'nightmare',
     database: 'song_requests',
-    port: 3306
+    port: 3306,
 });
+
+// Test database connection
+pool.getConnection((err, connection) => {
+    if (err) {
+        console.error('Database connection failed:', err.stack);
+    } else {
+        console.log('Connected to the database.');
+        connection.release();
+    }
+});
+
+// Map the routes
+app.post('/signup', (req, res) => signup(req, res, pool));
+app.post('/login', (req, res) => login(req, res, pool));
 
 // In-memory storage for now-playing data
 let nowPlaying = { artist: '', title: '' };
-
-const { signup, login } = require('./auth');  // import signUp function
-
-// Map the routes
-app.post('/signup', signup);
-app.post('/login', login);
 
 // Endpoint to handle updates from the NowPlaying.js script
 app.post('/now-playing', (req, res) => {
@@ -41,7 +50,6 @@ app.post('/now-playing', (req, res) => {
     nowPlaying = { artist, title };
     console.log('Now-playing updated:', nowPlaying);
 
-    // Check if the song already exists in the now_playing_history table
     const checkQuery = 'SELECT * FROM now_playing_history WHERE artist = ? AND title = ? LIMIT 1';
     pool.query(checkQuery, [artist, title], (err, result) => {
         if (err) {
@@ -49,12 +57,10 @@ app.post('/now-playing', (req, res) => {
             return res.status(500).json({ success: false, error: 'Database error.' });
         }
 
-        // If the song already exists, do not insert again
         if (result.length > 0) {
             return res.json({ success: true, message: 'Song already exists in the history.' });
         }
 
-        // If no record exists, insert the new data
         const insertQuery = 'INSERT INTO now_playing_history (artist, title) VALUES (?, ?)';
         pool.query(insertQuery, [artist, title], (err, result) => {
             if (err) {
@@ -98,7 +104,6 @@ app.post('/submit-song-request', (req, res) => {
     }
 
     const query = 'INSERT INTO requests (name, song_title) VALUES (?, ?)';
-    
     pool.query(query, [name, songName], (err, result) => {
         if (err) {
             console.error('Error inserting data into the database:', err.stack);
@@ -107,6 +112,17 @@ app.post('/submit-song-request', (req, res) => {
         console.log('Song request submitted successfully:', result);
         res.json({ success: true, message: 'Song request submitted successfully.' });
     });
+});
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+    res.json({ status: 'UP' });
+});
+
+// Global error handling middleware
+app.use((err, req, res, next) => {
+    console.error('Unhandled error:', err.stack);
+    res.status(500).json({ success: false, error: 'Internal server error.' });
 });
 
 // Start the server

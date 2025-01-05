@@ -411,7 +411,10 @@
          const showSignupLink = document.getElementById('show-signup');
          const showLoginLink = document.getElementById('show-login');
 
-         const API_BASE_URL = 'http://16.16.247.10:3000'; // Update if your backend URL is different
+         const API_BASE_URL = window.location.origin.includes('localhost')
+            ? 'http://localhost:3000'
+            : 'https://www.remioplay.com';
+         // Update if your backend URL is different
 
          // Switch to signup form
          showSignupLink.addEventListener('click', (e) => {
