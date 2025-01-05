@@ -14,8 +14,6 @@ body {
 	background-repeat: repeat;
 	background-blend-mode: overlay;
 	/* Prevent repeating of the image */
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-	/* Text shadow */
 }
 
 /* Flexbox for responsive remibox and intro sections */
@@ -539,7 +537,7 @@ i.fa-volume-up {
 }
 
 .intro h1 {
-	font-size: 50px;
+	font-size: 45px;
 	font-weight: bold;
 	color: #E5E4E2;
 	position: relative;
@@ -1516,123 +1514,99 @@ h1 {
 
 /* Modal Background */
 .share-modal {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px); /* Adds a blurred background effect */
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	backdrop-filter: blur(8px);
 	z-index: 1000;
-}
-
-/* Modal Content */
-.share-content {
-    background: #E5E4E2;
-    padding: 25px;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 450px;
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    position: relative;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Close Button */
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
-    cursor: pointer;
-    color: #333;
-    transition: color 0.3s ease;
-}
-
-.close-btn:hover {
-    color: #d04ed6;
-}
-
-/* Modal Heading */
-.share-content h3 {
-    margin-bottom: 15px;
-    font-size: 24px;
-    color: #333;
-    font-weight: bold;
-}
-
-/* Modal Description */
-.share-content p {
-    margin-bottom: 20px;
-    font-size: 16px;
-    color: #666;
-}
-
-/* Share Buttons */
-.share-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-}
-
-.share-btn {
-    flex: 1;
-    max-width: 48%;
-    padding: 12px;
-    background: linear-gradient(to right, #834d9b 0%, #d04ed6 51%, #834d9b 100%);
-    color: #E5E4E2;
-    border: none;
-    border-radius: 25px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(208, 78, 214, 0.4);
-}
-
-.share-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(208, 78, 214, 0.6);
-}
-
-/* Responsive Design */
-@media (max-width: 480px) {
-    .share-btn {
-        max-width: 100%;
-    }
-}
-
-
-  
-  /* Responsive Modal for Small Screens */
-  @media (max-width: 600px) {
-	.share-content {
-	  width: 95%;
-	  padding: 15px;
+	animation: fadeIn 0.3s ease-in-out;
+ }
+ 
+ .share-content {
+	background: #ffffff;
+	padding: 20px;
+	border-radius: 15px;
+	width: 90%;
+	max-width: 400px;
+	text-align: center;
+	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+	position: relative;
+ }
+ 
+ .close-btn {
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	font-size: 24px;
+	color: #666;
+	cursor: pointer;
+ }
+ 
+ .close-btn:hover {
+	color: #333;
+ }
+ 
+ .share-content h3 {
+	font-size: 22px;
+	margin-bottom: 15px;
+	color: #333;
+ }
+ 
+ .share-content p {
+	font-size: 14px;
+	margin-bottom: 20px;
+	color: #555;
+ }
+ 
+ .share-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	justify-content: center;
+ }
+ 
+ .share-btn {
+	flex: 1;
+	max-width: 45%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 12px 10px;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #fff;
+	background: linear-gradient(to right, #6a11cb, #2575fc);
+	border: none;
+	border-radius: 8px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+	cursor: pointer;
+	transition: all 0.3s ease;
+ }
+ 
+ .share-btn i {
+	font-size: 18px;
+ }
+ 
+ .share-btn:hover {
+	background: linear-gradient(to right, #2575fc, #6a11cb);
+	transform: translateY(-2px);
+ }
+ 
+ @media (max-width: 480px) {
+	.share-btn {
+	   max-width: 100%;
+	   padding: 10px;
 	}
-  
-	.share-buttons button {
-	  padding: 10px 15px;
-	  font-size: 14px;
-	}
-  }
+ }
+ 
   
   .firstrow {
     display: flex;
