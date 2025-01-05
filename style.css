@@ -5,7 +5,7 @@ body {
 	padding: 0;
 	font-family: 'poppins', sans-serif;
 	background: rgb(73, 3, 66);
-	background-image: url("./assets/pattern.bg.web");
+	background-image: url("./assets/pattern.bg.webp");
 	/* Image background */
 	background-size: cover;
 	/* Ensure the background covers the whole area */
@@ -1930,35 +1930,117 @@ h1 {
     background-color: #1565c0;
 }
 
- 
- #login-form.show {
-	display: block;
- }
- 
- #login-form label {
-	display: block;
+/* Modal Styles */
+.login-modal {
+	display: none; /* Hidden by default */
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.7); /* Dark background with opacity */
+  }
+  
+  .login-modal-content {
+	background: white;
+	margin: 10% auto;
+	padding: 20px;
+	border-radius: 10px;
+	width: 90%;
+	max-width: 400px;
+	position: relative;
+	animation: fadeIn 0.3s ease-in-out;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Close Button */
+  .login-close-btn {
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	color: #aaa;
+	font-size: 24px;
+	font-weight: bold;
+	cursor: pointer;
+  }
+  
+  .login-close-btn:hover,
+  .login-close-btn:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+  }
+  
+  /* Form Styles */
+  form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+  }
+  
+  form h2 {
 	margin-bottom: 10px;
- }
- 
- #login-form input {
-	width: 100%;
-	height: 40px;
-	margin-bottom: 20px;
-	padding: 10px;
-	border: 1px solid #ccc;
- }
- 
- #login-form button[type="submit"] {
-	width: 100%;
-	height: 40px;
-	background-color: #4CAF50;
-	color: #fff;
+	color: #333;
+  }
+  
+  form label {
+	font-size: 14px;
+	color: #555;
+  }
+  
+  form input {
+	padding: 8px 12px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 14px;
+  }
+  
+  form button {
+	background: linear-gradient(to right, #834d9b, #d04ed6);
+	color: white;
 	padding: 10px;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
- }
- 
- #login-form button[type="submit"]:hover {
-	background-color: #3e8e41;
- }
+	font-size: 16px;
+  }
+  
+  form button:hover {
+	background: linear-gradient(to left, #834d9b, #d04ed6);
+  }
+  
+  .error {
+	color: red;
+	font-size: 12px;
+  }
+  
+  /* Keyframe Animation */
+  @keyframes fadeIn {
+	from {
+	  opacity: 0;
+	  transform: scale(0.9);
+	}
+	to {
+	  opacity: 1;
+	  transform: scale(1);
+	}
+  }
+  
+  /* Login Button in Navbar */
+  .btn-login {
+	background: linear-gradient(to right, #834d9b, #d04ed6);
+	color: white;
+	padding: 8px 12px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	margin-left: 20px;
+  }
+  
+  .btn-login:hover {
+	background: linear-gradient(to left, #834d9b, #d04ed6);
+  }
+  

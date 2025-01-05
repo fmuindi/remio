@@ -35,7 +35,7 @@
             <!-- Search Bar -->
             <div class="flexbox">
                <div class="search">
-                  <div>
+                  <div>                        
                      <input type="text" class="search-bar" placeholder="Search . . ." required>
                   </div>
                </div>
@@ -48,6 +48,8 @@
                <li><a href="request.html">Play Song</a></li>
                <li><a href="contact.html">Contact</a></li>
             </ul>
+            <!-- Login Button -->
+            <button id="login-btn" class="btn-login">Login</button>
             <!-- Hamburger Icon -->
             <div class="hamburger">
                <div></div>
@@ -56,6 +58,48 @@
             </div>
          </nav>
       </header>
+
+      <!-- Login/Signup Modal -->
+      <div id="login-modal" class="login-modal">
+         <div class="login-modal-content">
+            <span class="login-close-btn">&times;</span>
+            <!-- Login Form -->
+            <form id="login-form">
+               <h2>Login</h2>
+               <label for="login-email">Email:</label>
+               <input type="email" id="login-email" name="email" required />
+
+               <label for="login-password">Password:</label>
+               <input type="password" id="login-password" name="password" required />
+
+               <button type="submit">Login</button>
+               <p>Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
+               <div class="error" id="login-error"></div>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signup-form" style="display: none;">
+               <h2>Sign Up</h2>
+               <label for="signup-username">Username:</label>
+               <input type="text" id="signup-username" name="username" required />
+
+               <label for="signup-email">Email:</label>
+               <input type="email" id="signup-email" name="email" required />
+
+               <label for="signup-password">Password:</label>
+               <input type="password" id="signup-password" name="password" required />
+
+               <label for="signup-confirm-password">Confirm Password:</label>
+               <input type="password" id="signup-confirm-password" name="confirm_password" required />
+
+               <button type="submit">Sign Up</button>
+               <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+               <div class="error" id="signup-error"></div>
+            </form>
+         </div>
+      </div>
+
+
       <div class="firstrow">
          <div class="remibox">
             <div class="flex_1">
@@ -350,42 +394,6 @@
          <button type="submit" class="send-btn">Send</button>
       </form>
    </div>
-
-   <!-- Login Form -->
-   <form id="login-form">
-      <h2>Login</h2>
-      <label for="login-email">Email:</label>
-      <input type="email" id="login-email" name="email" required>
-
-      <label for="login-password">Password:</label>
-      <input type="password" id="login-password" name="password" required>
-
-      <button type="submit">Login</button>
-      <p>Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
-      <div class="error" id="login-error"></div>
-   </form>
-
-   <!-- Signup Form -->
-   <form id="signup-form" style="display: none;">
-      <h2>Sign Up</h2>
-      <label for="signup-username">Username:</label>
-      <input type="text" id="signup-username" name="username" required>
-
-      <label for="signup-email">Email:</label>
-      <input type="email" id="signup-email" name="email" required>
-
-      <label for="signup-password">Password:</label>
-      <input type="password" id="signup-password" name="password" required>
-
-      <label for="signup-confirm-password">Confirm Password:</label>
-      <input type="password" id="signup-confirm-password" name="confirm_password" required>
-
-      <button type="submit">Sign Up</button>
-      <p>Already have an account? <a href="#" id="show-login">Login</a></p>
-      <div class="error" id="signup-error"></div>
-   </form>
-
-
    <noscript>
       <div id="nojs_message">
          <p>In order for this audio player to function, you need to have JavaScript enabled. If for any reason you do
@@ -404,6 +412,10 @@
    <script src="/socket.io/socket.io.js"></script>
    <script>
       document.addEventListener('DOMContentLoaded', () => {
+         const loginModal = document.getElementById('login-modal');
+         const loginButton = document.getElementById('login-btn');
+         const loginCloseBtn = document.querySelector('.login-close-btn');
+
          const loginForm = document.getElementById('login-form');
          const signupForm = document.getElementById('signup-form');
          const loginError = document.getElementById('login-error');
@@ -415,6 +427,23 @@
             ? 'http://localhost:3000'
             : 'https://www.remioplay.com';
          // Update if your backend URL is different
+
+         // Open login modal
+         loginButton.addEventListener('click', () => {
+            loginModal.style.display = 'block';
+         });
+
+         // Close modal when clicking the close button
+         loginCloseBtn.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+         });
+
+         // Close modal when clicking outside the modal content
+         window.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+               loginModal.style.display = 'none';
+            }
+         });
 
          // Switch to signup form
          showSignupLink.addEventListener('click', (e) => {
@@ -454,6 +483,7 @@
                // Save JWT token in localStorage
                localStorage.setItem('token', result.token);
                alert('Login successful!');
+               loginModal.style.display = 'none'; // Close modal
                // Redirect or update UI here
             } catch (err) {
                loginError.textContent = 'An error occurred. Please try again.';
@@ -499,8 +529,8 @@
             }
          });
       });
-
    </script>
+
    <script>
       const socket = io();
 
