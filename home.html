@@ -570,17 +570,17 @@
       function onGoogleSignIn(googleUser) {
          const id_token = googleUser.getAuthResponse().id_token;
 
-         fetch(`${API_BASE_URL}/google-login`, {
+         fetch(`${API_BASE_URL}/auth/google/token`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id_token }),
+            body: JSON.stringify({ idToken: id_token }),  // Update parameter name to 'idToken'
          })
             .then(response => response.json())
             .then(result => {
                if (result.token) {
                   localStorage.setItem('token', result.token);
                   alert('Google Login successful!');
-                  loginModal.style.display = 'none';
+                  loginModal.style.display = 'none';  // Assuming you have a modal to close
                } else {
                   console.error('Google Login failed');
                }
@@ -593,7 +593,7 @@
          if (response.status === 'connected') {
             const accessToken = response.authResponse.accessToken;
 
-            fetch(`${API_BASE_URL}/facebook-login`, {
+            fetch(`${API_BASE_URL}/auth/facebook/token`, {  // Update endpoint here
                method: 'POST',
                headers: { 'Content-Type': 'application/json' },
                body: JSON.stringify({ accessToken }),
@@ -603,7 +603,7 @@
                   if (result.token) {
                      localStorage.setItem('token', result.token);
                      alert('Facebook Login successful!');
-                     loginModal.style.display = 'none';
+                     loginModal.style.display = 'none';  // Assuming you have a modal to close
                   } else {
                      console.error('Facebook Login failed');
                   }
@@ -624,13 +624,15 @@
             appId: 'YOUR_APP_ID',
             cookie: true,
             xfbml: true,
-            version: 'v15.0'
+            version: 'v15.0',  // Ensure you use the correct version
          });
 
          FB.getLoginStatus(function (response) {
             statusChangeCallback(response);
          });
       };
+
+   </script>
 
    </script>
 

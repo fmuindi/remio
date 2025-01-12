@@ -10,6 +10,8 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const session = require('express-session');
 const jwt = require('jsonwebtoken');
+const { OAuth2Client } = require('google-auth-library'); // To verify Google ID token
+const axios = require('axios'); // For Facebook token verification
 
 const { signup, login } = require('./auth'); // Import signup and login functions
 
@@ -123,6 +125,67 @@ app.get('/auth/facebook/callback', (req, res, next) => {
         }
         res.json({ token: user.jwtToken });
     })(req, res, next);
+});
+
+// POST route to handle Google ID token from frontend
+app.post('/auth/google/token', async (req, res) => {
+    const { idToken } = req.body;
+
+    if (!idToken) {
+        return res.status(400).json({ error: 'idToken is required' });
+    }
+
+    try {
+        // Verify the Google ID token
+        const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+        const ticket = await client.verifyIdToken({
+            idToken,
+            audience: process.env.GOOGLE_CLIENT_ID,
+        });
+        const payload = ticket.getPayload();
+        const { sub, name, email } = payload;
+
+        // Check if user exists in database
+        const [user] = await pool.promise().query('SELECT * FROM users WHERE email = ?', [email]);
+        if (!user.length) {
+            await pool.promise().query('INSERT INTO users (username, email) VALUES (?, ?)', [name, email]);
+        }
+
+        // Create JWT token
+        const jwtToken = jwt.sign({ id: sub, email }, JWT_SECRET, { expiresIn: '1h' });
+        res.json({ token: jwtToken });
+    } catch (err) {
+        console.error('Error verifying Google ID token:', err);
+        res.status(500).json({ error: 'Error verifying Google token' });
+    }
+});
+
+// POST route to handle Facebook access token from frontend
+app.post('/auth/facebook/token', async (req, res) => {
+    const { accessToken } = req.body;
+
+    if (!accessToken) {
+        return res.status(400).json({ error: 'accessToken is required' });
+    }
+
+    try {
+        // Verify the Facebook access token by calling Facebook Graph API
+        const response = await axios.get(`https://graph.facebook.com/me?access_token=${accessToken}&fields=id,name,email`);
+        const { id, name, email } = response.data;
+
+        // Check if user exists in database
+        const [user] = await pool.promise().query('SELECT * FROM users WHERE email = ?', [email]);
+        if (!user.length) {
+            await pool.promise().query('INSERT INTO users (username, email) VALUES (?, ?)', [name, email]);
+        }
+
+        // Create JWT token
+        const jwtToken = jwt.sign({ id, email }, JWT_SECRET, { expiresIn: '1h' });
+        res.json({ token: jwtToken });
+    } catch (err) {
+        console.error('Error verifying Facebook access token:', err);
+        res.status(500).json({ error: 'Error verifying Facebook token' });
+    }
 });
 
 // Map the routes
