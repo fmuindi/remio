@@ -2187,23 +2187,35 @@ form p a:hover {
 }
 
 /* Custom Button Styling */
-.g-signin2 {
+/* Wrapper for g-signin2 to ensure the whole button is clickable */
+.custom-google-signin {
+	display: inline-block;
 	width: 100%;
-	/* Make the button take full width */
-	margin: 10px 0;
-	/* Add some spacing around the button */
-	padding: 12px;
-	border-radius: 5px;
-	background: #db4437;
-	/* Google Red */
-	color: white;
+	max-width: 300px; /* Optional: Set a max width */
 	text-align: center;
+	margin: 10px auto; /* Center the button horizontally */
+	background: #db4437;
+	border-radius: 5px;
 	cursor: pointer;
-}
-
-.g-signin2:hover {
+	padding: 10px 0;
+ }
+ 
+ /* Make sure the embedded Google Sign-In button is stretched */
+ .custom-google-signin .g-signin2 {
+	width: 100%;
+	height: 100%;
+ }
+ 
+ /* Add hover effect */
+ .custom-google-signin:hover {
 	background: #c1351d;
-}
+ }
+ 
+ /* Optional: Adjust text color and alignment inside the button */
+ .custom-google-signin * {
+	color: white !important;
+ }
+ 
 
 /* .fb-login-button {
 	width: 100%;

@@ -19,8 +19,10 @@
    <link rel="icon" href="./assets/favicon_io/favicon.ico" type="image/x-icon">
    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
    <script src="https://apis.google.com/js/platform.js" async defer></script>
-   <meta name="google-signin-client_id" content="76769363642-4epiuopanbn2q2aq67tn1hlerti3vsqt.apps.googleusercontent.com">
-   <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://apis.google.com https://www.gstatic.com 'unsafe-inline'; object-src 'none'; base-uri 'self';">
+   <meta name="google-signin-client_id"
+      content="76769363642-4epiuopanbn2q2aq67tn1hlerti3vsqt.apps.googleusercontent.com">
+   <meta http-equiv="Content-Security-Policy"
+      content="script-src 'self' https://apis.google.com https://www.gstatic.com 'unsafe-inline'; object-src 'none'; base-uri 'self';">
 
    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0"
       nonce="N4H1zKQ2"></script>
@@ -87,7 +89,9 @@
                </div>
                <button type="submit">Login</button>
                <!-- Google Login Button -->
-               <div class="g-signin2" data-onsuccess="onSignIn" style="margin-top: 20px;"></div>
+               <div class="custom-google-signin">
+                  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+               </div>
                <!-- Facebook Login Button 
                <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with"
                   data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"
@@ -573,14 +577,14 @@
          fetch(`${API_BASE_URL}/auth/google/token`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ idToken: id_token }),  // Update parameter name to 'idToken'
+            body: JSON.stringify({ idToken: id_token }),
          })
             .then(response => response.json())
             .then(result => {
                if (result.token) {
                   localStorage.setItem('token', result.token);
                   alert('Google Login successful!');
-                  loginModal.style.display = 'none';  // Assuming you have a modal to close
+                  loginModal.style.display = 'none';
                } else {
                   console.error('Google Login failed');
                }
