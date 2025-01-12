@@ -2192,6 +2192,7 @@ form p a:hover {
 .g-signin2-wrapper {
 	display: inline-block;
 	width: 100%;
+	align-items: center;
 	max-width: 300px; /* Set a max width for the button */
 	margin: 10px auto; /* Center the button */
  }
@@ -2225,3 +2226,8 @@ form p a:hover {
 	background: #2d4373;
 } */
 
+.btn-login.user-logged-in {
+	background-color: #4caf50;
+	color: white;
+	cursor: default;
+ }

@@ -638,7 +638,51 @@
 
    </script>
 
-   </script>
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+<script>
+   // Function to set login button text
+   function setLoginButton() {
+      const token = localStorage.getItem('token'); // Retrieve token from localStorage or sessionStorage
+      if (!token) return;
+
+      try {
+         // Decode the JWT to get user details
+         const userData = jwt_decode(token);
+         const loginBtn = document.getElementById('login-btn');
+
+         if (userData && userData.username) {
+            loginBtn.textContent = userData.username; // Replace button text with username
+            loginBtn.classList.add('user-logged-in');
+         }
+      } catch (error) {
+         console.error('Error decoding JWT:', error);
+      }
+   }
+
+   // On page load, check if user is logged in
+   document.addEventListener('DOMContentLoaded', () => {
+      setLoginButton();
+   });
+
+   // Simulated login (for testing)
+   async function loginUser(email, password) {
+      try {
+         const response = await fetch('/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password }),
+         });
+
+         if (!response.ok) throw new Error('Login failed');
+
+         const data = await response.json();
+         localStorage.setItem('token', data.token); // Save token to localStorage
+         setLoginButton(); // Update button after login
+      } catch (err) {
+         console.error('Login error:', err);
+      }
+   }
+</script>
 
    <script>
       const socket = io();
