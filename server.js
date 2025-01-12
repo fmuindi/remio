@@ -14,7 +14,6 @@ const jwt = require('jsonwebtoken');
 const { OAuth2Client } = require('google-auth-library'); // To verify Google ID token
 const axios = require('axios'); // For Facebook token verification
 
-const { signup, login } = require('./auth'); // Import signup and login functions
 
 const app = express();
 const port = 3000;
