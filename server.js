@@ -19,6 +19,28 @@ const axios = require('axios'); // For Facebook token verification
 const app = express();
 const port = 3000;
 
+const helmet = require('helmet');
+
+app.use(
+    helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: ["'self'"],
+                scriptSrc: [
+                    "'self'",
+                    "https://apis.google.com",
+                    "https://www.gstatic.com",
+                    "https://accounts.google.com",
+                    "https://connect.facebook.net"
+                ],
+                objectSrc: ["'none'"],
+                upgradeInsecureRequests: [],
+            },
+        },
+    })
+);
+
+
 // Middleware
 app.use(cors({ origin: '*' })); // Allow all origins for testing; restrict in production
 app.use(bodyParser.json());
