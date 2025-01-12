@@ -51,8 +51,8 @@ passport.use(new GoogleStrategy({
 
     // Generate JWT token
     const userData = user.length > 0 ? user[0] : { id: id, username: displayName, email };
-    const token = jwt.sign({ id: userData.id, username: userData.username }, JWT_SECRET, { expiresIn: '1h' });
-    return done(null, { token });
+    const jwtToken = jwt.sign({ id: userData.id, username: userData.username }, JWT_SECRET, { expiresIn: '1h' });
+    return done(null, { token: jwtToken });
 }));
 
 // Facebook OAuth Strategy
@@ -74,8 +74,8 @@ passport.use(new FacebookStrategy({
 
     // Generate JWT token
     const userData = user.length > 0 ? user[0] : { id: id, username: displayName, email };
-    const token = jwt.sign({ id: userData.id, username: userData.username }, JWT_SECRET, { expiresIn: '1h' });
-    return done(null, { token });
+    const jwtToken = jwt.sign({ id: userData.id, username: userData.username }, JWT_SECRET, { expiresIn: '1h' });
+    return done(null, { token: jwtToken });
 }));
 
 // Routes for Google and Facebook OAuth
