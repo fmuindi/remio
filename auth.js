@@ -184,6 +184,8 @@ const authenticateToken = (req, res, next) => {
 };
 
 module.exports = {
+    signup,
+    login,
     googleAuth,
     googleCallback,
     facebookAuth,

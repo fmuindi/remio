@@ -53,6 +53,10 @@ pool.getConnection((err, connection) => {
     }
 });
 
+// Map the routes
+app.post('/signup', (req, res) => signup(req, res, pool));
+app.post('/login', (req, res) => login(req, res, pool));
+
 // Passport Serialization
 passport.serializeUser((user, done) => {
     done(null, user);
@@ -188,10 +192,6 @@ app.post('/auth/facebook/token', async (req, res) => {
         res.status(500).json({ error: 'Error verifying Facebook token' });
     }
 });
-
-// Map the routes
-app.post('/signup', (req, res) => signup(req, res, pool));
-app.post('/login', (req, res) => login(req, res, pool));
 
 // In-memory storage for now-playing data
 let nowPlaying = { artist: '', title: '' };
