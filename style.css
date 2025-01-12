@@ -2056,7 +2056,9 @@ h1 {
   }
   /* Custom Button Styling */
 .g-signin2 {
-    width: 100%;
+    width: 100%; /* Make the button take full width */
+    height: 50px; /* Adjust height as needed */
+    margin: 10px 0; /* Add some spacing around the button */
     padding: 12px;
     border-radius: 5px;
     background: #db4437; /* Google Red */
