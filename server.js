@@ -63,7 +63,7 @@ passport.deserializeUser((user, done) => {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: 'https://remioplay.com',
+    callbackURL: 'https://remioplay.com/auth/google/callback',
 }, async (token, tokenSecret, profile, done) => {
     const { id, displayName, emails } = profile;
     const email = emails[0].value;
@@ -73,7 +73,7 @@ passport.use(new GoogleStrategy({
         if (!user.length) {
             await pool.promise().query('INSERT INTO users (username, email) VALUES (?, ?)', [displayName, email]);
         }
-        const jwtToken = jwt.sign({ id: id, email }, JWT_SECRET, { expiresIn: '1h' });
+        const jwtToken = jwt.sign({ id, email }, JWT_SECRET, { expiresIn: '1h' });
         done(null, { jwtToken });
     } catch (err) {
         done(err, null);
@@ -84,7 +84,7 @@ passport.use(new GoogleStrategy({
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: 'https://remioplay.com',
+    callbackURL: 'https://remioplay.com/auth/facebook/callback',
     profileFields: ['id', 'displayName', 'emails'],
 }, async (accessToken, refreshToken, profile, done) => {
     const { id, displayName, emails } = profile;
@@ -95,7 +95,7 @@ passport.use(new FacebookStrategy({
         if (!user.length) {
             await pool.promise().query('INSERT INTO users (username, email) VALUES (?, ?)', [displayName, email]);
         }
-        const jwtToken = jwt.sign({ id: id, email }, JWT_SECRET, { expiresIn: '1h' });
+        const jwtToken = jwt.sign({ id, email }, JWT_SECRET, { expiresIn: '1h' });
         done(null, { jwtToken });
     } catch (err) {
         done(err, null);
