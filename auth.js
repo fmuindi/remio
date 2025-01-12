@@ -23,11 +23,15 @@ const pool = mysql.createPool({
 const queryDB = (query, params) => {
     return new Promise((resolve, reject) => {
         pool.query(query, params, (err, results) => {
-            if (err) return reject(err);
+            if (err) {
+                console.error(`Database query error: ${err.message}`);
+                return reject(new Error(`Database query failed: ${err.message}`));
+            }
             resolve(results);
         });
     });
 };
+
 
 // Sign-Up Function
 const signup = async (req, res) => {
@@ -98,21 +102,27 @@ passport.use(new GoogleStrategy({
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: 'https://remioplay.com/auth/google/callback'
 }, async (token, tokenSecret, profile, done) => {
-    const { id, displayName, emails } = profile;
-    const email = emails[0].value;
+    try {
+        const { displayName, emails } = profile;
+        const email = emails[0].value;
 
-    // Check if the user already exists
-    let user = await queryDB('SELECT * FROM users WHERE email = ?', [email]);
-    if (user.length === 0) {
-        // New user, insert into the database
-        await queryDB('INSERT INTO users (username, email) VALUES (?, ?)', [displayName, email]);
-        user = await queryDB('SELECT * FROM users WHERE email = ?', [email]);
+        // Check if the user exists
+        let user = await queryDB('SELECT * FROM users WHERE email = ?', [email]);
+
+        if (user.length === 0) {
+            // New user, insert into the database
+            await queryDB('INSERT INTO users (username, email) VALUES (?, ?)', [displayName, email]);
+            user = await queryDB('SELECT * FROM users WHERE email = ?', [email]);
+        }
+
+        // Generate JWT token
+        const userData = user[0];
+        const jwtToken = jwt.sign({ id: userData.id, username: userData.username }, JWT_SECRET, { expiresIn: '1h' });
+        return done(null, { token: jwtToken });
+    } catch (err) {
+        console.error('Error in Google OAuth:', err);
+        return done(err);
     }
-
-    // Generate JWT token
-    const userData = user.length > 0 ? user[0] : { id: id, username: displayName, email };
-    const jwtToken = jwt.sign({ id: userData.id, username: userData.username }, JWT_SECRET, { expiresIn: '1h' });
-    return done(null, { token: jwtToken });
 }));
 
 // Facebook OAuth Strategy
@@ -121,22 +131,33 @@ passport.use(new FacebookStrategy({
     clientSecret: process.env.FACEBOOK_APP_SECRET,
     callbackURL: 'https://remioplay.com/auth/facebook/callback'
 }, async (accessToken, refreshToken, profile, done) => {
-    const { id, displayName, emails } = profile;
-    const email = emails ? emails[0].value : null;
+    try {
+        const { displayName, emails } = profile;
+        const email = emails ? emails[0].value : null;
 
-    // Check if the user exists
-    let user = await queryDB('SELECT * FROM users WHERE email = ?', [email]);
-    if (user.length === 0) {
-        // New user, insert into the database
-        await queryDB('INSERT INTO users (username, email) VALUES (?, ?)', [displayName, email]);
-        user = await queryDB('SELECT * FROM users WHERE email = ?', [email]);
+        if (!email) {
+            return done(new Error('Facebook login failed: Email is required.'));
+        }
+
+        // Check if the user exists
+        let user = await queryDB('SELECT * FROM users WHERE email = ?', [email]);
+
+        if (user.length === 0) {
+            // New user, insert into the database
+            await queryDB('INSERT INTO users (username, email) VALUES (?, ?)', [displayName, email]);
+            user = await queryDB('SELECT * FROM users WHERE email = ?', [email]);
+        }
+
+        // Generate JWT token
+        const userData = user[0];
+        const jwtToken = jwt.sign({ id: userData.id, username: userData.username }, JWT_SECRET, { expiresIn: '1h' });
+        return done(null, { token: jwtToken });
+    } catch (err) {
+        console.error('Error in Facebook OAuth:', err);
+        return done(err);
     }
-
-    // Generate JWT token
-    const userData = user.length > 0 ? user[0] : { id: id, username: displayName, email };
-    const jwtToken = jwt.sign({ id: userData.id, username: userData.username }, JWT_SECRET, { expiresIn: '1h' });
-    return done(null, { token: jwtToken });
 }));
+
 
 // Routes for Google and Facebook OAuth
 const googleAuth = (req, res, next) => {
