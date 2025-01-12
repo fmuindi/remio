@@ -2054,5 +2054,33 @@ h1 {
 	  transform: scale(1);
 	}
   }
-  
+  /* Custom Button Styling */
+.g-signin2 {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    background: #db4437; /* Google Red */
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+.g-signin2:hover {
+    background: #c1351d;
+}
+
+.fb-login-button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    background: #3b5998; /* Facebook Blue */
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+.fb-login-button:hover {
+    background: #2d4373;
+}
+
   
