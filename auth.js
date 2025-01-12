@@ -29,6 +29,66 @@ const queryDB = (query, params) => {
     });
 };
 
+// Sign-Up Function
+const signup = async (req, res) => {
+    const { username, email, password } = req.body;
+
+    // Input validation
+    if (!username || !email || !password) {
+        return res.status(400).json({ error: 'All fields are required.' });
+    }
+
+    try {
+        // Check if the email already exists
+        const existingUser = await queryDB('SELECT * FROM users WHERE email = ?', [email]);
+        if (existingUser.length > 0) {
+            return res.status(409).json({ error: 'Email is already registered.' });
+        }
+
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Insert new user into the database
+        await queryDB('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', [username, email, hashedPassword]);
+        res.status(201).json({ message: 'User registered successfully.' });
+    } catch (err) {
+        console.error('Error during signup:', err);
+        res.status(500).json({ error: 'An error occurred. Please try again.' });
+    }
+};
+
+// Login Function
+const login = async (req, res) => {
+    const { email, password } = req.body;
+
+    // Input validation
+    if (!email || !password) {
+        return res.status(400).json({ error: 'All fields are required.' });
+    }
+
+    try {
+        // Fetch user from the database
+        const users = await queryDB('SELECT * FROM users WHERE email = ?', [email]);
+        if (users.length === 0) {
+            return res.status(401).json({ error: 'Invalid credentials.' });
+        }
+
+        const user = users[0];
+
+        // Compare the hashed password
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ error: 'Invalid credentials.' });
+        }
+
+        // Generate JWT token
+        const token = jwt.sign({ id: user.id, username: user.username }, JWT_SECRET, { expiresIn: '1h' });
+        res.json({ token });
+    } catch (err) {
+        console.error('Error during login:', err);
+        res.status(500).json({ error: 'An error occurred. Please try again.' });
+    }
+};
 // Initialize Passport.js
 passport.initialize();
 
