@@ -3,7 +3,7 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: 'poppins', sans-serif;
+	font-family: 'Work Sans', sans-serif;
 	background: rgb(73, 3, 66);
 	background-image: url("./assets/pattern.bg.webp");
 	/* Image background */
@@ -583,7 +583,7 @@ h1 {
 	width: 100%;
 	margin-top: 0px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-	font-family: 'poppins', sans-serif;
+	font-family: 'Work Sans', sans-serif;
   }
   
   #previous h2 {
@@ -990,7 +990,7 @@ h1 {
 }
 
 #newmusic p {
-	font-family: 'poppins', sans-serif;
+	font-family: 'Work Sans', sans-serif;
 	color: #E5E4E2;
 	font-size: 1.5rem;
 	line-height: 1.4;
@@ -1043,7 +1043,7 @@ h1 {
 }
 
 #hotmix p {
-	font-family: 'poppins', sans-serif;
+	font-family: 'Work Sans', sans-serif;
 	color: #E5E4E2;
 	font-size: 1.5rem;
 	line-height: 1.4;
@@ -1100,7 +1100,7 @@ h1 {
 }
 
 #hearthis p {
-	font-family: 'poppins', sans-serif;
+	font-family: 'Work Sans', sans-serif;
 	color: #E5E4E2;
 	font-size: 1.5rem;
 	line-height: 1.4;
@@ -1726,7 +1726,7 @@ h1 {
     background-color: #007BFF;
     color: #E5E4E2;
     padding: 10px 20px;
-	font-family: 'poppins', sans-serif;
+	font-family: 'Work Sans', sans-serif;
     border: none;
     border-radius: 5px;
     cursor: pointer;
