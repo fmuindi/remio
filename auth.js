@@ -2,7 +2,7 @@ require('dotenv').config();  // Load .env file
 
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const FacebookStrategy = require('passport-facebook').Strategy;
+// const FacebookStrategy = require('passport-facebook').Strategy;
 const jwt = require('jsonwebtoken');
 const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
@@ -126,37 +126,37 @@ passport.use(new GoogleStrategy({
 }));
 
 // Facebook OAuth Strategy
-passport.use(new FacebookStrategy({
-    clientID: process.env.FACEBOOK_APP_ID,
-    clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: 'https://remioplay.com/auth/facebook/callback'
-}, async (accessToken, refreshToken, profile, done) => {
-    try {
-        const { displayName, emails } = profile;
-        const email = emails ? emails[0].value : null;
+// passport.use(new FacebookStrategy({
+//     clientID: process.env.FACEBOOK_APP_ID,
+//     clientSecret: process.env.FACEBOOK_APP_SECRET,
+//     callbackURL: 'https://remioplay.com/auth/facebook/callback'
+// }, async (accessToken, refreshToken, profile, done) => {
+//     try {
+//         const { displayName, emails } = profile;
+//         const email = emails ? emails[0].value : null;
 
-        if (!email) {
-            return done(new Error('Facebook login failed: Email is required.'));
-        }
+//         if (!email) {
+//             return done(new Error('Facebook login failed: Email is required.'));
+//         }
 
-        // Check if the user exists
-        let user = await queryDB('SELECT * FROM users WHERE email = ?', [email]);
+//         // Check if the user exists
+//         let user = await queryDB('SELECT * FROM users WHERE email = ?', [email]);
 
-        if (user.length === 0) {
-            // New user, insert into the database
-            await queryDB('INSERT INTO users (username, email) VALUES (?, ?)', [displayName, email]);
-            user = await queryDB('SELECT * FROM users WHERE email = ?', [email]);
-        }
+//         if (user.length === 0) {
+//             // New user, insert into the database
+//             await queryDB('INSERT INTO users (username, email) VALUES (?, ?)', [displayName, email]);
+//             user = await queryDB('SELECT * FROM users WHERE email = ?', [email]);
+//         }
 
-        // Generate JWT token
-        const userData = user[0];
-        const jwtToken = jwt.sign({ id: userData.id, username: userData.username }, JWT_SECRET, { expiresIn: '1h' });
-        return done(null, { token: jwtToken });
-    } catch (err) {
-        console.error('Error in Facebook OAuth:', err);
-        return done(err);
-    }
-}));
+//         // Generate JWT token
+//         const userData = user[0];
+//         const jwtToken = jwt.sign({ id: userData.id, username: userData.username }, JWT_SECRET, { expiresIn: '1h' });
+//         return done(null, { token: jwtToken });
+//     } catch (err) {
+//         console.error('Error in Facebook OAuth:', err);
+//         return done(err);
+//     }
+// }));
 
 
 // Routes for Google and Facebook OAuth
@@ -173,18 +173,18 @@ const googleCallback = (req, res) => {
     })(req, res);
 };
 
-const facebookAuth = (req, res, next) => {
-    passport.authenticate('facebook', { scope: ['email'] })(req, res, next);
-};
+// const facebookAuth = (req, res, next) => {
+//     passport.authenticate('facebook', { scope: ['email'] })(req, res, next);
+// };
 
-const facebookCallback = (req, res) => {
-    passport.authenticate('facebook', { failureRedirect: '/login' }, (err, user) => {
-        if (err || !user) {
-            return res.status(500).json({ error: 'Facebook login failed' });
-        }
-        res.json({ token: user.token });
-    })(req, res);
-};
+// const facebookCallback = (req, res) => {
+//     passport.authenticate('facebook', { failureRedirect: '/login' }, (err, user) => {
+//         if (err || !user) {
+//             return res.status(500).json({ error: 'Facebook login failed' });
+//         }
+//         res.json({ token: user.token });
+//     })(req, res);
+// };
 
 // JWT Authentication Middleware
 const authenticateToken = (req, res, next) => {
@@ -209,7 +209,7 @@ module.exports = {
     login,
     googleAuth,
     googleCallback,
-    facebookAuth,
-    facebookCallback,
+    // facebookAuth,
+    // facebookCallback,
     authenticateToken
 };

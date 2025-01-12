@@ -8,7 +8,7 @@ const path = require('path');
 const { signup, login } = require('./auth'); // Import signup and login functions
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const FacebookStrategy = require('passport-facebook').Strategy;
+// const FacebookStrategy = require('passport-facebook').Strategy;
 const session = require('express-session');
 const jwt = require('jsonwebtoken');
 const { OAuth2Client } = require('google-auth-library'); // To verify Google ID token
@@ -89,26 +89,26 @@ passport.use(new GoogleStrategy({
 }));
 
 // Facebook OAuth Strategy
-passport.use(new FacebookStrategy({
-    clientID: process.env.FACEBOOK_APP_ID,
-    clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: 'https://remioplay.com/auth/facebook/callback',
-    profileFields: ['id', 'displayName', 'emails'],
-}, async (accessToken, refreshToken, profile, done) => {
-    const { id, displayName, emails } = profile;
-    const email = emails ? emails[0].value : null;
+// passport.use(new FacebookStrategy({
+//     clientID: process.env.FACEBOOK_APP_ID,
+//     clientSecret: process.env.FACEBOOK_APP_SECRET,
+//     callbackURL: 'https://remioplay.com/auth/facebook/callback',
+//     profileFields: ['id', 'displayName', 'emails'],
+// }, async (accessToken, refreshToken, profile, done) => {
+//     const { id, displayName, emails } = profile;
+//     const email = emails ? emails[0].value : null;
 
-    try {
-        const [user] = await pool.promise().query('SELECT * FROM users WHERE email = ?', [email]);
-        if (!user.length) {
-            await pool.promise().query('INSERT INTO users (username, email) VALUES (?, ?)', [displayName, email]);
-        }
-        const jwtToken = jwt.sign({ id, email }, JWT_SECRET, { expiresIn: '1h' });
-        done(null, { jwtToken });
-    } catch (err) {
-        done(err, null);
-    }
-}));
+//     try {
+//         const [user] = await pool.promise().query('SELECT * FROM users WHERE email = ?', [email]);
+//         if (!user.length) {
+//             await pool.promise().query('INSERT INTO users (username, email) VALUES (?, ?)', [displayName, email]);
+//         }
+//         const jwtToken = jwt.sign({ id, email }, JWT_SECRET, { expiresIn: '1h' });
+//         done(null, { jwtToken });
+//     } catch (err) {
+//         done(err, null);
+//     }
+// }));
 
 // Routes for OAuth
 app.get('/auth/google', passport.authenticate('google', { scope: ['email', 'profile'] }));
@@ -122,16 +122,16 @@ app.get('/auth/google/callback', (req, res, next) => {
     })(req, res, next);
 });
 
-app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email'] }));
+// app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email'] }));
 
-app.get('/auth/facebook/callback', (req, res, next) => {
-    passport.authenticate('facebook', (err, user) => {
-        if (err || !user) {
-            return res.redirect('/login');
-        }
-        res.json({ token: user.jwtToken });
-    })(req, res, next);
-});
+// app.get('/auth/facebook/callback', (req, res, next) => {
+//     passport.authenticate('facebook', (err, user) => {
+//         if (err || !user) {
+//             return res.redirect('/login');
+//         }
+//         res.json({ token: user.jwtToken });
+//     })(req, res, next);
+// });
 
 // POST route to handle Google ID token from frontend
 app.post('/auth/google/token', async (req, res) => {
@@ -167,32 +167,32 @@ app.post('/auth/google/token', async (req, res) => {
 });
 
 // POST route to handle Facebook access token from frontend
-app.post('/auth/facebook/token', async (req, res) => {
-    const { accessToken } = req.body;
+// app.post('/auth/facebook/token', async (req, res) => {
+//     const { accessToken } = req.body;
 
-    if (!accessToken) {
-        return res.status(400).json({ error: 'accessToken is required' });
-    }
+//     if (!accessToken) {
+//         return res.status(400).json({ error: 'accessToken is required' });
+//     }
 
-    try {
-        // Verify the Facebook access token by calling Facebook Graph API
-        const response = await axios.get(`https://graph.facebook.com/me?access_token=${accessToken}&fields=id,name,email`);
-        const { id, name, email } = response.data;
+//     try {
+//         // Verify the Facebook access token by calling Facebook Graph API
+//         const response = await axios.get(`https://graph.facebook.com/me?access_token=${accessToken}&fields=id,name,email`);
+//         const { id, name, email } = response.data;
 
-        // Check if user exists in database
-        const [user] = await pool.promise().query('SELECT * FROM users WHERE email = ?', [email]);
-        if (!user.length) {
-            await pool.promise().query('INSERT INTO users (username, email) VALUES (?, ?)', [name, email]);
-        }
+//         // Check if user exists in database
+//         const [user] = await pool.promise().query('SELECT * FROM users WHERE email = ?', [email]);
+//         if (!user.length) {
+//             await pool.promise().query('INSERT INTO users (username, email) VALUES (?, ?)', [name, email]);
+//         }
 
-        // Create JWT token
-        const jwtToken = jwt.sign({ id, email }, JWT_SECRET, { expiresIn: '1h' });
-        res.json({ token: jwtToken });
-    } catch (err) {
-        console.error('Error verifying Facebook access token:', err);
-        res.status(500).json({ error: 'Error verifying Facebook token' });
-    }
-});
+//         // Create JWT token
+//         const jwtToken = jwt.sign({ id, email }, JWT_SECRET, { expiresIn: '1h' });
+//         res.json({ token: jwtToken });
+//     } catch (err) {
+//         console.error('Error verifying Facebook access token:', err);
+//         res.status(500).json({ error: 'Error verifying Facebook token' });
+//     }
+// });
 
 // In-memory storage for now-playing data
 let nowPlaying = { artist: '', title: '' };

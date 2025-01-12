@@ -59,7 +59,7 @@
                <li><a href="contact.html">Contact</a></li>
             </ul>
             <!-- Login Button -->
-            <button id="login-btn" class="btn-login">Login</button>
+            <button id="login-btn" class="btn-login">Sign In</button>
             <!-- Hamburger Icon -->
             <div class="hamburger">
                <div></div>
@@ -88,11 +88,11 @@
                <button type="submit">Login</button>
                <!-- Google Login Button -->
                <div class="g-signin2" data-onsuccess="onSignIn" style="margin-top: 20px;"></div>
-               <!-- Facebook Login Button -->
+               <!-- Facebook Login Button 
                <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with"
                   data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"
                   style="margin-top: 20px;"></div>
-
+                     -->
                <p>Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
                <div class="error" id="login-error"></div>
             </form>
@@ -588,49 +588,49 @@
             .catch(err => console.error('Error:', err));
       }
 
-      // Facebook Sign-In Callback
-      function statusChangeCallback(response) {
-         if (response.status === 'connected') {
-            const accessToken = response.authResponse.accessToken;
+      // // Facebook Sign-In Callback
+      // function statusChangeCallback(response) {
+      //    if (response.status === 'connected') {
+      //       const accessToken = response.authResponse.accessToken;
 
-            fetch(`${API_BASE_URL}/auth/facebook/token`, {  // Update endpoint here
-               method: 'POST',
-               headers: { 'Content-Type': 'application/json' },
-               body: JSON.stringify({ accessToken }),
-            })
-               .then(response => response.json())
-               .then(result => {
-                  if (result.token) {
-                     localStorage.setItem('token', result.token);
-                     alert('Facebook Login successful!');
-                     loginModal.style.display = 'none';  // Assuming you have a modal to close
-                  } else {
-                     console.error('Facebook Login failed');
-                  }
-               })
-               .catch(err => console.error('Error:', err));
-         }
-      }
+      //       fetch(`${API_BASE_URL}/auth/facebook/token`, {  // Update endpoint here
+      //          method: 'POST',
+      //          headers: { 'Content-Type': 'application/json' },
+      //          body: JSON.stringify({ accessToken }),
+      //       })
+      //          .then(response => response.json())
+      //          .then(result => {
+      //             if (result.token) {
+      //                localStorage.setItem('token', result.token);
+      //                alert('Facebook Login successful!');
+      //                loginModal.style.display = 'none';  // Assuming you have a modal to close
+      //             } else {
+      //                console.error('Facebook Login failed');
+      //             }
+      //          })
+      //          .catch(err => console.error('Error:', err));
+      //    }
+      // }
 
-      function checkLoginState() {
-         FB.getLoginStatus(function (response) {
-            statusChangeCallback(response);
-         });
-      }
+      // function checkLoginState() {
+      //    FB.getLoginStatus(function (response) {
+      //       statusChangeCallback(response);
+      //    });
+      // }
 
-      // Initialize Facebook SDK
-      window.fbAsyncInit = function () {
-         FB.init({
-            appId: 'YOUR_APP_ID',
-            cookie: true,
-            xfbml: true,
-            version: 'v15.0',  // Ensure you use the correct version
-         });
+      // // Initialize Facebook SDK
+      // window.fbAsyncInit = function () {
+      //    FB.init({
+      //       appId: 'YOUR_APP_ID',
+      //       cookie: true,
+      //       xfbml: true,
+      //       version: 'v15.0',  // Ensure you use the correct version
+      //    });
 
-         FB.getLoginStatus(function (response) {
-            statusChangeCallback(response);
-         });
-      };
+      //    FB.getLoginStatus(function (response) {
+      //       statusChangeCallback(response);
+      //    });
+      // };
 
    </script>
 

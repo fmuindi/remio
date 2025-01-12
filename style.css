@@ -2205,12 +2205,12 @@ form p a:hover {
 	background: #c1351d;
 }
 
-.fb-login-button {
+/* .fb-login-button {
 	width: 100%;
 	padding: 12px;
 	border-radius: 5px;
 	background: #3b5998;
-	/* Facebook Blue */
+	
 	color: white;
 	text-align: center;
 	cursor: pointer;
@@ -2218,4 +2218,5 @@ form p a:hover {
 
 .fb-login-button:hover {
 	background: #2d4373;
-}
+} */
+
