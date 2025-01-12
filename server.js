@@ -1,8 +1,16 @@
+require('dotenv').config(); // Load environment variables from .env
+
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
+const session = require('express-session');
+const jwt = require('jsonwebtoken');
+
 const { signup, login } = require('./auth'); // Import signup and login functions
 
 const app = express();
@@ -12,15 +20,25 @@ const port = 3000;
 app.use(cors({ origin: '*' })); // Allow all origins for testing; restrict in production
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname)));
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // MySQL connection pool
 const pool = mysql.createPool({
-    host: '16.16.247.10',
-    user: 'root',
-    password: 'nightmare',
-    database: 'song_requests',
-    port: 3306,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT,
 });
+
+// JWT secret key
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // Test database connection
 pool.getConnection((err, connection) => {
@@ -30,6 +48,81 @@ pool.getConnection((err, connection) => {
         console.log('Connected to the database.');
         connection.release();
     }
+});
+
+// Passport Serialization
+passport.serializeUser((user, done) => {
+    done(null, user);
+});
+
+passport.deserializeUser((user, done) => {
+    done(null, user);
+});
+
+// Google OAuth Strategy
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: 'https://remioplay.com',
+}, async (token, tokenSecret, profile, done) => {
+    const { id, displayName, emails } = profile;
+    const email = emails[0].value;
+
+    try {
+        const [user] = await pool.promise().query('SELECT * FROM users WHERE email = ?', [email]);
+        if (!user.length) {
+            await pool.promise().query('INSERT INTO users (username, email) VALUES (?, ?)', [displayName, email]);
+        }
+        const jwtToken = jwt.sign({ id: id, email }, JWT_SECRET, { expiresIn: '1h' });
+        done(null, { jwtToken });
+    } catch (err) {
+        done(err, null);
+    }
+}));
+
+// Facebook OAuth Strategy
+passport.use(new FacebookStrategy({
+    clientID: process.env.FACEBOOK_APP_ID,
+    clientSecret: process.env.FACEBOOK_APP_SECRET,
+    callbackURL: 'https://remioplay.com',
+    profileFields: ['id', 'displayName', 'emails'],
+}, async (accessToken, refreshToken, profile, done) => {
+    const { id, displayName, emails } = profile;
+    const email = emails ? emails[0].value : null;
+
+    try {
+        const [user] = await pool.promise().query('SELECT * FROM users WHERE email = ?', [email]);
+        if (!user.length) {
+            await pool.promise().query('INSERT INTO users (username, email) VALUES (?, ?)', [displayName, email]);
+        }
+        const jwtToken = jwt.sign({ id: id, email }, JWT_SECRET, { expiresIn: '1h' });
+        done(null, { jwtToken });
+    } catch (err) {
+        done(err, null);
+    }
+}));
+
+// Routes for OAuth
+app.get('/auth/google', passport.authenticate('google', { scope: ['email', 'profile'] }));
+
+app.get('/auth/google/callback', (req, res, next) => {
+    passport.authenticate('google', (err, user) => {
+        if (err || !user) {
+            return res.redirect('/login');
+        }
+        res.json({ token: user.jwtToken });
+    })(req, res, next);
+});
+
+app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email'] }));
+
+app.get('/auth/facebook/callback', (req, res, next) => {
+    passport.authenticate('facebook', (err, user) => {
+        if (err || !user) {
+            return res.redirect('/login');
+        }
+        res.json({ token: user.jwtToken });
+    })(req, res, next);
 });
 
 // Map the routes
