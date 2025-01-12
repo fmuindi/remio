@@ -36,7 +36,7 @@ passport.initialize();
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: 'https://remioplay.com'
+    callbackURL: 'https://remioplay.com/auth/google/callback'
 }, async (token, tokenSecret, profile, done) => {
     const { id, displayName, emails } = profile;
     const email = emails[0].value;
@@ -59,7 +59,7 @@ passport.use(new GoogleStrategy({
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: 'https://remioplay.com'
+    callbackURL: 'https://remioplay.com/auth/facebook/callback'
 }, async (accessToken, refreshToken, profile, done) => {
     const { id, displayName, emails } = profile;
     const email = emails ? emails[0].value : null;
