@@ -1027,7 +1027,7 @@ h1 {
 	}
 }
 
-/* #newmusic {
+#newmusic {
 	flex: 1 1 20%;
 	width: 100%;
 	max-width: 50%;
@@ -1051,26 +1051,26 @@ h1 {
 	text-align: center;
 }
 
-.spotify-container {
+/* .spotify-container {
 	margin-top: 1px;
 	background-color: rgba(0, 0, 0, 0.1);
 	border-radius: 12px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
+} */
 
-.spotify-container iframe {
+/* .spotify-container iframe {
 	width: 100%;
 	height: auto;
 	border: none;
-	border-radius: 12px;
-	margin: 0;
+	border-radius: 5px;
+	margin: 8px;
 	display: block;
 	padding: 0;
 }
 
 .spotify-container iframe+iframe {
 	margin-top: 5px;
-}
+} */
 
 #hotmix {
 	flex: 1 1 20%;
@@ -1109,15 +1109,14 @@ h1 {
 
 .iframe-container iframe {
 	width: 100%;
-	height: 150px;
+	height: 160px;
 	border: none;
 	border-radius: 6px;
 }
 
-#hearthis {
+/* #hearthis {
 	flex: 1 1 20%;
 	width: 100%;
-	max-width: 50%;
 	margin-right: 8px;
 	display: flex;
 	flex-direction: column;
@@ -1129,36 +1128,15 @@ h1 {
 	margin-top: 20px;
 	transition: transform 0.3s, box-shadow 0.3s;
 	cursor: pointer;
-}
+} */
 
-#hearthis p {
-	font-family: 'Work Sans', sans-serif;
-	color: #E5E4E2;
-	font-size: 1.5rem;
-	line-height: 1.4;
-	text-align: center;
-}
-
-#hearthis .social-icon {
-	margin-left: 10px;
-	transition: transform 0.3s, box-shadow 0.3s;
-}
-
-#hearthis .social-icon:hover {
-	transform: scale(1.2);
-	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-}
-
-#hearthis a {
-	text-decoration: none;
-}
 
 .secondrow {
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
 	margin-bottom: 20px;
-} */
+}
 
 
 

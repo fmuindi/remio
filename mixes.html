@@ -81,34 +81,35 @@
   <div class="main-container">
     <header id="header-container">
       <nav class="navbar">
-        <img src="./assets/remioplay.svg" width="100" height="100" alt="Station Logo" class="station-logo" />
-
-        <!-- Search Bar -->
-        <div class="flexbox">
-          <div class="search">
-            <div>
-              <input type="text" class="search-bar" placeholder="Search . . ." required>
+         <a href="home.html">
+            <img src="./assets/remiologo.png" alt="Remio" class="station-logo" />
+         </a>
+         <!-- Search Bar -->
+         <div class="flexbox">
+            <div class="search">
+               <div>
+                  <input type="text" class="search-bar" placeholder="Search . . ." required>
+               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Navigation Menu -->
-        <ul class="nav-menu">
-          <li><a href="home.html">Home</a></li>
-          <li><a href="podcasts.html">Podcasts</a></li>
-          <li><a href="mixes.html">Mixes</a></li>
-          <li><a href="request.html">Play Song</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-
-        <!-- Hamburger Icon -->
-        <div class="hamburger">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+         </div>
+         <!-- Navigation Menu -->
+         <ul class="nav-menu">
+            <!-- <li><a href="home.html">Home</a></li> -->
+            <li><a href="podcasts.html">Podcasts</a></li>
+            <li><a href="mixes.html">Mixes</a></li>
+            <!-- <li><a href="request.html">Play Song</a></li> -->
+            <!-- <li><a href="contact.html">Contact</a></li> -->
+         </ul>
+         <!-- Login Button -->
+         <button id="login-btn" class="btn-login">Sign In</button>
+         <!-- Hamburger Icon -->
+         <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+         </div>
       </nav>
-    </header>
+   </header>
     <div class="latestmixes">
       <p>LATEST <b>MIXES</b></p>
     </div>
@@ -181,13 +182,14 @@
   </div>
   <footer class="top-footer">
     <ul>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="privacy.html">Privacy Policy</a></li>
-      <li><a href="terms.html">Terms & Conditions</a></li>
-      <li><a href="faq.html">FAQs</a></li>
+       <li><a onclick="window.open('about.html', '_blank')">About Us</a></li>
+       <li><a href="privacy.html">Privacy Policy</a></li>
+       <li><a href="terms.html">Terms & Conditions</a></li>
+       <li><a href="faq.html">FAQs</a></li>
+       <li><a href="contact.html">Contact Us</a></li>
     </ul>
-    <p>&copy; 2024 Remio. All rights reserved.</p>
-  </footer>
+    <p>&copy; 2025 Remio. All rights reserved.</p>
+ </footer>
   <script src="script.js"></script>
   <script>
     // Select elements
