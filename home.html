@@ -447,6 +447,20 @@
       </ul>
       <p>&copy; 2024 Remio. All rights reserved.</p>
    </footer>
+   <script>
+      const iframe = document.querySelector('.fb-comments iframe');
+      iframe.onload = function () {
+         const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+         const style = iframeDoc.createElement('style');
+         style.innerHTML = `
+        body {
+            color: white !important;
+        }
+    `;
+         iframeDoc.head.appendChild(style);
+      };
+
+   </script>
    <script src="/socket.io/socket.io.js"></script>
    <script>
       document.addEventListener('DOMContentLoaded', () => {

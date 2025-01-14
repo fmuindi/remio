@@ -789,7 +789,7 @@ h1 {
 /* Container for text and socials */
 /* Container box for the information */
 .info-box {
-	background: #E5E4E2;
+	background: #000000f6;
 	padding: 20px;
 	border-radius: 15px;
 	box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.2), 0px 10px 15px rgba(0, 0, 0, 0.1);
@@ -2230,4 +2230,7 @@ form p a:hover {
 	background-color: #4caf50;
 	color: white;
 	cursor: default;
+ }
+ .fb-comments iframe {
+    filter: invert(1) hue-rotate(180deg); /* Invert colors and adjust hues */
  }
