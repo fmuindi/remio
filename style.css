@@ -163,7 +163,7 @@ header.fixed {
 	}
 }
 
-/* Navbar Styling */
+/* General Navbar Styling */
 .navbar {
 	display: flex;
 	justify-content: space-between;
@@ -172,51 +172,47 @@ header.fixed {
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
-	gap: 5px;
 	position: relative;
 	z-index: 10;
-}
-
-header.fixed .navbar {
-	padding: 5px 10px;
-	/* Reduced padding for fixed state */
-}
-
-.station-logo {
+ }
+ 
+ /* Station Logo Styling */
+ .station-logo {
 	max-width: 150px;
 	flex-shrink: 0;
-	/* Prevent logo from shrinking */
 	height: auto;
 	transition: max-width 0.3s ease;
-}
-
-@media (max-width: 768px) {
+ }
+ 
+ @media (max-width: 768px) {
 	.station-logo {
-		max-width: 100px;
+	   max-width: 100px;
 	}
-}
-
-@media (max-width: 480px) {
+ }
+ 
+ @media (max-width: 480px) {
 	.station-logo {
-		max-width: 70px;
+	   max-width: 70px;
 	}
-}
-
-/* Navigation Menu */
-.nav-menu {
+ }
+ 
+ /* Navigation Menu Styling */
+ .nav-menu {
 	display: flex;
 	list-style: none;
 	margin: 0;
 	padding: 0;
 	gap: 10px;
+	flex-grow: 1;
+	justify-content: center;
 	transition: all 0.3s ease-in-out;
-}
-
-.nav-menu li {
+ }
+ 
+ .nav-menu li {
 	margin: 0;
-}
-
-.nav-menu a {
+ }
+ 
+ .nav-menu a {
 	text-decoration: none;
 	color: #E5E4E2;
 	font-size: 12px;
@@ -224,77 +220,88 @@ header.fixed .navbar {
 	padding: 8px 15px;
 	border-radius: 8px;
 	transition: background-color 0.3s ease;
-}
-
-.nav-menu a:hover {
+ }
+ 
+ .nav-menu a:hover {
 	background-color: #ff00e62c;
-}
-
-/* Hamburger Styling */
-.hamburger {
-	display: block;
+ }
+ 
+ /* Login Button Styling */
+ .btn-login {
+	padding: 8px 15px;
+	background-color: #6c5ce7;
+	color: white;
+	border: none;
+	border-radius: 5px;
 	cursor: pointer;
-	margin-left: 50px;
+	transition: background-color 0.3s ease;
+ }
+ 
+ .btn-login:hover {
+	background-color: #4e41b7;
+ }
+ 
+ /* Hamburger Styling */
+ .hamburger {
+	display: none; /* Hidden by default */
+	cursor: pointer;
 	padding: 10px;
 	z-index: 100;
-}
-
-.hamburger div {
+ }
+ 
+ .hamburger div {
 	width: 25px;
 	height: 2px;
 	background-color: #E5E4E2;
 	margin: 4px;
 	transition: 0.3s ease;
-}
-
-/* Animate the hamburger icon when active */
-.hamburger.active div:nth-child(1) {
+ }
+ 
+ /* Animate the hamburger icon when active */
+ .hamburger.active div:nth-child(1) {
 	transform: translateY(6px) rotate(45deg);
-}
-
-.hamburger.active div:nth-child(2) {
+ }
+ 
+ .hamburger.active div:nth-child(2) {
 	opacity: 0;
-}
-
-.hamburger.active div:nth-child(3) {
+ }
+ 
+ .hamburger.active div:nth-child(3) {
 	transform: translateY(-6px) rotate(-45deg);
-}
-
-.navbar.active .nav-menu {
+ }
+ 
+ .navbar.active .nav-menu {
 	display: flex;
-}
-
-.hamburger:hover div {
-	background-color: #FF00E6;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
+ }
+ 
+ /* Responsive Design */
+ @media (max-width: 768px) {
 	.hamburger {
-		display: block;
+	   display: block; /* Show hamburger on small screens */
 	}
-
+ 
 	.nav-menu {
-		display: none;
-		flex-direction: column;
-		position: absolute;
-		top: 60px;
-		left: 0;
-		width: 100%;
-		background-color: rgba(12, 8, 34, 1);
-		padding: 10px 0;
-		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+	   display: none;
+	   flex-direction: column;
+	   position: absolute;
+	   top: 60px;
+	   left: 0;
+	   width: 100%;
+	   background-color: rgba(12, 8, 34, 1);
+	   padding: 10px 0;
+	   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 	}
-
+ 
 	.nav-menu li {
-		text-align: center;
-		margin: 5px 0;
+	   text-align: center;
+	   margin: 5px 0;
 	}
-
+ 
 	.navbar.active .nav-menu {
-		display: flex;
+	   display: flex;
 	}
-}
+ }
+ 
 
 /* Container for stats within remibox */
 /* Container for stats within remibox */
@@ -1144,7 +1151,8 @@ h1 {
 	display: flex;
 	gap: 20px;
 	/* Reduced gap between buttons */
-	margin-top: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .que {
@@ -1283,7 +1291,6 @@ h1 {
 	font-size: 12px;
 	line-height: 1.6;
 	color: #e0e0e0;
-	/* Light gray for a soft look */
 	text-align: justify;
 	margin: auto;
 	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
@@ -1312,7 +1319,7 @@ h1 {
 	/* Adds space above the button container */
 }
 
-.button {
+.control-buttons {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -2183,3 +2190,73 @@ form p a:hover {
  .fb-comments iframe {
     filter: invert(1) hue-rotate(180deg); /* Invert colors and adjust hues */
  }
+ /* User Info Styling */
+/* User Info Styling */
+.user-info {
+	display: flex;
+	align-items: center;
+	color: #E5E4E2;
+	font-size: 14px;
+	font-weight: 400;
+	margin-left: auto; /* Push to the right */
+	padding: 8px;
+	background-color: transparent;
+	border-radius: 5px;
+	position: relative;
+	cursor: pointer;
+ }
+ 
+ .user-info span {
+	margin-left: 8px;
+	font-weight: bold;
+ }
+ 
+ .user-avatar {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	margin-left: 8px;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+ }
+ 
+ .user-avatar:hover {
+	transform: scale(1.1);
+ }
+ 
+ /* User Dashboard Dropdown */
+ .user-dashboard {
+	position: absolute;
+	top: 50px;
+	right: 0;
+	background-color: rgba(12, 8, 34, 1);
+	border: 1px solid #444;
+	border-radius: 5px;
+	padding: 10px;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+	z-index: 100;
+	min-width: 150px;
+	color: #E5E4E2;
+ }
+ 
+ .user-dashboard p {
+	margin: 0 0 10px;
+	font-size: 14px;
+ }
+ 
+ .btn-logout {
+	padding: 8px 10px;
+	background-color: #e74c3c;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	text-align: center;
+	width: 100%;
+	font-size: 14px;
+ }
+ 
+ .btn-logout:hover {
+	background-color: #c0392b;
+ }
+ 

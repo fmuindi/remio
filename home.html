@@ -41,27 +41,30 @@
    <div class="main_container">
       <header id="header-container">
          <nav class="navbar">
+            <!-- Logo -->
             <a href="home.html">
                <img src="./assets/remiologo.png" alt="Remio" class="station-logo" />
             </a>
-            <!-- Search Bar -->
-            <div class="flexbox">
-               <div class="search">
-                  <div>
-                     <input type="text" class="search-bar" placeholder="Search . . ." required>
-                  </div>
-               </div>
-            </div>
+            
             <!-- Navigation Menu -->
             <ul class="nav-menu">
-               <!-- <li><a href="home.html">Home</a></li> -->
                <li><a href="podcasts.html">Podcasts</a></li>
                <li><a href="mixes.html">Mixes</a></li>
-               <!-- <li><a href="request.html">Play Song</a></li> -->
-               <!-- <li><a href="contact.html">Contact</a></li> -->
             </ul>
+            
             <!-- Login Button -->
             <button id="login-btn" class="btn-login">Sign In</button>
+      
+            <!-- User Info (Initially Hidden) -->
+            <div id="user-info" class="user-info" style="display: none;">
+               <span id="username"></span>
+               <img id="user-avatar" class="user-avatar" src="./assets/avatar.png" alt="Avatar" />
+               <div id="user-dashboard" class="user-dashboard" style="display: none;">
+                  <p id="user-details"></p>
+                  <button id="logout-btn" class="btn-logout">Logout</button>
+               </div>
+            </div>
+      
             <!-- Hamburger Icon -->
             <div class="hamburger">
                <div></div>
@@ -69,7 +72,9 @@
                <div></div>
             </div>
          </nav>
-      </header>
+      </header>      
+      
+      
 
       <!-- Login/Signup Modal -->
       <div id="login-modal" class="login-modal">
@@ -171,19 +176,19 @@
                   </div>
                </div>
                <div class="button-container">
-                  <a id="play-button" class="button" href="#">
+                  <a id="play-button" class="control-buttons" href="#">
                      <span class="material-icons">play_arrow</span>
                      <div class="button-label">Play</div>
                   </a>
-                  <a id="refresh-button" class="button" href="#">
+                  <a id="refresh-button" class="control-buttons" href="#">
                      <span class="material-icons">sync</span>
                      <div class="button-label">Sync</div>
                   </a>
-                  <a id="love-button" class="button" href="#">
+                  <a id="love-button" class="control-buttons" href="#">
                      <span class="material-icons">favorite</span>
                      <div class="button-label">Love</div>
                   </a>
-                  <a id="share-button" class="button" href="#">
+                  <a id="share-button" class="control-buttons" href="#">
                      <span class="material-icons">share</span>
                      <div class="button-label">Share</div>
                   </a>
@@ -462,7 +467,6 @@
       };
 
    </script>
-   <script src="/socket.io/socket.io.js"></script>
    <script>
       document.addEventListener('DOMContentLoaded', () => {
          const loginModal = document.getElementById('login-modal');
@@ -656,38 +660,99 @@
 
    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
    <script>
+      function displayUserInfo(userData) {
+         const loginBtn = document.getElementById('login-btn');
+         const userInfo = document.getElementById('user-info');
+         const usernameSpan = document.getElementById('username');
+         const userDetails = document.getElementById('user-details');
+         const userAvatar = document.getElementById('user-avatar');
+         const userDashboard = document.getElementById('user-dashboard');
+         const logoutBtn = document.getElementById('logout-btn');
+   
+         if (!loginBtn || !userInfo || !usernameSpan || !userAvatar || !userDashboard || !logoutBtn) {
+            console.error('Required DOM elements not found.');
+            return;
+         }
+   
+         // Hide the login button
+         loginBtn.style.display = 'none';
+   
+         // Update the user info section
+         usernameSpan.textContent = `Hi, ${userData.username}`;
+         userDetails.textContent = `Logged in as ${userData.username}`;
+         userInfo.style.display = 'flex'; // Show the user info element
+   
+         // Update the avatar if available
+         if (userData.avatarUrl) {
+            userAvatar.src = userData.avatarUrl;
+         }
+   
+         // Toggle the user dashboard on avatar click
+         userAvatar.addEventListener('click', () => {
+            userDashboard.style.display =
+               userDashboard.style.display === 'none' ? 'block' : 'none';
+         });
+   
+         // Logout button functionality
+         logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('token');
+            // Reset UI after logout
+            userInfo.style.display = 'none';
+            loginBtn.style.display = 'inline-block';
+         });
+      }
+   
+      async function onLoginSuccess(token) {
+         try {
+            // Save token to localStorage
+            localStorage.setItem('token', token);
+   
+            // Decode the token to get user data
+            const userData = jwt_decode(token);
+   
+            // Display user info immediately
+            displayUserInfo(userData);
+   
+            console.log('User logged in successfully:', userData.username);
+         } catch (error) {
+            console.error('Error processing login:', error);
+         }
+      }
+   
+      // Simulate successful login for testing
+      document.getElementById('login-btn').addEventListener('click', () => {
+         // Simulate fetching a token
+         const mockToken = jwt_encode({
+            username: 'JohnDoe',
+            avatarUrl: './assets/user-avatar.png',
+         }, 'secret-key'); // Replace with actual token logic
+   
+         onLoginSuccess(mockToken); // Call the login success handler
+      });
+   
+      // Initialize UI on page load
       function setLoginButton() {
-         const token = localStorage.getItem('token'); // Retrieve token
-
+         const token = localStorage.getItem('token');
+   
          if (!token) {
             console.warn('No token found in localStorage.');
             return;
          }
-
+   
          try {
-            const userData = jwt_decode(token); // Decode the JWT
-            const loginBtn = document.getElementById('login-btn');
-
-            if (!loginBtn) {
-               console.error('Login button not found in DOM.');
-               return;
-            }
-
-            if (userData && userData.username) {
-               loginBtn.textContent = userData.username; // Update button text
-               loginBtn.classList.add('user-logged-in');
-               console.log('Login button updated to:', userData.username);
-            } else {
-               console.warn('Username not found in token payload.');
-            }
+            const userData = jwt_decode(token);
+            displayUserInfo(userData);
          } catch (error) {
-            console.error('Error decoding JWT:', error);
+            console.error('Error decoding token:', error);
          }
       }
-
-      // Run the function after DOM is loaded
+   
       document.addEventListener('DOMContentLoaded', setLoginButton);
    </script>
+   
+   
+   
+   
 
 
    <!-- <script>
