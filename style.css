@@ -1275,18 +1275,6 @@ h1 {
 	}
 }
 
-@media (max-width: 768px) {
-	#anime {
-		display: none;
-	}
-}
-
-@media (max-width: 480px) {
-	#anime {
-		display: none;
-	}
-}
-
 .hero_message p {
 	font-size: 12px;
 	line-height: 1.6;
@@ -1570,7 +1558,8 @@ h1 {
 /* Fine-tune hover effects for mobile */
 
 /* Share Modal Styles */
-/* Modal Background */
+ 
+/* Modal Container */
 .share-modal {
 	display: none;
 	position: fixed;
@@ -1578,39 +1567,40 @@ h1 {
 	left: 0;
 	top: 0;
 	width: 100%;
-	height: 100%;
-	overflow: auto;
-	background-color: rgba(0, 0, 0, 0.7); /* Darker background for better contrast */
-	transition: opacity 0.3s ease;
- }
- 
- /* Modal Content */
- .share-content {
+	height: auto;
+	background-color: rgba(0, 0, 0, 0.6);
+	animation: fadeIn 0.5s ease;
+  }
+  
+  /* Modal Content */
+  .share-content {
 	background-color: #fff;
 	margin: 10% auto;
 	padding: 30px;
 	border-radius: 12px;
 	width: 80%;
 	max-width: 450px;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Larger shadow for depth */
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 	text-align: center;
-	transition: transform 0.3s ease-in-out;
- }
- 
- .share-content h3 {
+	transform: translateY(-20px);
+	animation: slideIn 0.3s ease forwards;
+  }
+  
+  .share-content h3 {
 	margin-top: 0;
 	color: #333;
 	font-family: 'Arial', sans-serif;
 	font-size: 24px;
 	font-weight: bold;
- }
- .share-content p {
+  }
+  
+  .share-content p {
 	margin-top: 0;
-	color: #333;
-}
- 
- /* Close Button */
- .close-sharebtn {
+	color: #555;
+  }
+  
+  /* Close Button */
+  .close-sharebtn {
 	position: absolute;
 	top: 15px;
 	right: 15px;
@@ -1618,22 +1608,23 @@ h1 {
 	font-size: 24px;
 	font-weight: bold;
 	cursor: pointer;
-	transition: background-color 0.3s;
- }
- 
- .close-sharebtn:hover {
-	background-color: #c0392b;
- }
- 
- /* Social Buttons */
- .social-buttons {
+	transition: transform 0.3s;
+  }
+  
+  .close-sharebtn:hover {
+	transform: scale(1.2);
+	color: #ff6f61;
+  }
+  
+  /* Social Buttons */
+  .social-buttons {
 	display: flex;
 	justify-content: center;
 	gap: 15px;
 	margin: 20px 0;
- }
- 
- .social-btn {
+  }
+  
+  .social-btn {
 	width: 60px;
 	height: 60px;
 	display: flex;
@@ -1644,32 +1635,34 @@ h1 {
 	background-color: #f5f5f5;
 	cursor: pointer;
 	transition: transform 0.2s, background-color 0.3s;
- }
- 
- .social-btn:hover {
+  }
+  
+  .social-btn:hover {
 	transform: scale(1.1);
 	background-color: #e0e0e0;
- }
- 
- /* Copy Link Section */
- .copy-link {
+  }
+  
+  /* Copy Link Section */
+  .copy-link {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 15px;
-	margin-top: 20px;
- }
- 
- .copy-link input {
+	margin-top: 10px; /* Reduced Bottom Size */
+  }
+  
+  .copy-link input {
 	flex-grow: 1;
 	padding: 12px;
 	border: 1px solid #ddd;
 	border-radius: 6px;
-	font-size: 16px;
- }
- 
- .copy-btn {
-	background-color: #007BFF;
+	font-size: 14px;
+	letter-spacing: 3px;
+	color: #555;
+  }
+  
+  .copy-btn {
+	background-color: #834d9b;
 	color: #fff;
 	border: none;
 	padding: 12px 18px;
@@ -1677,35 +1670,84 @@ h1 {
 	font-size: 16px;
 	cursor: pointer;
 	transition: background-color 0.3s, transform 0.2s;
- }
- 
- .copy-btn:hover {
-	background-color: #0056b3;
+  }
+  
+  .copy-btn:hover {
+	background-color: #b30095;
 	transform: scale(1.05);
+  }
+
+  .toast-message {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #834d9b;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 5px;
+	font-size: 14px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+ }
+ .toast-message.show {
+	opacity: 1;
+	visibility: visible;
  }
  
- /* Responsive Design */
- @media (max-width: 480px) {
+  
+  /* Animations */
+  @keyframes fadeIn {
+	from {
+	  opacity: 0;
+	}
+	to {
+	  opacity: 1;
+	}
+  }
+  
+  @keyframes slideIn {
+	from {
+	  transform: translateY(-50px);
+	}
+	to {
+	  transform: translateY(0);
+	}
+  }
+  
+  @keyframes fadeOut {
+	from {
+	  opacity: 1;
+	}
+	to {
+	  opacity: 0;
+	}
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
 	.share-content {
-	   width: 90%;
-	   margin: 20% auto;
+	  width: 90%;
+	  margin: 20% auto;
 	}
- 
+  
 	.social-btn {
-	   width: 50px;
-	   height: 50px;
+	  width: 50px;
+	  height: 50px;
 	}
- 
+  
 	.copy-btn {
-	   padding: 10px 15px;
-	   font-size: 14px;
+	  padding: 10px 15px;
+	  font-size: 14px;
 	}
- 
+  
 	.copy-link input {
-	   font-size: 14px;
+	  font-size: 14px;
 	}
- }
- 
+  }
+  
   
 
 

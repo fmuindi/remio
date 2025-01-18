@@ -28,6 +28,22 @@
       nonce="N4H1zKQ2"></script>
 
    <link rel='stylesheet' href='home.css' media='all' />
+   <!-- Open Graph Meta Tags -->
+   <meta property="og:title" content="RemioPlay - Your Ultimate Music Destination!" />
+   <meta property="og:description"
+      content="Tough day? Let Remio wrap you in a warm hug of sound! Rediscover your favorite tunes, relive happy memories, and let the music heal your soul. We’ve got mixes and podcasts too!" />
+   <meta property="og:image" content="https://remioplay.com/home.html" />
+   <meta property="og:url" content="https://www.remioplay.com/" />
+   <meta property="og:type" content="website" />
+   <meta property="og:site_name" content="RemioPlay" />
+   <!-- Twitter Card Meta Tags -->
+   <meta name="twitter:card" content="summary_large_image" />
+   <meta name="twitter:title" content="RemioPlay - Your Ultimate Music Destination!" />
+   <meta name="twitter:description"
+      content="Tough day? Let Remio wrap you in a warm hug of sound! Rediscover your favorite tunes, relive happy memories, and let the music heal your soul. We’ve got mixes and podcasts too!" />
+   <meta name="twitter:image" content="https://remioplay.com/home.html" />
+   <meta name="twitter:url" content="https://www.remioplay.com/" />
+
 </head>
 
 <body>
@@ -222,12 +238,12 @@
                   <i class="fa fa-music"></i> Request a Song
                </button>
                <button class="que" id="openShareModal">
-                  <i class="fa fa-user-plus"></i> Invite Friends
+                  <i class="fa fa-user-plus"></i> Share with Friends
                </button>
             </div>
             <div id="shareModal" class="share-modal">
                <div class="share-content">
-                  <span class="close-sharebtn" id="closeModal">&times;</span>
+                  <span class="close-sharebtn" id="closeButton">&times;</span>
                   <h3>Share</h3>
                   <hr />
                   <p>Share this link via</p>
@@ -248,28 +264,76 @@
                               d="M23.954 4.569c-.885.392-1.83.656-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.949.555-2.005.959-3.127 1.184-.897-.959-2.173-1.555-3.591-1.555-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124-4.088-.205-7.719-2.165-10.149-5.144-.422.722-.666 1.561-.666 2.475 0 1.708.869 3.216 2.188 4.099-.807-.026-1.566-.248-2.229-.616v.062c0 2.385 1.693 4.374 3.946 4.829-.413.112-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.419-1.685 1.32-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.179 1.396 4.768 2.209 7.557 2.209 9.054 0 14.001-7.496 14.001-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z" />
                         </svg>
                      </button>
-                     <!-- LinkedIn Button -->
-                     <button class="social-btn" onclick="share('linkedin')">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                           fill="#0077B5">
-                           <path
-                              d="M22.23 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24H22.23C23.208 24 24 23.226 24 22.271V1.729C24 .774 23.208 0 22.23 0zM7.089 20.452H3.563V9.019h3.526v11.433zM5.326 7.544c-1.136 0-2.052-.92-2.052-2.053s.916-2.053 2.052-2.053c1.137 0 2.053.92 2.053 2.053s-.916 2.053-2.053 2.053zM20.452 20.452h-3.527v-5.719c0-1.363-.027-3.113-1.899-3.113-1.898 0-2.19 1.482-2.19 3.017v5.815h-3.527V9.019h3.387v1.561h.048c.471-.893 1.625-1.833 3.343-1.833 3.573 0 4.232 2.35 4.232 5.406v6.3h-.001z" />
-                        </svg>
-                     </button>
                      <!-- Instagram Button -->
-                     <button class="social-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                           fill="#E1306C">
-                           <path
-                              d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.34 3.608 1.315.976.976 1.254 2.243 1.315 3.608.058 1.266.069 1.646.069 4.85s-.012 3.584-.07 4.85c-.062 1.366-.34 2.633-1.315 3.608-.976.976-2.243 1.254-3.608 1.315-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.34-3.608-1.315-.976-.976-1.254-2.243-1.315-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.34-2.633 1.315-3.608C5.53 2.503 6.797 2.225 8.163 2.163 9.429 2.105 9.809 2.093 12 2.093zm0-2.163C9.761 0 9.358.012 8.1.07 6.792.131 5.54.435 4.523 1.452 3.506 2.468 3.202 3.721 3.141 5.03c-.058 1.259-.07 1.662-.07 3.899s.012 2.64.07 3.899c.062 1.309.365 2.562 1.382 3.578s2.268 1.321 3.577 1.382c1.259.058 1.662.07 3.9.07s2.64-.012 3.9-.07c1.308-.062 2.561-.365 3.577-1.382 1.016-1.017 1.32-2.27 1.382-3.578.058-1.259.070-2.64-.07-3.9-.07s-2.64.012-3.9.07c-1.308.062-2.561.365-3.577 1.382-1.016 1.017-1.32 2.27-1.382 3.578-.058 1.259-.07 1.662-.07 3.9s.012 2.64.07 3.9c.062 1.309.365 2.562 1.382 3.578s2.268 1.321 3.577 1.382c1.259.058 1.662.07 3.9.07s2.64-.012 3.9-.07c1.308-.062 2.561-.365 3.577-1.382 1.016-1.017 1.32-2.27 1.382-3.578.058-1.259.07-1.662.07-3.9s-.012-2.64-.07-3.9c-.062-1.309-.365-2.562-1.382-3.578s-2.268-1.321-3.577-1.382c-1.259-.058-1.662-.07-3.9-.07s-2.64.012-3.9.07c-1.308.062-2.561.365-3.577 1.382-1.016 1.017-1.32 2.27-1.382 3.578-.058 1.259-.07 1.662-.07 3.9s.012 2.64.07 3.9c.062 1.309.365 2.562 1.382 3.578s2.268 1.321 3.577 1.382c1.259.058 1.662.07 3.9.07z" />
+                     <button class="social-btn" aria-label="Instagram" onclick="share('instagram')">
+                        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 16 16" id="instagram"
+                           width="24" height="24">
+                           <linearGradient id="a" x1="1.464" x2="14.536" y1="14.536" y2="1.464"
+                              gradientUnits="userSpaceOnUse">
+                              <stop offset="0" stop-color="#FFC107"></stop>
+                              <stop offset=".507" stop-color="#F44336"></stop>
+                              <stop offset=".99" stop-color="#9C27B0"></stop>
+                           </linearGradient>
+                           <path fill="url(#a)"
+                              d="M11 0H5a5 5 0 0 0-5 5v6a5 5 0 0 0 5 5h6a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5zm3.5 11c0 1.93-1.57 3.5-3.5 3.5H5c-1.93 0-3.5-1.57-3.5-3.5V5c0-1.93 1.57-3.5 3.5-3.5h6c1.93 0 3.5 1.57 3.5 3.5v6z">
+                           </path>
+                           <linearGradient id="b" x1="5.172" x2="10.828" y1="10.828" y2="5.172"
+                              gradientUnits="userSpaceOnUse">
+                              <stop offset="0" stop-color="#FFC107"></stop>
+                              <stop offset=".507" stop-color="#F44336"></stop>
+                              <stop offset=".99" stop-color="#9C27B0"></stop>
+                           </linearGradient>
+                           <path fill="url(#b)"
+                              d="M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 6.5A2.503 2.503 0 0 1 5.5 8c0-1.379 1.122-2.5 2.5-2.5s2.5 1.121 2.5 2.5c0 1.378-1.122 2.5-2.5 2.5z">
+                           </path>
+                           <linearGradient id="c" x1="11.923" x2="12.677" y1="4.077" y2="3.323"
+                              gradientUnits="userSpaceOnUse">
+                              <stop offset="0" stop-color="#FFC107"></stop>
+                              <stop offset=".507" stop-color="#F44336"></stop>
+                              <stop offset=".99" stop-color="#9C27B0"></stop>
+                           </linearGradient>
+                           <circle cx="12.3" cy="3.7" r=".533" fill="url(#c)">
+                           </circle>
                         </svg>
                      </button>
+                     <!-- WhatsApp Button -->
+                     <button class="social-btn" onclick="share('whatsapp')">
+                        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 16 16" width="24"
+                           height="24" id="whatsapp">
+                           <path fill="#4CAF50"
+                              d="M8.002 0h-.004C3.587 0 0 3.588 0 8a7.94 7.94 0 0 0 1.523 4.689l-.997 2.972 3.075-.983A7.93 7.93 0 0 0 8.002 16C12.413 16 16 12.411 16 8s-3.587-8-7.998-8z">
+                           </path>
+                           <path fill="#FAFAFA"
+                              d="M12.657 11.297c-.193.545-.959.997-1.57 1.129-.418.089-.964.16-2.802-.602-2.351-.974-3.865-3.363-3.983-3.518-.113-.155-.95-1.265-.95-2.413s.583-1.707.818-1.947c.193-.197.512-.287.818-.287.099 0 .188.005.268.009.235.01.353.024.508.395.193.465.663 1.613.719 1.731.057.118.114.278.034.433-.075.16-.141.231-.259.367-.118.136-.23.24-.348.386-.108.127-.23.263-.094.498.136.23.606.997 1.298 1.613.893.795 1.617 1.049 1.876 1.157.193.08.423.061.564-.089.179-.193.4-.513.625-.828.16-.226.362-.254.574-.174.216.075 1.359.64 1.594.757.235.118.39.174.447.273.056.099.056.564-.137 1.11z">
+                           </path>
+                        </svg>
+                     </button>
+
+
+                     <!-- TikTok Button -->
+                     <button class="social-btn" onclick="share('tiktok')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill-rule="evenodd"
+                           clip-rule="evenodd" image-rendering="optimizeQuality" shape-rendering="geometricPrecision"
+                           text-rendering="geometricPrecision" viewBox="0 0 512 512" id="tiktok">
+                           <path
+                              d="M353.97 0.43c0.03,7.81 2.31,120.68 120.76,127.72 0,32.55 0.04,56.15 0.04,87.21 -8.97,0.52 -77.98,-4.49 -120.93,-42.8l-0.13 169.78c1.63,117.84 -85.09,189.55 -198.44,164.78 -195.46,-58.47 -130.51,-348.37 65.75,-317.34 0,93.59 0.05,-0.03 0.05,93.59 -81.08,-11.93 -108.2,55.52 -86.65,103.81 19.6,43.97 100.33,53.5 128.49,-8.53 3.19,-12.14 4.78,-25.98 4.78,-41.52l0 -337.13 86.28 0.43z">
+                           </path>
+                        </svg>
+                     </button>
+
+
+
+
+
                   </div>
                   <p>Or copy link</p>
                   <div class="copy-link">
-                     <input type="text" id="copyLinkInput" value="https://remioplay.com" readonly />
-                     <button class="copy-btn" onclick="copyToClipboard()">Copy</button>
+                     <input type="text" id="copyLinkInput" value="www.remioplay.com" readonly />
+                     <button class="copy-btn" onclick="copyToClipboard()">
+                        <span class="material-icons">content_copy</span>
+                     </button>
                   </div>
+                  <div id="toastMessage" class="toast-message">Copied</div>
                </div>
             </div>
             <div class="overlay" id="overlay">
@@ -333,9 +397,15 @@
                <div id="socials">
                   <h3>Let's connect</h3>
                   <div class="social_icons">
-                     <img src="./assets/facebook.png" width="30" height="30" alt="facebook">
-                     <img src="./assets/instagram.png" width="30" height="30" alt="instagram">
-                     <img src="./assets/tiktok.png" width="30" height="30" alt="tiktok">
+                     <a href="https://facebook.com/remioplay" target="_blank">
+                        <img src="./assets/facebook.png" width="30" height="30" alt="facebook">
+                     </a>
+                     <a href="https://instagram.com/remioplay" target="_blank">
+                        <img src="./assets/instagram.png" width="30" height="30" alt="instagram">
+                     </a>
+                     <a href="https://tiktok.com/remioplay" target="_blank">
+                        <img src="./assets/tiktok.png" width="30" height="30" alt="tiktok">
+                     </a>
                      <a href="https://x.com/remioplay" target="_blank">
                         <img src="./assets/x.png" width="30" height="30" alt="twitter">
                      </a>
@@ -1063,8 +1133,8 @@
          shareButton.addEventListener('click', (event) => {
             event.preventDefault();
             const shareData = {
-               title: 'Reminisce Radio',
-               text: 'Check out this awesome radio station!',
+               title: 'Remio ',
+               text: 'Feeling stressed? Let RemioPlay lift you up! Rediscover favorite tracks, relive happy memories, and heal with music. Enjoy mixes and podcasts too. Click now to feel the vibes',
                url: window.location.href
             };
 
@@ -1197,53 +1267,103 @@
       });
    </script>
    <script>
+      // Show the modal with fade-in effect
       document.getElementById("openShareModal").addEventListener("click", () => {
          const modal = document.getElementById("shareModal");
          modal.style.display = "flex";
          modal.style.opacity = 0;
-         setTimeout(() => modal.style.opacity = 1, 10);  // Fade-in effect
+
+         // Add a slight delay to trigger the CSS transition
+         setTimeout(() => {
+            modal.style.opacity = 1;
+            modal.setAttribute("aria-hidden", "false"); // Accessibility: mark as visible
+            modal.focus(); // Accessibility: set focus to the modal
+         }, 10);
       });
 
-      document.getElementById("closeModal").addEventListener("click", () => {
-         const modal = document.getElementById("shareModal");
-         modal.style.opacity = 0;
-         setTimeout(() => modal.style.display = "none", 300);  // Fade-out effect
-      });
+      // Hide the modal with fade-out effect
+      document.getElementById("closeButton").addEventListener("click", closeModal);
 
+      // Close modal when clicking outside of it
       window.onclick = function (event) {
          const modal = document.getElementById("shareModal");
-         if (event.target === modal) {
-            modal.style.opacity = 0;
-            setTimeout(() => modal.style.display = "none", 300);  // Fade-out effect on click outside
-         }
+         if (event.target === modal) closeModal();
       };
 
+      // Function to close the modal
+      function closeModal() {
+         const modal = document.getElementById("shareModal");
+         modal.style.opacity = 0;
+
+         // Ensure the modal is hidden after the fade-out transition
+         setTimeout(() => {
+            modal.style.display = "none";
+            modal.setAttribute("aria-hidden", "true"); // Accessibility: mark as hidden
+         }, 300);
+      }
+
+      // Function to handle sharing to different platforms
       function share(platform) {
          const url = window.location.href;
-         const text = "Check out this awesome content!";
+         const text = "Feeling stressed? Let RemioPlay lift you up! Rediscover favorite tracks, relive happy memories, and heal with music. Enjoy mixes and podcasts too. Click now to feel the vibes.";
 
-         switch (platform) {
-            case 'facebook':
-               window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
-               break;
-            case 'twitter':
-               window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
-               break;
-            case 'linkedin':
-               window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(text)}`, '_blank');
-               break;
-            default:
-               alert("Platform not supported");
+         const shareUrls = {
+            facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`, // Added a 'quote' for Facebook to display the text.
+            twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, // Share text & URL.
+            tiktok: `https://www.tiktok.com/share?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, // TikTok Share (doesn't support custom messages directly, but text will appear).
+            whatsapp: `https://wa.me/?text=${encodeURIComponent(text)}%20${encodeURIComponent(url)}`, // WhatsApp Share.
+            instagram: `https://www.instagram.com/remiplay/` // Instagram URL redirect (Instagram doesn't allow sharing via URL, so it's just a page link).
+         };
+
+         // Open the appropriate platform's sharing URL
+         if (shareUrls[platform]) {
+            window.open(shareUrls[platform], '_blank', 'noopener,noreferrer');
+         } else {
+            alert("Platform not supported");
          }
       }
 
+
+      // Function to copy the link to the clipboard with modern Clipboard API
       function copyToClipboard() {
          const copyText = document.getElementById("copyLinkInput");
-         copyText.select();
-         document.execCommand("copy");
-         alert("Copied to clipboard: " + copyText.value);
+
+         if (navigator.clipboard) {
+            navigator.clipboard.writeText(copyText.value)
+               .then(() => {
+                  showToastMessage("Copied");
+               })
+               .catch(err => {
+                  console.error("Failed to copy text: ", err);
+               });
+         } else {
+            // Fallback for older browsers
+            copyText.select();
+            document.execCommand("copy");
+            showToastMessage("Copied");
+         }
       }
 
+      // Function to show toast message
+      function showToastMessage(message) {
+         const toast = document.getElementById("toastMessage");
+         toast.textContent = message;
+         toast.classList.add("show");
+
+         // Hide the toast after 3 seconds
+         setTimeout(() => {
+            toast.classList.remove("show");
+         }, 3000);
+      }
+
+
+      // Add keyboard accessibility: close modal with Escape key
+      document.addEventListener("keydown", (event) => {
+         const modal = document.getElementById("shareModal");
+         if (event.key === "Escape" && modal.style.display === "flex") {
+            closeModal();
+         }
+      });
    </script>
    <script>
       window.addEventListener("load", function () {
