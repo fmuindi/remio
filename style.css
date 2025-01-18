@@ -4,8 +4,8 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Work Sans', sans-serif;
-	background: rgb(73, 3, 66);
-	background-image: url("./assets/pattern.bg.webp");
+	background: rgb(255, 255, 255);
+	/* background-image: url("./assets/pattern.bg.webp"); */
 	/* Image background */
 	background-size: cover;
 	/* Ensure the background covers the whole area */
