@@ -1,208 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel='stylesheet' href='style.css' media='all' />
-      <link rel='stylesheet' href='style.css' media='all' />
-      <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
-      <script src="https://kit.fontawesome.com/6b02184769.js" crossorigin="anonymous"></script>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-      <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-      <title>Contact Form</title>
-      <style>
-         body {
-         background: rgb(44, 7, 39);
-         background-image: url("./assets/background.webp");
-         background-size: cover;
-         background-position: center;
-         font-family: 'Comfortaa', sans-serif;
-         color: #fff;
-         margin: 0;
-         padding: 0;
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel='stylesheet' href='style.css' media='all' />
+   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet">
+   <script src="https://kit.fontawesome.com/6b02184769.js" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+   <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+   <title>Contact Form</title>
+   <style>
+      .main_container {
          display: flex;
          justify-content: center;
          align-items: center;
-         height: 100vh;
-         }
-         .main_container {
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         padding: 0px 20px 20px 20px;
          flex-direction: row;
          flex-wrap: wrap;
-         background: radial-gradient(circle, rgba(44, 7, 39, 0.7) 0%, rgba(12, 8, 34, 0.7) 100%); /* Reduced opacity */
-         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
-         border-radius: 10px;
-         margin: 20px;
-         color: #FFFFFF;
-         }
-         /* Contact Container */
-         .contact-container {
-         display: flex;
-         gap: 20px;
-         max-width: 1200px;
+         /* Full height of the viewport */
          padding: 20px;
-         flex-wrap: wrap;
-         margin-top: 100px;
-         }
-         /* Contact Card */
-         .contact-card {
+         /* Prevent content from sticking to the edges */
+         box-sizing: border-box;
+         /* Include padding in height and width calculations */
+      }
+
+      .contact-container {
+         display: flex;
+         flex-direction: column;
+         /* Stack elements vertically */
+         justify-content: center;
+         align-items: center;
+         gap: 20px;
+         /* Spacing between elements */
+         padding: 20px;
+         max-width: 800px;
+         /* Set a max width for better alignment */
+         margin: auto;
+         /* Center horizontally */
+         box-sizing: border-box;
+         /* Ensure padding doesn’t affect the layout */
+      }
+
+      .contact-card {
+         background-color: rgba(255, 255, 255, 0.9);
+         border-radius: 15px;
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+         padding: 30px;
+         text-align: center;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         width: 100%;
+         /* Default to full width of container */
+         max-width: 500px;
+         /* Reasonable max width */
+      }
+
+      .contact-card:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .contact-form {
+         display: flex;
+         flex-direction: column;
+         align-items: stretch;
+         width: 100%;
+         max-width: 500px;
+         /* Prevent the form from becoming too wide */
+         padding: 20px;
          background-color: rgba(44, 7, 39, 0.8);
          border-radius: 10px;
          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-         padding: 20px;
-         flex: 1;
          transition: transform 0.3s ease, box-shadow 0.3s ease;
-         }
-         .contact-card:hover {
-         transform: translateY(-10px);
-         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-         }
-         /* Contact Form */
-         .contact-form input, .contact-form textarea {
-         background-color: #fff;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+         width: 100%;
+         margin-bottom: 15px;
+         padding: 10px 15px;
          border: 1px solid #fff;
          border-radius: 5px;
-         margin-bottom: 15px;
-         padding: 15px;
+         background-color: #fff;
          color: #000;
-         width: 100%;
-         transition: border-color 0.3s ease;
-         }
-         .contact-form input:focus, .contact-form textarea:focus {
-         border-color: #ff00e6;
-         outline: none;
-         }
-         .contact-form textarea {
+         font-size: 1rem;
+      }
+
+      .contact-form textarea {
+         height: 120px;
          resize: none;
-         height: 100px;
-         }
-         .contact-form button {
+      }
+
+      .contact-form button {
+         width: 100%;
          padding: 15px;
+         font-size: 1rem;
+         font-weight: bold;
          border: none;
          background-color: #bb00a2;
          color: #fff;
-         cursor: pointer;
          border-radius: 5px;
-         font-size: 1em;
+         cursor: pointer;
          transition: background-color 0.3s ease;
-         }
-         .contact-form button:hover {
+      }
+
+      .contact-form button:hover {
          background-color: #940099;
-         }
-         /* Contact Info */
-         .contact-info h2, .contact-info h3 {
-         color: #ffffff;
-         text-align: center;
-         }
-         .contact-info p {
-         margin: 10px 0;
-         font-size: 0.8em;
-         text-align: center;
-         }
-         .contact-info a {
-         color: #ff00e6;
-         text-decoration: none;
-         }
-         /* Social Links */
-         .social-icons {
-         display: flex;
-         justify-content: center; /* Centers icons horizontally */
-         align-items: center; /* Centers icons vertically */
-         gap: 20px; /* Adjust gap between icons */
-         margin-top: 20px; /* Optional: adds space above the icons */
-         }
-         .social-icons a img {
-         width: 30px;
-         filter: grayscale(100%);
-         transition: filter 0.3s ease;
-         }
-         .social-icons a img:hover {
-         filter: grayscale(0%);
-         }
-         /* Responsive Design */
-         @media (max-width: 768px) {
+      }
+
+      @media (max-width: 768px) {
          .contact-container {
-         flex-direction: column;
-         align-items: center;
+            flex-direction: column;
+            padding: 10px;
          }
-         .contact-card {
-         margin-bottom: 20px;
-         width: 90%;
+
+         .contact-card,
+         .contact-form {
+            width: 100%;
+            /* Full width on smaller screens */
+            max-width: 90%;
+            /* Slight margin from the edges */
          }
-         }
-      </style>
-   </head>
-   <body>
-      <div class="main_container">
-         <header id="header-container">
-            <nav class="navbar">
-               <a href="home.html">
-                  <img src="./assets/remiologo.png" alt="Remio" class="station-logo" />
-               </a>
-               <!-- Search Bar -->
-               <div class="flexbox">
-                  <div class="search">
-                     <div>
-                        <input type="text" class="search-bar" placeholder="Search . . ." required>
-                     </div>
+      }
+   </style>
+</head>
+
+<body>
+   <div class="main_container">
+      <header id="header-container">
+         <nav class="navbar">
+            <a href="home.html">
+               <img src="./assets/remiologo.png" alt="Remio" class="station-logo" />
+            </a>
+            <!-- Search Bar -->
+            <div class="flexbox">
+               <div class="search">
+                  <div>
+                     <input type="text" class="search-bar" placeholder="Search . . ." required>
                   </div>
                </div>
-               <!-- Navigation Menu -->
-               <ul class="nav-menu">
-                  <!-- <li><a href="home.html">Home</a></li> -->
-                  <li><a href="podcasts.html">Podcasts</a></li>
-                  <li><a href="mixes.html">Mixes</a></li>
-                  <!-- <li><a href="request.html">Play Song</a></li> -->
-                  <!-- <li><a href="contact.html">Contact</a></li> -->
-               </ul>
-               <!-- Login Button -->
-               <button id="login-btn" class="btn-login">Sign In</button>
-               <!-- Hamburger Icon -->
-               <div class="hamburger">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-               </div>
-            </nav>
-         </header>
-         <div class="contact-container">
-            <div class="contact-card contact-form">
-               <form action="#" method="POST">
-                  <input type="text" name="name" placeholder="Enter your Name" required>
-                  <input type="email" name="email" placeholder="Enter a valid email address" required>
-                  <textarea name="message" placeholder="Enter your message" required></textarea>
-                  <button type="submit">Submit</button>
-               </form>
             </div>
-            <div class="contact-card contact-info">
-               <h2>Contact us</h2>
-               <p>We love your feedback. How about you talk to us...about anything?</p>
-               <p>
-                  <a href="mailto:remioplay@gmail.com">
-                     remioplay@gmail.com</a>
-               </p>
-               <h3>Follow us</h3>
-               <div class="social-icons">
-               <a href="#"><img src="./assets/facebook.png" alt="facebook"></a>
-               <a href="#"><img src="./assets/instagram.png" alt="instagram"></a>
-               <a href="#"><img src="./assets/tiktok.png" alt="twitter"></a>
-               <a href="#"><img src="./assets/x.png" alt="tiktok"></a>
-               </div>
-               </br>
-               </br>
-               </br>
-               <p>&copy;2024 Privacy policy</p>
+            <!-- Navigation Menu -->
+            <ul class="nav-menu">
+               <!-- <li><a href="home.html">Home</a></li> -->
+               <li><a href="podcasts.html">Podcasts</a></li>
+               <li><a href="mixes.html">Mixes</a></li>
+               <!-- <li><a href="request.html">Play Song</a></li> -->
+               <!-- <li><a href="contact.html">Contact</a></li> -->
+            </ul>
+            <!-- Login Button -->
+            <button id="login-btn" class="btn-login">Sign In</button>
+            <!-- Hamburger Icon -->
+            <div class="hamburger">
+               <div></div>
+               <div></div>
+               <div></div>
             </div>
+         </nav>
+      </header>
+      <div class="contact-container">
+         <div class="contact-card contact-form">
+            <form action="#" method="POST">
+               <input type="text" name="name" placeholder="Enter your Name" required>
+               <input type="email" name="email" placeholder="Enter a valid email address" required>
+               <textarea name="message" placeholder="Enter your message" required></textarea>
+               <button type="submit">Submit</button>
+            </form>
+         </div>
+         <div class="contact-card contact-info">
+            <h2>Contact us</h2>
+            <p>We love your feedback. How about you talk to us...about anything?</p>
+            <p>
+               <a href="mailto:remioplay@gmail.com">
+                  remioplay@gmail.com</a>
+            </p>
+            <h3>Follow us</h3>
+            <div class="social-buttons">
+               <!-- Facebook Button -->
+               <button class="social-btn" onclick="share('facebook')">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#4267B2">
+                     <path
+                        d="M22.675 0h-21.35C.592 0 0 .592 0 1.325v21.351C0 23.408.592 24 1.325 24h11.495v-9.294H9.798v-3.622h3.022v-2.671c0-2.989 1.796-4.621 4.517-4.621 1.312 0 2.686.236 2.686.236v2.967h-1.513c-1.491 0-1.952.927-1.952 1.876v2.213h3.328l-.532 3.622h-2.796V24h5.479C23.408 24 24 23.408 24 22.675V1.325C24 .592 23.408 0 22.675 0z" />
+                  </svg>
+               </button>
+               <!-- Twitter Button -->
+               <button class="social-btn" onclick="share('twitter')">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1DA1F2">
+                     <path
+                        d="M23.954 4.569c-.885.392-1.83.656-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.949.555-2.005.959-3.127 1.184-.897-.959-2.173-1.555-3.591-1.555-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124-4.088-.205-7.719-2.165-10.149-5.144-.422.722-.666 1.561-.666 2.475 0 1.708.869 3.216 2.188 4.099-.807-.026-1.566-.248-2.229-.616v.062c0 2.385 1.693 4.374 3.946 4.829-.413.112-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.419-1.685 1.32-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.179 1.396 4.768 2.209 7.557 2.209 9.054 0 14.001-7.496 14.001-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z" />
+                  </svg>
+               </button>
+               <!-- Instagram Button -->
+               <button class="social-btn" aria-label="Instagram" onclick="share('instagram')">
+                  <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 16 16" id="instagram"
+                     width="24" height="24">
+                     <linearGradient id="a" x1="1.464" x2="14.536" y1="14.536" y2="1.464"
+                        gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#FFC107"></stop>
+                        <stop offset=".507" stop-color="#F44336"></stop>
+                        <stop offset=".99" stop-color="#9C27B0"></stop>
+                     </linearGradient>
+                     <path fill="url(#a)"
+                        d="M11 0H5a5 5 0 0 0-5 5v6a5 5 0 0 0 5 5h6a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5zm3.5 11c0 1.93-1.57 3.5-3.5 3.5H5c-1.93 0-3.5-1.57-3.5-3.5V5c0-1.93 1.57-3.5 3.5-3.5h6c1.93 0 3.5 1.57 3.5 3.5v6z">
+                     </path>
+                     <linearGradient id="b" x1="5.172" x2="10.828" y1="10.828" y2="5.172"
+                        gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#FFC107"></stop>
+                        <stop offset=".507" stop-color="#F44336"></stop>
+                        <stop offset=".99" stop-color="#9C27B0"></stop>
+                     </linearGradient>
+                     <path fill="url(#b)"
+                        d="M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 6.5A2.503 2.503 0 0 1 5.5 8c0-1.379 1.122-2.5 2.5-2.5s2.5 1.121 2.5 2.5c0 1.378-1.122 2.5-2.5 2.5z">
+                     </path>
+                     <linearGradient id="c" x1="11.923" x2="12.677" y1="4.077" y2="3.323"
+                        gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#FFC107"></stop>
+                        <stop offset=".507" stop-color="#F44336"></stop>
+                        <stop offset=".99" stop-color="#9C27B0"></stop>
+                     </linearGradient>
+                     <circle cx="12.3" cy="3.7" r=".533" fill="url(#c)">
+                     </circle>
+                  </svg>
+               </button>
+               <!-- WhatsApp Button -->
+               <button class="social-btn" onclick="share('whatsapp')">
+                  <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 16 16" width="24"
+                     height="24" id="whatsapp">
+                     <path fill="#4CAF50"
+                        d="M8.002 0h-.004C3.587 0 0 3.588 0 8a7.94 7.94 0 0 0 1.523 4.689l-.997 2.972 3.075-.983A7.93 7.93 0 0 0 8.002 16C12.413 16 16 12.411 16 8s-3.587-8-7.998-8z">
+                     </path>
+                     <path fill="#FAFAFA"
+                        d="M12.657 11.297c-.193.545-.959.997-1.57 1.129-.418.089-.964.16-2.802-.602-2.351-.974-3.865-3.363-3.983-3.518-.113-.155-.95-1.265-.95-2.413s.583-1.707.818-1.947c.193-.197.512-.287.818-.287.099 0 .188.005.268.009.235.01.353.024.508.395.193.465.663 1.613.719 1.731.057.118.114.278.034.433-.075.16-.141.231-.259.367-.118.136-.23.24-.348.386-.108.127-.23.263-.094.498.136.23.606.997 1.298 1.613.893.795 1.617 1.049 1.876 1.157.193.08.423.061.564-.089.179-.193.4-.513.625-.828.16-.226.362-.254.574-.174.216.075 1.359.64 1.594.757.235.118.39.174.447.273.056.099.056.564-.137 1.11z">
+                     </path>
+                  </svg>
+               </button>
+
+
+               <!-- TikTok Button -->
+               <button class="social-btn" onclick="share('tiktok')">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill-rule="evenodd" clip-rule="evenodd"
+                     image-rendering="optimizeQuality" shape-rendering="geometricPrecision"
+                     text-rendering="geometricPrecision" viewBox="0 0 512 512" id="tiktok">
+                     <path
+                        d="M353.97 0.43c0.03,7.81 2.31,120.68 120.76,127.72 0,32.55 0.04,56.15 0.04,87.21 -8.97,0.52 -77.98,-4.49 -120.93,-42.8l-0.13 169.78c1.63,117.84 -85.09,189.55 -198.44,164.78 -195.46,-58.47 -130.51,-348.37 65.75,-317.34 0,93.59 0.05,-0.03 0.05,93.59 -81.08,-11.93 -108.2,55.52 -86.65,103.81 19.6,43.97 100.33,53.5 128.49,-8.53 3.19,-12.14 4.78,-25.98 4.78,-41.52l0 -337.13 86.28 0.43z">
+                     </path>
+                  </svg>
+               </button>
+
+            </div>
+            </br>
+            </br>
+            </br>
+            <p>&copy;2024 Privacy policy</p>
          </div>
       </div>
-      
-      <!-- Script for scroll-triggered fixed header -->
-      <script>
+   </div>
+
+   <!-- Script for scroll-triggered fixed header -->
+   <!-- <script>
          window.addEventListener('scroll', () => {
              const header = document.querySelector('header');
              const scrollPosition = window.scrollY;
@@ -214,28 +273,29 @@
                  header.classList.remove('fixed');
              }
          });
-      </script>
-      <script>
-         // Select elements
-         const hamburger = document.querySelector('.hamburger');
-         const navMenu = document.querySelector('.nav-menu');
-         const navbar = document.querySelector('.navbar');
-         
-         // Add event listener for the hamburger click
-         hamburger.addEventListener('click', () => {
+      </script> -->
+   <script>
+      // Select elements
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('.nav-menu');
+      const navbar = document.querySelector('.navbar');
+
+      // Add event listener for the hamburger click
+      hamburger.addEventListener('click', () => {
          // Toggle active class for the hamburger and nav menu
          hamburger.classList.toggle('active');
          navbar.classList.toggle('active');
-         });
-         
-         // Close the menu when a link is clicked (optional)
-         document.querySelectorAll('.nav-menu a').forEach(link => {
+      });
+
+      // Close the menu when a link is clicked (optional)
+      document.querySelectorAll('.nav-menu a').forEach(link => {
          link.addEventListener('click', () => {
-         hamburger.classList.remove('active');
-         navbar.classList.remove('active');
+            hamburger.classList.remove('active');
+            navbar.classList.remove('active');
          });
-         });
-         
-      </script>  
-   </body>
+      });
+
+   </script>
+</body>
+
 </html>
