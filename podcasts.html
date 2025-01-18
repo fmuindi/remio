@@ -3,121 +3,190 @@
 
 <head>
     <title>Podcasts - Reminisce Radio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='style.css' media='all' />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700;800&display=swap"
+       rel="stylesheet">
     <script src="https://kit.fontawesome.com/6b02184769.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" href="./assets/favicon_io/favicon.ico" type="image/x-icon">
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id"
+       content="76769363642-4epiuopanbn2q2aq67tn1hlerti3vsqt.apps.googleusercontent.com">
+    <meta http-equiv="Content-Security-Policy"
+       content="https://apis.google.com https://www.gstatic.com 'unsafe-inline'; object-src 'none'; base-uri 'self';">
+ 
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0"
+       nonce="N4H1zKQ2"></script>
+ 
+    <link rel='stylesheet' href='home.css' media='all' />
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="RemioPlay - Your Ultimate Music Destination!" />
+    <meta property="og:description"
+       content="Tough day? Let Remio wrap you in a warm hug of sound! Rediscover your favorite tunes, relive happy memories, and let the music heal your soul. We’ve got mixes and podcasts too!" />
+    <meta property="og:image" content="https://remioplay.com/home.html" />
+    <meta property="og:url" content="https://www.remioplay.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="RemioPlay" />
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RemioPlay - Your Ultimate Music Destination!" />
+    <meta name="twitter:description"
+       content="Tough day? Let Remio wrap you in a warm hug of sound! Rediscover your favorite tunes, relive happy memories, and let the music heal your soul. We’ve got mixes and podcasts too!" />
+    <meta name="twitter:image" content="https://remioplay.com/home.html" />
+    <meta name="twitter:url" content="https://www.remioplay.com/" />
     <style>
-        .iframe-wrapper {
-            width: 90%;
-            /* Same width as the iframe */
-            height: 180px;
-            /* Height to show only the header */
-            margin: 10px auto;
-            /* Adds spacing between the wrappers */
-            overflow: hidden;
-            position: relative;
-            border-radius: 5px;
-            background: #000;
-            /* Optional: Background to match the iframe container */
-        }
+       * {
+    box-sizing: border-box; /* Ensure padding and margin do not cause overflow */
+}
 
-        .iframe-wrapper iframe {
-            width: 100%;
-            height: 700px;
-            /* Ensures full content is loaded */
-            position: absolute;
-            top: 0;
-            /* Shows the header */
-            left: 0;
-            /* Ensures it starts at the left */
-        }
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
+    background: rgb(255, 255, 255);
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
 
-        @media screen and (max-width: 768px) {
-            .iframe-wrapper {
-                height: 200px;
-            }
-        }
+.main_body {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: #000000f6;
+    height: auto;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin: 10px;
+    gap: 10px;
+}
+
+.podcast_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* Center the items */
+    margin: 20px auto;
+    width: 100%;
+    padding: 0 10px; /* Prevent content from overflowing the edges */
+    box-sizing: border-box;
+}
+
+.iframe-wrapper {
+    width: 45%;
+    height: 200px;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    border-radius: 5px;
+    background-color: #000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.iframe-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .iframe-wrapper {
+        width: 100%; /* Make iframe full width on small screens */
+        height: 220px; /* Adjust height for better visibility */
+    }
+
+    .podcast_container {
+        justify-content: center; /* Center the iframe containers on small screens */
+    }
+}
+
     </style>
-
-
-
 </head>
 
 <body>
-    <header id="header-container">
-        <nav class="navbar">
-            <a href="home.html">
-                <img src="./assets/remiologo.png" alt="Remio" class="station-logo" />
-            </a>
-            <!-- Search Bar -->
-            <div class="flexbox">
-                <div class="search">
-                    <div>
-                        <input type="text" class="search-bar" placeholder="Search . . ." required>
-                    </div>
-                </div>
+    <div class="main_body">
+        <header id="header-container">
+            <nav class="navbar">
+               <!-- Logo -->
+               <a href="home.html">
+                  <img src="./assets/remiologo.png" alt="Remio" class="station-logo" />
+               </a>
+   
+               <!-- Navigation Menu -->
+               <ul class="nav-menu">
+                  <li><a href="podcasts.html"><i class="fa-solid fa-podcast"></i> PODCASTS</a></li>
+                  <li><a href="mixes.html"><i class="fa-solid fa-music"></i> DJ MIXES</a></li>
+                </ul>
+                
+   
+               <!-- Login Button -->
+               <button id="login-btn" class="btn-login">Sign In</button>
+   
+               <!-- User Info (Initially Hidden) -->
+               <div id="user-info" class="user-info" style="display: none;">
+                  <span id="username"></span>
+                  <img id="user-avatar" class="user-avatar" src="./assets/avatar.png" alt="Avatar" />
+                  <div id="user-dashboard" class="user-dashboard" style="display: none;">
+                     <p id="user-details"></p>
+                     <button id="logout-btn" class="btn-logout">Logout</button>
+                  </div>
+               </div>
+   
+               <!-- Hamburger Icon -->
+               <div class="hamburger">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+               </div>
+            </nav>
+         </header>
+
+        <div class="podcast_container">
+            <div class="iframe-wrapper">
+                <iframe
+                    src="https://www.listennotes.com/podcasts/the-optimal-life-with-nate-haber-nate-haber-JCrycbmW1fd/embed/"
+                    loading="lazy" frameborder="0" scrolling="no">
+                </iframe>
             </div>
-            <!-- Navigation Menu -->
-            <ul class="nav-menu">
-                <!-- <li><a href="home.html">Home</a></li> -->
-                <li><a href="podcasts.html">Podcasts</a></li>
-                <li><a href="mixes.html">Mixes</a></li>
-                <!-- <li><a href="request.html">Play Song</a></li> -->
-                <!-- <li><a href="contact.html">Contact</a></li> -->
+            <div class="iframe-wrapper">
+                <iframe src="https://www.listennotes.com/podcasts/hear-this-podcast-muindi-w8e4RrlsJTY/embed/"
+                    loading="lazy" frameborder="0" scrolling="no">
+                </iframe>
+            </div>
+            <div class="iframe-wrapper">
+                <iframe src="https://www.listennotes.com/podcasts/the-smut-hive-the-smut-hive-LqaRcbnkTjg/embed/"
+                    loading="lazy" frameborder="0" scrolling="no">
+                </iframe>
+            </div>
+            <div class="iframe-wrapper">
+                <iframe src="https://www.listennotes.com/podcasts/how-to-money-iheartpodcasts-xct70aSGm_R/embed/"
+                    loading="lazy" frameborder="0" scrolling="no">
+                </iframe>
+            </div>
+        </div>
+
+        <footer class="top-footer">
+            <ul>
+                <li><a onclick="window.open('about.html', '_blank')">About Us</a></li>
+                <li><a onclick="window.open('privacy.html', '_blank')">Privacy Policy</a></li>
+                <li><a onclick="window.open('terms.html', '_blank')">Terms & Conditions</a></li>
+                <li><a onclick="window.open('faq.html', '_blank')">FAQs</a></li>
+                <li><a onclick="window.open('contact.html', '_blank')">Contact Us</a></li>
             </ul>
-            <!-- Login Button -->
-            <button id="login-btn" class="btn-login">Sign In</button>
-            <!-- Hamburger Icon -->
-            <div class="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </nav>
-    </header>
-
-    <div class="spotify-container">
-        <div class="iframe-wrapper">
-            <iframe
-                src="https://www.listennotes.com/podcasts/the-optimal-life-with-nate-haber-nate-haber-JCrycbmW1fd/embed/"
-                loading="lazy" frameborder="0" scrolling="no">
-            </iframe>
-        </div>
-        <div class="iframe-wrapper">
-            <iframe src="https://www.listennotes.com/podcasts/hear-this-podcast-muindi-w8e4RrlsJTY/embed/"
-                loading="lazy" frameborder="0" scrolling="no">
-            </iframe>
-        </div>
-        <div class="iframe-wrapper">
-            <iframe src="https://www.listennotes.com/podcasts/the-smut-hive-the-smut-hive-LqaRcbnkTjg/embed/"
-                loading="lazy" frameborder="0" scrolling="no">
-            </iframe>
-        </div>
-        <div class="iframe-wrapper">
-            <iframe src="https://www.listennotes.com/podcasts/how-to-money-iheartpodcasts-xct70aSGm_R/embed/"
-                loading="lazy" frameborder="0" scrolling="no">
-            </iframe>
-        </div>
+            <p>&copy; 2025 Remio. All rights reserved.</p>
+        </footer>
     </div>
-
-
-
-    <footer class="top-footer">
-        <ul>
-            <li><a onclick="window.open('about.html', '_blank')">About Us</a></li>
-            <li><a onclick="window.open('privacy.html', '_blank')">Privacy Policy</a></li>
-            <li><a onclick="window.open('terms.html', '_blank')">Terms & Conditions</a></li>
-            <li><a onclick="window.open('faq.html', '_blank')">FAQs</a></li>
-            <li><a onclick="window.open('contact.html', '_blank')">Contact Us</a></li>
-        </ul>
-        <p>&copy; 2025 Remio. All rights reserved.</p>
-    </footer>
 
     <!-- Script for scroll-triggered fixed header -->
     <script>
@@ -134,26 +203,20 @@
         });
     </script>
     <script>
-        // Select elements
         const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
         const navbar = document.querySelector('.navbar');
 
-        // Add event listener for the hamburger click
         hamburger.addEventListener('click', () => {
-            // Toggle active class for the hamburger and nav menu
             hamburger.classList.toggle('active');
             navbar.classList.toggle('active');
         });
 
-        // Close the menu when a link is clicked (optional)
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 navbar.classList.remove('active');
             });
         });
-
     </script>
 </body>
 
