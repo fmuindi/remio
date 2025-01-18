@@ -799,8 +799,6 @@ h1 {
 	}
 }
 
-
-/* Container for text and socials */
 /* Container box for the information */
 .info-box {
 	background: #000000f6;
@@ -1920,14 +1918,13 @@ h1 {
 	background-color: #0056b3;
 }
 
-.radio-shows-section-vertical {
+/* .radio-shows-section-vertical {
 	display: flex;
 	flex-direction: column;
 	align-items: left;
 	gap: 10px;
-	padding: 0px;
 	background-color: #000000f6;
-}
+} */
 
 .current-show {
 	width: 100%;
