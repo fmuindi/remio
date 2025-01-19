@@ -6,13 +6,11 @@ body {
 	font-family: 'Work Sans', sans-serif;
 	/* background: rgb(255, 255, 255); */
 	/* background-image: url("./assets/background.webp");  */
-	background-size: cover;
+	/* background-size: cover;
 	background-position: center center;
-	/* Center the background image */
 	background-repeat: repeat;
-	background-blend-mode: overlay;
-	/* Prevent repeating of the image */
-}
+	background-blend-mode: overlay;/
+} */
 
 /* Flexbox for responsive remibox and intro sections */
 .main_container {
