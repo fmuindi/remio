@@ -1491,6 +1491,9 @@ h1 {
 	.imageintro,
 	#hearthis {
 		width: 100%;
+		max-width: 100%;
+		padding: 5px;
+		margin-right: 0;
 	}
 }
 
@@ -1785,7 +1788,7 @@ h1 {
 	.firstrow {
 		flex-direction: column;
 		/* Stack sections vertically */
-		gap: 15px;
+		gap: 10px;
 		/* Adjust spacing for vertical alignment */
 	}
 
@@ -1793,7 +1796,7 @@ h1 {
 	.intro,
 	.imageintro {
 		flex: 1 1 100%;
-		/* Full width for each section */
+		padding: 5px;
 		max-width: 100%;
 		/* Ensures sections stretch across the viewport */
 	}
