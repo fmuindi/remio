@@ -4,11 +4,9 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Work Sans', sans-serif;
-	background: rgb(255, 255, 255);
-	/* background-image: url("./assets/pattern.bg.webp"); */
-	/* Image background */
+	/* background: rgb(255, 255, 255); */
+	background-image: url("./assets/background.webp"); 
 	background-size: cover;
-	/* Ensure the background covers the whole area */
 	background-position: center center;
 	/* Center the background image */
 	background-repeat: repeat;
@@ -25,7 +23,7 @@ body {
 	flex-direction: row;
 	flex-wrap: wrap;
 	/* Allow wrapping of child elements */
-	background: #000000f6;
+	background: #000000e8;
 	border-radius: 10px;
 	margin: 10px;
 	gap: 10px;
@@ -1169,22 +1167,17 @@ h1 {
 	background-image: linear-gradient(to right, #834d9b 0%, #d04ed6 51%, #834d9b 100%);
 	margin: 8px;
 	padding: 12px 30px;
-	/* Reduced padding for a smaller button */
 	text-align: center;
 	transition: 0.5s;
 	background-size: 200% auto;
 	color: #E5E4E2;
 	box-shadow: 0 0 15px #35273481;
 	border-radius: 8px;
-	/* Slightly smaller border radius */
 	display: flex;
-	/* Flexbox for icon and text alignment */
 	align-items: center;
 	gap: 8px;
-	/* Reduced space between icon and text */
 	justify-content: center;
 	font-size: 12px;
-	/* Reduced font size */
 }
 
 .que:hover {
@@ -1599,7 +1592,7 @@ h1 {
   .share-content h3 {
 	margin-top: 0;
 	color: #333;
-	font-family: 'Arial', sans-serif;
+	font-family: 'Work Sans', sans-serif;
 	font-size: 24px;
 	font-weight: bold;
   }
@@ -2001,7 +1994,7 @@ h1 {
 	font-size: 18px;
 	color: #ff00e6;
 	margin-bottom: 8px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Work Sans', sans-serif;
 }
 
 .show-info p {
@@ -2087,18 +2080,27 @@ h1 {
 
 /* Modal Styles */
 .btn-login {
-	background: linear-gradient(to right, #834d9b, #d04ed6);
-	color: white;
 	padding: 8px 12px;
-	border: none;
-	border-radius: 5px;
 	cursor: pointer;
-	font-size: 14px;
 	margin-left: 20px;
+	background-image: linear-gradient(to right, #834d9b 0%, #d04ed6 51%, #834d9b 100%);
+	text-align: center;
+	transition: 0.5s;
+	background-size: 200% auto;
+	color: #E5E4E2;
+	box-shadow: 0 0 15px #30142e81;
+	border-radius: 5px;
+	align-items: center;
+	gap: 8px;
+	justify-content: center;
+	font-size: 12px;
+ 
 }
 
 .btn-login:hover {
-	background: linear-gradient(to left, #834d9b, #d04ed6);
+	background-position: right center;
+	color: #E5E4E2;
+	text-decoration: none;
 }
 
 /* Form Group for Better Spacing */
@@ -2186,18 +2188,27 @@ form input:focus {
 }
 
 form button {
-	background: linear-gradient(to right, #834d9b, #d04ed6);
-	color: white;
+	background-image: linear-gradient(to right, #834d9b 0%, #d04ed6 51%, #834d9b 100%);
 	padding: 12px;
-	border: none;
-	border-radius: 5px;
 	cursor: pointer;
+	border: none;
 	font-size: 16px;
-	transition: background 0.3s;
+	text-align: center;
+	transition: 0.5s;
+	background-size: 200% auto;
+	color: #E5E4E2;
+	box-shadow: 0 0 15px #30142e81;
+	border-radius: 5px;
+	align-items: center;
+	gap: 8px;
+	justify-content: center;
+	font-size: 14px;
 }
 
 form button:hover {
-	background: linear-gradient(to left, #834d9b, #d04ed6);
+	background-position: right center;
+	color: #E5E4E2;
+	text-decoration: none;
 }
 
 form p {
@@ -2356,17 +2367,24 @@ form p a:hover {
  }
  #book-now {
 	padding: 10px 20px;
-	font-size: 16px;
-	background-color: #750099;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	transition: background-color 0.3s;
+	background-image: linear-gradient(to right, #834d9b 0%, #d04ed6 51%, #834d9b 100%);
+	margin: 8px;
+	text-align: center;
+	transition: 0.5s;
+	background-size: 200% auto;
+	color: #E5E4E2;
+	box-shadow: 0 0 15px #fdeafc81;
+	border-radius: 8px;
+	align-items: center;
+	gap: 8px;
+	justify-content: center;
+	font-size: 12px;
  }
  
  #book-now:hover {
-	background-color: #0056b3;
+	background-position: right center;
+	color: #E5E4E2;
+	text-decoration: none;
  }
  
  

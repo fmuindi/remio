@@ -26,16 +26,19 @@
          }
          .form-container h2 {
          margin-bottom: 25px;
-         color: #60057F;
-         font-size: 1.8em;
+         color: #000000e8;
+         font-size: 1.6em;
+         font-family: 'Work Sans', sans-serif;
          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
          }
          .form-container label {
          display: block;
          margin-bottom: 10px;
-         color: #60057F;
+         color: #000000e8;
+         font-family: 'Work Sans', sans-serif;
          text-align: left;
          font-weight: bold;
+         font-size: 14px;
          }
          .form-container input,
          .form-container textarea {
@@ -62,7 +65,8 @@
          border: none;
          border-radius: 8px;
          cursor: pointer;
-         font-size: 16px;
+         font-family: 'Work Sans', sans-serif;
+         font-size: 14px;
          transition: background 0.3s, transform 0.2s;
          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
          }
@@ -81,6 +85,7 @@
          background: #f0f0f0;
          color: #60057F;
          padding: 10px 15px;
+         font-family: 'Work Sans', sans-serif;
          border: none;
          border-radius: 8px;
          cursor: pointer;
@@ -93,7 +98,7 @@
          }
          .error-message {
          color: red;
-         font-size: 14px;
+         font-size: 12px;
          display: none;
          margin-bottom: 15px;
          }

@@ -43,7 +43,7 @@
       content="Tough day? Let Remio wrap you in a warm hug of sound! Rediscover your favorite tunes, relive happy memories, and let the music heal your soul. We’ve got mixes and podcasts too!" />
    <meta name="twitter:image" content="https://remioplay.com/home.html" />
    <meta name="twitter:url" content="https://www.remioplay.com/" />
-   
+
    <style>
       .main_container {
          display: flex;
@@ -125,20 +125,27 @@
       }
 
       .contact-form button {
-         width: 100%;
-         padding: 15px;
-         font-size: 1rem;
-         font-weight: bold;
-         border: none;
-         background-color: #bb00a2;
-         color: #fff;
-         border-radius: 5px;
+         background-image: linear-gradient(to right, #834d9b 0%, #d04ed6 51%, #834d9b 100%);
+         padding: 12px;
          cursor: pointer;
-         transition: background-color 0.3s ease;
+         border: none;
+         font-size: 16px;
+         text-align: center;
+         transition: 0.5s;
+         background-size: 200% auto;
+         color: #E5E4E2;
+         box-shadow: 0 0 15px #30142e81;
+         border-radius: 5px;
+         align-items: center;
+         gap: 8px;
+         justify-content: center;
+         font-size: 16px;
       }
 
       .contact-form button:hover {
-         background-color: #940099;
+         background-position: right center;
+         color: #E5E4E2;
+         text-decoration: none;
       }
 
       @media (max-width: 768px) {
@@ -162,27 +169,31 @@
    <div class="main_container">
       <header id="header-container">
          <nav class="navbar">
+            <!-- Logo -->
             <a href="home.html">
                <img src="./assets/remiologo.png" alt="Remio" class="station-logo" />
             </a>
-            <!-- Search Bar -->
-            <div class="flexbox">
-               <div class="search">
-                  <div>
-                     <input type="text" class="search-bar" placeholder="Search . . ." required>
-                  </div>
-               </div>
-            </div>
+
             <!-- Navigation Menu -->
             <ul class="nav-menu">
-               <!-- <li><a href="home.html">Home</a></li> -->
-               <li><a href="podcasts.html">Podcasts</a></li>
-               <li><a href="mixes.html">Mixes</a></li>
-               <!-- <li><a href="request.html">Play Song</a></li> -->
-               <!-- <li><a href="contact.html">Contact</a></li> -->
-            </ul>
+               <li><a href="podcasts.html"><i class="fa-solid fa-podcast"></i> PODCASTS</a></li>
+               <li><a href="mixes.html"><i class="fa-solid fa-music"></i> DJ MIXES</a></li>
+             </ul>
+             
+
             <!-- Login Button -->
             <button id="login-btn" class="btn-login">Sign In</button>
+
+            <!-- User Info (Initially Hidden) -->
+            <div id="user-info" class="user-info" style="display: none;">
+               <span id="username"></span>
+               <img id="user-avatar" class="user-avatar" src="./assets/avatar.png" alt="Avatar" />
+               <div id="user-dashboard" class="user-dashboard" style="display: none;">
+                  <p id="user-details"></p>
+                  <button id="logout-btn" class="btn-logout">Logout</button>
+               </div>
+            </div>
+
             <!-- Hamburger Icon -->
             <div class="hamburger">
                <div></div>
