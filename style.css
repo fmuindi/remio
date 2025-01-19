@@ -873,19 +873,19 @@ h1 {
   
 	.social-buttons {
 	  flex-wrap: wrap;
-	  gap: 10px;
+	  gap: 5px;
 	  justify-content: center;
-	  margin: 15px 0;
+	  margin: 10px 0;
 	}
   
 	.social-btn {
-	  width: 35px;
-	  height: 35px;
+	  width: 24px;
+	  height: 24px;
 	}
   
 	.social-btn svg {
-	  width: 20px;
-	  height: 20px;
+	  width: 18px;
+	  height: 18px;
 	}
   }
   
