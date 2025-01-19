@@ -1,31 +1,32 @@
          /* Basic styles for modal */
          .overlay {
-         position: fixed;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         background: rgba(0, 0, 0, 0.7);
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         z-index: 1000;
-         display: none; /* Initially hidden */
-         }
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            overflow: auto; /* For scrolling on smaller screens */
+          }
          .form-container {
          background: linear-gradient(145deg, #fff, #f0f0f0);
          color: #60057F;
          padding: 30px;
          border-radius: 20px;
          box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-         width: 400px;
+         max-width: 100%;
          text-align: center;
          animation: fadeIn 1s ease-in-out;
          position: relative;
          z-index: 1001; /* Ensure form is above the overlay */
          }
          .form-container h2 {
-         margin-bottom: 25px;
+         margin-bottom: 20px;
          color: #000000e8;
          font-size: 1.6em;
          font-family: 'Work Sans', sans-serif;
@@ -121,3 +122,17 @@
          .close-button:hover {
          color: #ff0000;
          }
+         @media screen and (max-width: 768px) {
+            .form-container {
+              padding: 15px;
+            }
+          
+            .form-container h2 {
+              font-size: 18px;
+            }
+          
+            .form-container input,
+            .form-container button {
+              font-size: 14px;
+            }
+          }

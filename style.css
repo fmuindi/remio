@@ -812,105 +812,83 @@ h1 {
 
 .info-box:hover {
 	transform: translateY(-3px);
-	/* Slightly smaller lift effect */
-	box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.25), 0px 10px 15px rgba(0, 0, 0, 0.1);
-	/* Reduced shadow intensity */
+	box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.25), 0px 10px 15px rgba(0, 0, 0, 0.1);/
 }
 
 /* Text styling */
 .info-box p {
 	font-size: 14px;
-	/* Reduced font size */
 	color: #E5E4E2cc;
 	margin-bottom: 10px;
-	/* Smaller gap between text */
 	font-weight: 500;
-	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-	/* Slightly softer shadow */
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);/
 }
 
 /* Facebook Comments Styling */
 .fb-comments {
 	margin-top: 0px;
-	width: 80%;
-	/* Ensures full-width responsive design */
+	width: 100%;
+	max-width: 100%;
 	text-align: left;
-	/* Align comments plugin with the layout */
 }
 
-/* Socials section */
-#socials {
-	padding: 10px;
-	/* Reduced padding */
-	margin-top: 20px;
-	text-align: center;
-}
-
-#socials h3 {
-	font-size: 12px;
-	/* Reduced font size */
-	margin-bottom: 10px;
-	/* Smaller gap between title and icons */
-	color: #E5E4E2ee;
-	text-transform: uppercase;
-	letter-spacing: 1.5px;
-	/* Slightly reduced spacing */
-	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-/* Social icons styling */
-.social_icons {
+  /* Social Buttons */
+  .social-buttons {
 	display: flex;
-	gap: 10px;
-	/* Reduced spacing between icons */
 	justify-content: center;
-	max-width: 25%;
-	/* Smaller container width */
-	margin: 0 auto;
-}
-
-.social_icons img {
-	width: 30px;
-	/* Smaller icon size */
-	height: 30px;
+	gap: 15px;
+	margin: 20px 0;
+  }
+  
+  .social-btn {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
 	border-radius: 50%;
-	border: 2px solid #FF00E6;
-	padding: 4px;
-	/* Reduced padding */
-	transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
+	background-color: #f5f5f5;
+	cursor: pointer;
+	transition: transform 0.2s, background-color 0.3s;
+  }
+  
+  .social-btn:hover {
+	transform: scale(1.1);
+	background-color: #e0e0e0;
+  }
+  
 
-/* Hover effects for icons */
-.social_icons img:hover {
-	transform: rotate(360deg) scale(1.2);
-	/* Slightly smaller scale effect */
-	box-shadow: 0 0 20px rgba(255, 0, 230, 0.6);
-	/* Reduced glow intensity */
-	border-color: #60057F;
-}
-
-@media screen and (max-width: 768px) {
-
-	/* Mobile adjustments */
-	.social_icons {
-		max-width: 70%;
-		/* Smaller container on mobile */
-		gap: 8px;
-		/* Reduced spacing on mobile */
-	}
-
+  @media screen and (max-width: 768px) {
 	.info-box {
-		padding: 15px;
-		/* Consistent padding for mobile */
+	  padding: 10px;
+	  margin-top: 0;
+	  border-radius: 10px;
+	  text-align: center;
 	}
-
-	.social_icons img {
-		width: 25px;
-		/* Smaller icon size for mobile */
-		height: 25px;
+  
+	.info-box p {
+	  font-size: 12px;
 	}
-}
-
+  
+	.social-buttons {
+	  flex-wrap: wrap;
+	  gap: 10px;
+	  justify-content: center;
+	  margin: 15px 0;
+	}
+  
+	.social-btn {
+	  width: 35px;
+	  height: 35px;
+	}
+  
+	.social-btn svg {
+	  width: 20px;
+	  height: 20px;
+	}
+  }
+  
 
 
 
