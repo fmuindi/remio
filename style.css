@@ -11,7 +11,7 @@ body {
 	background-repeat: repeat;
 	background-blend-mode: overlay;/
 } */
-
+}
 /* Flexbox for responsive remibox and intro sections */
 .main_container {
 	display: flex;
