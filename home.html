@@ -18,6 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
    <link rel="icon" href="./assets/favicon_io/favicon.ico" type="image/x-icon">
    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.1/lottie.min.js"></script>
    <script src="https://apis.google.com/js/platform.js" async defer></script>
    <meta name="google-signin-client_id"
       content="76769363642-4epiuopanbn2q2aq67tn1hlerti3vsqt.apps.googleusercontent.com">
@@ -1415,8 +1416,21 @@
          document.getElementById("loading-indicator").style.display = "none";
          document.getElementById("mainContent").style.display = "block";
       });
-
    </script>
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+       lottie.loadAnimation({
+           container: document.getElementById('podcast-icon'),
+           renderer: 'svg',
+           loop: true,
+           autoplay: true,
+           path: 'assets/play.json',
+       });
+
+   });
+</script>
+
+
 </body>
 
 </html>
