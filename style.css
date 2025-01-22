@@ -374,7 +374,7 @@ header.fixed {
 	/* Takes 20% of the width */
 	width: 100%;
 	max-width: 100%;
-	background: #120518;
+	background: #09020c9f;
 	border-radius: 20px;
 	border: 1px solid #3b3b3b;
 	overflow: hidden;
@@ -385,7 +385,7 @@ header.fixed {
 .background {
 	padding: 0px;
 	margin: 1em;
-	background: radial-gradient(circle, #ff00e6b3 0%, rgba(25, 5, 29, 1) 50%, #120518 100%);
+	background: radial-gradient(circle, #ff00e69a 0%, #060107 40%, #09020c 100%);
 	border-bottom: 3px solid #E5E4E2;
 	border-radius: 20px;
 }
@@ -418,7 +418,7 @@ header.fixed {
 	z-index: 1;
 	width: 100px;
 	height: 100px;
-	border: 2px solid #ffffff; /* White border */
+	border: 2px solid #ffffff8a; /* White border */
 	border-radius: 50%;
 	background: linear-gradient(to bottom right, #FF00E6, #60057F);
 	box-shadow: 0 0 20px #ff00e6b3;
@@ -634,12 +634,12 @@ h1 {
 }
 
 .previous-list li:nth-child(odd) {
-	background-color: #0c0518;
+	background-color: #09020c;
 	/* Dark purple */
 }
 
 .previous-list li:nth-child(even) {
-	background-color: #100720;
+	background-color: #0d0311;
 	/* Slightly lighter purple */
 }
 
