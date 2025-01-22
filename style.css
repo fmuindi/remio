@@ -548,6 +548,8 @@ i.fa-volume-up {
 
 .controls {
 	display: flex;
+	align-items: center;
+	justify-items: center;
 	padding: 0 4em;
 	flex-direction: row;
 	margin-top: 3em;
@@ -844,25 +846,6 @@ h1 {
 	gap: 15px;
 	margin: 20px 0;
 }
-
-.social-btn {
-	width: 40px;
-	height: 40px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border: none;
-	border-radius: 50%;
-	background-color: #f5f5f5;
-	cursor: pointer;
-	transition: transform 0.2s, background-color 0.3s;
-}
-
-.social-btn:hover {
-	transform: scale(1.1);
-	background-color: #e0e0e0;
-}
-
 
 @media screen and (max-width: 768px) {
 	.info-box {
@@ -1672,7 +1655,7 @@ h1 {
 	align-items: center;
 	border: none;
 	border-radius: 50%;
-	background-color: #f5f5f5;
+	background-color: #ffffffd7;
 	cursor: pointer;
 	transition: transform 0.2s, background-color 0.3s;
 }
@@ -2467,6 +2450,9 @@ form p a:hover {
 }
 
 #lottie-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 40px;
 	/* Desired width */
 	height: 40px;
