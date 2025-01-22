@@ -67,8 +67,8 @@
             <ul class="nav-menu">
                <li><a href="podcasts.html"><i class="fa-solid fa-podcast"></i> PODCASTS</a></li>
                <li><a href="mixes.html"><i class="fa-solid fa-music"></i> DJ MIXES</a></li>
-             </ul>
-             
+            </ul>
+
 
             <!-- Login Button -->
             <button id="login-btn" class="btn-login">Sign In</button>
@@ -158,31 +158,34 @@
                <div class="background">
 
                   <div class="branding">
-                     <p>Reminisce Radio Live</p>
+                     <p>Live</p>
                   </div>
                   <div class="player">
                      <audio preload="metadata" id="audio" src="https://remioplay.com/stream" crossorigin="anonymous">
                         Your browser does not support the audio element.
                      </audio>
-                     <p id="artist" title="Current playing artist">Loading current artist...</p>
-                     <p id="song" title="Current playing song">Loading current song...</p>
+                     
                      <div class="controls">
-                        <div class="around-button" id="around-button" title="Start the audio stream">
+                        <div class="around-button" id="around-button" title="Start streaming">
                            <button class="play-round" onclick="togglePlayPause()">
-                              <i class="fas fa-play fa-fw" id="play-icon"></i>
+                              <div id="lottie-container"></div>
+                              <i class="fas fa-stop fa-fw" id="stop-icon" style="display: none;"></i>
                            </button>
                         </div>
                      </div>
-                     <br /><br />
-                     <div class="volume-control">
-                        <span class="iconify" data-icon="fa:volume-down" style="color: #ffffff; height:10px;"></span>
-                        <input title="Volume" id="vol-control" type="range" min="0" max="100" step="1" value="100"
-                           onchange="setVolume()" />
-                        <span class="iconify" data-icon="fa:volume-up" style="color: #ffffff; height:10px;"></span>
-                     </div>
+                     
+                     
                   </div>
                   <div class="loader" style="display:none;"></div>
+                  <div class="reminisce-radio">
+                     <p>Reminisce Radio</p>
+                  </div>
+                  
                </div>
+               <div class="volume-control">
+                  <span class="iconify" data-icon="fa:volume-up" style="color: #ffffff; height: 15px;"></span>
+                  <input title="Volume" id="vol-control" type="range" min="0" max="100" step="1" value="100" onchange="setVolume()" />
+                </div>
                <!-- statistics-->
                <div class="stats">
                   <div class="stat-item">
@@ -194,6 +197,7 @@
                      <p id="loved">Loved: <strong>32,215 times</strong></p>
                   </div>
                </div>
+               
                <div class="button-container">
                   <a id="play-button" class="control-buttons" href="#">
                      <span class="material-icons">play_arrow</span>
@@ -366,15 +370,9 @@
                      </div> -->
                   </div>
                </div>
-               <div class="upcoming-show">
-                  <h2>Up Next</i></h2>
-                  <div class="show-details">
-                     <img src="./assets/afternoon.png" alt="Upcoming Show Image" class="upcoming-show-image">
-                     <div class="show-info">
-                        <h3>Afternoon Delight</h3>
-                        <p>Relax and recharge with smooth tunes and engaging talk segments.</p>
-                     </div>
-                  </div>
+               <div class="current-playing">
+                  <p id="artist" title="Current playing artist">Loading current artist...</p>
+                  <p id="song" title="Current playing song">Loading current song...</p>
                </div>
             </div>
          </div>
@@ -411,15 +409,22 @@
                      </button>
                      <!-- Instagram Button -->
                      <button class="social-btn" aria-label="Instagram" onclick="share('instagram')">
-                        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" id="instagram">
-                           <linearGradient id="a" x1="-37.094" x2="-26.555" y1="-72.719" y2="-84.047" gradientTransform="matrix(0 -1.982 -1.8439 0 -132.522 -51.077)" gradientUnits="userSpaceOnUse">
-                             <stop offset="0" stop-color="#fd5"></stop>
-                             <stop offset=".5" stop-color="#ff543e"></stop>
-                             <stop offset="1" stop-color="#c837ab"></stop>
+                        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"
+                           id="instagram">
+                           <linearGradient id="a" x1="-37.094" x2="-26.555" y1="-72.719" y2="-84.047"
+                              gradientTransform="matrix(0 -1.982 -1.8439 0 -132.522 -51.077)"
+                              gradientUnits="userSpaceOnUse">
+                              <stop offset="0" stop-color="#fd5"></stop>
+                              <stop offset=".5" stop-color="#ff543e"></stop>
+                              <stop offset="1" stop-color="#c837ab"></stop>
                            </linearGradient>
-                           <path fill="url(#a)" d="m1.5 1.633c-1.886 1.959-1.5 4.04-1.5 10.362 0 6.336-.158 7.499.602 9.075.635 1.318 1.848 2.308 3.276 2.677 1.144.294 1.904.253 8.1.253 5.194 0 6.81.093 8.157-.255 1.996-.515 3.62-2.134 3.842-4.957.031-.394.031-13.185-.001-13.587-.236-3.007-2.087-4.74-4.526-5.091-.56-.081-.672-.105-3.54-.11-10.173.005-12.403-.448-14.41 1.633z"></path>
-                           <path fill="#ff543e" d="m11.998 3.139c-3.631 0-7.079-.323-8.396 3.057-.544 1.396-.465 3.209-.465 5.805 0 2.278-.073 4.419.465 5.804 1.314 3.382 4.79 3.058 8.394 3.058 3.477 0 7.062.362 8.395-3.058.545-1.41.465-3.196.465-5.804 0-3.462.191-5.697-1.488-7.375-1.7-1.7-3.999-1.487-7.374-1.487zm-.794 1.597c4.346-.007 7.811-.607 8.006 3.683.072 1.589.072 5.571 0 7.16-.189 4.137-3.339 3.683-7.211 3.683-3.412 0-5.104.121-6.244-1.02-1.157-1.157-1.019-2.811-1.019-6.245 0-4.071-.385-7.026 3.683-7.213.817-.037 1.134-.048 2.785-.05zm5.524 1.471c-.587 0-1.063.476-1.063 1.063s.476 1.063 1.063 1.063 1.063-.476 1.063-1.063-.476-1.063-1.063-1.063zm-4.73 1.243c-2.513 0-4.55 2.038-4.55 4.551s2.037 4.55 4.55 4.55 4.549-2.037 4.549-4.55-2.036-4.551-4.549-4.551zm0 1.597c1.631 0 2.953 1.323 2.953 2.954s-1.322 2.954-2.953 2.954-2.953-1.323-2.953-2.954c0-1.632 1.322-2.954 2.953-2.954z"></path>
-                         </svg>
+                           <path fill="url(#a)"
+                              d="m1.5 1.633c-1.886 1.959-1.5 4.04-1.5 10.362 0 6.336-.158 7.499.602 9.075.635 1.318 1.848 2.308 3.276 2.677 1.144.294 1.904.253 8.1.253 5.194 0 6.81.093 8.157-.255 1.996-.515 3.62-2.134 3.842-4.957.031-.394.031-13.185-.001-13.587-.236-3.007-2.087-4.74-4.526-5.091-.56-.081-.672-.105-3.54-.11-10.173.005-12.403-.448-14.41 1.633z">
+                           </path>
+                           <path fill="#ff543e"
+                              d="m11.998 3.139c-3.631 0-7.079-.323-8.396 3.057-.544 1.396-.465 3.209-.465 5.805 0 2.278-.073 4.419.465 5.804 1.314 3.382 4.79 3.058 8.394 3.058 3.477 0 7.062.362 8.395-3.058.545-1.41.465-3.196.465-5.804 0-3.462.191-5.697-1.488-7.375-1.7-1.7-3.999-1.487-7.374-1.487zm-.794 1.597c4.346-.007 7.811-.607 8.006 3.683.072 1.589.072 5.571 0 7.16-.189 4.137-3.339 3.683-7.211 3.683-3.412 0-5.104.121-6.244-1.02-1.157-1.157-1.019-2.811-1.019-6.245 0-4.071-.385-7.026 3.683-7.213.817-.037 1.134-.048 2.785-.05zm5.524 1.471c-.587 0-1.063.476-1.063 1.063s.476 1.063 1.063 1.063 1.063-.476 1.063-1.063-.476-1.063-1.063-1.063zm-4.73 1.243c-2.513 0-4.55 2.038-4.55 4.551s2.037 4.55 4.55 4.55 4.549-2.037 4.549-4.55-2.036-4.551-4.549-4.551zm0 1.597c1.631 0 2.953 1.323 2.953 2.954s-1.322 2.954-2.953 2.954-2.953-1.323-2.953-2.954c0-1.632 1.322-2.954 2.953-2.954z">
+                           </path>
+                        </svg>
                      </button>
                      <!-- WhatsApp Button -->
                      <button class="social-btn" onclick="share('whatsapp')">
@@ -453,7 +458,7 @@
       <div class="advert">
          <h3>You wanna book this space to show your ad?</h3>
          <!-- Book Now Button -->
-         <button  class="button" id="book-now" style="cursor: pointer;">Book Now</button>
+         <button class="button" id="book-now" style="cursor: pointer;">Book Now</button>
 
          <script>
             document.getElementById("book-now").addEventListener("click", function () {
@@ -1025,6 +1030,16 @@
       // Fetch now-playing data every 5 seconds
       setInterval(fetchNowPlaying, 5000);
    </script>
+
+   <script>
+      (function () {
+         const playButton = document.querySelector('.play-round');
+         playButton.addEventListener('click', () => {
+            playButton.classList.toggle('playing');
+         });
+      })();
+
+   </script>
    <script>
       const images = document.querySelectorAll('.slideshow img');
       let currentIndex = 0;
@@ -1039,15 +1054,6 @@
       // Initialize slideshow
       images[currentIndex].classList.add('active');
       setInterval(changeImage, intervalTime);
-   </script>
-   <script>
-      (function () {
-         const playButton = document.querySelector('.play-round');
-         playButton.addEventListener('click', () => {
-            playButton.classList.toggle('playing');
-         });
-      })();
-
    </script>
    <script>
       // Select elements
@@ -1417,18 +1423,109 @@
          document.getElementById("mainContent").style.display = "block";
       });
    </script>
-<script>
-   document.addEventListener("DOMContentLoaded", function () {
-       lottie.loadAnimation({
-           container: document.getElementById('podcast-icon'),
-           renderer: 'svg',
-           loop: true,
-           autoplay: true,
-           path: 'assets/play.json',
-       });
+   <script>
+      document.addEventListener("DOMContentLoaded", function () {
+         lottie.loadAnimation({
+            container: document.getElementById('podcast-icon'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'assets/play.json',
+         });
 
-   });
-</script>
+      });
+   </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.0/lottie.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.0/lottie.min.js"></script>
+   <script>
+      document.addEventListener('DOMContentLoaded', () => {
+         const lottieContainer = document.getElementById('lottie-container');
+         const stopIcon = document.getElementById('stop-icon');
+         const playButton = document.getElementById('play-button');
+         const playRoundButton = document.querySelector('.play-round');
+         const audioPlayer = document.getElementById('audio');
+         let isPlaying = false;
+   
+         // Load Lottie animation
+         const lottieAnimation = lottie.loadAnimation({
+            container: lottieContainer,
+            path: 'assets/play.json',
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+         });
+   
+         // Ensure consistent size for Lottie animation
+         function setLottieSize() {
+            const svgElement = lottieContainer.querySelector('svg');
+            if (svgElement) {
+               svgElement.style.width = '40px';
+               svgElement.style.height = '40px';
+            }
+         }
+   
+         // Play audio and toggle button state
+         function playAudio() {
+            audioPlayer.play().then(() => {
+               isPlaying = true;
+   
+               // Update play-round button
+               stopIcon.style.display = 'inline';
+               lottieContainer.style.display = 'none';
+               playRoundButton.querySelector('i').classList.remove('fa-play');
+               playRoundButton.querySelector('i').classList.add('fa-pause');
+   
+               // Update play-button
+               const playButtonIcon = playButton.querySelector('.material-icons');
+               playButtonIcon.textContent = 'pause';
+               playButton.querySelector('.button-label').textContent = 'Pause';
+            }).catch((err) => {
+               console.error('Error playing audio:', err);
+            });
+         }
+   
+         // Stop audio and toggle button state
+         function pauseAudio() {
+            audioPlayer.pause();
+            isPlaying = false;
+   
+            // Update play-round button
+            stopIcon.style.display = 'none';
+            lottieContainer.style.display = 'inline';
+            lottieAnimation.play();
+            setLottieSize();
+            playRoundButton.querySelector('i').classList.remove('fa-pause');
+            playRoundButton.querySelector('i').classList.add('fa-play');
+   
+            // Update play-button
+            const playButtonIcon = playButton.querySelector('.material-icons');
+            playButtonIcon.textContent = 'play_arrow';
+            playButton.querySelector('.button-label').textContent = 'Play';
+         }
+   
+         // Toggle play/pause functionality for play-round button
+         playRoundButton.addEventListener('click', () => {
+            if (isPlaying) {
+               pauseAudio();
+            } else {
+               playAudio();
+            }
+         });
+   
+         // Toggle play/pause functionality for play-button
+         playButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (isPlaying) {
+               pauseAudio();
+            } else {
+               playAudio();
+            }
+         });
+   
+         // Ensure size consistency on page load
+         setLottieSize();
+      });
+   </script>
 
 
 </body>
