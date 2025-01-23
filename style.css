@@ -603,6 +603,11 @@ h1 {
 	text-align: center;
 }
 
+#previous i{
+	color: #ffffff;
+
+}
+
 .previous-list {
 	text-align: center;
 	list-style: none;
@@ -1257,10 +1262,10 @@ h1 {
 	align-items: center;
 	justify-content: center;
 	padding: 10px;
-	background: #0c0518;
+	background: #09020c9f;
 	color: #E5E4E2;
 	border-radius: 10%;
-	border: 1px solid #3b3b3b;
+	border: 1px solid #ffffffbe;
 	text-decoration: none;
 	width: 40px;
 	height: 40px;
@@ -1306,26 +1311,25 @@ h1 {
 	color: red;
 }
 
-/* Sync button rotation when pressed */
-#refresh-button:active span {
+/* Sync button rotation animation */
+#sync-icon.rotating {
 	animation: rotateSync 0.6s linear infinite;
-}
-
-/* Sync button hover state */
-#refresh-button:hover span {
-	transform: rotate(20deg);
-}
-
-/* Keyframes for sync button rotation */
-@keyframes rotateSync {
+ }
+ 
+ /* Keyframes for rotation */
+ @keyframes rotateSync {
 	from {
-		transform: rotate(0deg);
+	   transform: rotate(0deg);
 	}
-
 	to {
-		transform: rotate(360deg);
+	   transform: rotate(360deg);
 	}
-}
+ }
+ 
+ /* Sync button hover state */
+ #refresh-button:hover span {
+	transform: rotate(20deg);
+ }
 
 /* Media query for mobile responsiveness */
 @media screen and (max-width: 768px) {

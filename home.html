@@ -164,7 +164,7 @@
                      <audio preload="metadata" id="audio" src="https://remioplay.com/stream" crossorigin="anonymous">
                         Your browser does not support the audio element.
                      </audio>
-                     
+
                      <div class="controls">
                         <div class="around-button" id="around-button" title="Start streaming">
                            <button class="play-round" onclick="togglePlayPause()">
@@ -172,18 +172,19 @@
                               <i class="fas fa-stop fa-fw" id="stop-icon" style="display: none;"></i>
                            </button>
                         </div>
-                     </div> 
+                     </div>
                   </div>
                   <div class="loader" style="display:none;"></div>
                   <div class="reminisce-radio">
                      <p>Reminisce Radio</p>
                   </div>
-                  
+
                </div>
                <div class="volume-control">
                   <span class="iconify" data-icon="fa:volume-up" style="color: #ffffff; height: 15px;"></span>
-                  <input title="Volume" id="vol-control" type="range" min="0" max="100" step="1" value="100" onchange="setVolume()" />
-                </div>
+                  <input title="Volume" id="vol-control" type="range" min="0" max="100" step="1" value="100"
+                     onchange="setVolume()" />
+               </div>
                <!-- statistics-->
                <div class="stats">
                   <div class="stat-item">
@@ -195,14 +196,14 @@
                      <p id="loved">Loved: <strong>32,215 times</strong></p>
                   </div>
                </div>
-               
+
                <div class="button-container">
                   <a id="play-button" class="control-buttons" href="#">
                      <span class="material-icons">play_arrow</span>
                      <div class="button-label">Play</div>
                   </a>
                   <a id="refresh-button" class="control-buttons" href="#">
-                     <span class="material-icons">sync</span>
+                     <span id="sync-icon" class="material-icons">sync</span>
                      <div class="button-label">Sync</div>
                   </a>
                   <a id="love-button" class="control-buttons" href="#">
@@ -215,10 +216,11 @@
                   </a>
                </div>
                <div id="previous">
-                  <h2>Last Played</h2>
+                  <h2><i class="fa fa-list" aria-hidden="true"></i> Last Played</h2>
                   <ul class="previous-list" id="history-list">
                   </ul>
                </div>
+
             </div>
          </div>
          <div class="intro">
@@ -374,7 +376,7 @@
                      <p id="artist" title="Current playing artist">Loading current artist...</p>
                      <p id="song" title="Current playing song">Loading current song...</p>
                   </div>
-               </div>               
+               </div>
             </div>
          </div>
          <div class="imageintro">
@@ -984,7 +986,7 @@
                console.error('Error fetching now-playing history:', error);
             });
       };
-      
+
 
       // Call the function to fetch the data and display it
       fetchNowPlayingHistory();
@@ -1108,6 +1110,7 @@
          const audioPlayer = document.getElementById('audio');
          const loveButton = document.getElementById('love-button');
          const refreshButton = document.getElementById('refresh-button');
+         const syncIcon = document.getElementById('sync-icon');
          const shareButton = document.getElementById('share-button');
          const volumeControl = document.getElementById('vol-control');
 
@@ -1174,14 +1177,27 @@
             loveButton.classList.toggle('loved');
          });
 
-         // Refresh button functionality (reload stream)
-         refreshButton.addEventListener('click', (event) => {
+         // Refresh button functionality
+         refreshButton.addEventListener('click', async (event) => {
             event.preventDefault();
+
+            // Start rotation animation
+            syncIcon.classList.add('rotating');
+
+            // Pause and reload the audio stream
             audioPlayer.pause();
-            audioPlayer.load(); // Reload the stream
+            await new Promise((resolve) => {
+               audioPlayer.load(); // Reload the stream
+               audioPlayer.addEventListener('loadeddata', resolve, { once: true });
+            });
+
+            // Play audio if it was playing before
             if (isPlaying) {
                audioPlayer.play();
             }
+
+            // Stop rotation animation
+            syncIcon.classList.remove('rotating');
          });
 
          // Share button functionality (Web Share API)
@@ -1449,7 +1465,7 @@
          const playRoundButton = document.querySelector('.play-round');
          const audioPlayer = document.getElementById('audio');
          let isPlaying = false;
-   
+
          // Load Lottie animation
          const lottieAnimation = lottie.loadAnimation({
             container: lottieContainer,
@@ -1458,7 +1474,7 @@
             loop: true,
             autoplay: true,
          });
-   
+
          // Ensure consistent size for Lottie animation
          function setLottieSize() {
             const svgElement = lottieContainer.querySelector('svg');
@@ -1467,18 +1483,18 @@
                svgElement.style.height = '40px';
             }
          }
-   
+
          // Play audio and toggle button state
          function playAudio() {
             audioPlayer.play().then(() => {
                isPlaying = true;
-   
+
                // Update play-round button
                stopIcon.style.display = 'inline';
                lottieContainer.style.display = 'none';
                playRoundButton.querySelector('i').classList.remove('fa-play');
                playRoundButton.querySelector('i').classList.add('fa-pause');
-   
+
                // Update play-button
                const playButtonIcon = playButton.querySelector('.material-icons');
                playButtonIcon.textContent = 'pause';
@@ -1487,12 +1503,12 @@
                console.error('Error playing audio:', err);
             });
          }
-   
+
          // Stop audio and toggle button state
          function pauseAudio() {
             audioPlayer.pause();
             isPlaying = false;
-   
+
             // Update play-round button
             stopIcon.style.display = 'none';
             lottieContainer.style.display = 'inline';
@@ -1500,13 +1516,13 @@
             setLottieSize();
             playRoundButton.querySelector('i').classList.remove('fa-pause');
             playRoundButton.querySelector('i').classList.add('fa-play');
-   
+
             // Update play-button
             const playButtonIcon = playButton.querySelector('.material-icons');
             playButtonIcon.textContent = 'play_arrow';
             playButton.querySelector('.button-label').textContent = 'Play';
          }
-   
+
          // Toggle play/pause functionality for play-round button
          playRoundButton.addEventListener('click', () => {
             if (isPlaying) {
@@ -1515,7 +1531,7 @@
                playAudio();
             }
          });
-   
+
          // Toggle play/pause functionality for play-button
          playButton.addEventListener('click', (event) => {
             event.preventDefault();
@@ -1525,7 +1541,7 @@
                playAudio();
             }
          });
-   
+
          // Ensure size consistency on page load
          setLottieSize();
       });
