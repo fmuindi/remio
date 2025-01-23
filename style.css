@@ -597,7 +597,7 @@ h1 {
 #previous h2 {
 	font-size: 15px;
 	font-weight: bold;
-	color: #FF00E6;
+	color: #cc00ff;
 	/* Gold color for the title */
 	margin-bottom: 8px;
 	text-align: center;
@@ -2409,7 +2409,6 @@ form p a:hover {
 	transition: 0.5s;
 	background-size: 200% auto;
 	color: #E5E4E2;
-	box-shadow: 0 0 15px #fdeafc81;
 	border-radius: 8px;
 	align-items: center;
 	gap: 8px;
