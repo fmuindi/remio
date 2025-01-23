@@ -512,31 +512,6 @@ header.fixed {
 	font-size: 15px;
 }
 
-#vol-control {
-	appearance: slider-horizontal;
-	cursor: default;
-	border: initial;
-	margin: 2px;
-	height: 10px;
-	background: #ff0000;
-	border-radius: 15px;
-}
-
-
-i.fa-volume-down,
-i.fa-volume-up {
-	margin: 2px;
-	font-size: 15px;
-	color: #E5E4E2;
-}
-
-.fa-volume-down {
-	margin-right: -8px;
-}
-
-.fa-volume-up {
-	margin-right: -8px;
-}
 
 .fa-pause {
 	width: 1.20em !important;
@@ -1408,8 +1383,8 @@ h1 {
 #vol-control::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	appearance: none;
-	width: 18px;
-	height: 18px;
+	width: 14px;
+	height: 14px;
 	border-radius: 50%;
 	background: #ffffff;
 	cursor: pointer;
@@ -1782,15 +1757,10 @@ h1 {
 .firstrow {
 	display: flex;
 	flex-wrap: wrap;
-	/* Allows elements to wrap to the next row if space is limited */
 	justify-content: space-between;
-	/* Adds spacing between items */
 	gap: 20px;
-	/* Adds consistent spacing between columns */
 	padding: 20px;
-	/* Adjust for uniform padding */
 	box-sizing: border-box;
-	/* Includes padding in width calculations */
 }
 
 /* Individual sections within .firstrow */
@@ -2466,5 +2436,5 @@ form p a:hover {
 
 #stop-icon {
 	font-size: 24px;
-	color: #ffffff;
+	color: #ffffffcc;
 }
