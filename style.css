@@ -228,9 +228,8 @@ header.fixed {
 }
 
 
-.nav-menu a:hover {
-	background-color: #da26e0b0;
-	color: #ffffff;
+.nav-menu a:hover { 
+	color: #da26e0;
 }
 
 /* Login Button Styling */
@@ -2487,7 +2486,7 @@ form p a:hover {
   }
   
   .info-row:hover {
-	background-color: #f1f8ff; /* Slight hover effect */
+	background-color: #f1f8ff70; /* Slight hover effect */
   }
   
   .info-label {
