@@ -156,16 +156,17 @@
             <div class="flex_1">
                <div class="background">
 
-                  <div class="branding">
-                     <p>Live</p>
-                  </div>
+                 
                   <div class="player">
                      <audio preload="metadata" id="audio" src="https://remioplay.com/stream" crossorigin="anonymous">
                         Your browser does not support the audio element.
                      </audio>
-
+                     
                      <div class="controls">
                         <div class="around-button" id="around-button" title="Start streaming">
+                           <div class="branding">
+                              <p style="background-color: #e922e9; border-radius: 10px; display: inline-block; padding: 5px 10px;">Live</p>
+                           </div>
                            <button class="play-round" onclick="togglePlayPause()">
                               <div id="lottie-container"></div>
                               <i class="fas fa-stop fa-fw" id="stop-icon" style="display: none;"></i>
@@ -175,8 +176,9 @@
                   </div>
                   <div class="loader" style="display:none;"></div>
                   <div class="reminisce-radio">
-                     <p>Reminisce Radio</p>
-                  </div>
+                     <h2>Reminisce</h2>
+                     <p class="radio-station">Radio Station</p>
+                   </div>
 
                </div>
                <div class="volume-control">
@@ -362,20 +364,31 @@
                <div class="current-show">
                   <!-- <h2>Now On Air</h2> -->
                   <div class="show-details">
-                     <img src="./assets/11.png" alt="Current Show Image" class="current-show-image">
+                     <img src="./assets/SM.webp" alt="Current Show Image" class="current-show-image">
                      <!-- <div class="show-info">
                         <h3>Morning Show</h3>
                         <p>Wake up to the best hits and vibrant energy to kickstart your day!</p>
                      </div> -->
                   </div>
                </div>
-               <div class="current-playing">
-                  <div class="now-playing-header">Now Playing:</div>
-                  <div class="now-playing-info">
-                     <p id="artist" title="Current playing artist">Loading current artist...</p>
-                     <p id="song" title="Current playing song">Loading current song...</p>
+               <div class="radio-shows-section-vertical">
+                  <div class="current-playing">
+                     <div class="now-playing-header">Now Playing:</div>
+                     <div class="now-playing-info">
+                        <div class="info-row">
+                           <span class="info-label">Artist:</span>
+                           <span class="info-value" id="artist" title="Current playing artist">Loading current
+                              artist...</span>
+                        </div>
+                        <div class="info-row">
+                           <span class="info-label">Song:</span>
+                           <span class="info-value" id="song" title="Current playing song">Loading current
+                              song...</span>
+                        </div>
+                     </div>
                   </div>
                </div>
+
             </div>
          </div>
          <div class="imageintro">

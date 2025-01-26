@@ -208,10 +208,10 @@ header.fixed {
 
 .nav-menu a {
 	text-decoration: none;
-	color: #585858;
-	font-size: 12px;
+	color: #8b8b8b;
+	font-size: 14px;
 	font-weight: 400;
-	padding: 8px 15px;
+	padding: 5px 10px;
 	border-radius: 8px;
 	transition: background-color 0.3s ease;
 	display: flex;
@@ -222,14 +222,15 @@ header.fixed {
 }
 
 .nav-menu i {
-	font-size: 14px;
+	font-size: 12px;
 	color: #dfdfdf;
 	/* Adjust icon size to match design */
 }
 
 
 .nav-menu a:hover {
-	background-color: #ff00e62c;
+	background-color: #da26e0b0;
+	color: #ffffff;
 }
 
 /* Login Button Styling */
@@ -295,7 +296,7 @@ header.fixed {
 		top: 60px;
 		left: 0;
 		width: 100%;
-		background-color: rgba(12, 8, 34, 1);
+		background-color: rgba(0, 0, 0, 0.884);
 		padding: 10px 0;
 		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 	}
@@ -383,34 +384,51 @@ header.fixed {
 }
 
 .background {
-	padding: 0px;
-	margin: 1em;
+	padding: 0;
+	margin: 1em auto; /* Center the .background horizontally */
 	background: radial-gradient(circle, #ff00e69a 0%, #060107 40%, #09020c 100%);
 	border-bottom: 3px solid #E5E4E2;
 	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	margin-top: -20px;
+	position: relative;
 }
 
 .branding {
-	display: flex;
-	margin-top: 10px;
+	/* display: flex; */
 	font-size: 14px;
-	font-weight: bold;
-	color: #E5E4E2;
+	font-weight: 400;
+	color: #ffffff;
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
+	margin-bottom: 10px;	
 }
 
 .reminisce-radio {
 	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	/* margin-bottom: -10px; */
 	margin-top: 30px;
 	font-size: 20px;
 	font-weight: bold;
 	color: #E5E4E2;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
 }
+  
+  .reminisce-radio h2 {
+	font-size: 25px; /* Larger font size for "Reminisce" */
+	margin-bottom: -10px; /* Slight spacing between "Reminisce" and "Radio Station" */
+  }
+  
+  .radio-station {
+	font-size: 14px; /* Slightly smaller font for "Radio Station" */
+	font-weight: 400; /* Regular font-weight for differentiation */
+	color: #B0B0B0; /* Softer shade to complement the main title */
+  }
+  
 
 
 .play-round {
@@ -418,7 +436,7 @@ header.fixed {
 	z-index: 1;
 	width: 100px;
 	height: 100px;
-	border: 2px solid #ffffff8a; /* White border */
+	border: 2px solid #ffffff8a; 
 	border-radius: 50%;
 	background: linear-gradient(to bottom right, #FF00E6, #60057F);
 	box-shadow: 0 0 20px #ff00e6b3;
@@ -1911,36 +1929,7 @@ h1 {
 	background-color: #0056b3;
 }
 
-.radio-shows-section-vertical {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	/* Align to the left */
-	gap: 10px;
 
-}
-
-.current-show {
-	width: 100%;
-	max-width: 100%;
-	padding: 10px;
-	/* border: 1px solid #3b3b3b; */
-	border-radius: 10px;
-	background-color: #26072500;
-	box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.4);
-	transition: all 0.3s ease-in-out;
-}
-
-.current-show h2 {
-	font-size: 20px;
-	text-decoration-line: underline;
-	color: #E5E4E2;
-	margin-bottom: 10px;
-	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-	display: flex;
-	align-items: center;
-	gap: 10px;
-}
 
 .current-show-image {
 	width: 100%;
@@ -1948,7 +1937,7 @@ h1 {
 	height: auto;
 	object-fit: cover;
 	border-radius: 10px;
-	border: 2px solid #200725;
+	border: 2px solid #4b4b4b4f;
 }
 
 .upcoming-show {
@@ -2441,3 +2430,76 @@ form p a:hover {
 	font-size: 24px;
 	color: #ffffffcc;
 }
+
+
+.current-playing {
+	display: flex;
+	flex-direction: column;
+	width: 100%; /* Takes full width of the container */
+	max-width: 100%; /* Optional: Limit width for better readability */
+	flex-wrap: wrap;
+	padding: 10px;
+	border: 2px solid #000000;
+	border-radius: 10px;
+	background: #000000b9;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	font-family: 'Poppins', sans-serif;
+  }
+  
+  .now-playing-header {
+	font-size: 1rem;
+	font-weight: bold;
+	margin-bottom: 15px;
+	text-align: left;
+	color: #df40ff;
+  }
+  
+  .now-playing-info {
+	display: flex;
+	flex-direction: column;
+	gap: 10px; /* Space between rows */
+  }
+  
+  .info-row {
+	display: flex;
+	justify-content: space-between; /* Aligns label and value in a table-like manner */
+	align-items: center;
+	padding: 8px 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	background: #2b2b2b;
+	transition: background-color 0.3s ease;
+  }
+  
+  .info-row:hover {
+	background-color: #f1f8ff; /* Slight hover effect */
+  }
+  
+  .info-label {
+	font-weight: bold;
+	font-size: 0.8rem;
+	color: #555;
+	flex: 1; /* Ensures the label takes up the first column */
+  }
+  
+  .info-value {
+	color: #444;
+	font-size: 0.8rem;
+	flex: 2; /* Ensures the value takes up the second column */
+	text-align: left;
+  }
+  
+  @media (max-width: 480px) {
+	.current-playing {
+	  padding: 10px;
+	}
+  
+	.now-playing-header {
+	  font-size: 1.2rem;
+	}
+  
+	.info-label,
+	.info-value {
+	  font-size: 0.6rem;
+	}
+  }
