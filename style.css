@@ -919,6 +919,7 @@ h1 {
 	text-align: center;
 	/* Center-align all text */
 	position: relative;
+	
 }
 
 .top-footer ul {
@@ -932,6 +933,7 @@ h1 {
 	/* Center the list items horizontally */
 	gap: 20px;
 	/* Add space between list items */
+	cursor: pointer;
 }
 
 .top-footer ul li {
@@ -1142,6 +1144,7 @@ h1 {
 	gap: 8px;
 	justify-content: center;
 	font-size: 12px;
+	cursor: pointer;
 }
 
 .que:hover {
