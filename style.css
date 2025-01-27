@@ -1145,7 +1145,6 @@ h1 {
 	font-size: 12px;
 	cursor: pointer;
 	white-space: nowrap; /* Prevent text from wrapping */
-    display: inline-block; /* Ensure proper button alignment */
     padding: 10px 20px; /* Add padding to give a consistent size */
     text-align: center; /* Center the text within the button */
     overflow: hidden; /* Prevent content overflow */
