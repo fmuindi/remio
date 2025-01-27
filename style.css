@@ -1132,7 +1132,7 @@ h1 {
 
 .que {
 	background-image: linear-gradient(to right, #834d9b 0%, #d04ed6 51%, #834d9b 100%);
-	margin: 8px;
+	margin: auto;
 	padding: 5px 10px;
 	text-align: center;
 	transition: 0.5s;
