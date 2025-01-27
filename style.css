@@ -378,6 +378,7 @@ header.fixed {
 	border-radius: 20px;
 	border: 1px solid #3b3b3b;
 	overflow: hidden;
+	flex-wrap: wrap;
 	align-items: center;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
@@ -390,12 +391,13 @@ header.fixed {
 	border-radius: 20px;
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
 	margin-top: -20px;
 	position: relative;
 }
 
 .branding {
-	/* display: flex; */
+	display: flex;
 	font-size: 14px;
 	font-weight: 400;
 	color: #ffffff;
@@ -1145,6 +1147,7 @@ h1 {
 	font-size: 12px;
 	cursor: pointer;
 	white-space: nowrap; /* Prevent text from wrapping */
+    display: inline-block; /* Ensure proper button alignment */
     padding: 10px 20px; /* Add padding to give a consistent size */
     text-align: center; /* Center the text within the button */
     overflow: hidden; /* Prevent content overflow */
