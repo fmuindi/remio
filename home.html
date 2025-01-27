@@ -165,7 +165,7 @@
                      <div class="controls">
                         <div class="around-button" id="around-button" title="Start streaming">
                            <div class="branding">
-                              <p style="background-color: #e922e9; border-radius: 10px; display: inline-block; padding: 5px 10px;">Live</p>
+                              <p style="background-color: #e922e9; border-radius: 7px; display: inline-block; padding: 5px 10px;">Live</p>
                            </div>
                            <button class="play-round" onclick="togglePlayPause()">
                               <div id="lottie-container"></div>
@@ -845,7 +845,7 @@
 
          // Hide the login button and display user info
          loginBtn.style.display = 'none';
-         usernameSpan.textContent = `Hi, ${userData.username}`;
+         usernameSpan.textContent = `${userData.username}`;
          userInfo.style.display = 'flex'; // Show the user info element
 
          // Set static avatar image (this does not depend on the decoded token)
