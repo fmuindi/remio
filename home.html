@@ -44,6 +44,7 @@
       content="Tough day? Let Remio wrap you in a warm hug of sound! Rediscover your favorite tunes, relive happy memories, and let the music heal your soul. We’ve got mixes and podcasts too!" />
    <meta name="twitter:image" content="https://remioplay.com/home.html" />
    <meta name="twitter:url" content="https://www.remioplay.com/" />
+   <link href="https://fonts.cdnfonts.com/css/archia" rel="stylesheet">
 
 </head>
 
@@ -65,7 +66,7 @@
 
             <!-- Navigation Menu -->
             <ul class="nav-menu">
-               <li><a href="podcasts.html"  target="_blank"><i class="fa-solid fa-microphone"></i> Podcasts</a></li>
+               <li><a href="podcasts.html" target="_blank"><i class="fa-solid fa-microphone"></i> Podcasts</a></li>
                <li><a href="mixes.html" target="_blank"><i class="fa-solid fa-music"></i> Mixes</a></li>
             </ul>
 
@@ -156,16 +157,18 @@
             <div class="flex_1">
                <div class="background">
 
-                 
+
                   <div class="player">
                      <audio preload="metadata" id="audio" src="https://remioplay.com/stream" crossorigin="anonymous">
                         Your browser does not support the audio element.
                      </audio>
-                     
+
                      <div class="controls">
                         <div class="around-button" id="around-button" title="Start streaming">
                            <div class="branding">
-                              <p style="background-color: #e922e9; border-radius: 7px; display: inline-block; padding: 5px 10px;">Live</p>
+                              <p
+                                 style="background-color: #e922e9; border-radius: 7px; display: inline-block; padding: 5px 10px;">
+                                 Live</p>
                            </div>
                            <button class="play-round" onclick="togglePlayPause()">
                               <div id="lottie-container"></div>
@@ -178,7 +181,7 @@
                   <div class="reminisce-radio">
                      <h2>Reminisce</h2>
                      <p class="radio-station">Radio Station</p>
-                   </div>
+                  </div>
 
                </div>
                <div class="volume-control">
@@ -374,20 +377,25 @@
                <div class="radio-shows-section-vertical">
                   <div class="current-playing">
                      <div class="now-playing-header">Now Playing:</div>
-                     <div class="now-playing-info">
-                        <div class="info-row">
-                           <span class="info-label">Artist:</span>
-                           <span class="info-value" id="artist" title="Current playing artist">Loading current
-                              artist...</span>
-                        </div>
-                        <div class="info-row">
-                           <span class="info-label">Song:</span>
-                           <span class="info-value" id="song" title="Current playing song">Loading current
-                              song...</span>
+                     <div class="now-playing-content">
+                        <img id="album-art" src="assets/art.png" alt="Album Art" class="album-art">
+                        <div class="now-playing-info">
+                           <div class="info-row">
+                              <span class="info-label">Artist:</span>
+                              <span class="info-value" id="artist" title="Current playing artist">Loading current
+                                 artist...</span>
+                           </div>
+                           <div class="info-row">
+                              <span class="info-label">Song:</span>
+                              <span class="info-value" id="song" title="Current playing song">Loading current
+                                 song...</span>
+                           </div>
                         </div>
                      </div>
                   </div>
                </div>
+
+
 
             </div>
          </div>
@@ -614,6 +622,29 @@
       </ul>
       <p>&copy; 2025 Remio. All rights reserved.</p>
    </footer>
+   <script>
+      function updateNowPlaying(artist, song) {
+         document.getElementById("artist").textContent = artist;
+         document.getElementById("song").textContent = song;
+
+         const albumArtPath = `/getAlbumArt?artist=${encodeURIComponent(artist)}&song=${encodeURIComponent(song)}`;
+         const placeholderPath = "assets/art.png";
+
+         fetch(albumArtPath)
+            .then(response => {
+               if (response.ok) {
+                  document.getElementById("album-art").src = albumArtPath;
+               } else {
+                  document.getElementById("album-art").src = placeholderPath;
+               }
+            })
+            .catch(() => {
+               document.getElementById("album-art").src = placeholderPath;
+            });
+      }
+
+
+   </script>
    <script>
       document.addEventListener('DOMContentLoaded', () => {
          const loginModal = document.getElementById('login-modal');

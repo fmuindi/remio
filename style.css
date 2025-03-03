@@ -3,7 +3,7 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: 'Work Sans', sans-serif;
+	font-family: 'Archia', sans-serif;
 	/* background: rgb(255, 255, 255); */
 	background-image: url("./assets/background.webp");
 	background-size: cover;
@@ -2449,73 +2449,92 @@ form p a:hover {
 
 
 .current-playing {
-	display: flex;
-	flex-direction: column;
-	width: 100%; /* Takes full width of the container */
-	max-width: 100%; /* Optional: Limit width for better readability */
-	flex-wrap: wrap;
-	padding: 10px;
-	border: 2px solid #000000;
-	border-radius: 10px;
-	background: #000000b9;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	font-family: 'Poppins', sans-serif;
-  }
-  
-  .now-playing-header {
-	font-size: 1rem;
-	font-weight: bold;
-	margin-bottom: 15px;
-	text-align: left;
-	color: #df40ff;
-  }
-  
-  .now-playing-info {
-	display: flex;
-	flex-direction: column;
-	gap: 10px; /* Space between rows */
-  }
-  
-  .info-row {
-	display: flex;
-	justify-content: space-between; /* Aligns label and value in a table-like manner */
-	align-items: center;
-	padding: 8px 10px;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-	background: #2b2b2b;
-	transition: background-color 0.3s ease;
-  }
-  
-  .info-row:hover {
-	background-color: #f1f8ff70; /* Slight hover effect */
-  }
-  
-  .info-label {
-	font-weight: bold;
-	font-size: 0.8rem;
-	color: #555;
-	flex: 1; /* Ensures the label takes up the first column */
-  }
-  
-  .info-value {
-	color: #444;
-	font-size: 0.8rem;
-	flex: 2; /* Ensures the value takes up the second column */
-	text-align: left;
-  }
-  
-  @media (max-width: 480px) {
-	.current-playing {
-	  padding: 10px;
-	}
-  
-	.now-playing-header {
-	  font-size: 1.2rem;
-	}
-  
-	.info-label,
-	.info-value {
-	  font-size: 0.6rem;
-	}
-  }
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    flex-wrap: wrap;
+    padding: 10px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    background: #000000b9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+.now-playing-header {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: left;
+    color: #df40ff;
+}
+
+.now-playing-content {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between album art and text */
+}
+
+.album-art {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    background: #1e1e1e;
+}
+
+.now-playing-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Ensures it fills available space */
+    gap: 10px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #2b2b2b;
+    transition: background-color 0.3s ease;
+}
+
+.info-row:hover {
+    background-color: #f1f8ff70;
+}
+
+.info-label {
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #bbb;
+    flex: 1;
+    text-align: left;
+}
+
+.info-value {
+    color: #fff;
+    font-size: 0.8rem;
+    flex: 2;
+    text-align: left;
+}
+
+@media (max-width: 480px) {
+    .now-playing-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .album-art {
+        width: 60px;
+        height: 60px;
+    }
+
+    .info-label,
+    .info-value {
+        font-size: 0.7rem;
+    }
+}
+
