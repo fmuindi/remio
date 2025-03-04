@@ -1654,8 +1654,8 @@ h1 {
 }
 
 .social-btn {
-	width: 30px;
-	height: 30px;
+	width: 40px;
+	height: 40px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -1682,11 +1682,10 @@ h1 {
 }
 
 .copy-link input {
-	flex-grow: 1;
 	padding: 12px;
 	border: 1px solid #000000;
 	border-radius: 6px;
-	font-size: 14px;
+	font-size: 12px;
 	letter-spacing: 3px;
 	color: #282828;
 }
