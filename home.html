@@ -620,7 +620,7 @@
          const showLoginLink = document.getElementById('show-login');
 
          const API_BASE_URL = window.location.origin.includes('localhost')
-            ? 'http://localhost:3000'
+            ? 'http://localhost:3000'//for testing
             : 'https://www.remioplay.com';
 
          // Utility function to display messages
@@ -821,6 +821,7 @@
 
    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
    <script>
+      // Function to display user info
       function displayUserInfo(userData) {
          const loginBtn = document.getElementById('login-btn');
          const userInfo = document.getElementById('user-info');
@@ -836,8 +837,8 @@
          }
 
          // Hide the login button and display user info
-         loginBtn.style.display = 'none';
-         usernameSpan.textContent = `${userData.username}`;
+         loginBtn.style.display = 'none'; // Hide the login button
+         usernameSpan.textContent = userData.username; // Set the username
          userInfo.style.display = 'flex'; // Show the user info element
 
          // Set static avatar image (this does not depend on the decoded token)
@@ -853,9 +854,11 @@
             localStorage.removeItem('token'); // Remove token on logout
             userInfo.style.display = 'none'; // Hide user info
             loginBtn.style.display = 'inline-block'; // Show login button again
+            userDashboard.style.display = 'none'; // Hide dashboard on logout
          });
       }
 
+      // Function to handle login success
       async function onLoginSuccess(token) {
          try {
             // Save token to localStorage
@@ -873,46 +876,34 @@
          }
       }
 
-      // Simulate successful login for testing (this would normally come from a backend)
+      // Simulate successful login for testing
       document.getElementById('login-btn').addEventListener('click', () => {
          // Simulate fetching a token (mock example)
-         const mockToken = jwt_encode({
-            username: 'JohnDoe', // Only include username in the token
-         }, 'secret-key'); // Replace with actual token logic
+         const mockToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG5Eb2UifQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'; // Mock JWT token
 
-         onLoginSuccess(mockToken); // Call the login success handler
+         // Call the login success handler
+         onLoginSuccess(mockToken);
       });
 
       // Initialize UI on page load
-      function setLoginButton() {
+      function initializeUI() {
          const token = localStorage.getItem('token');
 
-         if (!token) {
-            console.warn('No token found in localStorage.');
-            return;
-         }
-
-         try {
-            const userData = jwt_decode(token);
-            displayUserInfo(userData); // Display user info immediately if token exists
-         } catch (error) {
-            console.error('Error decoding token:', error);
+         if (token) {
+            try {
+               const userData = jwt_decode(token);
+               displayUserInfo(userData); // Display user info if token exists
+            } catch (error) {
+               console.error('Error decoding token:', error);
+            }
+         } else {
+            console.log('No token found. User is not logged in.');
          }
       }
 
-      // Run setLoginButton on page load to update UI if token exists
-      document.addEventListener('DOMContentLoaded', () => {
-         setLoginButton();
-      });
+      // Run initializeUI on page load to update UI if token exists
+      document.addEventListener('DOMContentLoaded', initializeUI);
    </script>
-
-
-
-
-
-
-
-
 
    <!-- <script>
       const socket = io();
