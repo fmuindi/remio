@@ -44,7 +44,11 @@
       content="Tough day? Let Remio wrap you in a warm hug of sound! Rediscover your favorite tunes, relive happy memories, and let the music heal your soul. We’ve got mixes and podcasts too!" />
    <meta name="twitter:image" content="https://remioplay.com/home.html" />
    <meta name="twitter:url" content="https://www.remioplay.com/" />
-   <link href="https://fonts.cdnfonts.com/css/archia" rel="stylesheet">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+
 
 </head>
 
@@ -237,20 +241,10 @@
             <div class="hero_message">
                <p>Tough day? Let Remio wrap you in a warm hug of sound! Rediscover your favorite tunes, relive happy
                   memories, and let the music heal your soul. Oh, and there is more...we got mixes and podcasts
-                  too!<br />
-                  <br />
-                  Can't get that song out of your head? No worries! Hit request and we'll play it instantly - your jam,
-                  your way, every time!
+                  too!
                </p>
             </div>
-            <div class="button-group">
-               <button class="que" id="openRequestModal">
-                  <i class="fa fa-music"></i> Request a Song
-               </button>
-               <button class="que" id="openShareModal">
-                  <i class="fa fa-user-plus"></i> Share the Love
-               </button>
-            </div>
+
             <div id="shareModal" class="share-modal">
                <div class="share-content">
                   <span class="close-sharebtn" id="closeButton">&times;</span>
@@ -336,16 +330,15 @@
                   </div>
                </div>
             </div>
-            <!-- Story About Us -->
+            <div class="show-info">Morning Show
+               <p>Wake up to the best hits and vibrant energy to kickstart your day!</p>
+            </div>
             <div class="radio-shows-section-vertical">
                <div class="current-show">
                   <!-- <h2>Now On Air</h2> -->
                   <div class="show-details">
                      <img src="./assets/SM.webp" alt="Current Show Image" class="current-show-image">
-                     <!-- <div class="show-info">
-                        <h3>Morning Show</h3>
-                        <p>Wake up to the best hits and vibrant energy to kickstart your day!</p>
-                     </div> -->
+
                   </div>
                </div>
                <div class="radio-shows-section-vertical">
@@ -371,6 +364,14 @@
 
 
 
+            </div>
+            <div class="button-group">
+               <button class="que" id="openRequestModal">
+                  <i class="fa fa-music"></i> Request a Song
+               </button>
+               <button class="que" id="openShareModal">
+                  <i class="fa fa-user-plus"></i> Share the Love
+               </button>
             </div>
          </div>
          <div class="imageintro">

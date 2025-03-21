@@ -3,7 +3,8 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: 'Archia', sans-serif;
+	font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;                                                
 	/* background: rgb(255, 255, 255); */
 	background-image: url("./assets/background.webp");
 	background-size: cover;
@@ -228,7 +229,7 @@ header.fixed {
 }
 
 
-.nav-menu a:hover { 
+.nav-menu a:hover {
 	color: #da26e0;
 }
 
@@ -385,7 +386,8 @@ header.fixed {
 
 .background {
 	padding: 0;
-	margin: 1em auto; /* Center the .background horizontally */
+	margin: 1em auto;
+	/* Center the .background horizontally */
 	background: radial-gradient(circle, #ff00e69a 0%, #060107 40%, #09020c 100%);
 	border-bottom: 3px solid #E5E4E2;
 	border-radius: 20px;
@@ -404,7 +406,7 @@ header.fixed {
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
-	margin-bottom: 10px;	
+	margin-bottom: 10px;
 }
 
 .reminisce-radio {
@@ -418,18 +420,23 @@ header.fixed {
 	font-weight: bold;
 	color: #E5E4E2;
 }
-  
-  .reminisce-radio h2 {
-	font-size: 25px; /* Larger font size for "Reminisce" */
-	margin-bottom: -10px; /* Slight spacing between "Reminisce" and "Radio Station" */
-  }
-  
-  .radio-station {
-	font-size: 14px; /* Slightly smaller font for "Radio Station" */
-	font-weight: 400; /* Regular font-weight for differentiation */
-	color: #B0B0B0; /* Softer shade to complement the main title */
-  }
-  
+
+.reminisce-radio h2 {
+	font-size: 25px;
+	/* Larger font size for "Reminisce" */
+	margin-bottom: -10px;
+	/* Slight spacing between "Reminisce" and "Radio Station" */
+}
+
+.radio-station {
+	font-size: 14px;
+	/* Slightly smaller font for "Radio Station" */
+	font-weight: 400;
+	/* Regular font-weight for differentiation */
+	color: #B0B0B0;
+	/* Softer shade to complement the main title */
+}
+
 
 
 .play-round {
@@ -437,7 +444,7 @@ header.fixed {
 	z-index: 1;
 	width: 100px;
 	height: 100px;
-	border: 2px solid #ffffff8a; 
+	border: 2px solid #ffffff8a;
 	border-radius: 50%;
 	background: linear-gradient(to bottom right, #FF00E6, #60057F);
 	box-shadow: 0 0 20px #ff00e6b3;
@@ -458,25 +465,31 @@ header.fixed {
 }
 
 .play-round.playing:before {
-	width: 110px; /* First wave size */
+	width: 110px;
+	/* First wave size */
 	height: 110px;
-	border: 2px solid rgba(148, 2, 196, 0.6); /* Purple thin border wave */
+	border: 2px solid rgba(148, 2, 196, 0.6);
+	/* Purple thin border wave */
 	background: transparent;
 	animation-delay: 0s;
 }
 
 .play-round.playing:after {
-	width: 130px; /* Second wave size */
+	width: 130px;
+	/* Second wave size */
 	height: 130px;
-	border: 2px solid rgba(255, 0, 230, 0.4); /* Pink thin border wave */
+	border: 2px solid rgba(255, 0, 230, 0.4);
+	/* Pink thin border wave */
 	background: transparent;
 	animation-delay: 0.5s;
 }
 
 .play-round.playing .extra-wave {
-	width: 150px; /* Third wave size */
+	width: 150px;
+	/* Third wave size */
 	height: 150px;
-	border: 2px solid rgba(0, 255, 150, 0.5); /* Green thin border wave */
+	border: 2px solid rgba(0, 255, 150, 0.5);
+	/* Green thin border wave */
 	background: transparent;
 	animation-delay: 1s;
 }
@@ -493,7 +506,8 @@ header.fixed {
 	}
 
 	100% {
-		transform: translate(-50%, -50%) scale(1.3); /* Reduced scale for smaller reach */
+		transform: translate(-50%, -50%) scale(1.3);
+		/* Reduced scale for smaller reach */
 		opacity: 0;
 	}
 }
@@ -622,7 +636,7 @@ h1 {
 	text-align: center;
 }
 
-#previous i{
+#previous i {
 	color: #ffffff;
 
 }
@@ -919,7 +933,7 @@ h1 {
 	text-align: center;
 	/* Center-align all text */
 	position: relative;
-	
+
 }
 
 .top-footer ul {
@@ -1145,12 +1159,18 @@ h1 {
 	justify-content: center;
 	font-size: 12px;
 	cursor: pointer;
-	white-space: nowrap; /* Prevent text from wrapping */
-    display: inline-block; /* Ensure proper button alignment */
-    padding: 10px 20px; /* Add padding to give a consistent size */
-    text-align: center; /* Center the text within the button */
-    overflow: hidden; /* Prevent content overflow */
-    text-overflow: ellipsis; /* Adds "..." if content is too long */
+	white-space: nowrap;
+	/* Prevent text from wrapping */
+	display: inline-block;
+	/* Ensure proper button alignment */
+	padding: 10px 20px;
+	/* Add padding to give a consistent size */
+	text-align: center;
+	/* Center the text within the button */
+	overflow: hidden;
+	/* Prevent content overflow */
+	text-overflow: ellipsis;
+	/* Adds "..." if content is too long */
 }
 
 .que:hover {
@@ -1341,22 +1361,23 @@ h1 {
 /* Sync button rotation animation */
 #sync-icon.rotating {
 	animation: rotateSync 0.6s linear infinite;
- }
- 
- /* Keyframes for rotation */
- @keyframes rotateSync {
+}
+
+/* Keyframes for rotation */
+@keyframes rotateSync {
 	from {
-	   transform: rotate(0deg);
+		transform: rotate(0deg);
 	}
+
 	to {
-	   transform: rotate(360deg);
+		transform: rotate(360deg);
 	}
- }
- 
- /* Sync button hover state */
- #refresh-button:hover span {
+}
+
+/* Sync button hover state */
+#refresh-button:hover span {
 	transform: rotate(20deg);
- }
+}
 
 /* Media query for mobile responsiveness */
 @media screen and (max-width: 768px) {
@@ -1992,11 +2013,12 @@ h1 {
 	align-items: center;
 }
 
-.show-info h3 {
-	font-size: 16px;
-	color: #ff00e6;
-	margin-bottom: 8px;
-	font-family: 'Work Sans', sans-serif;
+.show-info {
+	font-size: 1rem;
+	font-weight: bold;
+	margin-bottom: 15px;
+	text-align: left;
+	color: #df40ff;
 }
 
 .show-info p {
@@ -2120,12 +2142,18 @@ h1 {
 	gap: 8px;
 	justify-content: center;
 	font-size: 12px;
-	white-space: nowrap; /* Prevent text from wrapping */
-    display: inline-block; /* Ensure proper button alignment */
-    padding: 10px 20px; /* Add padding to give a consistent size */
-    text-align: center; /* Center the text within the button */
-    overflow: hidden; /* Prevent content overflow */
-    text-overflow: ellipsis; /* Adds "..." if content is too long */
+	white-space: nowrap;
+	/* Prevent text from wrapping */
+	display: inline-block;
+	/* Ensure proper button alignment */
+	padding: 10px 20px;
+	/* Add padding to give a consistent size */
+	text-align: center;
+	/* Center the text within the button */
+	overflow: hidden;
+	/* Prevent content overflow */
+	text-overflow: ellipsis;
+	/* Adds "..." if content is too long */
 
 }
 
@@ -2447,92 +2475,93 @@ form p a:hover {
 
 
 .current-playing {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 100%;
-    flex-wrap: wrap;
-    padding: 10px;
-    border: 2px solid #000000;
-    border-radius: 10px;
-    background: #000000b9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Poppins', sans-serif;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 100%;
+	flex-wrap: wrap;
+	padding: 10px;
+	border: 2px solid #000000;
+	border-radius: 10px;
+	background: #000000b9;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	font-family: 'Poppins', sans-serif;
 }
 
 .now-playing-header {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-    text-align: left;
-    color: #df40ff;
+	font-size: 1rem;
+	font-weight: bold;
+	margin-bottom: 15px;
+	text-align: left;
+	color: #df40ff;
 }
 
 .now-playing-content {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Space between album art and text */
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	/* Space between album art and text */
 }
 
 .album-art {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 2px solid #ddd;
-    background: #1e1e1e;
+	width: 80px;
+	height: 80px;
+	object-fit: cover;
+	border-radius: 10px;
+	border: 2px solid #ddd;
+	background: #1e1e1e;
 }
 
 .now-playing-info {
-    display: flex;
-    flex-direction: column;
-    flex: 1; /* Ensures it fills available space */
-    gap: 10px;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	/* Ensures it fills available space */
+	gap: 10px;
 }
 
 .info-row {
-    display: flex;
-    align-items: center;
-    padding: 8px 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background: #2b2b2b;
-    transition: background-color 0.3s ease;
+	display: flex;
+	align-items: center;
+	padding: 8px 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	background: #2b2b2b;
+	transition: background-color 0.3s ease;
 }
 
 .info-row:hover {
-    background-color: #f1f8ff70;
+	background-color: #f1f8ff70;
 }
 
 .info-label {
-    font-weight: bold;
-    font-size: 0.8rem;
-    color: #bbb;
-    flex: 1;
-    text-align: left;
+	font-weight: bold;
+	font-size: 0.8rem;
+	color: #bbb;
+	flex: 1;
+	text-align: left;
 }
 
 .info-value {
-    color: #fff;
-    font-size: 0.8rem;
-    flex: 2;
-    text-align: left;
+	color: #fff;
+	font-size: 0.8rem;
+	flex: 2;
+	text-align: left;
 }
 
 @media (max-width: 480px) {
-    .now-playing-content {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+	.now-playing-content {
+		flex-direction: column;
+		align-items: flex-start;
+	}
 
-    .album-art {
-        width: 60px;
-        height: 60px;
-    }
+	.album-art {
+		width: 60px;
+		height: 60px;
+	}
 
-    .info-label,
-    .info-value {
-        font-size: 0.7rem;
-    }
+	.info-label,
+	.info-value {
+		font-size: 0.7rem;
+	}
 }
-
